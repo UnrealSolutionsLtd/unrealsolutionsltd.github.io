@@ -34,10 +34,10 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
-          # Upload only the static site files
-          path: './dist'  # or your build output directory
+          name: built-site
+          path: './dist'  # or your build directory
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
