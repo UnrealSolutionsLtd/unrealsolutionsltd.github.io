@@ -14,9 +14,6 @@
       <!-- Styles -->
       <link rel="stylesheet" href="styles.css">
       
-      <!-- Stripe Integration -->
-      <script src="https://js.stripe.com/v3/"></script>
-      
       <!-- Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
       <script>
@@ -28,28 +25,27 @@
    </head>
    <body>
       <div class="container">
-         <h1 class="title">Unreal Solutions</h1>
+         <h1 class="title">Runtime Solutions for Unreal Engine</h1>
          
          <div class="services">
-            <div class="service-item">Tech</div>
+            <div class="service-item">SDKs</div>
             <div class="service-item">Tools</div>
             <div class="service-item">Streaming</div>
-            <div class="service-item">SDK</div>
             <div class="service-item">Pipelines</div>
          </div>
 
-         <button class="cta-button" onclick="openPaymentModal()">Message us</button>
+         <button class="cta-button" onclick="openContactModal()">Message us</button>
          
          <div class="footer">
             © 2019-2025 Unreal Solutions Ltd. All rights reserved.
          </div>
       </div>
 
-      <!-- Payment Modal -->
-      <div id="paymentModal" class="modal">
+      <!-- Contact Modal -->
+      <div id="contactModal" class="modal">
          <div class="modal-content">
-            <h2>Select Service</h2>
-            <form id="payment-form">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
                <select id="service-select">
                   <option value="tech">Tech Consultation</option>
                   <option value="tools">Tools Development</option>
@@ -57,62 +53,43 @@
                   <option value="sdk">SDK Development</option>
                   <option value="pipelines">Pipeline Setup</option>
                </select>
-               <div id="card-element"></div>
-               <button type="submit">Pay</button>
+               <textarea id="message" placeholder="Your message"></textarea>
+               <button type="submit">Send Message</button>
             </form>
          </div>
       </div>
 
       <script>
-         // Stripe initialization
-         const stripe = Stripe('your_publishable_key');
-         const elements = stripe.elements();
-         const card = elements.create('card');
-         
-         // Mount card element
-         card.mount('#card-element');
-
-         // Handle payment form submission
-         const form = document.getElementById('payment-form');
+         // Handle contact form submission
+         const form = document.getElementById('contact-form');
          form.addEventListener('submit', async (event) => {
             event.preventDefault();
             
-            const {token, error} = await stripe.createToken(card);
+            const service = document.getElementById('service-select').value;
+            const message = document.getElementById('message').value;
             
-            if (error) {
-               console.error(error);
-            } else {
-               // Send token to your server
-               const response = await fetch('/charge', {
-                  method: 'POST',
-                  headers: {'Content-Type': 'application/json'},
-                  body: JSON.stringify({
-                     token: token.id,
-                     service: document.getElementById('service-select').value
-                  })
-               });
-               
-               const result = await response.json();
-               if (result.success) {
-                  alert('Payment successful!');
-                  closePaymentModal();
-               }
-            }
+            // Format email body
+            const emailBody = `Service Request: ${service}\n\nMessage:\n${message}`;
+            
+            // Open default email client
+            window.location.href = `mailto:business@unrealsolutions.com?subject=Service Inquiry - ${service}&body=${encodeURIComponent(emailBody)}`;
+
+            closeContactModal();
          });
 
          // Modal functions
-         function openPaymentModal() {
-            document.getElementById('paymentModal').style.display = 'block';
+         function openContactModal() {
+            document.getElementById('contactModal').style.display = 'block';
          }
 
-         function closePaymentModal() {
-            document.getElementById('paymentModal').style.display = 'none';
+         function closeContactModal() {
+            document.getElementById('contactModal').style.display = 'none';
          }
 
          // Close modal when clicking outside
          window.onclick = function(event) {
-            if (event.target == document.getElementById('paymentModal')) {
-               closePaymentModal();
+            if (event.target == document.getElementById('contactModal')) {
+               closeContactModal();
             }
          }
       </script>
