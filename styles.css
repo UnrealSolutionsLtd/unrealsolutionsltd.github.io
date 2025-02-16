@@ -1,0 +1,83 @@
+:root {
+    --primary-color: #4f6d7a;
+    --background-color: #e8dab2;
+    --font-main: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.title {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.services {
+    margin: 2rem 0;
+    letter-spacing: 0.129em;
+}
+
+.service-item {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    margin: 2rem 0;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.footer {
+    margin-top: auto;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Payment Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 500px;
+    margin: 10% auto;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .service-item {
+        font-size: 1rem;
+    }
+}
