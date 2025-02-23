@@ -76,6 +76,11 @@
                   data-tab="demo">
                   <strong>Demo</strong>
                 </button>
+                <button 
+                  class="tab-button border-transparent text-gray-400 hover:border-gray-500 hover:text-gray-300 whitespace-nowrap border-b-2 py-2 sm:py-4 px-1 sm:px-2 text-sm sm:text-base font-medium" 
+                  data-tab="tutorial">
+                  Video tutorial
+                </button>
               </nav>
             </div>
 
@@ -179,6 +184,24 @@
                   </a>
                 </div>
               </div>
+
+              <!-- Tutorial Tab -->
+              <div id="tutorial-tab" class="tab-content hidden">
+                <div class="mx-auto max-w-xl text-center mb-8">
+                  <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Getting Started</h2>
+                  <p class="mt-4 text-lg leading-8 text-gray-400">Watch our tutorial to learn how to use RVR effectively.</p>
+                </div>
+                <div class="aspect-w-16 aspect-h-9">
+                  <iframe 
+                    class="w-full rounded-xl shadow-lg"
+                    src="https://www.youtube.com/embed/dmlnrD67Wx8" 
+                    title="RVR Tutorial"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
             
             </div>
           </div>
@@ -211,7 +234,7 @@
                 required 
                 rows="4" 
                 class="w-full rounded-xl border-0 px-4 py-3 text-white bg-gray-800 shadow-lg ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                placeholder="Tell us about your enterprise needs"
+                placeholder="Share your project requirements, team size, and timeline - we'll create a custom solution for you"
               ></textarea>
               <button 
                 type="submit" 
