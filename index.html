@@ -42,8 +42,11 @@
 
       <!-- Stripe Pricing Section -->
       <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-      <stripe-pricing-table pricing-table-id="prctbl_1QvifrL8Ex2PyaLAiJ787uvF"
-      publishable-key="pk_live_51QtDztL8Ex2PyaLAmDN5BfqJGjKgsY3FxYwJ76i3z9Tv10jegLvAab0pKbCnPWtfpuLbVImZgkRFpPOKvvu9zlRk00ku23OdeJ">
+      <stripe-pricing-table 
+        pricing-table-id="prctbl_1QvifrL8Ex2PyaLAiJ787uvF"
+        publishable-key="pk_live_51QtDztL8Ex2PyaLAmDN5BfqJGjKgsY3FxYwJ76i3z9Tv10jegLvAab0pKbCnPWtfpuLbVImZgkRFpPOKvvu9zlRk00ku23OdeJ"
+        class="stripe-dark"
+      >
       </stripe-pricing-table>
 
       <!-- Tabbed Section -->
@@ -86,7 +89,7 @@
 
                   <p>Unlike 99% of alternatives, this solution <strong>doesn't rely on ffmpeg</strong> or any external executables. Instead, it delivers superior performance, quality, and reliability. For ongoing support and quick assistance, users can join our active <strong>Discord community</strong>.</p>
 
-                  <p>Video encoding leverages <strong>hardware acceleration</strong>, ensuring your game or application maintains peak performance while recording. This optimized approach prevents bottlenecks typically associated with video capture.</p>
+                  <p>Video encoding leverages <strong>hardware acceleration</strong> via OS provided API (WMF/MediaCodec and MediaCodec), ensuring your game or application maintains peak performance while recording. This optimized approach prevents bottlenecks typically associated with video capture.</p>
 
                   <div class="bg-yellow-900/30 border-l-4 border-yellow-500 p-4 my-6">
                     <p class="text-yellow-200">
