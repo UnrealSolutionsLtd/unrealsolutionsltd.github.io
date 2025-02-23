@@ -30,32 +30,36 @@
   </head>
   <body class="bg-gradient-to-b from-gray-900 to-black min-h-screen">
     <main class="container mx-auto px-4 sm:px-20">
-      <!-- Add fixed logo -->
-      <div class="static sm:fixed top-4 left-4 sm:top-6 sm:left-6 z-50">
-        <img 
-          src="./assets/logo.png" 
-          alt="Unreal Solutions Logo" 
-          class="h-12 sm:h-20 w-auto drop-shadow-[0_0_0.3rem_#ffffff70]"
-        >
-      </div>
-      <!-- Hero Section -->
-      <div class="pt-24 pb-8 sm:py-14">
-        <div class="mx-auto max-w-1xl text-center space-y-8">
-          <h3 class="text-xl font-normal tracking-tight text-white sm:text-4xl">
-            Runtime Video Audio Recorder for Unreal Engine
-          </h3>
-          <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
-            Record high-quality gameplay videos with synchronized audio across Windows, Oculus, Android, and Linux. Perfect for game developers, content creators, automated testing and cloud recording. Blazing fast, no ffmpeg required!
-          </p>
-          <div>
-            <a 
-              href="https://www.fab.com/listings/36bd136b-2942-4403-9428-96a430ca71ee"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-block px-8 py-4 text-base font-semibold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
-            >
-              View on FAB
-            </a>
+      <!-- Logo and Hero wrapper -->
+      <div class="relative">
+        <!-- Logo - always in document flow -->
+        <div class="mb-4 sm:mb-0 sm:fixed sm:top-6 sm:left-6 z-50">
+          <img 
+            src="./assets/logo.png" 
+            alt="Unreal Solutions Logo" 
+            class="h-12 sm:h-20 w-auto drop-shadow-[0_0_0.3rem_#ffffff70]"
+          >
+        </div>
+
+        <!-- Hero Section - consistent spacing -->
+        <div class="sm:pt-24 pb-8 sm:py-14">
+          <div class="mx-auto max-w-1xl text-center space-y-8">
+            <h3 class="text-xl font-normal tracking-tight text-white sm:text-4xl">
+              Runtime Video Audio Recorder for Unreal Engine
+            </h3>
+            <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+              Record high-quality gameplay videos with synchronized audio across Windows, Oculus, Android, and Linux. Perfect for game developers, content creators, automated testing and cloud recording. Blazing fast, no ffmpeg required!
+            </p>
+            <div>
+              <a 
+                href="https://www.fab.com/listings/36bd136b-2942-4403-9428-96a430ca71ee"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block px-8 py-4 text-base font-semibold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+              >
+                View on FAB
+              </a>
+            </div>
           </div>
         </div>
       </div>
