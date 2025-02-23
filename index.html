@@ -16,7 +16,7 @@
       <div class="py-20 sm:py-32">
         <div class="mx-auto max-w-2xl text-center space-y-8">
           <h3 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Cutting edge solutions for Content Creators
+            Runtime Video Recorder - Performant video recording for Unreal Engine on all platforms
           </h3>
           <div>
             <a 
@@ -37,8 +37,37 @@
       publishable-key="pk_live_51QtDztL8Ex2PyaLAmDN5BfqJGjKgsY3FxYwJ76i3z9Tv10jegLvAab0pKbCnPWtfpuLbVImZgkRFpPOKvvu9zlRk00ku23OdeJ">
       </stripe-pricing-table>
 
-      <!-- Used by LIST STUDIOS -->
+      <!-- Product Description -->
+      <div class="py-16 sm:py-24">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mx-auto max-w-2xl">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8">Runtime Video Recorder</h2>
+            
+            <div class="prose prose-lg prose-pink">
+              <p>Runtime Video Recorder is a cutting-edge video and audio recording solution compatible with multiple platforms. It enables high-quality .MP4 video capture with synchronized sound. This plugin stands out as a unique offering on the Unreal Marketplace, with unmatched cross-platform support for Windows, Oculus, Android, and Linux. It even surpasses Epic's own capabilities in this area!</p>
+              
+              <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 my-6">
+                <p class="text-yellow-700">
+                  <strong>Attention:</strong> Offscreen rendering is not included in this plugin but we have a custom version for i.e. Cloud servers. Reach out to me on Discord to find out more or send email to business@unrealsolutions.com
+                </p>
+                <p class="text-yellow-700 mt-2">
+                  Please note, all future versions (5.6+) will require an active subscription (annual or perpetual)! You can send your inquiries to business@unrealsolutions.com
+                </p>
+              </div>
 
+              <p>Unlike 99% of alternatives, this plugin doesn't rely on ffmpeg or any external executables. Instead, it delivers superior performance, quality, and reliability. For ongoing support and quick assistance, users can join our active Discord community.</p>
+
+              <p>Video encoding leverages hardware acceleration, ensuring your game or application maintains peak performance while recording. This optimized approach prevents bottlenecks typically associated with video capture.</p>
+
+              <h3 class="text-2xl font-bold mt-8 mb-4">Enhanced Functionality: Render Target Recording</h3>
+              <p>This plugin expands its capabilities by offering Render Target recording, adding versatility to your video capture options.</p>
+
+              <h3 class="text-2xl font-bold mt-8 mb-4">Handy features: Camera Recording</h3>
+              <p>This plugin provides you with Camera recording making it super easy to create your own in-game gameplay recorders!</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Use cases -->
       
@@ -75,28 +104,40 @@
         </div>
       </div>
 
-      <!-- Email Form -->
+      <!-- Enquiry Form -->
       <div class="py-16 sm:py-24">
         <div class="mx-auto max-w-7xl">
           <div class="relative isolate overflow-hidden bg-pink-600 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32">
-            <h2 class="mx-auto mb-8 max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">Subscribe to updates!</h2>
-            <form action="https://rewrite.blog/notion/subscribe" method="POST" class="mx-auto flex max-w-md gap-x-4">
+            <h2 class="mx-auto mb-8 max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">Enterprise Enquiries</h2>
+            <form action="mailto:business@unrealsolutions.com" method="POST" enctype="text/plain" class="mx-auto max-w-md space-y-4">
+              <input 
+                name="name" 
+                type="text" 
+                required 
+                class="w-full rounded-xl border-0 px-4 py-3 text-gray-900 shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-300 sm:text-sm sm:leading-6" 
+                placeholder="Your name"
+              />
               <input 
                 name="email" 
                 type="email" 
                 required 
                 autocomplete="email" 
-                class="min-w-0 flex-auto rounded-xl border-0 px-4 py-3 text-gray-900 shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-300 sm:text-sm sm:leading-6" 
-                placeholder="Enter your email"
+                class="w-full rounded-xl border-0 px-4 py-3 text-gray-900 shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-300 sm:text-sm sm:leading-6" 
+                placeholder="Your email"
               />
-              <input hidden name="id" type="text" value="clseunr030000ev9i9iosrgh8" required />
-              <input hidden name="rewrite" type="text" />
-              <input hidden name="success_url" type="text" value="https://unrealsolutions.com" required />
-              <input 
+              <textarea 
+                name="message" 
+                required 
+                rows="4" 
+                class="w-full rounded-xl border-0 px-4 py-3 text-gray-900 shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-300 sm:text-sm sm:leading-6"
+                placeholder="Tell us about your enterprise needs"
+              ></textarea>
+              <button 
                 type="submit" 
-                value="Subscribe" 
-                class="flex-none rounded-xl bg-white px-6 py-3 text-sm font-semibold text-pink-600 shadow-lg hover:shadow-xl hover:bg-pink-50 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              />
+                class="w-full rounded-xl bg-white px-6 py-3 text-sm font-semibold text-pink-600 shadow-lg hover:shadow-xl hover:bg-pink-50 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                Send Enquiry
+              </button>
             </form>
           </div>
         </div>
