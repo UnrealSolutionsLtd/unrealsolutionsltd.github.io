@@ -41,7 +41,8 @@
           <img 
             src="./assets/logo.png" 
             alt="Unreal Solutions Logo" 
-            class="h-12 sm:h-20 w-auto drop-shadow-[0_0_0.3rem_#ffffff70]"
+            class="h-12 sm:h-20 w-auto drop-shadow-[0_0_0.3rem_#ffffff70] cursor-pointer"
+            id="logo"
           >
         </div>
 
@@ -334,6 +335,12 @@
             const contentId = `${tab.dataset.tab}-tab`;
             document.getElementById(contentId).classList.remove('hidden');
           });
+        });
+
+        // Add logo click handler
+        document.getElementById('logo').addEventListener('click', () => {
+          const enquiryForm = document.querySelector('.bg-indigo-900');
+          enquiryForm.scrollIntoView({ behavior: 'smooth' });
         });
       });
     </script>
