@@ -37,84 +37,110 @@
       publishable-key="pk_live_51QtDztL8Ex2PyaLAmDN5BfqJGjKgsY3FxYwJ76i3z9Tv10jegLvAab0pKbCnPWtfpuLbVImZgkRFpPOKvvu9zlRk00ku23OdeJ">
       </stripe-pricing-table>
 
-      <!-- Product Description -->
+      <!-- Tabbed Section -->
       <div class="py-16 sm:py-24">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="mx-auto max-w-2xl">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8">Runtime Video Recorder</h2>
-            
-            <div class="prose prose-lg prose-pink">
-              <p>Runtime Video Recorder is a cutting-edge video and audio recording solution compatible with multiple platforms. It enables high-quality .MP4 video capture with synchronized sound. This plugin stands out as a unique offering on the Unreal Marketplace, with unmatched cross-platform support for Windows, Oculus, Android, and Linux. It even surpasses Epic's own capabilities in this area!</p>
-
-              <p>Unlike 99% of alternatives, this plugin doesn't rely on ffmpeg or any external executables. Instead, it delivers superior performance, quality, and reliability. For ongoing support and quick assistance, users can join our active Discord community.</p>
-
-              <p>Video encoding leverages hardware acceleration, ensuring your game or application maintains peak performance while recording. This optimized approach prevents bottlenecks typically associated with video capture.</p>
-
-              <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 my-6">
-                <p class="text-yellow-700">
-                  <strong>Attention:</strong> If you bought the solution via Unreal Marketplace or FAB, the upgrade to 5.6 is not included in your purchase. Please send an email to <a href="mailto:business@unrealsolutions.com">business@unrealsolutions.com</a> to get a discount code.
-                </p>
-              </div>
-
-              <h3 class="text-2xl font-bold mt-8 mb-4">Key Features</h3>
-              <ul class="list-disc pl-6 space-y-4">
-                <li><strong>Render Target Recording:</strong> Perfect for VR games and specialized capture scenarios</li>
-                
-                <li><strong>Camera Recording:</strong> Full support for both standard and Cinematic camera recording</li>
-                
-                <li><strong>Audio Recording:</strong> High-quality audio capture available on all platforms (except Linux)</li>
-
-                <li><strong>Audio Recording:</strong> Offscreen recording including audio</li>
-                
-                <li><strong>Flexible Frame Rate:</strong> Record at 60 FPS even when your VR game runs at 30 FPS - frame rate independent recording!</li>
-                
-                <li><strong>Cross-Platform Support:</strong> Runs seamlessly on Windows, Oculus, Android, and Linux</li>
-                
-                <li><strong>Smart Viewport Recording:</strong> Automatic detection of frame width and height during viewport recording</li>
-                
-                <li><strong>Technical Excellence:</strong> Hardware-accelerated video encoding via WMF/MediaCodec, with optional OpenH264 software encoding</li>
-              </ul>
-
-              <div class="bg-gray-50 border-l-4 border-gray-400 p-4 my-6">
-                <p class="text-gray-700">
-                  <strong>Missing a feature?</strong> We're always looking to improve! Contact us at <a href="mailto:business@unrealsolutions.com">business@unrealsolutions.com</a> to discuss your specific needs.
-                </p>
-              </div>
+            <!-- Tab Navigation -->
+            <div class="border-b border-gray-200">
+              <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                <button 
+                  class="tab-button border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium" 
+                  data-tab="description"
+                  aria-current="page">
+                  Product Description
+                </button>
+                <button 
+                  class="tab-button border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium" 
+                  data-tab="features">
+                  Key Features
+                </button>
+                <button 
+                  class="tab-button border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium" 
+                  data-tab="testimonials">
+                  Testimonials
+                </button>
+              </nav>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Use cases -->
-      
+            <!-- Tab Content -->
+            <div class="mt-8">
+              <!-- Description Tab -->
+              <div id="description-tab" class="tab-content">
+                <div class="prose prose-lg prose-pink">
+                  <p>Runtime Video Recorder is a cutting-edge video and audio recording solution compatible with multiple platforms. It enables high-quality .MP4 video capture with synchronized sound. This plugin stands out as a unique offering on the Unreal Marketplace, with unmatched cross-platform support for Windows, Oculus, Android, and Linux. It even surpasses Epic's own capabilities in this area!</p>
 
-      <!-- Testimonials (marketplace feedback!) -->
-      <div class="py-16 sm:py-24">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="mx-auto max-w-xl text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Loved by Game Creators and Business alike</h2>
-            <p class="mt-4 text-lg leading-8 text-gray-600">What our customers are saying about RVR.</p>
-          </div>
-          <div class="mx-auto mt-16 flow-root max-w-2xl sm:mt-20">
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              <!-- Testimonial 1 -->
-              <figure class="rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-900/5">
-                <blockquote class="text-gray-900">
-                  <p>"This tool has completely transformed how record videos in Unreal Engine. We use it in our automated tests!"</p>
-                </blockquote>
-              </figure>
-              <!-- Testimonial 2 -->
-              <figure class="rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-900/5">
-                <blockquote class="text-gray-900">
-                  <p>"Worth every penny. The support team is incredibly responsive and you can always get a solution to your problem in Discord."</p>
-                </blockquote>
-              </figure>
-              <!-- Testimonial 3 -->
-              <figure class="rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-900/5">
-                <blockquote class="text-gray-900">
-                  <p>"A must-have if you need to record videos in Unreal Engine. Performace is stellar and the support is great."</p>
-                </blockquote>
-              </figure>
+                  <p>Unlike 99% of alternatives, this plugin doesn't rely on ffmpeg or any external executables. Instead, it delivers superior performance, quality, and reliability. For ongoing support and quick assistance, users can join our active Discord community.</p>
+
+                  <p>Video encoding leverages hardware acceleration, ensuring your game or application maintains peak performance while recording. This optimized approach prevents bottlenecks typically associated with video capture.</p>
+
+                  <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 my-6">
+                    <p class="text-yellow-700">
+                      <strong>Attention:</strong> If you bought the solution via Unreal Marketplace or FAB, the upgrade to 5.6 is not included in your purchase. Please send an email to <a href="mailto:business@unrealsolutions.com">business@unrealsolutions.com</a> to get a discount code.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Features Tab -->
+              <div id="features-tab" class="tab-content hidden">
+                <div class="prose prose-lg prose-pink">
+                  <h3 class="text-2xl font-bold mt-8 mb-4">Key Features</h3>
+                  <ul class="list-disc pl-6 space-y-4">
+                    <li><strong>Render Target Recording:</strong> Perfect for VR games and specialized capture scenarios</li>
+                    
+                    <li><strong>Camera Recording:</strong> Full support for both standard and Cinematic camera recording</li>
+                    
+                    <li><strong>Audio Recording:</strong> High-quality audio capture available on all platforms (except Linux)</li>
+
+                    <li><strong>Audio Recording:</strong> Offscreen recording including audio</li>
+                    
+                    <li><strong>Flexible Frame Rate:</strong> Record at 60 FPS even when your VR game runs at 30 FPS - frame rate independent recording!</li>
+                    
+                    <li><strong>Cross-Platform Support:</strong> Runs seamlessly on Windows, Oculus, Android, and Linux</li>
+                    
+                    <li><strong>Smart Viewport Recording:</strong> Automatic detection of frame width and height during viewport recording</li>
+                    
+                    <li><strong>Technical Excellence:</strong> Hardware-accelerated video encoding via WMF/MediaCodec, with optional OpenH264 software encoding</li>
+                  </ul>
+
+                  <div class="bg-gray-50 border-l-4 border-gray-400 p-4 my-6">
+                    <p class="text-gray-700">
+                      <strong>Missing a feature?</strong> We're always looking to improve! Contact us at <a href="mailto:business@unrealsolutions.com">business@unrealsolutions.com</a> to discuss your specific needs.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonials Tab -->
+              <div id="testimonials-tab" class="tab-content hidden">
+                <div class="mx-auto max-w-xl text-center">
+                  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Loved by Game Creators and Business alike</h2>
+                  <p class="mt-4 text-lg leading-8 text-gray-600">What our customers are saying about RVR.</p>
+                </div>
+                <div class="mx-auto mt-16 flow-root max-w-2xl sm:mt-20">
+                  <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- Testimonial 1 -->
+                    <figure class="rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-900/5">
+                      <blockquote class="text-gray-900">
+                        <p>"This tool has completely transformed how record videos in Unreal Engine. We use it in our automated tests!"</p>
+                      </blockquote>
+                    </figure>
+                    <!-- Testimonial 2 -->
+                    <figure class="rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-900/5">
+                      <blockquote class="text-gray-900">
+                        <p>"Worth every penny. The support team is incredibly responsive and you can always get a solution to your problem in Discord."</p>
+                      </blockquote>
+                    </figure>
+                    <!-- Testimonial 3 -->
+                    <figure class="rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-900/5">
+                      <blockquote class="text-gray-900">
+                        <p>"A must-have if you need to record videos in Unreal Engine. Performace is stellar and the support is great."</p>
+                      </blockquote>
+                    </figure>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -182,5 +208,35 @@
       </div>
 
     </main>
+
+    <!-- Add this script before closing body tag -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const tabs = document.querySelectorAll('.tab-button');
+        
+        tabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            // Remove active states from all tabs
+            tabs.forEach(t => {
+              t.classList.remove('border-pink-500', 'text-pink-600');
+              t.classList.add('border-transparent', 'text-gray-500');
+            });
+            
+            // Add active state to clicked tab
+            tab.classList.remove('border-transparent', 'text-gray-500');
+            tab.classList.add('border-pink-500', 'text-pink-600');
+            
+            // Hide all content
+            document.querySelectorAll('.tab-content').forEach(content => {
+              content.classList.add('hidden');
+            });
+            
+            // Show selected content
+            const contentId = `${tab.dataset.tab}-tab`;
+            document.getElementById(contentId).classList.remove('hidden');
+          });
+        });
+      });
+    </script>
   </body>
 </html>
