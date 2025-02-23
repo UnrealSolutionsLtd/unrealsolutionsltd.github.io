@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Unreal Solutions - Provider of cutting edge Runtime Solutions for Unreal Engine</title>
+      <meta name="description" content="Unreal Solutions Runtime Solutions, SDKs, Tools, Streaming, Pipelines">
+      
+      <!-- Favicon -->
+      <link rel="icon" href="assets/favicon-16.png" type="image/png" sizes="16x16">
+      <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+      <link rel="apple-touch-icon" href="assets/apple-touch-180.png" sizes="180x180">
+      
+      <!-- Styles -->
+      <link rel="stylesheet" href="styles.css">
+      
+      <!-- Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         gtag('config', 'G-39LZYGQJL9');
+      </script>
+   </head>
+   <body>
+      <div class="container">
+         <h1 class="title">Runtime Solutions for Unreal Engine</h1>
+         
+         <div class="services">
+            <div class="service-item">SDKs</div>
+            <div class="service-item">Tools</div>
+            <div class="service-item">Streaming</div>
+            <div class="service-item">Pipelines</div>
+         </div>
+
+         <button class="cta-button" onclick="openContactModal()">Message us</button>
+         
+         <div class="footer">
+            © 2019-2025 Unreal Solutions Ltd. All rights reserved.
+         </div>
+      </div>
+
+      <!-- Contact Modal -->
+      <div id="contactModal" class="modal">
+         <div class="modal-content">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+               <select id="service-select">
+                  <option value="tech">Tech Consultation</option>
+                  <option value="tools">Tools Development</option>
+                  <option value="streaming">Streaming Solutions</option>
+                  <option value="sdk">SDK Development</option>
+                  <option value="pipelines">Pipeline Setup</option>
+               </select>
+               <textarea id="message" placeholder="Your message"></textarea>
+               <button type="submit">Send Message</button>
+            </form>
+         </div>
+      </div>
+
+      <script>
+         // Handle contact form submission
+         const form = document.getElementById('contact-form');
+         form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const service = document.getElementById('service-select').value;
+            const message = document.getElementById('message').value;
+            
+            // Format email body
+            const emailBody = `Service Request: ${service}\n\nMessage:\n${message}`;
+            
+            // Open default email client
+            window.location.href = `mailto:business@unrealsolutions.com?subject=Service Inquiry - ${service}&body=${encodeURIComponent(emailBody)}`;
+
+            closeContactModal();
+         });
+
+         // Modal functions
+         function openContactModal() {
+            document.getElementById('contactModal').style.display = 'block';
+         }
+
+         function closeContactModal() {
+            document.getElementById('contactModal').style.display = 'none';
+         }
+
+         // Close modal when clicking outside
+         window.onclick = function(event) {
+            if (event.target == document.getElementById('contactModal')) {
+               closeContactModal();
+            }
+         }
+      </script>
+   </body>
+</html>
