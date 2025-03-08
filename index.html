@@ -86,14 +86,49 @@
               </iframe>
             </div>
             
+            <!-- Enquiry Form -->
+              <div class="py-8 sm:py-12">
+                <div class="mx-auto max-w-4xl">
+                  <div class="relative isolate overflow-hidden bg-indigo-900 px-6 py-12 shadow-2xl sm:rounded-3xl sm:px-16 xl:py-16">
+                    <h2 class="mx-auto mb-6 max-w-2xl text-center text-2xl font-bold tracking-tight text-white sm:text-3xl">Enterprise Inquiries</h2>
+                    <form action="mailto:business@unrealsolutions.com" method="POST" enctype="text/plain" class="mx-auto max-w-md space-y-4">
+                      <input 
+                        name="name" 
+                        type="text" 
+                        required 
+                        class="w-full rounded-xl border-0 px-4 py-3 text-white bg-gray-800 shadow-lg ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" 
+                        placeholder="Your name"
+                      />
+                      <input 
+                        name="email" 
+                        type="email" 
+                        required 
+                        autocomplete="email" 
+                        class="w-full rounded-xl border-0 px-4 py-3 text-white bg-gray-800 shadow-lg ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" 
+                        placeholder="Your email"
+                      />
+                      <textarea 
+                        name="message" 
+                        required 
+                        rows="4" 
+                        class="w-full rounded-xl border-0 px-4 py-3 text-white bg-gray-800 shadow-lg ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                        placeholder="Share your project requirements, team size, and timeline - we'll create a custom solution for you"
+                      ></textarea>
+                      <button 
+                        type="submit" 
+                        class="w-full rounded-xl bg-white px-6 py-3 text-sm font-semibold text-pink-600 shadow-lg hover:shadow-xl hover:bg-pink-50 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                      >
+                        Send Enquiry
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       </div>
 
-      <!-- Stripe Pricing Section -->
-      <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-      <stripe-pricing-table pricing-table-id="prctbl_1R0V5rL8Ex2PyaLAZXbXIWy9" publishable-key="pk_live_51QtDztL8Ex2PyaLAmDN5BfqJGjKgsY3FxYwJ76i3z9Tv10jegLvAab0pKbCnPWtfpuLbVImZgkRFpPOKvvu9zlRk00ku23OdeJ">
-      </stripe-pricing-table>
 
       <!-- Tabbed Section -->
       <div class="py-8 sm:py-6">
@@ -259,45 +294,6 @@
               </div>
             
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Enquiry Form -->
-      <div class="py-8 sm:py-12">
-        <div class="mx-auto max-w-4xl">
-          <div class="relative isolate overflow-hidden bg-indigo-900 px-6 py-12 shadow-2xl sm:rounded-3xl sm:px-16 xl:py-16">
-            <h2 class="mx-auto mb-6 max-w-2xl text-center text-2xl font-bold tracking-tight text-white sm:text-3xl">Enterprise Inquiries</h2>
-            <form action="mailto:business@unrealsolutions.com" method="POST" enctype="text/plain" class="mx-auto max-w-md space-y-4">
-              <input 
-                name="name" 
-                type="text" 
-                required 
-                class="w-full rounded-xl border-0 px-4 py-3 text-white bg-gray-800 shadow-lg ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" 
-                placeholder="Your name"
-              />
-              <input 
-                name="email" 
-                type="email" 
-                required 
-                autocomplete="email" 
-                class="w-full rounded-xl border-0 px-4 py-3 text-white bg-gray-800 shadow-lg ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" 
-                placeholder="Your email"
-              />
-              <textarea 
-                name="message" 
-                required 
-                rows="4" 
-                class="w-full rounded-xl border-0 px-4 py-3 text-white bg-gray-800 shadow-lg ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                placeholder="Share your project requirements, team size, and timeline - we'll create a custom solution for you"
-              ></textarea>
-              <button 
-                type="submit" 
-                class="w-full rounded-xl bg-white px-6 py-3 text-sm font-semibold text-pink-600 shadow-lg hover:shadow-xl hover:bg-pink-50 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                Send Enquiry
-              </button>
-            </form>
           </div>
         </div>
       </div>
