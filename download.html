@@ -12,18 +12,6 @@
         gtag('js', new Date());
         gtag('config', 'G-39LZYGQJL9');
 
-        // Get referrer information
-        const referrer = document.referrer || 'direct';
-        const urlParams = new URLSearchParams(window.location.search);
-        const source = urlParams.get('source') || 'website';
-
-        // Track the download event with referrer information
-        gtag('event', 'demo_download', {
-            'event_category': 'downloads',
-            'event_label': source,
-            'referrer': referrer
-        });
-
         // Redirect after a short delay to ensure tracking
         setTimeout(function() {
             window.location.href = 'https://drive.google.com/drive/folders/1vv2RanJ07J2719C7mW-6G6-fQ_oTK391?usp=drive_link';
@@ -31,6 +19,24 @@
     </script>
 </head>
 <body class="bg-gradient-to-b from-gray-900 to-black min-h-screen text-white text-center p-8">
+    <script>
+      /**
+      *   The following event is sent when the page loads. You could
+      *   wrap the event in a JavaScript function so the event is
+      *   sent when the user performs some action.
+      */
+      
+       // Get referrer information
+      const referrer = document.referrer || 'direct';
+      const urlParams = new URLSearchParams(window.location.search);
+      const source = urlParams.get('source') || 'website';
+      
+      gtag('event', 'demo_download', {
+        'event_category': 'downloads',
+        'event_label': source,
+        'referrer': referrer
+      });
+    </script> 
     <h1 class="text-2xl mb-4">Downloading RVR Demo...</h1>
     <p>If you are not redirected automatically, <a href="https://drive.google.com/drive/folders/1vv2RanJ07J2719C7mW-6G6-fQ_oTK391?usp=drive_link" class="text-blue-400 hover:text-blue-300 underline">click here</a>.</p>
 </body>
