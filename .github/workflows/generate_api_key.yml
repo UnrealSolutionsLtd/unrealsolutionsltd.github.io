@@ -24,7 +24,7 @@ jobs:
         id: generate_key
         run: |
           API_KEY=$(openssl rand -hex 16)
-          EXPIRY_DATE=$(date -d "+7 days" +"%d-%m-%Y")
+          EXPIRY_DATE=$(date -d "+7 days" +"%m-%d-%Y")
           echo "API_KEY=$API_KEY" >> $GITHUB_ENV
           echo "EXPIRY_DATE=$EXPIRY_DATE" >> $GITHUB_ENV
 
