@@ -51,8 +51,7 @@ jobs:
             echo "API_KEY=$API_KEY" >> $GITHUB_ENV
 
             # Append API key to the file
-            echo "" >> assets/rvr/rvr_trial.bin
-            echo "$API_KEY" >> assets/rvr/rvr_trial.bin
+            echo -e "\n$API_KEY" >> assets/rvr/rvr_trial.bin
             
             git config user.email "github-actions@github.com"
             git config user.name "GitHub Actions"
