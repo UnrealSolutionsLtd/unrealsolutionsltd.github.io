@@ -7,7 +7,12 @@ on:
         description: "User Email"
         required: true
         type: string
-        
+      duration:
+        description: "Duration in days for API Key validity"
+        required: false
+        type: integer
+        default: 7  # Default duration is 7 days if not specified
+
 permissions:
   contents: write
   actions: write
@@ -23,15 +28,16 @@ jobs:
       - name: Generate API Key
         id: generate_key
         run: |
-            # Get email input from the workflow
+            # Get email and duration inputs from the workflow
             USER_EMAIL="${{ inputs.email }}"
+            DURATION="${{ inputs.duration }}"
 
             # Generate a random API key using the email as a seed
             # Use SHA256 hash of email combined with random data for uniqueness
             API_KEY_HASH=$(echo -n "$USER_EMAIL$(date +%s)" | sha256sum | head -c 16)  # 16 characters from sha256 hash
 
-            # Get the expiry date (7 days from now) in day-month-year format
-            EXPIRY_DATE=$(date -d "+7 days" +"%d-%m-%Y")
+            # Get the expiry date (duration days from now) in day-month-year format
+            EXPIRY_DATE=$(date -d "+$DURATION days" +"%d-%m-%Y")
 
             # Combine API key and expiry date in the format "API_KEY_26_03_2025"
             API_KEY="${API_KEY_HASH}_${EXPIRY_DATE}"
