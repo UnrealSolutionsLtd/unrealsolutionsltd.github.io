@@ -30,21 +30,25 @@ jobs:
 
           EXPIRY_SUFFIX=$(date -d "$EXPIRY_DATE" +"%m_%d_%Y")  # Format the expiry date as MONTH_DAY_YEAR
           echo -e "$API_KEY_$EXPIRY_SUFFIX" >> assets/rvr/rvr_trial.bin  # Append API key with expiry suffix
-          git config user.email "github-actions@github.com"
-          git config user.name "GitHub Actions"
+          # git config user.email "github-actions@github.com"
+          # git config user.name "GitHub Actions"
           
-          git add assets/rvr/rvr_trial.bin
-          git commit -m "Add new API key to rvr_trial.bin"
-          git push origin ${{ github.ref }}
-
-      - name: Send API Key via Email
+          # git add assets/rvr/rvr_trial.bin
+          # git commit -m "Add new API key to rvr_trial.bin"
+          # git push origin ${{ github.ref }}
+          
+      - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USER }}
-          password: ${{ secrets.EMAIL_PASS }}
-          subject: "Your API Key"
+          server_address: smtp.privateemail.com
+          server_port: 465
+          username: ${{SECRETS.EMAIL}}
+          password: ${{SECRETS.PASSWORD}}
+          subject: "Runtime Video Recorder | API Key"
           to: "${{ inputs.email }}"
-          from: "Runtime Video Recorder | API Key"
-          body: "Hi! Here is your API key: ${{ env.API_KEY }}\nExpires on: ${{ env.EXPIRY_DATE }} Best wishes, Petr | Unreal Solutions"
+          cc: business@unrealsolutions.com
+          from: business@unrealsolutions.com
+          body: "Hi! Here is your API key: ${{ env.API_KEY }}\nExpires on: ${{ env.EXPIRY_DATE }}.\nAfter that please purchase Annual or Perpetual License.\nBest wishes, Petr | Unreal Solutions"
+          secure: true
+          ignore_cert: true
+          convert_markdown: true
