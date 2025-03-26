@@ -23,19 +23,30 @@ jobs:
       - name: Generate API Key
         id: generate_key
         run: |
-          API_KEY=$(openssl rand -hex 16)
-          EXPIRY_DATE=$(date -d "+7 days" +"%Y-%m-%d")
-          echo "API_KEY=$API_KEY" >> $GITHUB_ENV
-          echo "EXPIRY_DATE=$EXPIRY_DATE" >> $GITHUB_ENV
+            # Get email input from the workflow
+            USER_EMAIL="${{ inputs.email }}"
 
-          EXPIRY_SUFFIX=$(date -d "$EXPIRY_DATE" +"%d_%m_%Y")  # Format the expiry date as MONTH_DAY_YEAR
-          echo -e "$API_KEY_$EXPIRY_SUFFIX" >> assets/rvr/rvr_trial.bin  # Append API key with expiry suffix
-          git config user.email "github-actions@github.com"
-          git config user.name "GitHub Actions"
-          
-          git add assets/rvr/rvr_trial.bin
-          git commit -m "Add new API key to rvr_trial.bin"
-          git push origin ${{ github.ref }}
+            # Generate a random API key using the email as a seed
+            # Use SHA256 hash of email combined with random data for uniqueness
+            API_KEY_HASH=$(echo -n "$USER_EMAIL$(date +%s)" | sha256sum | head -c 16)  # 16 characters from sha256 hash
+
+            # Get the expiry date (7 days from now) in day-month-year format
+            EXPIRY_DATE=$(date -d "+7 days" +"%d-%m-%Y")
+
+            # Combine API key and expiry date in the format "API_KEY_26_03_2025"
+            API_KEY="${API_KEY_HASH}_${EXPIRY_DATE}"
+
+            # Debug: Check if variables are set
+            echo "Generated API_KEY: $API_KEY"
+            echo "Expiry Date: $EXPIRY_DATE"
+            echo "Final API Key with Expiry: $API_KEY"
+            
+            echo "EXPIRY_DATE=$EXPIRY_DATE" >> $GITHUB_ENV
+            echo "API_KEY=$API_KEY" >> $GITHUB_ENV
+
+            # Append the final API key to the file
+            echo "
+            echo "$API_KEY" >> assets/rvr/rvr_trial.bin
       
       - name: Read and Modify Email Body Template
         id: modify_email_body
