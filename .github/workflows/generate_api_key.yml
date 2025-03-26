@@ -28,8 +28,6 @@ jobs:
           echo "API_KEY=$API_KEY" >> $GITHUB_ENV
           echo "EXPIRY_DATE=$EXPIRY_DATE" >> $GITHUB_ENV
 
-      - name: Add API Key to Repository File
-        run: |
           EXPIRY_SUFFIX=$(date -d "$EXPIRY_DATE" +"%m_%d_%Y")  # Format the expiry date as MONTH_DAY_YEAR
           echo -e "$API_KEY_$EXPIRY_SUFFIX" >> assets/rvr/rvr_trial.bin  # Append API key with expiry suffix
           git config user.email "github-actions@github.com"
