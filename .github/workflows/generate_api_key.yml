@@ -46,9 +46,10 @@ jobs:
           password: ${{SECRETS.PASSWORD}}
           subject: "Runtime Video Recorder | API Key"
           to: "${{ inputs.email }}"
-          cc: business@unrealsolutions.com
+          bcc: business@unrealsolutions.com
           from: business@unrealsolutions.com
-          body: "Hi! Here is your API key: ${{ env.API_KEY }}\nExpires on: ${{ env.EXPIRY_DATE }}.\nAfter that please purchase Annual or Perpetual License.\nBest wishes, Petr | Unreal Solutions"
+          body: |
+            $(cat assets/email_body.html | sed "s/{{API_KEY}}/${{ env.API_KEY }}/g" | sed "s/{{EXPIRY_DATE}}/${{ env.EXPIRY_DATE }}/g")
           secure: true
           ignore_cert: true
           convert_markdown: true
