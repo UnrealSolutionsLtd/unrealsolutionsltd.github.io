@@ -1,8 +1,12 @@
 name: API Key Generator
 
 on:
-  repository_dispatch:
-    types: [generate_api_key]
+  workflow_dispatch:
+    inputs:
+      email:
+        description: "User Email"
+        required: true
+        type: string
 
 jobs:
   generate-api-key:
@@ -35,6 +39,6 @@ jobs:
           username: ${{ secrets.EMAIL_USER }}
           password: ${{ secrets.EMAIL_PASS }}
           subject: "Your API Key"
-          to: "${{ github.event.client_payload.email }}"
+          to: "${{ inputs.email }}"
           from: "Runtime Video Recorder | API Key"
           body: "Here is your API key: ${{ env.API_KEY }}\nExpires on: ${{ env.EXPIRY_DATE }}"
