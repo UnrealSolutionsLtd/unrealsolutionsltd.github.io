@@ -7,6 +7,10 @@ on:
         description: "User Email"
         required: true
         type: string
+        
+permissions:
+  contents: write
+  actions: write
 
 jobs:
   generate-api-key:
@@ -44,4 +48,4 @@ jobs:
           subject: "Your API Key"
           to: "${{ inputs.email }}"
           from: "Runtime Video Recorder | API Key"
-          body: "Hi! Here is your API key: ${{ env.API_KEY }}\nExpires on: ${{ env.EXPIRY_DATE }}"
+          body: "Hi! Here is your API key: ${{ env.API_KEY }}\nExpires on: ${{ env.EXPIRY_DATE }} Best wishes, Petr | Unreal Solutions"
