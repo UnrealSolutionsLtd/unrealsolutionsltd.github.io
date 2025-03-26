@@ -27,6 +27,9 @@ jobs:
       - name: Add API Key to Repository File
         run: |
           echo "$API_KEY" >> assets/rvr/rvr_trial.bin
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          
           git add assets/rvr/rvr_trial.bin
           git commit -m "Add new API key to rvr_trial.bin"
           git push origin ${{ github.ref }}
