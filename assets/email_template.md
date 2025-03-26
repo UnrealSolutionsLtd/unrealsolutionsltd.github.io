@@ -8,6 +8,7 @@ What is your use case? How do you plan to use recorded videos?
 
 Any questions, let me know.
 
-Best wishes,  
+Best wishes,
 Petr | Unreal Solutions
+
 https://unrealsolutions.com
