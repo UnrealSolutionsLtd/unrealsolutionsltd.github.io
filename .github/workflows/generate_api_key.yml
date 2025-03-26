@@ -41,7 +41,7 @@ jobs:
         id: modify_email_body
         run: |
           # Read the HTML template file and replace the placeholders with actual values
-          EMAIL_BODY=$(cat assets/email_body.html | sed "s/{{API_KEY}}/${{ env.API_KEY }}/g" | sed "s/{{EXPIRY_DATE}}/${{ env.EXPIRY_DATE }}/g")
+          EMAIL_BODY=$(cat assets/email_template.html | sed "s/{{API_KEY}}/${{ env.API_KEY }}/g" | sed "s/{{EXPIRY_DATE}}/${{ env.EXPIRY_DATE }}/g")
           
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
