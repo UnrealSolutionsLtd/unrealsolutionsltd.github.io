@@ -42,7 +42,7 @@ jobs:
         run: |
           # Read the HTML template file and replace the placeholders with actual values
           EMAIL_BODY=$(cat assets/email_template.html | sed "s/{{API_KEY}}/${{ env.API_KEY }}/g" | sed "s/{{EXPIRY_DATE}}/${{ env.EXPIRY_DATE }}/g")
-          echo "EMAIL_BODY=$EMAIL_BODY" >> $GITHUB_ENV
+          echo "$BODY" > email_temp.html
           
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
@@ -55,7 +55,8 @@ jobs:
           to: "${{ inputs.email }}"
           bcc: ${{SECRETS.BCC}}
           from: ${{SECRETS.FROM}}
-          body: ${{ env.EMAIL_BODY }}  # Use the modified email body from the previous step
+          # body: ${{ env.EMAIL_BODY }}  # Use the modified email body from the previous step
+          html_body: file://email_temp.html
           secure: true
           ignore_cert: true
           convert_markdown: true
