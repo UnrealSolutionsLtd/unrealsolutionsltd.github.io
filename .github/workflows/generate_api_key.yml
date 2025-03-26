@@ -40,10 +40,10 @@ jobs:
       - name: Read and Modify Email Body Template
         id: modify_email_body
         run: |
-          # Read the HTML template file and replace the placeholders with actual values
-          EMAIL_BODY=$(cat assets/email_template.html | sed "s/{{API_KEY}}/${{ env.API_KEY }}/g" | sed "s/{{EXPIRY_DATE}}/${{ env.EXPIRY_DATE }}/g")
+          # Read the Markdown template file and replace the placeholders with actual values
+          EMAIL_BODY=$(cat assets/email_template.md | sed "s/{{API_KEY}}/${{ env.API_KEY }}/g" | sed "s/{{EXPIRY_DATE}}/${{ env.EXPIRY_DATE }}/g")
           # Save the modified email body to a file
-          echo "$EMAIL_BODY" > email.html
+          echo "$EMAIL_BODY" > email.md
           
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
@@ -56,7 +56,7 @@ jobs:
           to: "${{ inputs.email }}"
           bcc: ${{SECRETS.BCC}}
           from: ${{SECRETS.FROM}}
-          html_body: file://email.html  # Use the modified email body file
+          html_body: file://email.md  # Use the modified email body file
           secure: true
           ignore_cert: true
           convert_markdown: true
