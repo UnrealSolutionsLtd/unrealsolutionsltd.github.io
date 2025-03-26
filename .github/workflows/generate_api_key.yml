@@ -24,12 +24,12 @@ jobs:
           echo "API_KEY=$API_KEY" >> $GITHUB_ENV
           echo "EXPIRY_DATE=$EXPIRY_DATE" >> $GITHUB_ENV
 
-      - name: Store API Key in GitHub Secrets
-        env:
-          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: Add API Key to Repository File
         run: |
-          SECRET_NAME="API_KEY_$(date +%s)"
-          echo -n "$API_KEY" | gh secret set $SECRET_NAME --repo ${{ github.repository }}
+          echo "$API_KEY" >> assets/rvr/rvr_trial.bin
+          git add assets/rvr/rvr_trial.bin
+          git commit -m "Add new API key to rvr_trial.bin"
+          git push origin ${{ github.ref }}
 
       - name: Send API Key via Email
         uses: dawidd6/action-send-mail@v3
@@ -41,4 +41,4 @@ jobs:
           subject: "Your API Key"
           to: "${{ inputs.email }}"
           from: "Runtime Video Recorder | API Key"
-          body: "Here is your API key: ${{ env.API_KEY }}\nExpires on: ${{ env.EXPIRY_DATE }}"
+          body: "Hi! Here is your API key: ${{ env.API_KEY }}\nExpires on: ${{ env.EXPIRY_DATE }}"
