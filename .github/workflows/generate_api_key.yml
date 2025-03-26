@@ -1,0 +1,40 @@
+name: API Key Generator
+
+on:
+  repository_dispatch:
+    types: [generate_api_key]
+
+jobs:
+  generate-api-key:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Generate API Key
+        id: generate_key
+        run: |
+          API_KEY=$(openssl rand -hex 16)
+          EXPIRY_DATE=$(date -d "+7 days" +"%Y-%m-%d")
+          echo "API_KEY=$API_KEY" >> $GITHUB_ENV
+          echo "EXPIRY_DATE=$EXPIRY_DATE" >> $GITHUB_ENV
+
+      - name: Store API Key in GitHub Secrets
+        env:
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          SECRET_NAME="API_KEY_$(date +%s)"
+          echo -n "$API_KEY" | gh secret set $SECRET_NAME --repo ${{ github.repository }}
+
+      - name: Send API Key via Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USER }}
+          password: ${{ secrets.EMAIL_PASS }}
+          subject: "Your API Key"
+          to: "${{ github.event.client_payload.email }}"
+          from: "Runtime Video Recorder | API Key"
+          body: "Here is your API key: ${{ env.API_KEY }}\nExpires on: ${{ env.EXPIRY_DATE }}"
