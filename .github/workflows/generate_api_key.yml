@@ -44,9 +44,16 @@ jobs:
             echo "EXPIRY_DATE=$EXPIRY_DATE" >> $GITHUB_ENV
             echo "API_KEY=$API_KEY" >> $GITHUB_ENV
 
-            # Append the final API key to the file
-            echo "
+            # Append API key to the file
+            echo "" >> assets/rvr/rvr_trial.bin
             echo "$API_KEY" >> assets/rvr/rvr_trial.bin
+            
+            git config user.email "github-actions@github.com"
+            git config user.name "GitHub Actions"
+          
+            git add assets/rvr/rvr_trial.bin
+            git commit -m "Add new API key to rvr_trial.bin"
+            git push origin ${{ github.ref }}
       
       - name: Read and Modify Email Body Template
         id: modify_email_body
