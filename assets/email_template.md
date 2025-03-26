@@ -6,6 +6,6 @@ It will expire on **{{EXPIRY_DATE}}**. After that, you need to purchase an Annua
 What is your use case? How can I help you?
 Any questions, please let me know.
 
-Best wishes,
+Best wishes,  
 Petr  
 Unreal Solutions | https://unrealsolutions.com
