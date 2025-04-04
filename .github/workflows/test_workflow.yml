@@ -33,6 +33,7 @@ jobs:
               owner: ${{SECRETS.OWNER}},
               repo: ${{SECRETS.REPO}},
               workflow_id: 'add_user.yml',
+              ref: '${{ github.head_ref }}',
               inputs: {
                 user_email: '${{ inputs.user_email }}',
                 api_key: '${{ inputs.api_key }}'
