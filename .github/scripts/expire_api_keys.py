@@ -49,10 +49,10 @@ def main():
         
     valid_keys, expired_keys = process_api_keys(input_file)
     
-    # # Write valid keys back to the file
-    # with open(input_file, 'w') as f:
-    #     for key in valid_keys:
-    #         f.write(f"{key}\n")
+    # Write valid keys back to the file
+    with open(input_file, 'w') as f:
+        for key in valid_keys:
+            f.write(f"{key}\n")
     
     # Print summary
     print(f"Processed {len(valid_keys) + len(expired_keys)} keys")

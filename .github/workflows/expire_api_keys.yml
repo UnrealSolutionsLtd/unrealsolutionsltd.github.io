@@ -25,10 +25,10 @@ jobs:
         run: |
           python .github/scripts/expire_api_keys.py assets/rvr/rvr_trial.bin
 
-      # - name: Commit and push changes
-      #   run: |
-      #     git config user.email "github-actions@github.com"
-      #     git config user.name "GitHub Actions"
-      #     git add assets/rvr/rvr_trial.bin
-      #     git diff --quiet && git diff --staged --quiet || (git commit -m "Remove expired API keys" && git push)
+      - name: Commit and push changes
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          git add assets/rvr/rvr_trial.bin
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Remove expired API keys" && git push)
           
