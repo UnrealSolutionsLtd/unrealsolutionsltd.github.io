@@ -1,0 +1,62 @@
+name: Expire API Keys
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  expire-keys:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Remove expired API keys
+        run: |
+          # Get current date in DD-MM-YYYY format
+          CURRENT_DATE=$(date +"%d-%m-%Y")
+          
+          # Create a temporary file for valid keys
+          touch valid_keys.tmp
+          
+          # Read each line from the API key file
+          while IFS= read -r line; do
+            if [[ -n "$line" ]]; then  # Skip empty lines
+              # Extract the date part from the API key
+              KEY_DATE=$(echo "$line" | grep -o '[0-9]\{2\}-[0-9]\{2\}-[0-9]\{4\}$')
+              
+              if [[ -n "$KEY_DATE" ]]; then
+                # Convert dates to seconds since epoch for comparison
+                KEY_SECONDS=$(date -d "$KEY_DATE" +%s)
+                CURRENT_SECONDS=$(date -d "$CURRENT_DATE" +%s)
+                
+                # Only keep keys that haven't expired
+                if [[ $KEY_SECONDS -ge $CURRENT_SECONDS ]]; then
+                  echo "$line" >> valid_keys.tmp
+                fi
+              else
+                # Keep lines without dates (legacy format)
+                echo "$line" >> valid_keys.tmp
+              fi
+            fi
+          done < assets/rvr/rvr_trial.bin
+
+          echo "Valid keys:"
+          cat valid_keys.tmp
+          
+          # Replace the original file with the filtered one
+          # mv valid_keys.tmp assets/rvr/rvr_trial.bin
+          
+          # Configure git
+          # git config user.email "github-actions@github.com"
+          # git config user.name "GitHub Actions"
+          
+          # Commit and push changes if there are any
+          # git add assets/rvr/rvr_trial.bin
+          #git diff --quiet && git diff --staged --quiet || (git commit -m "Remove expired API keys" && git push)
+          
