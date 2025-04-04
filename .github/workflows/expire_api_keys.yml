@@ -31,4 +31,18 @@ jobs:
           git config user.name "GitHub Actions"
           git add assets/rvr/rvr_trial.bin
           git diff --quiet && git diff --staged --quiet || (git commit -m "Remove expired API keys" && git push)
+
+      - name: Trigger rvr_crm workflow
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.RVR_CRM_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: 'rvr_crm',
+              workflow_id: 'expire_users.yml',
+              ref: 'main',
+              inputs: {
+              }
+            });
           
