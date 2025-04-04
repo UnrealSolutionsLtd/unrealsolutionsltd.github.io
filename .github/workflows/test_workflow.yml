@@ -1,0 +1,40 @@
+name: API Key Generator
+
+on:
+  workflow_dispatch:
+    inputs:
+      user_email:
+        description: "User Email"
+        required: true
+        type: string
+      api_key:
+        description: "API Key"
+        required: true
+        type: string
+      duration:
+        description: "Duration in days for API Key validity"
+        required: false
+        type: integer
+        default: 7  # Default duration is 7 days if not specified
+
+permissions:
+  actions: write
+
+jobs:
+  generate-api-key:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger rvr_crm workflow
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: ${{SECRETS.OWNER}},
+              repo: ${{SECRETS.REPO}},
+              workflow_id: 'add_user.yml',
+              inputs: {
+                user_email: '${{ inputs.user_email }}',
+                api_key: '${{ inputs.api_key }}'
+              }
+            });
