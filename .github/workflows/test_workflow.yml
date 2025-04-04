@@ -32,7 +32,7 @@ jobs:
           script: |
             await github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
-              repo: ${{secrets.REPO}},
+              repo: 'rvr_crm',
               workflow_id: 'add_user.yml',
               ref: 'main',
               inputs: {

@@ -60,21 +60,6 @@ jobs:
             git commit -m "Add new API key to rvr_trial.bin"
             git push origin ${{ github.ref }}
       
-      - name: Trigger Another Workflow
-        uses: actions/github-script@v6
-        with:
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: ${{ secrets.REPO }},
-              workflow_id: 'add_user.yml',
-              ref: 'main',
-              inputs: {
-                user_email: '${{ inputs.email }}',
-                api_key: '${{ env.API_KEY }}'
-              }
-            });
-      
       - name: Read and Modify Email Body Template
         id: modify_email_body
         run: |
