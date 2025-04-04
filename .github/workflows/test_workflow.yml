@@ -19,6 +19,7 @@ on:
 
 permissions:
   actions: write
+  contents: write
 
 jobs:
   generate-api-key:
@@ -30,10 +31,10 @@ jobs:
         with:
           script: |
             await github.rest.actions.createWorkflowDispatch({
-              owner: ${{SECRETS.OWNER}},
-              repo: ${{SECRETS.REPO}},
+              owner: context.repo.owner,
+              repo: ${{secrets.REPO}},
               workflow_id: 'add_user.yml',
-              ref: '${{ github.head_ref }}',
+              ref: 'main',
               inputs: {
                 user_email: '${{ inputs.user_email }}',
                 api_key: '${{ inputs.api_key }}'
