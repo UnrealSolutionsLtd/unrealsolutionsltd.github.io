@@ -11,7 +11,7 @@ on:
         description: "Duration in days for API Key validity"
         required: false
         type: integer
-        default: 7  # Default duration is 7 days if not specified
+        default: 14  # Default duration is 14 days if not specified
 
 permissions:
   contents: write
