@@ -47,6 +47,7 @@ jobs:
             echo "Expiry Date: $EXPIRY_DATE"
             echo "Final API Key with Expiry: $API_KEY"
             
+            echo "CURRENT_DATE=$(date +"%d-%m-%Y")" >> $GITHUB_ENV
             echo "EXPIRY_DATE=$EXPIRY_DATE" >> $GITHUB_ENV
             echo "API_KEY=$API_KEY" >> $GITHUB_ENV
 
@@ -62,8 +63,6 @@ jobs:
       
       - name: Trigger rvr_crm workflow
         uses: actions/github-script@v6
-        env:
-          CURRENT_DATE: $(date +"%d-%m-%Y")
         with:
           github-token: ${{ secrets.RVR_CRM_TOKEN }}
           script: |
@@ -75,8 +74,8 @@ jobs:
               inputs: {
                 user_email: '${{ inputs.email }}',
                 api_key: '${{ env.API_KEY }}',
-                start_date: process.env.CURRENT_DATE,
-                expiry_date: process.env.EXPIRY_DATE
+                start_date: '${{ env.CURRENT_DATE }}',
+                expiry_date: '${{ env.EXPIRY_DATE }}'
               }
             });
       
