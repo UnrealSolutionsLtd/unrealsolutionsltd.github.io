@@ -2,8 +2,8 @@ name: Expire API Keys
 
 on:
   workflow_dispatch:
-  # schedule: # temporarily disable
-    # - cron: '0 0 * * *'  # Run daily at midnight
+  schedule: # temporarily disable
+    - cron: '0 0 * * *'  # Run daily at midnight
 
 permissions:
   contents: write
