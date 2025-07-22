@@ -31,10 +31,6 @@
       gtag('js', new Date());
       gtag('config', 'G-39LZYGQJL9');
     </script>
-
-    <script async
-    src="https://js.stripe.com/v3/buy-button.js">
-    </script>
   </head>
   <body class="bg-gradient-to-b from-gray-900 to-black min-h-screen">
     <main class="container mx-auto px-4 sm:px-20">
@@ -76,7 +72,7 @@
                 Try Demo Now
               </a>
               <p class="text-gray-400 text-sm">
-                All major Unreal Engine versions supported
+                All major Unreal Engine versions supported!
               </p>
             </div>
             
@@ -85,18 +81,24 @@
               <iframe 
                 class="w-full rounded-xl shadow-lg"
                 src="https://www.youtube.com/embed/dmlnrD67Wx8" 
-                title="RVR Tutorial"
+                title="YouTube Tutorial"
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
               </iframe>
-            </div>            
-
-            <stripe-buy-button
-              buy-button-id="buy_btn_1RncAmL8Ex2PyaLA4iHL9pvy"
-              publishable-key="pk_live_51QtDztL8Ex2PyaLAmDN5BfqJGjKgsY3FxYwJ76i3z9Tv10jegLvAab0pKbCnPWtfpuLbVImZgkRFpPOKvvu9zlRk00ku23OdeJ"
-            >
-            </stripe-buy-button>
+            </div>     
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+              <a 
+                href="https://buy.stripe.com/6oU14o6VEaX9gip8NddIA03"
+                class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                Buy Now
+              </a>
+            </div>
 
             <!-- Licensing Section -->
             <div class="py-8 sm:py-12">
