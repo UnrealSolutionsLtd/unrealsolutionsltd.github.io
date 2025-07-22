@@ -54,8 +54,8 @@ jobs:
             echo "API_KEY=$API_KEY" >> $GITHUB_ENV
 
             if grep -q "^${API_KEY_HASH}_" assets/rvr/rvr_trial.bin; then
-              echo "API key prefix already exists in rvr_trial.bin. Skipping append and commit."
-              exit 0
+              echo "❌ API key prefix already exists in rvr_trial.bin. Skipping append and commit."
+              exit 1
             fi
 
             # Append API key to the file
