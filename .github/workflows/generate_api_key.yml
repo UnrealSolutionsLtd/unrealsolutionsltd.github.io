@@ -53,6 +53,11 @@ jobs:
             echo "EXPIRY_DATE=$EXPIRY_DATE" >> $GITHUB_ENV
             echo "API_KEY=$API_KEY" >> $GITHUB_ENV
 
+            if grep -q "^${API_KEY_HASH}_" assets/rvr/rvr_trial.bin; then
+              echo "API key prefix already exists in rvr_trial.bin. Skipping append and commit."
+              exit 0
+            fi
+
             # Append API key to the file
             echo -e "\n$API_KEY" >> assets/rvr/rvr_trial.bin
             
