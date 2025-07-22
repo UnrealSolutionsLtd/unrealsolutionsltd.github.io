@@ -34,7 +34,9 @@ jobs:
 
             # Generate a random API key using the email as a seed
             # Use SHA256 hash of email combined with random data for uniqueness
-            API_KEY_HASH=$(echo -n "$USER_EMAIL$(date +%s)" | sha256sum | head -c 16)  # 16 characters from sha256 hash
+
+            SALT="salty-salt-3214"  # Optional but recommended
+            API_KEY_HASH=$(echo -n "${SALT}${USER_EMAIL}" | sha256sum | head -c 16)
 
             # Get the expiry date (duration days from now) in day-month-year format
             EXPIRY_DATE=$(date -d "+$DURATION days" +"%d-%m-%Y")
@@ -43,9 +45,9 @@ jobs:
             API_KEY="${API_KEY_HASH}_${EXPIRY_DATE}"
 
             # Debug: Check if variables are set
-            echo "Generated API_KEY: $API_KEY"
+            echo "Generated API_KEY_HASH: $API_KEY_HASH"
             echo "Expiry Date: $EXPIRY_DATE"
-            echo "Final API Key with Expiry: $API_KEY"
+            echo "Final API_KEY with Expiry: $API_KEY"
             
             echo "CURRENT_DATE=$(date +"%d-%m-%Y")" >> $GITHUB_ENV
             echo "EXPIRY_DATE=$EXPIRY_DATE" >> $GITHUB_ENV
