@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="referrer" content="origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unreal Solutions - Runtime Video Audio Recorder for Unreal Engine</title>
+    <title>Unreal Solutions - Runtime Video Audio Recorder for Unreal Engine, Windows, MacOS, Oculus, Android, and Linux</title>
     <meta name="description" content="Runtime Video Audio Recorder for Unreal Engine - Record high-quality gameplay videos with synchronized audio across Windows, Oculus, Android, and Linux. Fast, efficient, and no ffmpeg required!">
     <meta property="og:image" content="https://unrealsolutions.com/assets/linkedin_preview.png">
     <meta property="og:image:width" content="1200">
@@ -22,6 +22,39 @@
     <meta name="theme-color" content="#000000">
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    
+    <!-- Custom CSS for carousel animation -->
+    <style>
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      
+      .animate-scroll {
+        animation: scroll 30s linear infinite;
+      }
+      
+      .customer-logos-carousel:hover .animate-scroll {
+        animation-play-state: paused;
+      }
+      
+      .customer-logo-item {
+        min-width: 120px;
+      }
+      
+      @media (max-width: 640px) {
+        .customer-logo-item {
+          min-width: 100px;
+        }
+        .customer-logo-item img {
+          height: 3rem;
+        }
+      }
+    </style>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
@@ -56,9 +89,36 @@
               Record high-quality gameplay videos with synchronized audio across multiple platforms. Blazing fast, no ffmpeg required!
             </p>
 
-            <p class="mt-4 text-base text-gray-300 max-w-2xl mx-auto italic bg-indigo-900/20 px-4 py-2 rounded-lg">
-              Used by Amazon Games, Meta Research and many more game and VR studios!
-            </p>
+            <!-- Customer Logos Carousel -->
+            <div class="mt-8 max-w-4xl mx-auto">
+              <p class="text-center text-gray-400 text-sm mb-6">Trusted by leading companies worldwide</p>
+              <div class="customer-logos-carousel overflow-hidden bg-yellow-200 rounded-2xl p-6">
+                <div class="customer-logos-track flex animate-scroll">
+                  <!-- Logo items - duplicate for seamless loop -->
+                  <div class="customer-logo-item flex-shrink-0 mx-8 flex items-center justify-center">
+                    <img src="./assets/customer-logos/amazon_games.png" alt="Amazon Games" class="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300 opacity-90 hover:opacity-100">
+                  </div>
+                  <div class="customer-logo-item flex-shrink-0 mx-8 flex items-center justify-center">
+                    <img src="./assets/customer-logos/meta.png" alt="Meta Research" class="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300 opacity-90 hover:opacity-100">
+                  </div>
+                  <div class="customer-logo-item flex-shrink-0 mx-8 flex items-center justify-center">
+                    <img src="./assets/customer-logos/rico.png" alt="Rico Inc" class="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300 opacity-90 hover:opacity-100">
+                  </div>
+                  <div class="customer-logo-item flex-shrink-0 mx-8 flex items-center justify-center">
+                    <img src="./assets/customer-logos/unlit.png" alt="Unlit Studio" class="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300 opacity-90 hover:opacity-100">
+                  </div>
+                  <div class="customer-logo-item flex-shrink-0 mx-8 flex items-center justify-center">
+                    <img src="./assets/customer-logos/kara.png" alt="Kara.tech" class="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300 opacity-90 hover:opacity-100">
+                  </div>
+                  <div class="customer-logo-item flex-shrink-0 mx-8 flex items-center justify-center">
+                    <img src="./assets/customer-logos/arovertech.png" alt="Arovertech" class="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300 opacity-90 hover:opacity-100">
+                  </div>
+                  <div class="customer-logo-item flex-shrink-0 mx-8 flex items-center justify-center">
+                    <img src="./assets/customer-logos/amazon_games.png" alt="Amazon Games" class="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300 opacity-90 hover:opacity-100">
+                  </div>
+                </div>
+              </div>
+            </div>
             
             <!-- Demo CTA -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
@@ -337,6 +397,30 @@
           const enquiryForm = document.querySelector('.bg-indigo-900');
           enquiryForm.scrollIntoView({ behavior: 'smooth' });
         });
+
+        // Carousel functionality
+        const carousel = document.querySelector('.customer-logos-carousel');
+        const track = document.querySelector('.customer-logos-track');
+        
+        if (carousel && track) {
+          // Pause animation on hover
+          carousel.addEventListener('mouseenter', () => {
+            track.style.animationPlayState = 'paused';
+          });
+          
+          carousel.addEventListener('mouseleave', () => {
+            track.style.animationPlayState = 'running';
+          });
+          
+          // Pause animation when tab is not visible (performance optimization)
+          document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+              track.style.animationPlayState = 'paused';
+            } else {
+              track.style.animationPlayState = 'running';
+            }
+          });
+        }
       });
     </script>
   </body>
