@@ -38,7 +38,7 @@ jobs:
           # Create properly formatted JSON payload using jq
           PAYLOAD=$(jq -n \
             --arg model "llama-3.3-70b-versatile" \
-            --arg system_content "You are a lenient filter for API key requests. APPROVE if the request mentions ANY project type, purpose, or context. Only REJECT if it's literally just 1-3 words like 'test' or 'demo' with absolutely NO context. APPROVE examples: 'VR game development and sharing with team', 'horror game testing', 'record gameplay for YouTube', 'demo for presentation', 'PhD research', 'mobile game project', 'tutorial video', 'debugging multiplayer'. REJECT examples (ONLY these ultra-vague ones): 'test', 'demo', 'testing', 'check it out'. If someone mentions any project type (game, research, video, etc.) or any purpose at all, APPROVE it. Respond with ONLY 'APPROVED' or 'NEEDS_MORE_INFO'." \
+            --arg system_content "You are an AI assistant analyzing use case descriptions for an API key request. Determine if the use case is descriptive and provides good context about the project. Examples of DESCRIPTIVE cases: 'PhD research on traffic simulation', 'VR game development for team collaboration', 'Recording gameplay for YouTube tutorials', 'Debugging multiplayer sessions in Unity'. Examples of VAGUE cases: 'test', 'for my game', 'demo', 'testing the API', 'check it out'. Respond with ONLY 'DESCRIPTIVE' or 'VAGUE'." \
             --arg user_content "$USE_CASE" \
             '{
               model: $model,
@@ -119,66 +119,21 @@ jobs:
             echo "⚠️ Empty or null response from Groq API."
             echo "Full response structure:"
             echo "$RESPONSE" | jq '.'
-            echo "USE_CASE_APPROVED=false" >> $GITHUB_ENV
-            echo "AI_REASON=Unable to analyze automatically. Manual review required." >> $GITHUB_ENV
+            echo "USE_CASE_IS_VAGUE=false" >> $GITHUB_ENV
+            echo "ℹ️ Unable to analyze. Proceeding with API key generation only."
             exit 0
           fi
           
-          # Check if use case is approved
-          if echo "$AI_DECISION" | grep -qi "APPROVED"; then
-            echo "USE_CASE_APPROVED=true" >> $GITHUB_ENV
-            echo "✅ Use case is descriptive enough. Proceeding with API key generation."
+          # Check if use case is vague (but always proceed with API key generation)
+          if echo "$AI_DECISION" | grep -qi "VAGUE"; then
+            echo "USE_CASE_IS_VAGUE=true" >> $GITHUB_ENV
+            echo "ℹ️ Use case is vague. Will send follow-up email requesting more details, but API key will still be generated."
           else
-            echo "USE_CASE_APPROVED=false" >> $GITHUB_ENV
-            # Extract reason (everything after first line)
-            REASON=$(echo "$AI_DECISION" | tail -n +2 | tr -d '\n' | sed 's/^[[:space:]]*//')
-            if [ -z "$REASON" ]; then
-              REASON="Please provide more details about your specific use case."
-            fi
-            echo "AI_REASON=$REASON" >> $GITHUB_ENV
-            echo "⚠️ Use case needs more information. Will send email request."
+            echo "USE_CASE_IS_VAGUE=false" >> $GITHUB_ENV
+            echo "✅ Use case is descriptive. Proceeding with API key generation only."
           fi
 
-      - name: Send Request for More Information
-        if: env.USE_CASE_APPROVED == 'false'
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.privateemail.com
-          server_port: 465
-          username: ${{secrets.EMAIL}}
-          password: ${{secrets.PASSWORD}}
-          subject: "Runtime Video Recorder | Additional Information Needed"
-          to: "${{ inputs.email }}"
-          from: ${{secrets.FROM}}
-          body: |
-            Hello,
-            
-            Thank you for your interest in the Runtime Video Recorder API!
-            
-            We received your API key request:
-            "${{ inputs.use_case }}"
-            
-            To help us better understand your needs and generate your API key, could you please provide a bit more detail? For example:
-            - What type of project or application are you working on?
-            - How do you plan to use the video recording feature?
-            
-            Just a sentence or two with more context would be great!
-            
-            Once we receive more details, we'll be happy to generate your API key.
-            
-            Best regards,
-            Runtime Video Recorder Team
-          secure: true
-          ignore_cert: true
-
-      - name: Stop Workflow if Use Case Needs More Info
-        if: env.USE_CASE_APPROVED == 'false'
-        run: |
-          echo "❌ Workflow stopped. Use case requires more information."
-          exit 1
-
       - name: Generate API Key
-        if: env.USE_CASE_APPROVED == 'true'
         id: generate_key
         run: |
             # Get email and duration inputs from the workflow
@@ -222,7 +177,6 @@ jobs:
             git push origin ${{ github.ref }}
       
       - name: Trigger rvr_crm workflow
-        if: env.USE_CASE_APPROVED == 'true'
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.RVR_CRM_TOKEN }}
@@ -241,7 +195,6 @@ jobs:
             });
       
       - name: Read and Modify Email Body Template
-        if: env.USE_CASE_APPROVED == 'true'
         id: modify_email_body
         run: |
           # Read the Markdown template file and replace the placeholders with actual values
@@ -249,19 +202,51 @@ jobs:
           # Save the modified email body to a file
           echo "$EMAIL_BODY" > email.md
           
-      - name: Send mail
-        if: env.USE_CASE_APPROVED == 'true'
+      - name: Send API Key Email
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.privateemail.com
           server_port: 465
-          username: ${{SECRETS.EMAIL}}
-          password: ${{SECRETS.PASSWORD}}
+          username: ${{secrets.EMAIL}}
+          password: ${{secrets.PASSWORD}}
           subject: "Runtime Video Recorder | Your API Key"
           to: "${{ inputs.email }}"
-          bcc: ${{SECRETS.BCC}}
-          from: ${{SECRETS.FROM}}
+          bcc: ${{secrets.BCC}}
+          from: ${{secrets.FROM}}
           html_body: file://email.md  # Use the modified email body file
           secure: true
           ignore_cert: true
           convert_markdown: true
+
+      - name: Send Follow-up for Vague Use Case
+        if: env.USE_CASE_IS_VAGUE == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.privateemail.com
+          server_port: 465
+          username: ${{secrets.EMAIL}}
+          password: ${{secrets.PASSWORD}}
+          subject: "Runtime Video Recorder | Tell us more about your project"
+          to: "${{ inputs.email }}"
+          from: ${{secrets.FROM}}
+          body: |
+            Hello,
+            
+            Thank you for your interest in the Runtime Video Recorder API! 
+            
+            Your API key has been generated and sent in a separate email.
+            
+            We noticed your use case was quite brief:
+            "${{ inputs.use_case }}"
+            
+            We'd love to learn more about your project! Could you share a bit more detail when you get a chance? For example:
+            - What type of project or application are you working on?
+            - What do you plan to use the video recording feature for?
+            - Any specific features or requirements you're interested in?
+            
+            This helps us better understand our users and improve the product. No rush - just reply to this email when convenient!
+            
+            Best regards,
+            Runtime Video Recorder Team
+          secure: true
+          ignore_cert: true
