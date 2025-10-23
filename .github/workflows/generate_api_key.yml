@@ -37,7 +37,7 @@ jobs:
           
           # Create properly formatted JSON payload using jq
           PAYLOAD=$(jq -n \
-            --arg model "llama-3.1-70b-versatile" \
+            --arg model "llama-3.3-70b-versatile" \
             --arg system_content "You are an AI assistant that evaluates use case descriptions for an API key request. Determine if the use case is descriptive enough (at least 10 words, contains specific details about the intended use, and explains the purpose clearly). Respond with ONLY 'APPROVED' or 'NEEDS_MORE_INFO'. If NEEDS_MORE_INFO, on the next line provide a brief, specific reason." \
             --arg user_content "Evaluate this use case description: $USE_CASE" \
             '{
