@@ -38,8 +38,8 @@ jobs:
           # Create properly formatted JSON payload using jq
           PAYLOAD=$(jq -n \
             --arg model "llama-3.3-70b-versatile" \
-            --arg system_content "You are an AI assistant that evaluates use case descriptions for an API key request. Determine if the use case is descriptive enough (at least 10 words, contains specific details about the intended use, and explains the purpose clearly). Respond with ONLY 'APPROVED' or 'NEEDS_MORE_INFO'. If NEEDS_MORE_INFO, on the next line provide a brief, specific reason." \
-            --arg user_content "Evaluate this use case description: $USE_CASE" \
+            --arg system_content "You are an AI assistant that filters out extremely vague API key requests. APPROVE any use case that shows genuine interest and some context. Only reject if it's extremely generic like 'test', 'for my game', 'record gameplay', 'demo', 'presentation' without ANY specific details. Examples to REJECT: 'test my horror game', 'I want to use it in my game', 'to record gameplay', 'we want to create demo', 'presentations', 'test recording'. Examples to APPROVE: 'PhD research on traffic simulation', 'recording multiplayer sessions for debugging', 'creating tutorial videos for Unity', 'documenting VR experiments'. Respond with ONLY 'APPROVED' or 'NEEDS_MORE_INFO'. If NEEDS_MORE_INFO, say: 'Please provide more details about your specific use case.'" \
+            --arg user_content "Evaluate this use case: $USE_CASE" \
             '{
               model: $model,
               messages: [
@@ -133,7 +133,7 @@ jobs:
             # Extract reason (everything after first line)
             REASON=$(echo "$AI_DECISION" | tail -n +2 | tr -d '\n' | sed 's/^[[:space:]]*//')
             if [ -z "$REASON" ]; then
-              REASON="The use case needs more specific details about how the API will be used."
+              REASON="Please provide more details about your specific use case."
             fi
             echo "AI_REASON=$REASON" >> $GITHUB_ENV
             echo "⚠️ Use case needs more information. Will send email request."
@@ -155,14 +155,14 @@ jobs:
             
             Thank you for your interest in the Runtime Video Recorder API!
             
-            We received your API key request, but we need more information about your use case to proceed.
-            
-            Your submitted use case:
+            We received your API key request:
             "${{ inputs.use_case }}"
             
-            Please provide a more detailed description that includes:
-            - The purpose of your project or application
-            - How video recordings will be used?
+            To help us better understand your needs and generate your API key, could you please provide a bit more detail? For example:
+            - What type of project or application are you working on?
+            - How do you plan to use the video recording feature?
+            
+            Just a sentence or two with more context would be great!
             
             Once we receive more details, we'll be happy to generate your API key.
             
