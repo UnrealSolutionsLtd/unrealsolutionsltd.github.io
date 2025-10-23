@@ -7,6 +7,10 @@ on:
         description: "User Email"
         required: true
         type: string
+      use_case:
+        description: "Use Case"
+        required: true
+        type: string
       duration:
         description: "Duration in days for API Key validity"
         required: false
@@ -25,7 +29,96 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Analyze Use Case with Groq AI
+        id: analyze_use_case
+        run: |
+          # Analyze the use case using Groq API
+          USE_CASE="${{ inputs.use_case }}"
+          
+          # Create JSON payload for Groq API
+          PAYLOAD=$(cat <<EOF
+          {
+            "model": "llama-3.1-70b-versatile",
+            "messages": [
+              {
+                "role": "system",
+                "content": "You are an AI assistant that evaluates use case descriptions for an API key request. Determine if the use case is descriptive enough (at least 5 words, contains specific details and explains the purpose). Respond with ONLY 'APPROVED' or 'NEEDS_MORE_INFO'. If NEEDS_MORE_INFO, on the next line provide a brief reason."
+              },
+              {
+                "role": "user",
+                "content": "Evaluate this use case: $USE_CASE"
+              }
+            ],
+            "temperature": 0.3,
+            "max_tokens": 100
+          }
+          EOF
+          )
+          
+          # Call Groq API
+          RESPONSE=$(curl -s -X POST "https://api.groq.com/openai/v1/chat/completions" \
+            -H "Authorization: Bearer ${{ secrets.GROQ_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD")
+          
+          # Extract the AI response
+          AI_DECISION=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
+          
+          echo "AI Analysis Result:"
+          echo "$AI_DECISION"
+          
+          # Check if use case is approved
+          if echo "$AI_DECISION" | grep -q "APPROVED"; then
+            echo "USE_CASE_APPROVED=true" >> $GITHUB_ENV
+            echo "✅ Use case is descriptive enough. Proceeding with API key generation."
+          else
+            echo "USE_CASE_APPROVED=false" >> $GITHUB_ENV
+            # Extract reason (everything after first line)
+            REASON=$(echo "$AI_DECISION" | tail -n +2)
+            echo "AI_REASON=$REASON" >> $GITHUB_ENV
+            echo "⚠️ Use case needs more information. Will send email request."
+          fi
+
+      - name: Send Request for More Information
+        if: env.USE_CASE_APPROVED == 'false'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.privateemail.com
+          server_port: 465
+          username: ${{secrets.EMAIL}}
+          password: ${{secrets.PASSWORD}}
+          subject: "Runtime Video Recorder | Additional Information Needed"
+          to: "${{ inputs.email }}"
+          from: ${{secrets.FROM}}
+          body: |
+            Hello,
+            
+            Thank you for your interest in the Runtime Video Recorder API!
+            
+            We received your API key request, but we need more information about your use case to proceed.
+            
+            Your submitted use case:
+            "${{ inputs.use_case }}"
+            
+            Please provide a more detailed description that includes:
+            - The purpose of your project or application
+            - How video recordings will be used?
+            
+            Once we receive more details, we'll be happy to generate your API key.
+            
+            Best regards,
+            Runtime Video Recorder Team
+          secure: true
+          ignore_cert: true
+
+      - name: Stop Workflow if Use Case Needs More Info
+        if: env.USE_CASE_APPROVED == 'false'
+        run: |
+          echo "❌ Workflow stopped. Use case requires more information."
+          exit 1
+
       - name: Generate API Key
+        if: env.USE_CASE_APPROVED == 'true'
         id: generate_key
         run: |
             # Get email and duration inputs from the workflow
@@ -69,6 +162,7 @@ jobs:
             git push origin ${{ github.ref }}
       
       - name: Trigger rvr_crm workflow
+        if: env.USE_CASE_APPROVED == 'true'
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.RVR_CRM_TOKEN }}
@@ -87,6 +181,7 @@ jobs:
             });
       
       - name: Read and Modify Email Body Template
+        if: env.USE_CASE_APPROVED == 'true'
         id: modify_email_body
         run: |
           # Read the Markdown template file and replace the placeholders with actual values
@@ -95,6 +190,7 @@ jobs:
           echo "$EMAIL_BODY" > email.md
           
       - name: Send mail
+        if: env.USE_CASE_APPROVED == 'true'
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.privateemail.com
