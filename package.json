@@ -1,0 +1,22 @@
+{
+  "name": "unrealsolutions-docs",
+  "version": "1.0.0",
+  "description": "Unreal Solutions Documentation",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "keywords": [
+    "unreal-engine",
+    "documentation",
+    "video-recording"
+  ],
+  "author": "Unreal Solutions Ltd",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.0.0"
+  }
+}
+
