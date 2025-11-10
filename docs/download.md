@@ -77,13 +77,13 @@ Visit our [main website download page](/download) for purchasing options, trial 
 
 ## Installation
 
-After purchase, follow our [Installation Guide](./products/runtime-video-recorder/installation) for step-by-step instructions.
+After purchase, follow our [Installation Guide](/products/runtime-video-recorder/installation) for step-by-step instructions.
 
 **Quick Install:**
-1. Download from Fab/Marketplace or email link
+1. Download from our website (link provided after purchase)
 2. Extract to `YourProject/Plugins/RuntimeVideoRecorder`
-3. Enable plugin in Editor
-4. Restart editor
+3. Regenerate project files
+4. Compile and enable plugin in Editor
 5. Start recording!
 
 ---

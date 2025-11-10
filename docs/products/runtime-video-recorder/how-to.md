@@ -1032,6 +1032,6 @@ void ACrashRecoverySystem::EndPlay(const EEndPlayReason::Type EndPlayReason)
 
 - [Quick Start](./quick-start) - Basic recording examples
 - [API Reference](./api/runtime-video-recorder) - Complete method documentation
-- [Troubleshooting](./troubleshooting) - Common issues
-- [Best Practices](./best-practices) - Optimization tips
+- [Troubleshooting](./troubleshooting) - Common issues and solutions
+- [Project Settings](./project-settings) - Global configuration options
 

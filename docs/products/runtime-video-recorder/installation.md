@@ -8,32 +8,44 @@ This guide will help you install Runtime Video Recorder (RVR) in your Unreal Eng
 - **Platforms:** Windows, macOS, Linux, Android, or Oculus development setup
 - **Disk Space:** ~50 MB for the plugin
 
-## Method 1: From Fab/Marketplace (Recommended)
+## Method 1: Download from Website (Recommended)
 
-1. **Purchase the Plugin**
-   - Visit the [Marketplace Page](com.epicgames.launcher://ue/Fab/product/a883f9ac-b253-487b-b5ab-d612b660e41b)
-   - Purchase or claim the plugin
+1. **Get the Plugin**
+   - Visit our [Download Page](/download)
+   - Complete your purchase or download the trial
+   - You'll receive download instructions via email
 
-2. **Install to Engine**
-   - Open Epic Games Launcher
-   - Go to **Library** → **Vault**
-   - Find "Runtime Video Recorder"
-   - Click **Install to Engine**
-   - Select your Unreal Engine version
+2. **Extract to Plugins Folder**
+   ```
+   YourProject/
+   └── Plugins/
+       └── RuntimeVideoRecorder/
+           ├── Source/
+           ├── Resources/
+           ├── Content/
+           └── RuntimeVideoRecorder.uplugin
+   ```
 
-3. **Enable in Project**
-   - Open your Unreal project
+3. **Regenerate Project Files**
+   - Right-click your `.uproject` file
+   - Select **Generate Visual Studio project files** (Windows/Linux)
+   - Or **Generate Xcode project** (macOS)
+
+4. **Compile & Enable**
+   - Open the generated solution/project file
+   - Build in **Development Editor** configuration
+   - Launch the editor
    - Go to **Edit** → **Plugins**
    - Search for "Runtime Video Recorder"
    - Check the **Enabled** checkbox
    - Click **Restart Now**
 
-## Method 2: Manual Installation
+## Method 2: Alternative Installation
 
-### For Plugin Download
+### If You Have the Plugin Files
 
 1. **Download the Plugin**
-   - Download the RVR package from your purchase confirmation email or download portal
+   - Download the RVR package from your purchase confirmation email
 
 2. **Extract to Plugins Folder**
    ```

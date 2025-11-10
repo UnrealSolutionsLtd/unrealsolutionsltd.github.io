@@ -525,7 +525,7 @@ Common issues and their solutions for Runtime Video Recorder.
 ## See Also
 
 - [Quick Start](./quick-start) - Basic setup guide
-- [Best Practices](./best-practices) - Optimization tips
-- [Performance](./performance) - Performance characteristics
+- [How-To Guide](./how-to) - Practical recording scenarios
+- [Project Settings](./project-settings) - Global configuration
 - [API Reference](./api/runtime-video-recorder) - Complete API documentation
 

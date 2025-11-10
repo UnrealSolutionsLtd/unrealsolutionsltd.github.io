@@ -313,13 +313,12 @@ void AMyPlayerController::ToggleRecording()
 
 ## Next Steps
 
-Now that you can record basic videos, explore more advanced features:
+Now that you can record basic videos, explore more:
 
-- [Camera Recording](./camera-recording) - Record from specific cameras
-- [Frame-Rate Independent Recording](./frame-rate-independent) - Lock FPS regardless of game performance
-- [Circular Buffer](./circular-buffer) - Record "last N seconds" for replay systems
-- [Multi-Camera Recording](./multi-camera-recording) - Record multiple views simultaneously
+- [How-To Guide](./how-to) - 10 practical recording scenarios with code examples
 - [API Reference](./api/runtime-video-recorder) - Complete API documentation
+- [Troubleshooting](./troubleshooting) - Common issues and solutions
+- [Project Settings](./project-settings) - Global configuration options
 
 ## Sample Project
 

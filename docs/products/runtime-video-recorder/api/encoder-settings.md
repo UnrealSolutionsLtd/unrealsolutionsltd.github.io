@@ -386,5 +386,6 @@ Linux uses CPU encoding. Expect higher CPU usage. Consider lower resolutions/bit
 
 - [URuntimeVideoRecorder](./runtime-video-recorder) - Main API reference
 - [Quick Start](../quick-start) - Getting started guide
-- [Best Practices](../best-practices) - Optimization tips
+- [How-To Guide](../how-to) - Practical recording scenarios
+- [Troubleshooting](../troubleshooting) - Common issues and solutions
 

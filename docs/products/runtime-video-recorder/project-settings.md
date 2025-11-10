@@ -387,7 +387,7 @@ bShowRecordingsInMediaFolders=True
 ## See Also
 
 - [Quick Start](./quick-start) - Getting started guide
-- [Troubleshooting](./troubleshooting) - Common issues
-- [Performance](./performance) - Performance characteristics
-- [API Reference](./api/runtime-video-recorder) - API documentation
+- [Troubleshooting](./troubleshooting) - Common issues and solutions
+- [How-To Guide](./how-to) - Practical recording scenarios
+- [API Reference](./api/runtime-video-recorder) - Complete API documentation
 
