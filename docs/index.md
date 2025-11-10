@@ -7,7 +7,7 @@ hero:
   tagline: High-performance plugins for Unreal Engine
   image:
     src: /assets/logo.png
-    alt: Unreal Solutions
+    alt: RVR
   actions:
     - theme: brand
       text: Runtime Video Recorder
