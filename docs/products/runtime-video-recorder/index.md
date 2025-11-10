@@ -62,7 +62,7 @@ Runtime Video Recorder (RVR) is a production-ready Unreal Engine plugin that ena
 
 ## Community & Support
 
-- **Discord:** [Join our community](https://discord.com/invite/pBDSCBcdgv) for quick support
+- **Discord:** [Join our community](https://discord.gg/wptvWkhtGm) for quick support
 - **Download:** [Get the plugin](/download) from our website
 - **Website:** [unrealsolutions.com](https://unrealsolutions.com)
 

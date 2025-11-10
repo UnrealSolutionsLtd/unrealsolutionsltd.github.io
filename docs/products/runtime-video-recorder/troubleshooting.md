@@ -503,7 +503,7 @@ Common issues and their solutions for Runtime Video Recorder.
 ### Get Help
 
 1. **Join Discord** for quick community support
-   - [discord.com/invite/pBDSCBcdgv](https://discord.com/invite/pBDSCBcdgv)
+   - [discord.gg/wptvWkhtGm](https://discord.gg/wptvWkhtGm)
 
 2. **Check Output Log**
    - Copy relevant error messages

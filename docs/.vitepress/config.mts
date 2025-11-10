@@ -27,7 +27,7 @@ export default defineConfig({
         // Add more products here as they become available
       ]},
       { text: 'Download', link: '/download' },
-      { text: 'Support', link: 'https://discord.com/invite/pBDSCBcdgv' }
+      { text: 'Support', link: 'https://discord.gg/Ujw7QVrWxG' }
     ],
 
     sidebar: {
@@ -58,7 +58,7 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/unrealsolutionsltd' },
-      { icon: 'discord', link: 'https://discord.com/invite/pBDSCBcdgv' },
+      { icon: 'discord', link: 'https://discord.gg/Ujw7QVrWxG' },
       { icon: 'linkedin', link: 'https://www.linkedin.com/company/unreal-solutions-company/' }
     ],
 

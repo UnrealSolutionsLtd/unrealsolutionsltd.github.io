@@ -232,7 +232,7 @@ All these pages are already in the sidebar navigation - just create the `.md` fi
 ## 💬 Need Help?
 
 - VitePress: https://vitepress.dev/
-- Discord: https://discord.com/invite/pBDSCBcdgv
+- Discord: https://discord.gg/wptvWkhtGm
 - Email: business@unrealsolutions.com
 
 ---

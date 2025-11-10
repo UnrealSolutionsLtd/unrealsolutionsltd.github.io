@@ -6,7 +6,13 @@ Get Runtime Video Recorder and start recording videos in your Unreal Engine proj
 
 <div class="download-option">
 
-**Runtime Video Recorder (RVR)**
+**Runtime Video Recorder v2.0**
+
+✅ All platforms (Windows, macOS, Linux, Android, Oculus)  
+✅ Full source code included  
+✅ Lifetime updates included  
+✅ Discord community support  
+✅ Production-ready performance
 
 <a href="/download" class="download-button primary">
   Download Now
@@ -23,7 +29,8 @@ Visit our [main website download page](/download) for purchasing options, trial 
 - 🎥 **Full recording suite** - Viewport, camera, render target, multi-camera
 - 🎵 **Audio recording** - Synchronized audio with submix selection
 - ⚡ **Hardware acceleration** - Native OS API encoding (WMF, AVFoundation, MediaCodec)
-- 🌐 **Cross-platform** - Windows, MacOS, Linux, Android, Oculus
+- 🌐 **Cross-platform** - Windows, macOS, Linux, Android, Oculus
+- 📝 **Complete source code** - Full C++ source for customization
 - 📖 **Documentation** - Comprehensive guides and API reference
 - 🎬 **Sample content** - Demo levels and example Blueprints
 - 💬 **Discord community** - Active community with fast responses
@@ -73,7 +80,7 @@ Visit our [main website download page](/download) for purchasing options, trial 
 After purchase, follow our [Installation Guide](/products/runtime-video-recorder/installation) for step-by-step instructions.
 
 **Quick Install:**
-1. Go to [download page](/download) 
+1. Download from our website (link provided after purchase)
 2. Extract to `YourProject/Plugins/RuntimeVideoRecorder`
 3. Regenerate project files
 4. Compile and enable plugin in Editor
@@ -83,7 +90,7 @@ After purchase, follow our [Installation Guide](/products/runtime-video-recorder
 
 ## Support & Resources
 
-- 💬 [Discord Community](https://discord.com/invite/pBDSCBcdgv) - Get help and connect with other users
+- 💬 [Discord Community](https://discord.gg/wptvWkhtGm) - Get help and connect with other users
 - 📧 [Email Support](mailto:business@unrealsolutions.com) - Direct support from developers  
 - 📖 [Documentation](/products/runtime-video-recorder/) - Complete guides and API reference
 - 🎥 [Video Tutorials](https://www.youtube.com/watch?v=dmlnrD67Wx8) - Step-by-step video guides
@@ -95,7 +102,7 @@ After purchase, follow our [Installation Guide](/products/runtime-video-recorder
 1. **[Download](/download)** the plugin from our main website
 2. Follow the **[Installation Guide](/products/runtime-video-recorder/installation)**
 3. Complete the **[Quick Start Tutorial](/products/runtime-video-recorder/quick-start)**
-4. Join our **[Discord Community](https://discord.com/invite/pBDSCBcdgv)** for support
+4. Join our **[Discord Community](https://discord.gg/wptvWkhtGm)** for support
 
 <style scoped>
 .download-option {

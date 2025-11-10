@@ -154,7 +154,7 @@ To add or update documentation:
 
 ## 📞 Support
 
-- Discord: [discord.com/invite/pBDSCBcdgv](https://discord.com/invite/pBDSCBcdgv)
+- Discord: [discord.gg/wptvWkhtGm](https://discord.gg/wptvWkhtGm)
 - Email: [business@unrealsolutions.com](mailto:business@unrealsolutions.com)
 - Website: [unrealsolutions.com](https://unrealsolutions.com)
 
