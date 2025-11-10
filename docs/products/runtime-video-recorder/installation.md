@@ -209,6 +209,6 @@ Now that you've installed RVR, check out the [Quick Start Guide](./quick-start) 
 
 ## Need Help?
 
-- Join our [Discord community](https://discord.gg/wptvWkhtGm) for quick support
+- Join our [Discord community](https://discord.com/invite/pBDSCBcdgv) for quick support
 - Email us at [business@unrealsolutions.com](mailto:business@unrealsolutions.com)
 

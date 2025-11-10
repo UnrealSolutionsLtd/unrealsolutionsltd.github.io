@@ -27,7 +27,7 @@ export default defineConfig({
         // Add more products here as they become available
       ]},
       { text: 'Download', link: '/download' },
-      { text: 'Support', link: 'https://discord.gg/Ujw7QVrWxG' }
+      { text: 'Support', link: 'https://discord.com/invite/pBDSCBcdgv' }
     ],
 
     sidebar: {
@@ -39,9 +39,25 @@ export default defineConfig({
             { text: 'Introduction', link: '/products/runtime-video-recorder/' },
             { text: 'Installation', link: '/products/runtime-video-recorder/installation' },
             { text: 'Quick Start', link: '/products/runtime-video-recorder/quick-start' },
-            { text: 'How-To Guide', link: '/products/runtime-video-recorder/how-to' },
             { text: 'Project Settings', link: '/products/runtime-video-recorder/project-settings' },
             { text: 'Troubleshooting', link: '/products/runtime-video-recorder/troubleshooting' }
+          ]
+        },
+        {
+          text: 'How-To Guide',
+          collapsed: false,
+          items: [
+            { text: 'Overview', link: '/products/runtime-video-recorder/how-to/' },
+            { text: 'Hotkey Recording', link: '/products/runtime-video-recorder/how-to/hotkey-recording' },
+            { text: 'Instant Replay', link: '/products/runtime-video-recorder/how-to/instant-replay' },
+            { text: 'Security Camera', link: '/products/runtime-video-recorder/how-to/security-camera' },
+            { text: 'Photo Mode', link: '/products/runtime-video-recorder/how-to/photo-mode' },
+            { text: 'Time-Lapse', link: '/products/runtime-video-recorder/how-to/time-lapse' },
+            { text: 'Multi-Camera', link: '/products/runtime-video-recorder/how-to/multi-camera' },
+            { text: 'No Voice Chat', link: '/products/runtime-video-recorder/how-to/no-voice-chat' },
+            { text: 'Boss Fights', link: '/products/runtime-video-recorder/how-to/boss-fights' },
+            { text: 'Minimap Replay', link: '/products/runtime-video-recorder/how-to/minimap-replay' },
+            { text: 'Crash Recovery', link: '/products/runtime-video-recorder/how-to/crash-recovery' }
           ]
         },
         {
@@ -58,7 +74,7 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/unrealsolutionsltd' },
-      { icon: 'discord', link: 'https://discord.gg/Ujw7QVrWxG' },
+      { icon: 'discord', link: 'https://discord.com/invite/pBDSCBcdgv' },
       { icon: 'linkedin', link: 'https://www.linkedin.com/company/unreal-solutions-company/' }
     ],
 
