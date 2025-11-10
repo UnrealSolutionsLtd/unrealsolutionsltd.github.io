@@ -2,9 +2,7 @@
 
 Get Runtime Video Recorder and start recording videos in your Unreal Engine projects today!
 
-## Purchase Options
-
-### Fab/Epic Games Marketplace
+## Get Started
 
 <div class="download-option">
 
@@ -12,92 +10,21 @@ Get Runtime Video Recorder and start recording videos in your Unreal Engine proj
 
 ✅ All platforms (Windows, macOS, Linux, Android, Oculus)  
 ✅ Full source code included  
-✅ Lifetime updates (when purchased from our website)  
-✅ Discord community support
+✅ Lifetime updates included  
+✅ Discord community support  
+✅ Production-ready performance
 
-<a href="com.epicgames.launcher://ue/Fab/product/a883f9ac-b253-487b-b5ab-d612b660e41b" class="download-button">
-  Get on Fab/Marketplace
+<a href="/download" class="download-button primary">
+  Download Now
 </a>
 
 </div>
 
-::: warning Marketplace Purchases
-If you purchased via Unreal Marketplace or Fab, updates are **NOT** included automatically. Please email [business@unrealsolutions.com](mailto:business@unrealsolutions.com) for a discount code for direct purchases with lifetime updates.
-:::
-
----
-
-### Direct Purchase (Recommended)
-
-<div class="download-option">
-
-**Best Value - Lifetime Updates Included**
-
-✅ All features from Marketplace version  
-✅ **FREE lifetime updates**  
-✅ Priority Discord support  
-✅ Early access to beta features  
-✅ Custom license options available
-
-<a href="https://unrealsolutions.com" class="download-button primary">
-  Purchase Direct (Best Value)
-</a>
-
-</div>
-
----
-
-## Licensing Options
-
-### Standard License
-
-Perfect for individuals and small teams.
-
-- ✅ Single developer license
-- ✅ Unlimited projects
-- ✅ Commercial use allowed
-- ✅ Community support (Discord)
-- ✅ Source code included
-
-**Price:** Check marketplace for current pricing
-
----
-
-### Team License
-
-For studios and larger teams.
-
-- ✅ Up to 5 developers
-- ✅ Unlimited projects
-- ✅ Commercial use allowed
-- ✅ Priority support
-- ✅ Source code included
-- ✅ Custom licensing terms
-
-**Contact:** [business@unrealsolutions.com](mailto:business@unrealsolutions.com)
-
----
-
-### Enterprise License
-
-Custom solutions for large organizations.
-
-- ✅ Unlimited developers
-- ✅ Unlimited projects
-- ✅ Commercial use allowed
-- ✅ Dedicated support channel
-- ✅ Source code included
-- ✅ Custom features development
-- ✅ SLA available
-- ✅ White-label options
-
-**Contact:** [business@unrealsolutions.com](mailto:business@unrealsolutions.com)
+Visit our [main website download page](/download) for purchasing options, trial versions, and more information.
 
 ---
 
 ## What's Included
-
-### Plugin Features
 
 - 🎥 **Full recording suite** - Viewport, camera, render target, multi-camera
 - 🎵 **Audio recording** - Synchronized audio with submix selection
@@ -106,13 +33,8 @@ Custom solutions for large organizations.
 - 📝 **Complete source code** - Full C++ source for customization
 - 📖 **Documentation** - Comprehensive guides and API reference
 - 🎬 **Sample content** - Demo levels and example Blueprints
-
-### Support & Updates
-
 - 💬 **Discord community** - Active community with fast responses
 - 📧 **Email support** - Direct support from developers
-- 🔄 **Regular updates** - Bug fixes and new features
-- 📚 **Video tutorials** - Step-by-step guides on YouTube
 
 ---
 
@@ -166,35 +88,21 @@ After purchase, follow our [Installation Guide](./products/runtime-video-recorde
 
 ---
 
-## Trial Version
+## Support & Resources
 
-Want to test before purchasing? Join our [Discord](https://discord.gg/wptvWkhtGm) and request a trial license.
-
-**Trial includes:**
-- Full features for 14 days
-- Community support
-- No watermark
-- Commercial project testing allowed
-
----
-
-## Need Help Choosing?
-
-Not sure which license is right for you? We're happy to help!
-
-**Contact us:**
-- 📧 Email: [business@unrealsolutions.com](mailto:business@unrealsolutions.com)
-- 💬 Discord: [Join our community](https://discord.gg/wptvWkhtGm)
-- 🔗 LinkedIn: [Unreal Solutions](https://www.linkedin.com/company/unreal-solutions-company/)
+- 💬 [Discord Community](https://discord.gg/wptvWkhtGm) - Get help and connect with other users
+- 📧 [Email Support](mailto:business@unrealsolutions.com) - Direct support from developers  
+- 📖 [Documentation](/products/runtime-video-recorder/) - Complete guides and API reference
+- 🎥 [Video Tutorials](https://www.youtube.com/watch?v=dmlnrD67Wx8) - Step-by-step video guides
 
 ---
 
 ## Next Steps
 
-1. **[Purchase](https://unrealsolutions.com)** the plugin
-2. Follow the **[Installation Guide](./products/runtime-video-recorder/installation)**
-3. Complete the **[Quick Start Tutorial](./products/runtime-video-recorder/quick-start)**
-4. Join our **[Discord Community](https://discord.gg/wptvWkhtGm)**
+1. **[Download](/download)** the plugin from our main website
+2. Follow the **[Installation Guide](/products/runtime-video-recorder/installation)**
+3. Complete the **[Quick Start Tutorial](/products/runtime-video-recorder/quick-start)**
+4. Join our **[Discord Community](https://discord.gg/wptvWkhtGm)** for support
 
 <style scoped>
 .download-option {
