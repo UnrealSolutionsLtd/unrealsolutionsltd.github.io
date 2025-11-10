@@ -6,13 +6,7 @@ Get Runtime Video Recorder and start recording videos in your Unreal Engine proj
 
 <div class="download-option">
 
-**Runtime Video Recorder v2.0**
-
-✅ All platforms (Windows, macOS, Linux, Android, Oculus)  
-✅ Full source code included  
-✅ Lifetime updates included  
-✅ Discord community support  
-✅ Production-ready performance
+**Runtime Video Recorder (RVR) - Industry standard for video encoding**
 
 <a href="/download" class="download-button primary">
   Download Now
@@ -20,7 +14,7 @@ Get Runtime Video Recorder and start recording videos in your Unreal Engine proj
 
 </div>
 
-Visit our [main website download page](/download) for purchasing options, trial versions, and more information.
+Visit our [main website download page](https://unrealsolutions.com/download) for purchasing options, trial versions, and more information.
 
 ---
 
