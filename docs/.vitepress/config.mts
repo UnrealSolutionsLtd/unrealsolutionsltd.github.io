@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Unreal Solutions",
   description: "Documentation for Unreal Engine Plugins",
-  base: '/',
+  base: '/docs/',  // Docs are served at unrealsolutions.com/docs/
   
   ignoreDeadLinks: true, // Ignore dead links for now (placeholder pages)
   

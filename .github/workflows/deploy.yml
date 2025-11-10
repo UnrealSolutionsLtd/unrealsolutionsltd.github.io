@@ -43,22 +43,29 @@ jobs:
       - name: Build with VitePress
         run: npm run docs:build
       
-      - name: Copy existing site files to dist
+      - name: Prepare deployment structure
         run: |
-          # Copy existing HTML pages and assets to the build output
-          cp index.html docs/.vitepress/dist/ || true
-          cp download.html docs/.vitepress/dist/ || true
-          cp privacy.html docs/.vitepress/dist/ || true
-          cp recorders.html docs/.vitepress/dist/ || true
-          cp video.html docs/.vitepress/dist/ || true
-          cp CNAME docs/.vitepress/dist/ || true
-          cp -r assets docs/.vitepress/dist/ || true
-          cp -r scripts docs/.vitepress/dist/ || true
+          # Create deployment directory
+          mkdir -p deploy
+          
+          # Copy marketing site files to root
+          cp index.html deploy/ || true
+          cp download.html deploy/ || true
+          cp privacy.html deploy/ || true
+          cp recorders.html deploy/ || true
+          cp video.html deploy/ || true
+          cp CNAME deploy/ || true
+          cp -r assets deploy/ || true
+          cp -r scripts deploy/ || true
+          
+          # Copy VitePress docs to /docs/ subdirectory
+          mkdir -p deploy/docs
+          cp -r docs/.vitepress/dist/* deploy/docs/
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/.vitepress/dist
+          path: deploy
 
   # Deployment job
   deploy:
