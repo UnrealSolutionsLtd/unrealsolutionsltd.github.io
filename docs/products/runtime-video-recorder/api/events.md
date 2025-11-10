@@ -21,7 +21,7 @@ FOnRuntimeRecordingEvent OnRecordingStarted;
 
 #### Blueprint Example
 
-```blueprint
+```
 Event BeginPlay
   → Get Engine Subsystem (RuntimeVideoRecorder)
   → Bind Event to OnRecordingStarted
@@ -80,7 +80,7 @@ FOnRuntimeRecordingEvent OnRecordingFinished;
 
 #### Blueprint Example
 
-```blueprint
+```
 Event BeginPlay
   → Get Engine Subsystem (RuntimeVideoRecorder)
   → Bind Event to OnRecordingFinished
@@ -210,7 +210,7 @@ Here's a complete example of a recording manager that uses all events:
 
 ### Blueprint (Pseudocode)
 
-```blueprint
+```
 // Recording Manager Actor
 
 // Variables

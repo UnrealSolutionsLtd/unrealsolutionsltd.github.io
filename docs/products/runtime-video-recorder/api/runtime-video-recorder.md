@@ -5,7 +5,7 @@ The main class for video recording functionality. Access it as an Engine Subsyst
 ## Getting the Subsystem
 
 ### Blueprint
-```blueprint
+```
 Get Engine Subsystem → Class: RuntimeVideoRecorder
 ```
 

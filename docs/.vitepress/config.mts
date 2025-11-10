@@ -6,6 +6,8 @@ export default defineConfig({
   description: "Documentation for Unreal Engine Plugins",
   base: '/',
   
+  ignoreDeadLinks: true, // Ignore dead links for now (placeholder pages)
+  
   head: [
     ['link', { rel: 'icon', href: '/assets/favicon/favicon.ico' }],
     ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/assets/favicon/apple-touch-icon.png' }],

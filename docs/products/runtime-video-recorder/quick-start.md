@@ -12,14 +12,14 @@ In any Blueprint (e.g., your Player Controller, Game Mode, or custom Actor):
 2. Search for **"Get Engine Subsystem"**
 3. Select **Runtime Video Recorder** as the class
 
-![Get Engine Subsystem](/assets/rvr/get-subsystem.png)
+<!-- Image placeholder: Get Engine Subsystem blueprint screenshot -->
 
 ### Step 2: Start Recording
 
 1. Right-click and search for **"Start Recording"**
 2. Connect it to your Begin Play or a custom event (like a button press)
 
-```blueprint
+```
 Event BeginPlay → Start Recording
 ```
 
@@ -38,7 +38,7 @@ Enable Audio Recording: ✓ checked
 1. Search for **"Stop Recording"**
 2. Connect it to your custom event (e.g., key press, button click, or End Play)
 
-```blueprint
+```
 Event (e.g., Key Press R) → Stop Recording
 ```
 
@@ -46,7 +46,7 @@ Event (e.g., Key Press R) → Stop Recording
 
 Here's a complete example that records when **F9** is pressed and stops when **F10** is pressed:
 
-```blueprint
+```
 // Start Recording on F9
 InputAction F9 Pressed
   → Get Engine Subsystem (RuntimeVideoRecorder)

@@ -10,7 +10,7 @@ Common scenarios and step-by-step solutions for Runtime Video Recorder.
 
 ### Blueprint Solution
 
-```blueprint
+```
 // In your Player Controller or Game Mode Blueprint
 
 // Variables
@@ -770,7 +770,7 @@ void ABossFightRecorder::OnBossFightEnd(bool bPlayerWon)
 
 **Usage in Boss Blueprint:**
 
-```blueprint
+```
 // Boss Actor Blueprint
 
 // Event: Boss Health <= 0

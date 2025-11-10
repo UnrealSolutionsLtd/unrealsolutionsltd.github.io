@@ -7,7 +7,7 @@ Configure Runtime Video Recorder globally in your project settings.
 1. Open **Edit** → **Project Settings**
 2. Navigate to **Plugins** → **RuntimeVideoRecorder**
 
-![Project Settings Location](/assets/rvr/settings.png)
+<!-- Image placeholder: Project Settings screenshot -->
 
 ---
 
