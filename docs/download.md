@@ -6,13 +6,7 @@ Get Runtime Video Recorder and start recording videos in your Unreal Engine proj
 
 <div class="download-option">
 
-**Runtime Video Recorder v2.0**
-
-✅ All platforms (Windows, macOS, Linux, Android, Oculus)  
-✅ Full source code included  
-✅ Lifetime updates included  
-✅ Discord community support  
-✅ Production-ready performance
+**Runtime Video Recorder (RVR)**
 
 <a href="/download" class="download-button primary">
   Download Now
@@ -29,8 +23,7 @@ Visit our [main website download page](/download) for purchasing options, trial 
 - 🎥 **Full recording suite** - Viewport, camera, render target, multi-camera
 - 🎵 **Audio recording** - Synchronized audio with submix selection
 - ⚡ **Hardware acceleration** - Native OS API encoding (WMF, AVFoundation, MediaCodec)
-- 🌐 **Cross-platform** - Windows, macOS, Linux, Android, Oculus
-- 📝 **Complete source code** - Full C++ source for customization
+- 🌐 **Cross-platform** - Windows, MacOS, Linux, Android, Oculus
 - 📖 **Documentation** - Comprehensive guides and API reference
 - 🎬 **Sample content** - Demo levels and example Blueprints
 - 💬 **Discord community** - Active community with fast responses
@@ -80,7 +73,7 @@ Visit our [main website download page](/download) for purchasing options, trial 
 After purchase, follow our [Installation Guide](/products/runtime-video-recorder/installation) for step-by-step instructions.
 
 **Quick Install:**
-1. Download from our website (link provided after purchase)
+1. Go to [download page](/download) 
 2. Extract to `YourProject/Plugins/RuntimeVideoRecorder`
 3. Regenerate project files
 4. Compile and enable plugin in Editor
