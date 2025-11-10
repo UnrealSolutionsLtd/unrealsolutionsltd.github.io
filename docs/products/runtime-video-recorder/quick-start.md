@@ -329,7 +329,7 @@ Check the included sample content:
 
 ## Need Help?
 
-- 💬 [Join our Discord](https://discord.gg/wptvWkhtGm)
+- 💬 [Join our Discord](https://discord.com/invite/pBDSCBcdgv)
 - 📧 [Email Support](mailto:business@unrealsolutions.com)
 - 📖 [Full API Reference](./api/runtime-video-recorder)
 

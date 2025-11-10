@@ -61,7 +61,7 @@ The most advanced video recording solution for Unreal Engine. Record high-qualit
 
 ### Need Help?
 
-- 💬 Join our [Discord Community](https://discord.gg/Ujw7QVrWxG) for support
+- 💬 Join our [Discord Community](https://discord.com/invite/pBDSCBcdgv) for support
 - 📧 Contact us at [business@unrealsolutions.com](mailto:business@unrealsolutions.com)
 - 🛒 Visit our [Download Page](/download) for purchasing options
 

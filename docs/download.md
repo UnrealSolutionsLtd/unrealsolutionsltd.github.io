@@ -90,7 +90,7 @@ After purchase, follow our [Installation Guide](/products/runtime-video-recorder
 
 ## Support & Resources
 
-- 💬 [Discord Community](https://discord.gg/wptvWkhtGm) - Get help and connect with other users
+- 💬 [Discord Community](https://discord.com/invite/pBDSCBcdgv) - Get help and connect with other users
 - 📧 [Email Support](mailto:business@unrealsolutions.com) - Direct support from developers  
 - 📖 [Documentation](/products/runtime-video-recorder/) - Complete guides and API reference
 - 🎥 [Video Tutorials](https://www.youtube.com/watch?v=dmlnrD67Wx8) - Step-by-step video guides
@@ -102,7 +102,7 @@ After purchase, follow our [Installation Guide](/products/runtime-video-recorder
 1. **[Download](/download)** the plugin from our main website
 2. Follow the **[Installation Guide](/products/runtime-video-recorder/installation)**
 3. Complete the **[Quick Start Tutorial](/products/runtime-video-recorder/quick-start)**
-4. Join our **[Discord Community](https://discord.gg/wptvWkhtGm)** for support
+4. Join our **[Discord Community](https://discord.com/invite/pBDSCBcdgv)** for support
 
 <style scoped>
 .download-option {

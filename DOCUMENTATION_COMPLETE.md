@@ -348,7 +348,7 @@ npm run docs:dev -- --port 3000
 
 Need help with VitePress or documentation?
 
-- 💬 **Discord:** [discord.gg/wptvWkhtGm](https://discord.gg/wptvWkhtGm)
+- 💬 **Discord:** [discord.com/invite/pBDSCBcdgv](https://discord.com/invite/pBDSCBcdgv)
 - 📧 **Email:** business@unrealsolutions.com
 - 📖 **VitePress Docs:** https://vitepress.dev
 - 🐙 **GitHub:** Create an issue in your repo
