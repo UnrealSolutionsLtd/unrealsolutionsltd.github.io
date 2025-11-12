@@ -176,6 +176,17 @@ jobs:
             git commit -m "Add new API key to rvr_trial.bin"
             git push origin ${{ github.ref }}
       
+      - name: Trigger documentation deployment
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'deploy.yml',
+              ref: 'main'
+            });
+      
       - name: Trigger rvr_crm workflow
         uses: actions/github-script@v6
         with:
