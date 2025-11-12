@@ -1,5 +1,5 @@
 # Deploy VitePress documentation to GitHub Pages
-name: Deploy Documentation
+name: DeployWithDocumentation
 
 on:
   push:
