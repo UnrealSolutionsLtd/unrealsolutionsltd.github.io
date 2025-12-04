@@ -24,6 +24,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Products', items: [
         { text: 'Runtime Video Recorder', link: '/products/runtime-video-recorder/' },
+        { text: 'Vulkan Media Player', link: '/products/vulkan-media-player/' },
         // Add more products here as they become available
       ]},
       { text: 'Download', link: '/download' },
@@ -67,6 +68,26 @@ export default defineConfig({
             { text: 'URuntimeVideoRecorder', link: '/products/runtime-video-recorder/api/runtime-video-recorder' },
             { text: 'Encoder Settings', link: '/products/runtime-video-recorder/api/encoder-settings' },
             { text: 'Events & Delegates', link: '/products/runtime-video-recorder/api/events' }
+          ]
+        }
+      ],
+      '/products/vulkan-media-player/': [
+        {
+          text: 'Getting Started',
+          collapsed: false,
+          items: [
+            { text: 'Introduction', link: '/products/vulkan-media-player/' },
+            { text: 'Installation', link: '/products/vulkan-media-player/installation' },
+            { text: 'Quick Start', link: '/products/vulkan-media-player/quick-start' }
+          ]
+        },
+        {
+          text: 'Features',
+          collapsed: false,
+          items: [
+            { text: 'Video Playback', link: '/products/vulkan-media-player/features/video-playback' },
+            { text: 'Audio Support', link: '/products/vulkan-media-player/features/audio-support' },
+            { text: 'Performance', link: '/products/vulkan-media-player/features/performance' }
           ]
         }
       ]
