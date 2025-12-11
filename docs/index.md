@@ -16,7 +16,7 @@ hero:
       text: Vulkan Media Player
       link: /products/vulkan-media-player/
     - theme: alt
-      text: Download
+      text: Get Trial
       link: /download
 
 features:
@@ -80,7 +80,7 @@ Hardware-accelerated video playback plugin leveraging Vulkan Video API for effic
 
 - 💬 Join our [Discord Community](https://discord.com/invite/pBDSCBcdgv) for support
 - 📧 Contact us at [business@unrealsolutions.com](mailto:business@unrealsolutions.com)
-- 🛒 Visit our [Download Page](/download) for purchasing options
+- 🛒 [Request API Key & Download](/download) to get started
 
 ### Trusted by Leading Companies
 

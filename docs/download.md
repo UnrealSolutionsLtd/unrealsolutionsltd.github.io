@@ -4,7 +4,11 @@ Get Runtime Video Recorder and start recording videos in your Unreal Engine proj
 
 ## Get Started
 
-Download Trial version [here](https://drive.google.com/drive/folders/1vv2RanJ07J2719C7mW-6G6-fQ_oTK391?usp=drive_link).
+<a href="https://tally.so/r/mZDq7v" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 12px 24px; background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%); color: white; font-weight: 600; border-radius: 8px; text-decoration: none; margin: 1rem 0;">
+  📥 Request API Key & Download Trial
+</a>
+
+Fill out the quick form to receive your API key and download link via email.
 
 ---
 
