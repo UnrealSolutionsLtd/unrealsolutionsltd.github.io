@@ -57,6 +57,7 @@ jobs:
           cp CNAME deploy/ || true
           cp -r assets deploy/ || true
           cp -r scripts deploy/ || true
+          cp -r products deploy/ || true  # Redirect pages for old URLs
           
           # Copy VitePress docs to /docs/ subdirectory
           mkdir -p deploy/docs
