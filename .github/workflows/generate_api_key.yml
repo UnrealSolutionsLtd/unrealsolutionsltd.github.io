@@ -124,36 +124,3 @@ jobs:
           secure: true
           ignore_cert: true
           convert_markdown: true
-
-      - name: Send Follow-up for Vague Use Case
-        if: env.USE_CASE_IS_VAGUE == 'true'
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.privateemail.com
-          server_port: 465
-          username: ${{secrets.EMAIL}}
-          password: ${{secrets.PASSWORD}}
-          subject: "Runtime Video Recorder | Tell us more about your project"
-          to: "${{ inputs.email }}"
-          from: ${{secrets.FROM}}
-          body: |
-            Hello,
-            
-            Thank you for your interest in the Runtime Video Recorder API! 
-            
-            Your API key has been generated and sent in a separate email.
-            
-            We noticed your use case was quite brief:
-            "${{ inputs.use_case }}"
-            
-            We'd love to learn more about your project! Could you share a bit more detail when you get a chance? For example:
-            - What type of project or application are you working on?
-            - What do you plan to use the video recording feature for?
-            - Any specific features or requirements you're interested in?
-            
-            This helps us better understand our users and improve the product. No rush - just reply to this email when convenient!
-            
-            Best regards,
-            Runtime Video Recorder Team
-          secure: true
-          ignore_cert: true
