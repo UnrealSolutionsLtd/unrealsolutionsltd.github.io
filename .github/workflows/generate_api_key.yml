@@ -100,13 +100,14 @@ jobs:
             # Use SHA256 hash of email combined with random data for uniqueness
 
             SALT="salty-salt-3214"  # Optional but recommended
-            API_KEY_HASH=$(echo -n "${SALT}${USER_EMAIL}" | sha256sum | head -c 16)
+            API_KEY_HASH=$(echo -n "${SALT}${USER_EMAIL}" | sha256sum | head -c 8 | tr '[:lower:]' '[:upper:]')
 
-            # Get the expiry date (duration days from now) in day-month-year format
+            # Get expiry dates - compact for key, readable for emails
+            EXPIRY_DATE_KEY=$(date -d "+$DURATION days" +"%d%m%y")
             EXPIRY_DATE=$(date -d "+$DURATION days" +"%d-%m-%Y")
 
-            # Combine API key and expiry date in the format "API_KEY_26_03_2025"
-            API_KEY="${API_KEY_HASH}_${EXPIRY_DATE}"
+            # Combine into searchable format: RVRTRIAL + hash + expiry
+            API_KEY="RVRTRIAL${API_KEY_HASH}${EXPIRY_DATE_KEY}"
 
             # Debug: Check if variables are set
             echo "Generated API_KEY_HASH: $API_KEY_HASH"
@@ -117,7 +118,7 @@ jobs:
             echo "EXPIRY_DATE=$EXPIRY_DATE" >> $GITHUB_ENV
             echo "API_KEY=$API_KEY" >> $GITHUB_ENV
 
-            if grep -q "^${API_KEY_HASH}_" assets/rvr/rvr_trial.bin; then
+            if grep -q "RVRTRIAL${API_KEY_HASH}" assets/rvr/rvr_trial.bin; then
               echo "❌ API key prefix already exists in rvr_trial.bin. Skipping append and commit."
               exit 1
             fi
