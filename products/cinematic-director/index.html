@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cinematic Director Plugin for Unreal Engine | Smart Camera & Trailer Tools</title>
+    <meta name="description" content="AI-powered cinematic tools for Unreal Engine. Automated camera placement, smart shot composition, timeline automation, and real-time collaboration for game trailers and cinematics. The best cinematic director plugin for UE5.">
+    <meta name="keywords" content="AI camera placement tools unreal engine, automated shot composition plugins game cinematics, best cinematic director tools UE5, AI-assisted trailer creation game studios, smart camera rigging plugins unreal engine, automated cinematic editing tools games, AI storyboarding render workflow unreal, real-time collaboration tools game cinematics, cinematic timeline automation unreal engine, best plugins game trailer production">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unrealsolutions.com/products/cinematic-director/">
+    <meta property="og:title" content="AI Cinematic Director Plugin for Unreal Engine | Smart Camera & Trailer Tools">
+    <meta property="og:description" content="AI-powered automated camera placement, shot composition, and cinematic timeline automation for Unreal Engine. Create professional game trailers with intelligent cinematography.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/linkedin_preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://unrealsolutions.com/products/cinematic-director/">
+    <meta name="twitter:title" content="AI Cinematic Director Plugin for Unreal Engine">
+    <meta name="twitter:description" content="Automated camera placement, smart shot composition, and AI-assisted trailer creation for UE5. The best cinematic director tools for game studios.">
+    <meta name="twitter:image" content="https://unrealsolutions.com/assets/linkedin_preview.png">
+    
+    <!-- Additional SEO -->
+    <meta name="author" content="Unreal Solutions Ltd">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unrealsolutions.com/products/cinematic-director/">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../../assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+
+    <script defer src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AI Cinematic Director Plugin",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "Game Development Tools",
+      "operatingSystem": ["Windows", "macOS", "Linux"],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "description": "AI-powered cinematic tools for Unreal Engine featuring automated camera placement, smart shot composition, timeline automation, and real-time collaboration for professional game trailers.",
+      "url": "https://unrealsolutions.com/products/cinematic-director/",
+      "author": {
+        "@type": "Organization",
+        "name": "Unreal Solutions Ltd",
+        "url": "https://unrealsolutions.com"
+      },
+      "featureList": [
+        "AI Camera Placement",
+        "Automated Shot Composition",
+        "Smart Camera Rigging",
+        "Cinematic Timeline Automation",
+        "Real-Time Collaboration",
+        "AI Storyboarding to Render",
+        "Game Trailer Production"
+      ]
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What are the best AI camera placement tools for Unreal Engine?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The AI Cinematic Director Plugin provides intelligent camera placement that analyzes your scene composition, character positions, and lighting to suggest optimal camera angles. It uses machine learning trained on cinematic principles from film and game trailers to automate professional-quality shot composition."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How does automated shot composition work for game cinematics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Automated shot composition analyzes the rule of thirds, leading lines, depth of field, and subject positioning to create visually compelling frames. The AI Cinematic Director evaluates each shot against professional cinematography standards and can automatically adjust camera position, focal length, and depth of field."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can AI help with game trailer creation in Unreal Engine?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! AI-assisted trailer creation streamlines the entire workflow from storyboarding to final render. The plugin can suggest shot sequences, automate camera movements, synchronize cuts to audio beats, and generate multiple trailer variations for A/B testing—reducing trailer production time by up to 70%."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is cinematic timeline automation in UE5?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cinematic timeline automation uses AI to analyze your Sequencer tracks and automatically generate camera cuts, transitions, and timing. It can sync animations to audio, create smooth camera paths between keyframes, and suggest pacing improvements based on trailer genre and target audience."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does the plugin support real-time collaboration for cinematics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the AI Cinematic Director includes real-time collaboration features allowing multiple team members to work on the same cinematic sequence. Directors can review AI suggestions while artists adjust shots, with live syncing and version control built in."
+        }
+      }]
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://unrealsolutions.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "AI Cinematic Director Plugin",
+        "item": "https://unrealsolutions.com/products/cinematic-director/"
+      }]
+    }
+    </script>
+    
+    <!-- Google Fonts - Distinctive Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+      :root {
+        --accent-gold: #f59e0b;
+        --accent-amber: #d97706;
+        --accent-orange: #ea580c;
+        --film-black: #0a0a0a;
+        --film-dark: #171717;
+        --film-gray: #262626;
+      }
+      
+      body {
+        font-family: 'Source Sans 3', sans-serif;
+        background: linear-gradient(180deg, var(--film-black) 0%, #0f0f0f 50%, var(--film-dark) 100%);
+      }
+      
+      .display-font {
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 0.05em;
+      }
+      
+      /* Film strip decorative elements */
+      .film-strip-top {
+        background: repeating-linear-gradient(
+          90deg,
+          transparent 0px,
+          transparent 20px,
+          var(--film-gray) 20px,
+          var(--film-gray) 24px,
+          transparent 24px,
+          transparent 44px
+        );
+        height: 8px;
+        opacity: 0.4;
+      }
+      
+      .hero-glow {
+        background: radial-gradient(ellipse at center top, rgba(245, 158, 11, 0.15) 0%, transparent 60%);
+      }
+      
+      .feature-card {
+        background: linear-gradient(135deg, rgba(38, 38, 38, 0.9) 0%, rgba(23, 23, 23, 0.95) 100%);
+        border: 1px solid rgba(245, 158, 11, 0.2);
+        border-radius: 1rem;
+        padding: 2rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent-amber), var(--accent-gold), var(--accent-orange));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 25px 50px rgba(245, 158, 11, 0.15);
+        border-color: rgba(245, 158, 11, 0.4);
+      }
+      
+      .feature-card:hover::before {
+        opacity: 1;
+      }
+      
+      .workflow-step {
+        position: relative;
+        padding-left: 4rem;
+      }
+      
+      .workflow-step::before {
+        content: attr(data-step);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3rem;
+        height: 3rem;
+        background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-amber) 100%);
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.5rem;
+        color: black;
+      }
+      
+      .workflow-step::after {
+        content: '';
+        position: absolute;
+        left: 1.4rem;
+        top: 3.5rem;
+        width: 2px;
+        height: calc(100% + 1rem);
+        background: linear-gradient(180deg, var(--accent-gold), transparent);
+      }
+      
+      .workflow-step:last-child::after {
+        display: none;
+      }
+      
+      .camera-icon {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-amber) 100%);
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+      
+      .stats-card {
+        background: rgba(38, 38, 38, 0.6);
+        border: 1px solid rgba(245, 158, 11, 0.15);
+        border-radius: 1rem;
+        padding: 2rem;
+        text-align: center;
+      }
+      
+      .cta-primary {
+        background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-amber) 100%);
+        color: black;
+        font-weight: 700;
+        padding: 1rem 2rem;
+        border-radius: 0.75rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+      }
+      
+      .cta-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(245, 158, 11, 0.4);
+      }
+      
+      .cta-secondary {
+        background: transparent;
+        color: var(--accent-gold);
+        border: 2px solid var(--accent-gold);
+        padding: 1rem 2rem;
+        border-radius: 0.75rem;
+        transition: all 0.3s ease;
+      }
+      
+      .cta-secondary:hover {
+        background: rgba(245, 158, 11, 0.1);
+      }
+      
+      .use-case-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(245, 158, 11, 0.1);
+        border: 1px solid rgba(245, 158, 11, 0.3);
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        color: #fbbf24;
+        transition: all 0.2s ease;
+      }
+      
+      .use-case-pill:hover {
+        background: rgba(245, 158, 11, 0.2);
+        border-color: rgba(245, 158, 11, 0.5);
+      }
+      
+      /* Animated film reel decoration */
+      @keyframes filmRoll {
+        from { background-position: 0 0; }
+        to { background-position: 88px 0; }
+      }
+      
+      .film-decoration {
+        animation: filmRoll 2s linear infinite;
+        background: repeating-linear-gradient(
+          90deg,
+          transparent 0px,
+          transparent 20px,
+          rgba(245, 158, 11, 0.2) 20px,
+          rgba(245, 158, 11, 0.2) 24px,
+          transparent 24px,
+          transparent 44px
+        );
+        height: 4px;
+      }
+      
+      .faq-item {
+        background: rgba(38, 38, 38, 0.6);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      .faq-item:hover {
+        border-color: rgba(245, 158, 11, 0.3);
+      }
+      
+      /* Viewfinder corners decoration */
+      .viewfinder {
+        position: relative;
+      }
+      
+      .viewfinder::before,
+      .viewfinder::after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-color: var(--accent-gold);
+        border-style: solid;
+        opacity: 0.5;
+      }
+      
+      .viewfinder::before {
+        top: -1px;
+        left: -1px;
+        border-width: 3px 0 0 3px;
+      }
+      
+      .viewfinder::after {
+        bottom: -1px;
+        right: -1px;
+        border-width: 0 3px 3px 0;
+      }
+    </style>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="min-h-screen text-gray-100">
+    <!-- Film Strip Top Decoration -->
+    <div class="film-strip-top"></div>
+    
+    <main class="container mx-auto px-4 sm:px-20">
+      <!-- Navigation -->
+      <div class="relative pt-4 sm:pt-0">
+        <div class="mb-4 sm:mb-0 sm:fixed sm:top-0 sm:left-0 sm:right-0 z-50 sm:bg-black/90 sm:backdrop-blur-md sm:border-b sm:border-amber-900/30">
+          <div class="flex items-center justify-between sm:px-6 sm:py-3">
+            <a href="/">
+              <img 
+                src="../../assets/logo.png" 
+                alt="Unreal Solutions Logo" 
+                class="h-12 sm:h-14 w-auto drop-shadow-[0_0_0.3rem_#f59e0b50] cursor-pointer hover:opacity-80 transition-opacity"
+              >
+            </a>
+            <nav class="hidden sm:flex items-center gap-6">
+              <a href="/" class="text-gray-400 hover:text-amber-400 transition-colors">Home</a>
+              <a href="/docs/" class="text-gray-400 hover:text-amber-400 transition-colors">Documentation</a>
+              <a href="/products/runtime-video-recorder/" class="text-gray-400 hover:text-amber-400 transition-colors">Video Recorder</a>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero-glow sm:pt-28 pb-8 sm:py-16">
+          <div class="mx-auto max-w-6xl">
+            <!-- Breadcrumb -->
+            <nav class="mb-8 text-sm">
+              <ol class="flex items-center gap-2 text-gray-500">
+                <li><a href="/" class="hover:text-amber-400 transition-colors">Home</a></li>
+                <li>/</li>
+                <li class="text-amber-500">AI Cinematic Director Plugin</li>
+              </ol>
+            </nav>
+
+            <div class="text-center mb-16">
+              <span class="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 text-amber-400 rounded-full text-sm font-medium mb-6 border border-amber-500/30">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
+                  <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/>
+                </svg>
+                Cinematic Production Tools
+              </span>
+              
+              <h1 class="display-font text-5xl sm:text-7xl lg:text-8xl tracking-wide text-white mb-6">
+                AI CINEMATIC<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500">DIRECTOR</span>
+              </h1>
+              
+              <p class="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+                Intelligent camera placement, automated shot composition, and AI-powered trailer creation for 
+                <span class="text-amber-400 font-semibold">Unreal Engine 5</span>. Transform your cinematics workflow.
+              </p>
+
+              <!-- Use Case Pills -->
+              <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <span class="use-case-pill">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/></svg>
+                  Game Trailers
+                </span>
+                <span class="use-case-pill">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A2 2 0 0011.172 3H8.828a2 2 0 00-1.414.586L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+                  Cutscenes
+                </span>
+                <span class="use-case-pill">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/></svg>
+                  Marketing Videos
+                </span>
+                <span class="use-case-pill">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+                  Storyboarding
+                </span>
+              </div>
+              
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a 
+                  href="https://tally.so/r/mZDq7v"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-primary inline-flex items-center text-lg"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                  </svg>
+                  Get Early Access
+                </a>
+                <a 
+                  href="/docs/"
+                  class="cta-secondary inline-flex items-center"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  Watch Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Film Decoration -->
+      <div class="film-decoration my-8"></div>
+
+      <!-- Problem/Solution Section -->
+      <div class="py-16">
+        <div class="mx-auto max-w-6xl">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Problem -->
+            <div class="bg-red-950/30 border border-red-900/30 rounded-2xl p-8">
+              <h2 class="display-font text-3xl text-white mb-6">THE CINEMATICS BOTTLENECK</h2>
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <span class="text-red-400 text-xl mt-1">✗</span>
+                  <div>
+                    <h3 class="font-semibold text-white">Manual Camera Setup Takes Forever</h3>
+                    <p class="text-gray-400 text-sm">Hours spent positioning cameras, adjusting focal lengths, and tweaking compositions for every shot.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-red-400 text-xl mt-1">✗</span>
+                  <div>
+                    <h3 class="font-semibold text-white">Inconsistent Shot Quality</h3>
+                    <p class="text-gray-400 text-sm">Different team members create shots with varying quality. No standardized cinematography.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-red-400 text-xl mt-1">✗</span>
+                  <div>
+                    <h3 class="font-semibold text-white">Trailer Iterations Are Expensive</h3>
+                    <p class="text-gray-400 text-sm">Creating multiple trailer versions for A/B testing or different platforms is time-prohibitive.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-red-400 text-xl mt-1">✗</span>
+                  <div>
+                    <h3 class="font-semibold text-white">Storyboard-to-Render Gap</h3>
+                    <p class="text-gray-400 text-sm">Translating storyboards into Sequencer is a tedious manual process with lots of back-and-forth.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Solution -->
+            <div class="bg-gradient-to-br from-amber-950/40 to-amber-900/20 border border-amber-500/30 rounded-2xl p-8">
+              <h2 class="display-font text-3xl text-white mb-6">AI-POWERED SOLUTION</h2>
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <span class="text-amber-400 text-xl mt-1">✓</span>
+                  <div>
+                    <h3 class="font-semibold text-white">Automated Camera Placement</h3>
+                    <p class="text-gray-300 text-sm">AI analyzes scene composition and suggests optimal camera positions in seconds.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-amber-400 text-xl mt-1">✓</span>
+                  <div>
+                    <h3 class="font-semibold text-white">Professional Shot Composition</h3>
+                    <p class="text-gray-300 text-sm">Every shot follows cinematic principles—rule of thirds, leading lines, depth of field.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-amber-400 text-xl mt-1">✓</span>
+                  <div>
+                    <h3 class="font-semibold text-white">One-Click Trailer Variations</h3>
+                    <p class="text-gray-300 text-sm">Generate multiple trailer cuts automatically. Different lengths, pacing, and platforms.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-amber-400 text-xl mt-1">✓</span>
+                  <div>
+                    <h3 class="font-semibold text-white">Storyboard → Sequencer Pipeline</h3>
+                    <p class="text-gray-300 text-sm">Import storyboards and get AI-generated camera setups in your Sequencer timeline.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Features Section -->
+      <div class="py-16">
+        <div class="mx-auto max-w-6xl">
+          <div class="text-center mb-16">
+            <h2 class="display-font text-4xl sm:text-5xl text-white mb-4">INTELLIGENT CINEMATOGRAPHY TOOLS</h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+              Everything you need to create professional game cinematics with AI-assisted automation
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Feature 1: AI Camera Placement -->
+            <div class="feature-card">
+              <div class="camera-icon">
+                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">AI Camera Placement</h3>
+              <p class="text-gray-400 mb-4">Machine learning analyzes your scene—characters, environment, lighting—and suggests optimal camera positions for maximum visual impact.</p>
+              <ul class="text-sm text-gray-500 space-y-1">
+                <li>• Scene composition analysis</li>
+                <li>• Character focus detection</li>
+                <li>• Dynamic repositioning</li>
+              </ul>
+            </div>
+
+            <!-- Feature 2: Smart Shot Composition -->
+            <div class="feature-card">
+              <div class="camera-icon">
+                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Smart Shot Composition</h3>
+              <p class="text-gray-400 mb-4">Automatically apply professional cinematography rules. Rule of thirds, golden ratio, leading lines—all enforced by AI.</p>
+              <ul class="text-sm text-gray-500 space-y-1">
+                <li>• Rule of thirds overlay</li>
+                <li>• Depth of field suggestions</li>
+                <li>• Focal length optimization</li>
+              </ul>
+            </div>
+
+            <!-- Feature 3: Camera Rigging Automation -->
+            <div class="feature-card">
+              <div class="camera-icon">
+                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Smart Camera Rigging</h3>
+              <p class="text-gray-400 mb-4">Generate complex camera rigs automatically. Crane shots, dolly moves, orbital cameras—all with smooth, professional motion.</p>
+              <ul class="text-sm text-gray-500 space-y-1">
+                <li>• Pre-built rig templates</li>
+                <li>• Smooth path generation</li>
+                <li>• Collision avoidance</li>
+              </ul>
+            </div>
+
+            <!-- Feature 4: Timeline Automation -->
+            <div class="feature-card">
+              <div class="camera-icon">
+                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Timeline Automation</h3>
+              <p class="text-gray-400 mb-4">AI analyzes your Sequencer tracks and suggests cuts, transitions, and pacing. Sync to audio beats automatically.</p>
+              <ul class="text-sm text-gray-500 space-y-1">
+                <li>• Audio beat detection</li>
+                <li>• Automatic cut points</li>
+                <li>• Pacing optimization</li>
+              </ul>
+            </div>
+
+            <!-- Feature 5: AI Storyboarding -->
+            <div class="feature-card">
+              <div class="camera-icon">
+                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Storyboard → Render</h3>
+              <p class="text-gray-400 mb-4">Import storyboard images or descriptions. AI generates corresponding camera setups and sequences in Sequencer.</p>
+              <ul class="text-sm text-gray-500 space-y-1">
+                <li>• Image-to-camera translation</li>
+                <li>• Text prompt support</li>
+                <li>• Sequence generation</li>
+              </ul>
+            </div>
+
+            <!-- Feature 6: Real-Time Collaboration -->
+            <div class="feature-card">
+              <div class="camera-icon">
+                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Real-Time Collaboration</h3>
+              <p class="text-gray-400 mb-4">Multiple team members can work on cinematics simultaneously. Directors review while artists iterate.</p>
+              <ul class="text-sm text-gray-500 space-y-1">
+                <li>• Live session syncing</li>
+                <li>• Version control built-in</li>
+                <li>• Review & approval workflow</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workflow Section -->
+      <div class="py-16">
+        <div class="mx-auto max-w-5xl">
+          <div class="text-center mb-16">
+            <h2 class="display-font text-4xl sm:text-5xl text-white mb-4">FROM CONCEPT TO RENDER</h2>
+            <p class="text-gray-400 text-lg">AI-assisted trailer creation workflow</p>
+          </div>
+          
+          <div class="space-y-12">
+            <div class="workflow-step" data-step="1">
+              <h3 class="text-2xl font-bold text-white mb-3">Import Your Assets</h3>
+              <p class="text-gray-400 mb-4">Load your game scenes, characters, and any storyboard references. The AI begins analyzing scene composition and key focal points.</p>
+              <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
+                <span class="text-amber-400">Supported:</span> Level sequences, character meshes, storyboard images, text descriptions
+              </div>
+            </div>
+
+            <div class="workflow-step" data-step="2">
+              <h3 class="text-2xl font-bold text-white mb-3">AI Generates Camera Suggestions</h3>
+              <p class="text-gray-400 mb-4">Within seconds, receive multiple camera placement options for each scene. Each suggestion includes composition analysis and cinematography rationale.</p>
+              <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
+                <span class="text-amber-400">Output:</span> 5-10 camera positions per scene, ranked by composition score
+              </div>
+            </div>
+
+            <div class="workflow-step" data-step="3">
+              <h3 class="text-2xl font-bold text-white mb-3">Refine & Customize</h3>
+              <p class="text-gray-400 mb-4">Accept suggestions or tweak them manually. AI learns from your preferences and improves future recommendations for your project style.</p>
+              <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
+                <span class="text-amber-400">Tools:</span> One-click accept, drag-to-adjust, style preferences, save presets
+              </div>
+            </div>
+
+            <div class="workflow-step" data-step="4">
+              <h3 class="text-2xl font-bold text-white mb-3">Timeline Assembly</h3>
+              <p class="text-gray-400 mb-4">AI assembles shots into Sequencer, suggests cut points synced to your audio track, and generates smooth camera transitions between shots.</p>
+              <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
+                <span class="text-amber-400">Features:</span> Beat-synced cuts, transition effects, pacing templates (action, dramatic, emotional)
+              </div>
+            </div>
+
+            <div class="workflow-step" data-step="5">
+              <h3 class="text-2xl font-bold text-white mb-3">Export & Iterate</h3>
+              <p class="text-gray-400 mb-4">Render directly or export for post-production. Generate multiple variations for A/B testing with one click—different lengths, pacing, music sync.</p>
+              <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
+                <span class="text-amber-400">Exports:</span> Movie Render Queue integration, platform-specific presets (Steam, PlayStation, YouTube)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="py-16">
+        <div class="mx-auto max-w-6xl">
+          <div class="viewfinder rounded-2xl p-8 sm:p-12 bg-gradient-to-br from-amber-950/30 to-gray-900/50 border border-amber-900/30">
+            <h2 class="display-font text-3xl sm:text-4xl text-white text-center mb-12">PRODUCTION EFFICIENCY GAINS</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div class="stats-card">
+                <div class="display-font text-5xl text-amber-400 mb-2">70%</div>
+                <p class="text-gray-400">Faster trailer production</p>
+              </div>
+              <div class="stats-card">
+                <div class="display-font text-5xl text-amber-400 mb-2">10x</div>
+                <p class="text-gray-400">More shot variations explored</p>
+              </div>
+              <div class="stats-card">
+                <div class="display-font text-5xl text-amber-400 mb-2">5min</div>
+                <p class="text-gray-400">Storyboard to rough cut</p>
+              </div>
+              <div class="stats-card">
+                <div class="display-font text-5xl text-amber-400 mb-2">∞</div>
+                <p class="text-gray-400">Trailer variations on demand</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Cases Section -->
+      <div class="py-16">
+        <div class="mx-auto max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="display-font text-4xl sm:text-5xl text-white mb-4">BUILT FOR GAME STUDIOS</h2>
+            <p class="text-gray-400 text-lg">From indie teams to AAA productions</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
+              <h3 class="text-xl font-bold text-white mb-3">🎬 Game Trailer Production</h3>
+              <p class="text-gray-400 mb-4">Create compelling game trailers faster than ever. AI suggests dramatic camera angles, action-packed cuts, and audio-synced edits.</p>
+              <p class="text-amber-400 text-sm">Perfect for: Marketing teams, publishers, indie developers</p>
+            </div>
+            
+            <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
+              <h3 class="text-xl font-bold text-white mb-3">🎭 In-Game Cutscenes</h3>
+              <p class="text-gray-400 mb-4">Build cinematic cutscenes that rival pre-rendered quality. AI ensures consistent shot composition across your entire game.</p>
+              <p class="text-amber-400 text-sm">Perfect for: Narrative designers, cinematic artists, level designers</p>
+            </div>
+            
+            <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
+              <h3 class="text-xl font-bold text-white mb-3">📱 Social Media Content</h3>
+              <p class="text-gray-400 mb-4">Generate platform-specific content variations. 15-second TikTok cuts, 30-second YouTube pre-rolls, 60-second trailers—all from one session.</p>
+              <p class="text-amber-400 text-sm">Perfect for: Community managers, social media teams, content creators</p>
+            </div>
+            
+            <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
+              <h3 class="text-xl font-bold text-white mb-3">🎓 Pre-Visualization</h3>
+              <p class="text-gray-400 mb-4">Quickly visualize cinematic ideas before committing resources. Present stakeholders with multiple approaches in a single meeting.</p>
+              <p class="text-amber-400 text-sm">Perfect for: Directors, producers, pre-vis teams</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="py-16">
+        <div class="mx-auto max-w-4xl">
+          <div class="text-center mb-12">
+            <h2 class="display-font text-4xl text-white mb-4">FREQUENTLY ASKED QUESTIONS</h2>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="faq-item p-6">
+              <h3 class="text-xl font-bold text-white mb-3">What are the best AI camera placement tools for Unreal Engine?</h3>
+              <p class="text-gray-400">The AI Cinematic Director Plugin provides intelligent camera placement that analyzes your scene composition, character positions, and lighting to suggest optimal camera angles. It uses machine learning trained on cinematic principles from film and game trailers to automate professional-quality shot composition.</p>
+            </div>
+            
+            <div class="faq-item p-6">
+              <h3 class="text-xl font-bold text-white mb-3">How does automated shot composition work for game cinematics?</h3>
+              <p class="text-gray-400">Automated shot composition analyzes the rule of thirds, leading lines, depth of field, and subject positioning to create visually compelling frames. The AI Cinematic Director evaluates each shot against professional cinematography standards and can automatically adjust camera position, focal length, and depth of field.</p>
+            </div>
+            
+            <div class="faq-item p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Can AI help with game trailer creation in Unreal Engine?</h3>
+              <p class="text-gray-400">Yes! AI-assisted trailer creation streamlines the entire workflow from storyboarding to final render. The plugin can suggest shot sequences, automate camera movements, synchronize cuts to audio beats, and generate multiple trailer variations for A/B testing—reducing trailer production time by up to 70%.</p>
+            </div>
+            
+            <div class="faq-item p-6">
+              <h3 class="text-xl font-bold text-white mb-3">What is cinematic timeline automation in UE5?</h3>
+              <p class="text-gray-400">Cinematic timeline automation uses AI to analyze your Sequencer tracks and automatically generate camera cuts, transitions, and timing. It can sync animations to audio, create smooth camera paths between keyframes, and suggest pacing improvements based on trailer genre and target audience.</p>
+            </div>
+            
+            <div class="faq-item p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Does the plugin support real-time collaboration for cinematics?</h3>
+              <p class="text-gray-400">Yes, the AI Cinematic Director includes real-time collaboration features allowing multiple team members to work on the same cinematic sequence. Directors can review AI suggestions while artists adjust shots, with live syncing and version control built in.</p>
+            </div>
+            
+            <div class="faq-item p-6">
+              <h3 class="text-xl font-bold text-white mb-3">What Unreal Engine versions are supported?</h3>
+              <p class="text-gray-400">The AI Cinematic Director Plugin supports Unreal Engine 5.0 and above, with full compatibility for UE5.1, UE5.2, UE5.3, and UE5.4. The plugin integrates directly with Sequencer and Movie Render Queue for seamless workflow integration.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="py-16">
+        <div class="mx-auto max-w-4xl">
+          <div class="viewfinder rounded-2xl p-8 sm:p-12 bg-gradient-to-r from-amber-600 to-orange-600 text-center">
+            <h2 class="display-font text-4xl sm:text-5xl text-black mb-4">TRANSFORM YOUR CINEMATICS WORKFLOW</h2>
+            <p class="text-amber-950 mb-8 text-lg max-w-2xl mx-auto">
+              Join studios using AI-powered tools to create professional game trailers and cinematics faster than ever before.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a 
+                href="https://tally.so/r/mZDq7v"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-8 py-4 text-lg font-bold text-amber-600 bg-black rounded-xl hover:bg-gray-900 transition-all duration-200 shadow-lg"
+              >
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                Request Early Access
+              </a>
+              <a 
+                href="mailto:business@unrealsolutions.com"
+                class="text-black hover:text-amber-950 underline font-medium"
+              >
+                Contact for Enterprise Licensing
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Products -->
+      <div class="py-16">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="display-font text-2xl text-white mb-8">RELATED TOOLS</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <a href="/products/runtime-video-recorder/" class="block bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Runtime Video Recorder</h3>
+              <p class="text-gray-500 text-sm">Record your cinematics at runtime. Capture Sequencer playback with hardware acceleration.</p>
+            </a>
+            <a href="/use-cases/game-testing-video-recording.html" class="block bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Game Testing & QA</h3>
+              <p class="text-gray-500 text-sm">Capture gameplay for testing and bug reporting during development.</p>
+            </a>
+            <a href="/" class="block bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">All Unreal Solutions Products</h3>
+              <p class="text-gray-500 text-sm">Explore our full suite of professional Unreal Engine plugins.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="py-8 border-t border-gray-800">
+        <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+          <a href="/docs/" class="text-amber-400 hover:text-amber-300 transition-colors">Documentation</a>
+          <a href="/recorders.html" class="text-amber-400 hover:text-amber-300 transition-colors">Compare Recorders</a>
+          <a href="mailto:business@unrealsolutions.com" class="text-amber-400 hover:text-amber-300 transition-colors">Contact</a>
+          <a href="/privacy.html" class="text-amber-400 hover:text-amber-300 transition-colors">Privacy Policy</a>
+        </div>
+        <div class="text-center text-gray-600 text-sm">
+          © Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2025
+        </div>
+      </div>
+    </main>
+    
+    <!-- Film Strip Bottom Decoration -->
+    <div class="film-strip-top"></div>
+</body>
+</html>
+

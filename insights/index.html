@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Insights | Unreal Engine Game Development & Cinematic Tools</title>
+    <meta name="description" content="Expert analysis on Unreal Engine, game development trends, AI motion capture, virtual production workflows, and cinematic tools. Insights for studio decision-makers and technical directors.">
+    <meta name="keywords" content="unreal engine insights, game development trends, virtual production guide, AI motion capture comparison, game engine analysis, cinematic tools for games">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unrealsolutions.com/insights/">
+    <meta property="og:title" content="Industry Insights | Unreal Engine Game Development">
+    <meta property="og:description" content="Expert analysis on Unreal Engine, game development trends, AI motion capture, and virtual production workflows.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/linkedin_preview.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Industry Insights | Unreal Engine Game Development">
+    
+    <!-- Additional SEO -->
+    <meta name="author" content="Unreal Solutions Ltd">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unrealsolutions.com/insights/">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+    <meta name="theme-color" content="#000000">
+
+    <script defer src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://unrealsolutions.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Insights",
+        "item": "https://unrealsolutions.com/insights/"
+      }]
+    }
+    </script>
+    
+    <!-- CollectionPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Industry Insights",
+      "description": "Expert analysis on Unreal Engine, game development trends, and cinematic tools",
+      "url": "https://unrealsolutions.com/insights/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Unreal Solutions Ltd",
+        "url": "https://unrealsolutions.com"
+      }
+    }
+    </script>
+    
+    <style>
+      .article-card {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.8) 100%);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      
+      .article-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border-color: rgba(139, 92, 246, 0.5);
+      }
+      
+      .category-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      
+      .category-analysis { background: rgba(139, 92, 246, 0.2); color: #a78bfa; }
+      .category-guide { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+      .category-comparison { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+    </style>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-black min-h-screen">
+    <main class="container mx-auto px-4 sm:px-20">
+      <!-- Navigation -->
+      <div class="relative pt-4 sm:pt-0">
+        <div class="mb-4 sm:mb-0 sm:fixed sm:top-0 sm:left-0 sm:right-0 z-50 sm:bg-gray-900/80 sm:backdrop-blur-md sm:border-b sm:border-gray-800">
+          <div class="flex items-center justify-between sm:px-6 sm:py-3">
+            <a href="/">
+              <img 
+                src="../assets/logo.png" 
+                alt="Unreal Solutions Logo" 
+                class="h-12 sm:h-14 w-auto drop-shadow-[0_0_0.3rem_#ffffff70] cursor-pointer hover:opacity-80 transition-opacity"
+              >
+            </a>
+            <nav class="hidden sm:flex items-center gap-6">
+              <a href="/" class="text-gray-300 hover:text-white transition-colors">Home</a>
+              <a href="/docs/" class="text-gray-300 hover:text-white transition-colors">Documentation</a>
+              <a href="/recorders.html" class="text-gray-300 hover:text-white transition-colors">Compare</a>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="sm:pt-28 pb-8 sm:py-12">
+          <div class="mx-auto max-w-5xl">
+            <!-- Breadcrumb -->
+            <nav class="mb-6 text-sm">
+              <ol class="flex items-center gap-2 text-gray-400">
+                <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                <li>/</li>
+                <li class="text-violet-400">Insights</li>
+              </ol>
+            </nav>
+
+            <div class="text-center mb-12">
+              <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+                Industry Insights
+              </h1>
+              <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                Expert analysis on Unreal Engine, game development trends, AI motion capture, 
+                virtual production workflows, and cinematic tools for studio decision-makers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Articles Grid -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- Article 1: Game Engine Trends -->
+            <a href="/insights/game-engine-trends-2026.html" class="article-card">
+              <div class="mb-4">
+                <span class="category-badge category-analysis">Industry Analysis</span>
+                <span class="text-gray-500 text-sm ml-3">December 2024</span>
+              </div>
+              <h2 class="text-xl font-bold text-white mb-3">
+                Why AAA Studios Are Abandoning Custom Engines for Unreal Engine
+              </h2>
+              <p class="text-gray-300 text-sm mb-4 flex-grow">
+                Analysis of the industry shift reshaping game development. Cost comparisons, market predictions 
+                for 2026, and what it means for cinematic tools. Essential reading for studio decision-makers.
+              </p>
+              <div class="flex items-center gap-4 text-sm text-gray-400">
+                <span>15 min read</span>
+                <span>•</span>
+                <span>For Studio Decision-Makers</span>
+              </div>
+            </a>
+            
+            <!-- Article 2: UE5.6 Cinematic Tools -->
+            <a href="/insights/unreal-engine-cinematic-tools-analysis.html" class="article-card">
+              <div class="mb-4">
+                <span class="category-badge category-analysis">Technical Analysis</span>
+                <span class="text-gray-500 text-sm ml-3">January 2025</span>
+              </div>
+              <h2 class="text-xl font-bold text-white mb-3">
+                Unreal Engine 5.6 Cinematic Assembly Tools: What Epic Got Right (and What's Missing)
+              </h2>
+              <p class="text-gray-300 text-sm mb-4 flex-grow">
+                Technical deep-dive into UE 5.6's Cinematic Assembly Tools. What works for game cinematographers, 
+                what's still missing, and how third-party tools fill the gaps.
+              </p>
+              <div class="flex items-center gap-4 text-sm text-gray-400">
+                <span>15 min read</span>
+                <span>•</span>
+                <span>Advanced Level</span>
+              </div>
+            </a>
+            
+            <!-- Article 3: Virtual Production Guide -->
+            <a href="/insights/virtual-production-workflow-guide.html" class="article-card">
+              <div class="mb-4">
+                <span class="category-badge category-guide">Workflow Guide</span>
+                <span class="text-gray-500 text-sm ml-3">January 2025</span>
+              </div>
+              <h2 class="text-xl font-bold text-white mb-3">
+                The Virtual Production Workflow Gap Nobody's Talking About
+              </h2>
+              <p class="text-gray-300 text-sm mb-4 flex-grow">
+                Why 73% of mid-size game studios struggle with virtual production pipelines. LED wall rendering, 
+                cloud vs real-time rendering, remote collaboration, and cost optimization with UE5.
+              </p>
+              <div class="flex items-center gap-4 text-sm text-gray-400">
+                <span>12 min read</span>
+                <span>•</span>
+                <span>Practical Guide</span>
+              </div>
+            </a>
+            
+            <!-- Article 4: AI Motion Capture -->
+            <a href="/insights/ai-motion-capture-comparison.html" class="article-card">
+              <div class="mb-4">
+                <span class="category-badge category-comparison">Comparison</span>
+                <span class="text-gray-500 text-sm ml-3">December 2024</span>
+              </div>
+              <h2 class="text-xl font-bold text-white mb-3">
+                AI Motion Capture Hit $15/Month – Here's What Technical Directors Need to Know
+              </h2>
+              <p class="text-gray-300 text-sm mb-4 flex-grow">
+                The complete 2025 comparison of markerless AI mocap tools for game development. DeepMotion vs 
+                Move AI vs Plask vs Rokoko Vision—pricing, accuracy, and UE5 integration.
+              </p>
+              <div class="flex items-center gap-4 text-sm text-gray-400">
+                <span>12 min read</span>
+                <span>•</span>
+                <span>For Animation Directors</span>
+              </div>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl text-center">
+          <div class="bg-gradient-to-r from-violet-600 to-indigo-600 rounded-2xl p-8">
+            <h2 class="text-3xl font-bold text-white mb-4">Need Video Recording for Your UE5 Projects?</h2>
+            <p class="text-violet-100 mb-6 text-lg">
+              Runtime Video Recorder is trusted by Amazon Games, Riot Games, and leading studios 
+              for game testing, cinematics, and content creation workflows.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a 
+                href="https://tally.so/r/mZDq7v"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-white/20 rounded-xl hover:bg-white/30 transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                Request API Key & Download
+              </a>
+              <a 
+                href="/docs/"
+                class="text-violet-100 hover:text-white underline"
+              >
+                View Documentation
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="py-8 border-t border-gray-800">
+        <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+          <a href="/docs/" class="text-indigo-400 hover:text-indigo-300 transition-colors">Documentation</a>
+          <a href="/recorders.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Compare Recorders</a>
+          <a href="mailto:business@unrealsolutions.com" class="text-indigo-400 hover:text-indigo-300 transition-colors">Contact</a>
+          <a href="/privacy.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Privacy Policy</a>
+        </div>
+        <div class="text-center text-gray-500 text-sm">
+          © Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2025
+        </div>
+      </div>
+    </main>
+</body>
+</html>
+
