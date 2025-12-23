@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueprint Video Recording for Unreal Engine | No C++ Required</title>
+    <meta name="description" content="Implement video recording in Unreal Engine using only Blueprints. No C++ required. Step-by-step tutorial for runtime video capture with Blueprint nodes. Record gameplay, instant replays, and more.">
+    <meta name="keywords" content="runtime video capture unreal engine blueprint, unreal engine video recording blueprint, blueprint video recorder, no c++ video recording unreal, gameplay recording blueprint, unreal engine record gameplay blueprint">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unrealsolutions.com/use-cases/blueprint-video-capture.html">
+    <meta property="og:title" content="Blueprint Video Recording for Unreal Engine | No C++ Required">
+    <meta property="og:description" content="Implement video recording using only Blueprints. Step-by-step tutorial with downloadable examples.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/linkedin_preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://unrealsolutions.com/use-cases/blueprint-video-capture.html">
+    <meta name="twitter:title" content="Blueprint Video Recording for Unreal Engine">
+    <meta name="twitter:description" content="No C++ required. Record gameplay with Blueprints. Step-by-step tutorial.">
+    <meta name="twitter:image" content="https://unrealsolutions.com/assets/linkedin_preview.png">
+    
+    <!-- Additional SEO -->
+    <meta name="author" content="Unreal Solutions Ltd">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unrealsolutions.com/use-cases/blueprint-video-capture.html">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+
+    <script defer src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Blueprint Video Recording for Unreal Engine | No C++ Required",
+      "description": "Step-by-step tutorial for implementing video recording in Unreal Engine using only Blueprints. Includes downloadable examples.",
+      "author": {
+        "@type": "Organization",
+        "name": "Unreal Solutions Ltd"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Unreal Solutions Ltd",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://unrealsolutions.com/assets/logo.png"
+        }
+      },
+      "datePublished": "2025-01-01",
+      "dateModified": "2025-01-01",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://unrealsolutions.com/use-cases/blueprint-video-capture.html"
+      },
+      "proficiencyLevel": "Beginner",
+      "dependencies": "Unreal Engine 4.27+, Runtime Video Recorder Plugin"
+    }
+    </script>
+    
+    <!-- HowTo Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Record Video in Unreal Engine with Blueprints",
+      "description": "Learn how to implement video recording in your Unreal Engine game using only Blueprints. No C++ required.",
+      "step": [{
+        "@type": "HowToStep",
+        "name": "Add Runtime Video Recorder Actor",
+        "text": "Drag the Runtime Video Recorder actor into your level or spawn it from Blueprint."
+      }, {
+        "@type": "HowToStep",
+        "name": "Configure Recording Settings",
+        "text": "Set resolution, framerate, bitrate, and output path in the Details panel or via Blueprint nodes."
+      }, {
+        "@type": "HowToStep",
+        "name": "Call Start Recording",
+        "text": "Use the Start Recording node when you want to begin capturing video."
+      }, {
+        "@type": "HowToStep",
+        "name": "Call Stop Recording",
+        "text": "Use the Stop Recording node to finalize and save the video file."
+      }],
+      "totalTime": "PT15M"
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Can I record video in Unreal Engine without C++?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Runtime Video Recorder provides full Blueprint support. All recording functionality—start, stop, pause, instant replay—can be controlled entirely through Blueprint nodes without writing any C++ code."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What Blueprint nodes are available for video recording?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "RVR provides nodes for: Start Recording, Stop Recording, Pause Recording, Resume Recording, Start Instant Replay, Save Instant Replay, Record From Render Target, and configuration nodes for resolution, framerate, and quality settings."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How do I set up instant replay with Blueprints?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Call the Start Instant Replay Recording node with your desired buffer duration (e.g., 60 seconds). When you want to save the replay, call Save Instant Replay with a filename. The last N seconds are automatically saved."
+        }
+      }]
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://unrealsolutions.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Use Cases",
+        "item": "https://unrealsolutions.com/use-cases/"
+      }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Blueprint Video Capture",
+        "item": "https://unrealsolutions.com/use-cases/blueprint-video-capture.html"
+      }]
+    }
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+      .blueprint-node {
+        background: linear-gradient(135deg, #1a365d 0%, #2563eb 100%);
+        border: 2px solid #3b82f6;
+        border-radius: 8px;
+        padding: 1rem 1.5rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        font-weight: 600;
+        color: white;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+      }
+      
+      .blueprint-node.event {
+        background: linear-gradient(135deg, #7c2d12 0%, #dc2626 100%);
+        border-color: #ef4444;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+      }
+      
+      .blueprint-node.function {
+        background: linear-gradient(135deg, #1a365d 0%, #2563eb 100%);
+        border-color: #3b82f6;
+      }
+      
+      .blueprint-node.variable {
+        background: linear-gradient(135deg, #14532d 0%, #16a34a 100%);
+        border-color: #22c55e;
+        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+      }
+      
+      .blueprint-pin {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid white;
+      }
+      
+      .blueprint-pin.exec { background: white; }
+      .blueprint-pin.object { background: #3b82f6; }
+      .blueprint-pin.string { background: #f472b6; }
+      .blueprint-pin.bool { background: #ef4444; }
+      
+      .step-card {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.8) 100%);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        padding: 2rem;
+        position: relative;
+        margin-left: 2rem;
+      }
+      
+      .step-card::before {
+        content: attr(data-step);
+        position: absolute;
+        left: -2rem;
+        top: 2rem;
+        width: 3rem;
+        height: 3rem;
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.25rem;
+        color: white;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+      }
+      
+      .code-example {
+        background: #0d1117;
+        border: 1px solid #30363d;
+        border-radius: 8px;
+        padding: 1.5rem;
+        font-family: 'Fira Code', 'Consolas', monospace;
+        font-size: 0.875rem;
+        overflow-x: auto;
+      }
+      
+      .code-example .comment { color: #8b949e; }
+      .code-example .keyword { color: #ff7b72; }
+      .code-example .function { color: #d2a8ff; }
+      .code-example .string { color: #a5d6ff; }
+      .code-example .variable { color: #79c0ff; }
+      
+      .feature-card {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.8) 100%);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border-color: rgba(59, 130, 246, 0.5);
+      }
+    </style>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-black min-h-screen">
+    <main class="container mx-auto px-4 sm:px-20">
+      <!-- Navigation -->
+      <div class="relative pt-4 sm:pt-0">
+        <div class="mb-4 sm:mb-0 sm:fixed sm:top-0 sm:left-0 sm:right-0 z-50 sm:bg-gray-900/80 sm:backdrop-blur-md sm:border-b sm:border-gray-800">
+          <div class="flex items-center justify-between sm:px-6 sm:py-3">
+            <a href="/">
+              <img 
+                src="../assets/logo.png" 
+                alt="Unreal Solutions Logo" 
+                class="h-12 sm:h-14 w-auto drop-shadow-[0_0_0.3rem_#ffffff70] cursor-pointer hover:opacity-80 transition-opacity"
+              >
+            </a>
+            <nav class="hidden sm:flex items-center gap-6">
+              <a href="/" class="text-gray-300 hover:text-white transition-colors">Home</a>
+              <a href="/docs/" class="text-gray-300 hover:text-white transition-colors">Documentation</a>
+              <a href="/recorders.html" class="text-gray-300 hover:text-white transition-colors">Compare</a>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="sm:pt-28 pb-8 sm:py-12">
+          <div class="mx-auto max-w-5xl">
+            <!-- Breadcrumb -->
+            <nav class="mb-6 text-sm">
+              <ol class="flex items-center gap-2 text-gray-400">
+                <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                <li>/</li>
+                <li><a href="/use-cases/" class="hover:text-white transition-colors">Use Cases</a></li>
+                <li>/</li>
+                <li class="text-blue-400">Blueprint Video Capture</li>
+              </ol>
+            </nav>
+
+            <div class="text-center mb-12">
+              <span class="inline-block px-4 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium mb-4">
+                Tutorial
+              </span>
+              <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+                Blueprint Video Recording<br>
+                <span class="text-blue-400">No C++ Required</span>
+              </h1>
+              <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                Implement professional video recording in your Unreal Engine project using only Blueprints. 
+                Start recording, instant replay, render target capture—all without writing a single line of C++.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a 
+                  href="https://tally.so/r/mZDq7v"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                  </svg>
+                  Get Started Free
+                </a>
+                <a 
+                  href="/docs/products/runtime-video-recorder/api/runtime-video-recorder"
+                  class="inline-flex items-center px-6 py-3 text-sm font-medium text-blue-400 bg-gray-800/50 border border-blue-500/50 rounded-lg hover:bg-gray-700/50 transition-all duration-200"
+                >
+                  Full API Reference →
+                </a>
+              </div>
+              
+              <!-- Quick Stats -->
+              <div class="mt-10 flex flex-wrap items-center justify-center gap-8 text-sm">
+                <div class="flex items-center gap-2 text-gray-300">
+                  <span class="text-2xl">⏱️</span>
+                  <span><strong class="text-white">15 minutes</strong> to implement</span>
+                </div>
+                <div class="flex items-center gap-2 text-gray-300">
+                  <span class="text-2xl">📦</span>
+                  <span><strong class="text-white">0 lines</strong> of C++ needed</span>
+                </div>
+                <div class="flex items-center gap-2 text-gray-300">
+                  <span class="text-2xl">🎮</span>
+                  <span><strong class="text-white">UE 4.27+</strong> compatible</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Available Blueprint Nodes -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="text-3xl font-bold text-white text-center mb-4">Available Blueprint Nodes</h2>
+          <p class="text-gray-300 text-center mb-12 max-w-2xl mx-auto">
+            Runtime Video Recorder exposes all functionality through intuitive Blueprint nodes.
+          </p>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="feature-card">
+              <div class="blueprint-node function mb-4">
+                <span class="blueprint-pin exec"></span>
+                <span>Start Recording</span>
+              </div>
+              <p class="text-gray-300 text-sm">Begin recording the viewport or specified render target to a video file.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="blueprint-node function mb-4">
+                <span class="blueprint-pin exec"></span>
+                <span>Stop Recording</span>
+              </div>
+              <p class="text-gray-300 text-sm">Finalize and save the recording. Returns the path to the saved file.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="blueprint-node function mb-4">
+                <span class="blueprint-pin exec"></span>
+                <span>Pause Recording</span>
+              </div>
+              <p class="text-gray-300 text-sm">Temporarily pause recording without stopping. Resume anytime.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="blueprint-node function mb-4">
+                <span class="blueprint-pin exec"></span>
+                <span>Start Instant Replay</span>
+              </div>
+              <p class="text-gray-300 text-sm">Begin buffering the last N seconds of gameplay for instant replay.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="blueprint-node function mb-4">
+                <span class="blueprint-pin exec"></span>
+                <span>Save Instant Replay</span>
+              </div>
+              <p class="text-gray-300 text-sm">Save the instant replay buffer to a video file on demand.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="blueprint-node event mb-4">
+                <span class="blueprint-pin exec"></span>
+                <span>On Recording Finished</span>
+              </div>
+              <p class="text-gray-300 text-sm">Event fired when recording completes. Includes file path.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step-by-Step Tutorial -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="text-3xl font-bold text-white text-center mb-12">Step-by-Step Setup</h2>
+          
+          <div class="space-y-8">
+            <!-- Step 1 -->
+            <div class="step-card" data-step="1">
+              <h3 class="text-xl font-bold text-white mb-4">Add the Runtime Video Recorder Actor</h3>
+              <p class="text-gray-300 mb-4">
+                Drag the <code class="bg-gray-700 px-2 py-1 rounded">BP_RuntimeVideoRecorder</code> actor into your level, 
+                or spawn it dynamically from any Blueprint.
+              </p>
+              <div class="code-example">
+                <span class="comment">// From Level Blueprint or any Actor</span><br>
+                <span class="variable">SpawnActor</span> → <span class="function">BP_RuntimeVideoRecorder</span><br>
+                <span class="comment">// Store reference for later use</span><br>
+                <span class="keyword">Set</span> <span class="variable">VideoRecorder</span> = <span class="function">Return Value</span>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card" data-step="2">
+              <h3 class="text-xl font-bold text-white mb-4">Configure Recording Settings</h3>
+              <p class="text-gray-300 mb-4">
+                Set your preferred resolution, framerate, and quality settings either in the Details panel or via Blueprint nodes.
+              </p>
+              <div class="code-example">
+                <span class="comment">// Configure before starting</span><br>
+                <span class="variable">VideoRecorder</span> → <span class="function">Set Resolution</span> (<span class="string">1920</span>, <span class="string">1080</span>)<br>
+                <span class="variable">VideoRecorder</span> → <span class="function">Set Framerate</span> (<span class="string">60</span>)<br>
+                <span class="variable">VideoRecorder</span> → <span class="function">Set Bitrate</span> (<span class="string">8000000</span>) <span class="comment">// 8 Mbps</span>
+              </div>
+              <div class="mt-4 p-4 bg-blue-900/30 border border-blue-500/30 rounded-lg">
+                <p class="text-blue-200 text-sm">💡 <strong>Tip:</strong> Use hardware acceleration for best performance. RVR automatically uses WMF on Windows, MediaCodec on Android.</p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card" data-step="3">
+              <h3 class="text-xl font-bold text-white mb-4">Start Recording on Input</h3>
+              <p class="text-gray-300 mb-4">
+                Connect the Start Recording node to your input event. Common triggers include key presses, button clicks, or game events.
+              </p>
+              <div class="code-example">
+                <span class="comment">// Example: Record when pressing R key</span><br>
+                <span class="keyword">InputAction</span> <span class="string">"Record"</span> → <span class="function">Pressed</span><br>
+                &nbsp;&nbsp;→ <span class="keyword">Branch</span> (<span class="variable">Is Recording</span>)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;→ <span class="keyword">True</span>: <span class="function">Stop Recording</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;→ <span class="keyword">False</span>: <span class="function">Start Recording</span> (<span class="string">"MyVideo.mp4"</span>)
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card" data-step="4">
+              <h3 class="text-xl font-bold text-white mb-4">Handle Recording Complete Event</h3>
+              <p class="text-gray-300 mb-4">
+                Bind to the OnRecordingFinished event to get notified when the video is saved. Use this to show notifications, upload the file, or trigger other actions.
+              </p>
+              <div class="code-example">
+                <span class="comment">// Bind to the recording finished event</span><br>
+                <span class="variable">VideoRecorder</span> → <span class="function">On Recording Finished</span><br>
+                &nbsp;&nbsp;→ <span class="function">Print String</span> (<span class="string">"Video saved to: "</span> + <span class="variable">FilePath</span>)<br>
+                &nbsp;&nbsp;→ <span class="function">Show Notification Widget</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Common Use Cases -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="text-3xl font-bold text-white text-center mb-12">Common Blueprint Implementations</h2>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Hotkey Recording -->
+            <div class="bg-gray-800/50 rounded-2xl p-8">
+              <h3 class="text-xl font-bold text-white mb-4">🎮 Hotkey Recording</h3>
+              <p class="text-gray-300 mb-4">Toggle recording with a keyboard shortcut.</p>
+              <div class="code-example text-xs">
+                <span class="comment">// Player Controller Blueprint</span><br>
+                <span class="keyword">Input</span> <span class="string">F9</span> → <span class="function">Pressed</span><br>
+                &nbsp;&nbsp;→ <span class="function">Flip Flop</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;→ A: <span class="function">Start Recording</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;→ B: <span class="function">Stop Recording</span>
+              </div>
+              <a href="/docs/products/runtime-video-recorder/how-to/hotkey-recording" class="text-blue-400 hover:text-blue-300 text-sm mt-4 inline-block">Full tutorial →</a>
+            </div>
+
+            <!-- Instant Replay -->
+            <div class="bg-gray-800/50 rounded-2xl p-8">
+              <h3 class="text-xl font-bold text-white mb-4">⏪ Instant Replay</h3>
+              <p class="text-gray-300 mb-4">Save the last 30 seconds on demand.</p>
+              <div class="code-example text-xs">
+                <span class="comment">// Start buffering on BeginPlay</span><br>
+                <span class="keyword">BeginPlay</span> → <span class="function">Start Instant Replay</span> (<span class="string">30</span>)<br><br>
+                <span class="comment">// Save when player presses button</span><br>
+                <span class="keyword">Input</span> <span class="string">SaveReplay</span> → <span class="function">Save Instant Replay</span>
+              </div>
+              <a href="/docs/products/runtime-video-recorder/how-to/instant-replay" class="text-blue-400 hover:text-blue-300 text-sm mt-4 inline-block">Full tutorial →</a>
+            </div>
+
+            <!-- Boss Fight Recording -->
+            <div class="bg-gray-800/50 rounded-2xl p-8">
+              <h3 class="text-xl font-bold text-white mb-4">👹 Boss Fight Recording</h3>
+              <p class="text-gray-300 mb-4">Auto-record epic encounters.</p>
+              <div class="code-example text-xs">
+                <span class="comment">// In Boss Blueprint</span><br>
+                <span class="keyword">On Boss Fight Start</span><br>
+                &nbsp;&nbsp;→ <span class="function">Start Recording</span> (<span class="string">"BossFight.mp4"</span>)<br><br>
+                <span class="keyword">On Boss Defeated</span><br>
+                &nbsp;&nbsp;→ <span class="function">Stop Recording</span>
+              </div>
+              <a href="/docs/products/runtime-video-recorder/how-to/boss-fights" class="text-blue-400 hover:text-blue-300 text-sm mt-4 inline-block">Full tutorial →</a>
+            </div>
+
+            <!-- Multi-Camera -->
+            <div class="bg-gray-800/50 rounded-2xl p-8">
+              <h3 class="text-xl font-bold text-white mb-4">📹 Multi-Camera Recording</h3>
+              <p class="text-gray-300 mb-4">Record from security cameras or scene captures.</p>
+              <div class="code-example text-xs">
+                <span class="comment">// Record from render target</span><br>
+                <span class="variable">SecurityCamera</span> → <span class="function">Get Render Target</span><br>
+                &nbsp;&nbsp;→ <span class="function">Start Recording From Render Target</span>
+              </div>
+              <a href="/docs/products/runtime-video-recorder/how-to/multi-camera" class="text-blue-400 hover:text-blue-300 text-sm mt-4 inline-block">Full tutorial →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Blueprint -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <div class="bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-blue-500/30 rounded-2xl p-8">
+            <h2 class="text-2xl font-bold text-white text-center mb-8">Why Choose Blueprint Implementation?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+              <div class="text-center">
+                <div class="text-4xl mb-4">⚡</div>
+                <h3 class="font-semibold text-white mb-2">Faster Iteration</h3>
+                <p class="text-gray-300 text-sm">Change recording behavior instantly without recompiling. Perfect for prototyping and quick adjustments.</p>
+              </div>
+              <div class="text-center">
+                <div class="text-4xl mb-4">👥</div>
+                <h3 class="font-semibold text-white mb-2">Designer Friendly</h3>
+                <p class="text-gray-300 text-sm">Designers can implement recording features without programmer involvement. Empower your whole team.</p>
+              </div>
+              <div class="text-center">
+                <div class="text-4xl mb-4">🔧</div>
+                <h3 class="font-semibold text-white mb-2">Full Functionality</h3>
+                <p class="text-gray-300 text-sm">100% of RVR features are exposed to Blueprints. No C++ needed for any recording functionality.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="text-3xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
+          <div class="space-y-6">
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Can I record video in Unreal Engine without C++?</h3>
+              <p class="text-gray-300">Yes! Runtime Video Recorder provides full Blueprint support. All recording functionality—start, stop, pause, instant replay—can be controlled entirely through Blueprint nodes without writing any C++ code.</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">What Blueprint nodes are available for video recording?</h3>
+              <p class="text-gray-300">RVR provides nodes for: Start Recording, Stop Recording, Pause Recording, Resume Recording, Start Instant Replay, Save Instant Replay, Record From Render Target, and configuration nodes for resolution, framerate, and quality settings.</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">How do I set up instant replay with Blueprints?</h3>
+              <p class="text-gray-300">Call the Start Instant Replay Recording node with your desired buffer duration (e.g., 60 seconds). When you want to save the replay, call Save Instant Replay with a filename. The last N seconds are automatically saved.</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Is Blueprint recording as performant as C++?</h3>
+              <p class="text-gray-300">Yes! The Blueprint nodes call the same optimized C++ code under the hood. There's no performance difference between Blueprint and C++ implementations for recording functionality.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl text-center">
+          <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8">
+            <h2 class="text-3xl font-bold text-white mb-4">Start Recording with Blueprints Today</h2>
+            <p class="text-blue-100 mb-6 text-lg">No C++ required. Full Blueprint support. Implement in 15 minutes.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a 
+                href="https://tally.so/r/mZDq7v"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-white/20 rounded-xl hover:bg-white/30 transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                Request API Key & Download
+              </a>
+              <a 
+                href="/docs/products/runtime-video-recorder/how-to/"
+                class="text-blue-100 hover:text-white underline"
+              >
+                Browse All Tutorials
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Pages -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="text-2xl font-bold text-white mb-8">Related Guides</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <a href="/use-cases/game-testing-video-recording.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Game Testing & QA</h3>
+              <p class="text-gray-400 text-sm">Record bugs with video evidence for QA workflows.</p>
+            </a>
+            <a href="/use-cases/vr-recording-unreal-engine.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">VR Recording</h3>
+              <p class="text-gray-400 text-sm">Capture VR experiences for Oculus and Meta Quest.</p>
+            </a>
+            <a href="/use-cases/cross-platform-recording.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Cross-Platform Recording</h3>
+              <p class="text-gray-400 text-sm">Windows, Mac, iOS, Android, and Linux support.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="py-8 border-t border-gray-800">
+        <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+          <a href="/docs/" class="text-indigo-400 hover:text-indigo-300 transition-colors">Documentation</a>
+          <a href="/recorders.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Compare Recorders</a>
+          <a href="mailto:business@unrealsolutions.com" class="text-indigo-400 hover:text-indigo-300 transition-colors">Contact</a>
+          <a href="/privacy.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Privacy Policy</a>
+        </div>
+        <div class="text-center text-gray-500 text-sm">
+          © Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2025
+        </div>
+      </div>
+    </main>
+</body>
+</html>
+

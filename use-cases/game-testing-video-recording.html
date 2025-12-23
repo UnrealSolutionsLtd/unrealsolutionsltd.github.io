@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Testing Video Recording for Unreal Engine | Bug Reporting with Evidence</title>
+    <meta name="description" content="Record gameplay automatically during QA testing sessions in Unreal Engine. Capture bugs with video evidence, enable instant replay for bug reports. Used by Amazon Games and Riot Games.">
+    <meta name="keywords" content="unreal engine bug reporting with video, game testing video recording tools unreal, QA automation unreal engine, automated bug capture, gameplay recording unreal, video evidence bug report, game testing recorder">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unrealsolutions.com/use-cases/game-testing-video-recording.html">
+    <meta property="og:title" content="Game Testing Video Recording for Unreal Engine | Bug Reporting with Evidence">
+    <meta property="og:description" content="Record gameplay automatically during QA testing sessions. Capture bugs with video evidence for better bug reports. Trusted by Amazon Games.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/linkedin_preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://unrealsolutions.com/use-cases/game-testing-video-recording.html">
+    <meta name="twitter:title" content="Game Testing Video Recording for Unreal Engine">
+    <meta name="twitter:description" content="Automated bug capture with video evidence. Used by Amazon Games and Riot Games for QA workflows.">
+    <meta name="twitter:image" content="https://unrealsolutions.com/assets/linkedin_preview.png">
+    
+    <!-- Additional SEO -->
+    <meta name="author" content="Unreal Solutions Ltd">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unrealsolutions.com/use-cases/game-testing-video-recording.html">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+
+    <script defer src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Runtime Video Recorder - Game Testing Edition",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "QA Testing Tools",
+      "operatingSystem": ["Windows", "macOS", "Linux", "Android", "Oculus", "iOS"],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "description": "Professional video recording solution for Unreal Engine game testing and QA workflows. Automatically capture bugs with video evidence.",
+      "url": "https://unrealsolutions.com/use-cases/game-testing-video-recording.html",
+      "author": {
+        "@type": "Organization",
+        "name": "Unreal Solutions Ltd",
+        "url": "https://unrealsolutions.com"
+      },
+      "featureList": [
+        "Automatic Bug Capture",
+        "Video Evidence for Bug Reports",
+        "Instant Replay Buffer",
+        "Crash Recovery Recording",
+        "QA Workflow Integration",
+        "Hardware Accelerated Encoding"
+      ]
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How do I record bugs in Unreal Engine with video evidence?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Runtime Video Recorder provides automatic recording during gameplay. When a bug occurs, use the instant replay feature to save the last 30-60 seconds of gameplay. The video file is automatically saved and can be attached to bug reports."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can I automate video recording during QA testing sessions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! RVR can be triggered programmatically via Blueprints or C++. Set up automatic recording triggers for specific events like crashes, assertion failures, or custom conditions. Perfect for automated QA pipelines."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is the performance impact of recording during game testing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Runtime Video Recorder uses hardware-accelerated encoding with only 1-3% CPU overhead. Recording runs independently of game framerate, so your testing environment remains accurate to production performance."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does RVR support crash recovery for bug recordings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, RVR includes crash recovery features. Even if your game crashes, the recording up to that point is preserved, giving you valuable video evidence of what led to the crash."
+        }
+      }]
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://unrealsolutions.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Use Cases",
+        "item": "https://unrealsolutions.com/use-cases/"
+      }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Game Testing Video Recording",
+        "item": "https://unrealsolutions.com/use-cases/game-testing-video-recording.html"
+      }]
+    }
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+      .feature-card {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.8) 100%);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        padding: 2rem;
+        transition: all 0.3s ease;
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border-color: rgba(59, 130, 246, 0.5);
+      }
+      
+      .workflow-step {
+        position: relative;
+        padding-left: 3rem;
+      }
+      
+      .workflow-step::before {
+        content: attr(data-step);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2rem;
+        height: 2rem;
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.875rem;
+      }
+      
+      .code-block {
+        background: #1e293b;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        overflow-x: auto;
+        font-family: 'Fira Code', 'Consolas', monospace;
+        font-size: 0.875rem;
+        border: 1px solid #374151;
+      }
+      
+      .code-block .keyword { color: #c792ea; }
+      .code-block .function { color: #82aaff; }
+      .code-block .string { color: #c3e88d; }
+      .code-block .comment { color: #546e7a; }
+    </style>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-black min-h-screen">
+    <main class="container mx-auto px-4 sm:px-20">
+      <!-- Navigation -->
+      <div class="relative pt-4 sm:pt-0">
+        <div class="mb-4 sm:mb-0 sm:fixed sm:top-0 sm:left-0 sm:right-0 z-50 sm:bg-gray-900/80 sm:backdrop-blur-md sm:border-b sm:border-gray-800">
+          <div class="flex items-center justify-between sm:px-6 sm:py-3">
+            <a href="/">
+              <img 
+                src="../assets/logo.png" 
+                alt="Unreal Solutions Logo" 
+                class="h-12 sm:h-14 w-auto drop-shadow-[0_0_0.3rem_#ffffff70] cursor-pointer hover:opacity-80 transition-opacity"
+              >
+            </a>
+            <nav class="hidden sm:flex items-center gap-6">
+              <a href="/" class="text-gray-300 hover:text-white transition-colors">Home</a>
+              <a href="/docs/" class="text-gray-300 hover:text-white transition-colors">Documentation</a>
+              <a href="/recorders.html" class="text-gray-300 hover:text-white transition-colors">Compare</a>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="sm:pt-28 pb-8 sm:py-12">
+          <div class="mx-auto max-w-5xl">
+            <!-- Breadcrumb -->
+            <nav class="mb-6 text-sm">
+              <ol class="flex items-center gap-2 text-gray-400">
+                <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                <li>/</li>
+                <li><a href="/use-cases/" class="hover:text-white transition-colors">Use Cases</a></li>
+                <li>/</li>
+                <li class="text-blue-400">Game Testing Video Recording</li>
+              </ol>
+            </nav>
+
+            <div class="text-center mb-12">
+              <span class="inline-block px-4 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium mb-4">
+                QA & Testing Solution
+              </span>
+              <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+                Game Testing Video Recording<br>
+                <span class="text-blue-400">with Automatic Bug Capture</span>
+              </h1>
+              <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                Record gameplay automatically during QA sessions. Capture bugs with video evidence, 
+                enable instant replay for bug reports, and integrate seamlessly into your testing workflow.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a 
+                  href="https://tally.so/r/mZDq7v"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                  </svg>
+                  Get Started Free
+                </a>
+                <a 
+                  href="/docs/products/runtime-video-recorder/how-to/crash-recovery"
+                  class="inline-flex items-center px-6 py-3 text-sm font-medium text-blue-400 bg-gray-800/50 border border-blue-500/50 rounded-lg hover:bg-gray-700/50 transition-all duration-200"
+                >
+                  View QA Setup Guide →
+                </a>
+              </div>
+              
+              <!-- Trust Badge -->
+              <div class="mt-8 flex items-center justify-center gap-6 text-sm text-gray-400">
+                <span class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  Used by Amazon Games
+                </span>
+                <span class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  Used by Riot Games
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Problem Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <div class="bg-red-900/20 border border-red-500/30 rounded-2xl p-8 mb-12">
+            <h2 class="text-2xl font-bold text-white mb-4">The Problem with Traditional Bug Reporting</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="flex items-start gap-3">
+                <span class="text-red-400 text-2xl">✗</span>
+                <div>
+                  <h3 class="font-semibold text-white">Hard to Reproduce</h3>
+                  <p class="text-gray-400 text-sm">QA testers describe bugs in text, but developers can't reproduce them without seeing exactly what happened.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-red-400 text-2xl">✗</span>
+                <div>
+                  <h3 class="font-semibold text-white">Missing Context</h3>
+                  <p class="text-gray-400 text-sm">Screenshots miss the sequence of events leading to bugs. Video evidence shows the full story.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-red-400 text-2xl">✗</span>
+                <div>
+                  <h3 class="font-semibold text-white">External Recorders Hurt Performance</h3>
+                  <p class="text-gray-400 text-sm">OBS and screen recorders add 5-15% CPU overhead, making test environments inaccurate.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solution Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-white mb-4">How Runtime Video Recorder Solves This</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto">
+              Built specifically for Unreal Engine, RVR provides always-on recording with minimal performance impact—perfect for QA workflows.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="feature-card">
+              <div class="text-blue-400 text-3xl mb-4">🔄</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Instant Replay Buffer</h3>
+              <p class="text-gray-300 mb-4">Always recording the last 30-60 seconds. When a bug happens, save the replay instantly—no need to start recording in advance.</p>
+              <a href="/docs/products/runtime-video-recorder/how-to/instant-replay" class="text-blue-400 hover:text-blue-300 text-sm">Learn more →</a>
+            </div>
+
+            <div class="feature-card">
+              <div class="text-blue-400 text-3xl mb-4">💥</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Crash Recovery</h3>
+              <p class="text-gray-300 mb-4">Even when games crash, RVR preserves recording up to the crash point. Never lose critical bug evidence again.</p>
+              <a href="/docs/products/runtime-video-recorder/how-to/crash-recovery" class="text-blue-400 hover:text-blue-300 text-sm">Learn more →</a>
+            </div>
+
+            <div class="feature-card">
+              <div class="text-blue-400 text-3xl mb-4">⚡</div>
+              <h3 class="text-xl font-semibold text-white mb-3">1-3% CPU Overhead</h3>
+              <p class="text-gray-300 mb-4">Hardware-accelerated encoding ensures test environments match production performance. No artificial slowdowns.</p>
+              <a href="/recorders.html#performance" class="text-blue-400 hover:text-blue-300 text-sm">See benchmarks →</a>
+            </div>
+
+            <div class="feature-card">
+              <div class="text-blue-400 text-3xl mb-4">🎯</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Event-Triggered Recording</h3>
+              <p class="text-gray-300 mb-4">Start recording automatically on specific game events—errors, assertions, custom triggers. Perfect for automated QA pipelines.</p>
+              <a href="/docs/products/runtime-video-recorder/api/events" class="text-blue-400 hover:text-blue-300 text-sm">View events API →</a>
+            </div>
+
+            <div class="feature-card">
+              <div class="text-blue-400 text-3xl mb-4">🔗</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Blueprint Integration</h3>
+              <p class="text-gray-300 mb-4">No C++ required. Control recording entirely through Blueprints—start, stop, save clips, trigger on events.</p>
+              <a href="/use-cases/blueprint-video-capture.html" class="text-blue-400 hover:text-blue-300 text-sm">Blueprint guide →</a>
+            </div>
+
+            <div class="feature-card">
+              <div class="text-blue-400 text-3xl mb-4">📱</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Mobile QA Support</h3>
+              <p class="text-gray-300 mb-4">Test on Android and iOS with the same recording capabilities. One solution for all platforms.</p>
+              <a href="/use-cases/cross-platform-recording.html" class="text-blue-400 hover:text-blue-300 text-sm">Platform support →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QA Workflow Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-5xl">
+          <h2 class="text-3xl font-bold text-white text-center mb-12">QA Workflow Integration</h2>
+          
+          <div class="space-y-8">
+            <div class="workflow-step" data-step="1">
+              <h3 class="text-xl font-semibold text-white mb-2">Enable Always-On Recording</h3>
+              <p class="text-gray-300 mb-4">Configure RVR to continuously buffer gameplay. Recording happens in the background with zero impact on tester workflow.</p>
+              <div class="code-block">
+                <span class="comment">// Blueprint: Start instant replay buffer on game start</span><br>
+                <span class="function">StartInstantReplayRecording</span>(<span class="string">"60"</span>) <span class="comment">// 60-second buffer</span>
+              </div>
+            </div>
+
+            <div class="workflow-step" data-step="2">
+              <h3 class="text-xl font-semibold text-white mb-2">Test Normally</h3>
+              <p class="text-gray-300">QA testers play the game as usual. RVR continuously captures in the background, maintaining a rolling buffer of the last 30-60 seconds.</p>
+            </div>
+
+            <div class="workflow-step" data-step="3">
+              <h3 class="text-xl font-semibold text-white mb-2">Bug Encountered? Save the Replay</h3>
+              <p class="text-gray-300 mb-4">When a tester finds a bug, one button press saves the video evidence. Can also be triggered automatically on errors.</p>
+              <div class="code-block">
+                <span class="comment">// Blueprint: Save replay when bug report button pressed</span><br>
+                <span class="function">SaveInstantReplay</span>(<span class="string">"BugReport_001.mp4"</span>)
+              </div>
+            </div>
+
+            <div class="workflow-step" data-step="4">
+              <h3 class="text-xl font-semibold text-white mb-2">Attach to Bug Report</h3>
+              <p class="text-gray-300">Video file is saved locally or uploaded to your bug tracking system. Developers see exactly what happened, leading to faster fixes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <div class="bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-blue-500/30 rounded-2xl p-8">
+            <h2 class="text-2xl font-bold text-white text-center mb-8">Results from Studios Using RVR for QA</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div class="text-4xl font-bold text-blue-400 mb-2">3x</div>
+                <p class="text-gray-300">Faster bug reproduction</p>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-blue-400 mb-2">60%</div>
+                <p class="text-gray-300">Fewer "cannot reproduce" issues</p>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-blue-400 mb-2">1-3%</div>
+                <p class="text-gray-300">CPU overhead during testing</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="text-3xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
+          <div class="space-y-6">
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">How do I record bugs in Unreal Engine with video evidence?</h3>
+              <p class="text-gray-300">Runtime Video Recorder provides automatic recording during gameplay. When a bug occurs, use the instant replay feature to save the last 30-60 seconds of gameplay. The video file is automatically saved and can be attached to bug reports.</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Can I automate video recording during QA testing sessions?</h3>
+              <p class="text-gray-300">Yes! RVR can be triggered programmatically via Blueprints or C++. Set up automatic recording triggers for specific events like crashes, assertion failures, or custom conditions. Perfect for automated QA pipelines.</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">What is the performance impact of recording during game testing?</h3>
+              <p class="text-gray-300">Runtime Video Recorder uses hardware-accelerated encoding with only 1-3% CPU overhead. Recording runs independently of game framerate, so your testing environment remains accurate to production performance.</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Does RVR support crash recovery for bug recordings?</h3>
+              <p class="text-gray-300">Yes, RVR includes crash recovery features. Even if your game crashes, the recording up to that point is preserved, giving you valuable video evidence of what led to the crash.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl text-center">
+          <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8">
+            <h2 class="text-3xl font-bold text-white mb-4">Start Recording Bugs with Video Evidence</h2>
+            <p class="text-blue-100 mb-6 text-lg">Join Amazon Games, Riot Games, and leading studios using RVR for QA workflows.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a 
+                href="https://tally.so/r/mZDq7v"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-white/20 rounded-xl hover:bg-white/30 transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                Request API Key & Download
+              </a>
+              <a 
+                href="/docs/products/runtime-video-recorder/how-to/"
+                class="text-blue-100 hover:text-white underline"
+              >
+                Browse How-To Guides
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Pages -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="text-2xl font-bold text-white mb-8">Related Use Cases</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <a href="/use-cases/vr-recording-unreal-engine.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">VR Recording</h3>
+              <p class="text-gray-400 text-sm">Record VR experiences for Oculus, Meta Quest, and PCVR.</p>
+            </a>
+            <a href="/use-cases/blueprint-video-capture.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Blueprint Video Capture</h3>
+              <p class="text-gray-400 text-sm">No C++ required. Full Blueprint implementation guide.</p>
+            </a>
+            <a href="/" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">All Features</h3>
+              <p class="text-gray-400 text-sm">Explore all Runtime Video Recorder capabilities.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="py-8 border-t border-gray-800">
+        <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+          <a href="/docs/" class="text-indigo-400 hover:text-indigo-300 transition-colors">Documentation</a>
+          <a href="/recorders.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Compare Recorders</a>
+          <a href="mailto:business@unrealsolutions.com" class="text-indigo-400 hover:text-indigo-300 transition-colors">Contact</a>
+          <a href="/privacy.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Privacy Policy</a>
+        </div>
+        <div class="text-center text-gray-500 text-sm">
+          © Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2025
+        </div>
+      </div>
+    </main>
+</body>
+</html>
+

@@ -115,6 +115,57 @@
     }
     </script>
     
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How do I record gameplay in Unreal Engine 5?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Runtime Video Recorder enables gameplay recording directly in Unreal Engine 5. Simply add the RVR component to your level, configure resolution and framerate settings, and call Start Recording from Blueprints or C++. No external software or FFmpeg required."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does Runtime Video Recorder work without FFmpeg?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! RVR requires no external dependencies. It uses native platform APIs (Windows Media Foundation, AVFoundation, MediaCodec) for hardware-accelerated encoding. No FFmpeg, no codec packs, no external executables needed."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What platforms does Runtime Video Recorder support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "RVR supports Windows, macOS, Linux, iOS, Android, tvOS, and Oculus/Meta Quest platforms. The same Blueprint and C++ code works across all platforms with native hardware-accelerated encoding."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can I record VR gameplay in Unreal Engine?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! RVR has native VR support for Oculus and Meta Quest platforms. You can record from scene capture components, render targets, or spectator views. Perfect for VR training, content creation, and game testing."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is the performance impact of Runtime Video Recorder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "RVR uses hardware-accelerated encoding with only 1-3% CPU overhead. Recording runs independently of game framerate, so you can record at 60 FPS while your game runs at any framerate. Trusted by Amazon Games and Riot Games for production use."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can I implement instant replay with Runtime Video Recorder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! RVR supports instant replay functionality. Enable the replay buffer to continuously record the last 30-60 seconds of gameplay. When something notable happens, save the replay with one Blueprint node. Perfect for highlights, bug reporting, and content creation."
+        }
+      }]
+    }
+    </script>
+    
     <!-- Custom CSS for carousel animation and new hero design -->
     <style>
       /* Hero section styles */
@@ -571,7 +622,7 @@
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">Pixel Streaming Capture</h3>
                 <p class="text-gray-300 text-sm mb-4 flex-grow">Record user interactions in cloud-based applications. Capture the video feed when players interact with your pixel streaming app.</p>
-                <a href="/docs/" class="text-orange-400 hover:text-orange-300 text-sm font-medium inline-flex items-center">
+                <a href="/use-cases/pixel-streaming-recording.html" class="text-orange-400 hover:text-orange-300 text-sm font-medium inline-flex items-center">
                   Learn More
                   <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>

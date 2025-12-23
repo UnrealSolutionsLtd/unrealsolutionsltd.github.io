@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Streaming Recording for Unreal Engine | Capture Cloud Sessions</title>
+    <meta name="description" content="Record pixel streaming sessions in Unreal Engine. Capture user interactions, create demos, and log cloud-based UE5 application usage. Server-side recording for pixel streaming apps.">
+    <meta name="keywords" content="pixel streaming recording unreal engine, record pixel streaming session, unreal engine cloud recording, UE5 pixel streaming capture, server side recording unreal, cloud gaming recording, pixel streaming video capture">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unrealsolutions.com/use-cases/pixel-streaming-recording.html">
+    <meta property="og:title" content="Pixel Streaming Recording for Unreal Engine | Capture Cloud Sessions">
+    <meta property="og:description" content="Record pixel streaming sessions server-side. Capture user interactions and create demos from cloud-based Unreal Engine applications.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/linkedin_preview.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pixel Streaming Recording for Unreal Engine">
+    
+    <meta name="author" content="Unreal Solutions Ltd">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unrealsolutions.com/use-cases/pixel-streaming-recording.html">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+    <meta name="theme-color" content="#000000">
+
+    <script defer src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://unrealsolutions.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Use Cases",
+        "item": "https://unrealsolutions.com/use-cases/"
+      }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Pixel Streaming Recording",
+        "item": "https://unrealsolutions.com/use-cases/pixel-streaming-recording.html"
+      }]
+    }
+    </script>
+    
+    <style>
+      .feature-card {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.8) 100%);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        padding: 2rem;
+        transition: all 0.3s ease;
+      }
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border-color: rgba(236, 72, 153, 0.5);
+      }
+      .use-case-card {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.9) 100%);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+      }
+      .use-case-card:hover {
+        border-color: rgba(236, 72, 153, 0.5);
+        transform: translateY(-2px);
+      }
+    </style>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-black min-h-screen">
+    <main class="container mx-auto px-4 sm:px-20">
+      <div class="relative pt-4 sm:pt-0">
+        <div class="mb-4 sm:mb-0 sm:fixed sm:top-0 sm:left-0 sm:right-0 z-50 sm:bg-gray-900/80 sm:backdrop-blur-md sm:border-b sm:border-gray-800">
+          <div class="flex items-center justify-between sm:px-6 sm:py-3">
+            <a href="/">
+              <img src="../assets/logo.png" alt="Unreal Solutions Logo" class="h-12 sm:h-14 w-auto drop-shadow-[0_0_0.3rem_#ffffff70] cursor-pointer hover:opacity-80 transition-opacity">
+            </a>
+            <nav class="hidden sm:flex items-center gap-6">
+              <a href="/" class="text-gray-300 hover:text-white transition-colors">Home</a>
+              <a href="/docs/" class="text-gray-300 hover:text-white transition-colors">Documentation</a>
+              <a href="/recorders.html" class="text-gray-300 hover:text-white transition-colors">Compare</a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="sm:pt-28 pb-8 sm:py-12">
+          <div class="mx-auto max-w-5xl">
+            <nav class="mb-6 text-sm">
+              <ol class="flex items-center gap-2 text-gray-400">
+                <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                <li>/</li>
+                <li><a href="/use-cases/" class="hover:text-white transition-colors">Use Cases</a></li>
+                <li>/</li>
+                <li class="text-pink-400">Pixel Streaming Recording</li>
+              </ol>
+            </nav>
+
+            <div class="text-center mb-12">
+              <span class="inline-block px-4 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm font-medium mb-4">Cloud & Streaming</span>
+              <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+                Pixel Streaming Recording<br>
+                <span class="text-pink-400">Capture Cloud Sessions</span>
+              </h1>
+              <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                Record user interactions in pixel streaming applications. Capture the video feed server-side 
+                for demos, analytics, support, and documentation—without requiring any client-side software.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://tally.so/r/mZDq7v" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl hover:from-pink-700 hover:to-purple-700 transition-all duration-200 shadow-lg">
+                  Get Started Free
+                </a>
+                <a href="/docs/" class="inline-flex items-center px-6 py-3 text-sm font-medium text-pink-400 bg-gray-800/50 border border-pink-500/50 rounded-lg hover:bg-gray-700/50 transition-all duration-200">
+                  View Documentation →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="text-3xl font-bold text-white text-center mb-12">Pixel Streaming Recording Use Cases</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="use-case-card">
+              <div class="text-3xl mb-4">🎥</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Demo Creation</h3>
+              <p class="text-gray-300 text-sm">Automatically record user sessions to create product demos.</p>
+            </div>
+            <div class="use-case-card">
+              <div class="text-3xl mb-4">📊</div>
+              <h3 class="text-xl font-semibold text-white mb-3">User Analytics</h3>
+              <p class="text-gray-300 text-sm">Review how users interact with your pixel streaming app.</p>
+            </div>
+            <div class="use-case-card">
+              <div class="text-3xl mb-4">🎓</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Training Documentation</h3>
+              <p class="text-gray-300 text-sm">Create training videos from real sessions.</p>
+            </div>
+            <div class="use-case-card">
+              <div class="text-3xl mb-4">🔧</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Support & Debugging</h3>
+              <p class="text-gray-300 text-sm">Review recordings when users report issues.</p>
+            </div>
+            <div class="use-case-card">
+              <div class="text-3xl mb-4">🏠</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Architectural Visualization</h3>
+              <p class="text-gray-300 text-sm">Record client walkthroughs of virtual properties.</p>
+            </div>
+            <div class="use-case-card">
+              <div class="text-3xl mb-4">🎮</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Cloud Gaming</h3>
+              <p class="text-gray-300 text-sm">Enable instant replay in cloud gaming platforms.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="text-3xl font-bold text-white text-center mb-12">Why Record Server-Side?</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="feature-card">
+              <div class="text-pink-400 text-3xl mb-4">🎬</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Higher Quality Than Stream Capture</h3>
+              <p class="text-gray-300">Recording happens before streaming compression. You get the full rendered quality.</p>
+            </div>
+            <div class="feature-card">
+              <div class="text-pink-400 text-3xl mb-4">🌐</div>
+              <h3 class="text-xl font-semibold text-white mb-3">No Client Software Needed</h3>
+              <p class="text-gray-300">Recording happens entirely on your server—users just see your app in their browser.</p>
+            </div>
+            <div class="feature-card">
+              <div class="text-pink-400 text-3xl mb-4">⚡</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Independent of Network Conditions</h3>
+              <p class="text-gray-300">Network jitter and packet loss don't affect the saved video.</p>
+            </div>
+            <div class="feature-card">
+              <div class="text-pink-400 text-3xl mb-4">🔒</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Full Control Over Data</h3>
+              <p class="text-gray-300">Recordings stay on your infrastructure with your access controls.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl text-center">
+          <div class="bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl p-8">
+            <h2 class="text-3xl font-bold text-white mb-4">Start Recording Pixel Streaming Sessions</h2>
+            <p class="text-pink-100 mb-6 text-lg">Server-side recording for cloud-based Unreal Engine applications.</p>
+            <a href="https://tally.so/r/mZDq7v" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-white/20 rounded-xl hover:bg-white/30 transition-all duration-200">
+              Request API Key & Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="text-2xl font-bold text-white mb-8">Related Use Cases</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <a href="/use-cases/cross-platform-recording.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Cross-Platform Recording</h3>
+              <p class="text-gray-400 text-sm">Deploy recording on Windows and Linux servers.</p>
+            </a>
+            <a href="/use-cases/game-testing-video-recording.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">QA & Bug Reporting</h3>
+              <p class="text-gray-400 text-sm">Use recordings for debugging and support.</p>
+            </a>
+            <a href="/use-cases/blueprint-video-capture.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Blueprint Video Capture</h3>
+              <p class="text-gray-400 text-sm">Implement recording without C++ code.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="py-8 border-t border-gray-800">
+        <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+          <a href="/docs/" class="text-indigo-400 hover:text-indigo-300 transition-colors">Documentation</a>
+          <a href="/recorders.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Compare Recorders</a>
+          <a href="mailto:business@unrealsolutions.com" class="text-indigo-400 hover:text-indigo-300 transition-colors">Contact</a>
+          <a href="/privacy.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Privacy Policy</a>
+        </div>
+        <div class="text-center text-gray-500 text-sm">
+          © Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2025
+        </div>
+      </div>
+    </main>
+</body>
+</html>
+
