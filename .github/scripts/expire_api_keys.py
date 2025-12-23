@@ -1,68 +1,69 @@
 #!/usr/bin/env python3
+"""
+Removes expired API keys from rvr_trial.bin.
+Called by CRM repo after it determines which keys have expired.
+"""
 
-import re
-from datetime import datetime
 import sys
 from pathlib import Path
 
-def parse_date(date_str):
-    try:
-        return datetime.strptime(date_str, '%d-%m-%Y')
-    except ValueError:
-        return None
 
-def process_api_keys(input_file):
-    current_date = datetime.now()
-    valid_keys = []
-    expired_keys = []
+def remove_expired_keys(input_file: str, expired_keys_csv: str):
+    """Remove specified keys from the file."""
     
+    # Parse comma-separated keys
+    keys_to_remove = set(key.strip() for key in expired_keys_csv.split(',') if key.strip())
+    
+    if not keys_to_remove:
+        print("No keys to remove")
+        return
+    
+    print(f"Keys to remove: {keys_to_remove}")
+    
+    # Read current keys
     with open(input_file, 'r') as f:
-        for line in f:
-            line = line.strip()
-            if not line:  # Skip empty lines
-                continue
-                
-            # Look for date pattern at the end of the line
-            date_match = re.search(r'(\d{2}-\d{2}-\d{4})$', line)
-            
-            if date_match:
-                key_date = parse_date(date_match.group(1))
-                if key_date and key_date >= current_date:
-                    valid_keys.append(line)
-                else:
-                    expired_keys.append(line)
-            else:
-                # Keep lines without dates (legacy format)
-                valid_keys.append(line)
+        lines = [line.strip() for line in f if line.strip()]
     
-    return valid_keys, expired_keys
-
-def main():
-    if len(sys.argv) != 2:
-        print("Usage: python expire_api_keys.py <input_file>")
-        sys.exit(1)
-        
-    input_file = sys.argv[1]
-    if not Path(input_file).exists():
-        print(f"Error: File {input_file} does not exist")
-        sys.exit(1)
-        
-    valid_keys, expired_keys = process_api_keys(input_file)
+    # Filter out expired keys
+    valid_keys = []
+    removed_keys = []
     
-    # Write valid keys back to the file
+    for line in lines:
+        if line in keys_to_remove:
+            removed_keys.append(line)
+        else:
+            valid_keys.append(line)
+    
+    # Write back valid keys
     with open(input_file, 'w') as f:
         for key in valid_keys:
             f.write(f"{key}\n")
     
     # Print summary
-    print(f"Processed {len(valid_keys) + len(expired_keys)} keys")
-    print(f"Valid keys: {len(valid_keys)}")
-    print(f"Expired keys: {len(expired_keys)}")
+    print(f"Processed {len(lines)} keys")
+    print(f"Removed: {len(removed_keys)}")
+    print(f"Remaining: {len(valid_keys)}")
     
-    if expired_keys:
-        print("\nExpired keys:")
-        for key in expired_keys:
-            print(f"- {key}")
+    if removed_keys:
+        print("\nRemoved keys:")
+        for key in removed_keys:
+            print(f"  - {key}")
+
+
+def main():
+    if len(sys.argv) < 3:
+        print("Usage: python expire_api_keys.py <input_file> <comma_separated_keys>")
+        sys.exit(1)
+    
+    input_file = sys.argv[1]
+    expired_keys = sys.argv[2]
+    
+    if not Path(input_file).exists():
+        print(f"Error: File {input_file} does not exist")
+        sys.exit(1)
+    
+    remove_expired_keys(input_file, expired_keys)
+
 
 if __name__ == "__main__":
-    main() 
+    main()

@@ -1,16 +1,19 @@
-name: Expire API Keys
+name: Cleanup Expired API Keys
 
 on:
   workflow_dispatch:
-  schedule: # temporarily disable
-    - cron: '0 0 * * *'  # Run daily at midnight
+    inputs:
+      expired_keys:
+        description: 'Comma-separated list of expired API keys to remove'
+        required: true
+        type: string
 
 permissions:
   contents: write
   actions: write
 
 jobs:
-  expire-keys:
+  cleanup-keys:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -21,9 +24,9 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Run API key expiration script
+      - name: Remove expired API keys
         run: |
-          python .github/scripts/expire_api_keys.py assets/rvr/rvr_trial.bin
+          python .github/scripts/expire_api_keys.py assets/rvr/rvr_trial.bin "${{ inputs.expired_keys }}"
 
       - name: Commit and push changes
         run: |
@@ -42,18 +45,3 @@ jobs:
               workflow_id: 'deploy.yml',
               ref: 'main'
             });
-
-      - name: Trigger rvr_crm workflow
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.RVR_CRM_TOKEN }}
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: 'rvr_crm',
-              workflow_id: 'expire_users.yml',
-              ref: 'main',
-              inputs: {
-              }
-            });
-          

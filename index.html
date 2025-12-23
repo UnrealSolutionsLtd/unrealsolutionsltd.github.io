@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="referrer" content="origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Runtime Video Recorder for Unreal Engine - Game Testing, Bug Reporting & Content Creation | Trusted by Amazon Games & Riot Games</title>
-    <meta name="description" content="Professional video recording solution for Unreal Engine used by Amazon Games for QA testing and Riot Games for bug reporting. Record gameplay, VR experiences, training sessions & more. No ffmpeg. Cross-platform: Windows, MacOS, Android, Linux, Oculus.">
+    <title>Runtime Video Recorder for Unreal Engine | Unreal Solutions</title>
+    <meta name="description" content="Professional video recording for Unreal Engine—trusted by Amazon Games & Riot Games. Game testing, bug reporting, VR & more. No ffmpeg required.">
     <meta name="keywords" content="unreal engine video recorder, game testing recorder, bug reporting tool, gameplay recording, VR recording, automated testing, instant replay, unreal engine plugin, amazon games, riot games, training recorder, dataset creation">
     
     <!-- Open Graph / Facebook -->
@@ -39,7 +39,7 @@
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="theme-color" content="#000000">
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script defer src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
@@ -48,7 +48,7 @@
       "@type": "SoftwareApplication",
       "name": "Runtime Video Recorder",
       "applicationCategory": "DeveloperApplication",
-      "operatingSystem": ["Windows", "macOS", "Linux", "Android", "Oculus"],
+      "operatingSystem": ["Windows", "macOS", "Linux", "Android", "Oculus", "iOS", "tvOS"],
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -77,6 +77,41 @@
         "Cross-Platform Support",
         "Training & Education Recording"
       ]
+    }
+    </script>
+    
+    <!-- WebSite Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Unreal Solutions",
+      "url": "https://unrealsolutions.com/"
+    }
+    </script>
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Unreal Solutions Ltd",
+      "url": "https://unrealsolutions.com",
+      "logo": "https://unrealsolutions.com/assets/logo.png"
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://unrealsolutions.com/"
+      }]
     }
     </script>
     
@@ -215,6 +250,7 @@
             <img 
               src="./assets/logo.png" 
               alt="Unreal Solutions Logo" 
+              title="Unreal Solutions Logo"
               class="h-12 sm:h-14 w-auto drop-shadow-[0_0_0.3rem_#ffffff70] cursor-pointer"
               id="logo"
             >
@@ -279,6 +315,7 @@
               <img 
                 src="./assets/recording-visual.png" 
                 alt="RVR - Runtime Video Recorder capturing games, VR training, drone simulations and architectural visualizations"
+                title="RVR - Runtime Video Recorder capturing games, VR training, drone simulations and architectural visualizations"
                 class="w-full h-auto rounded-lg shadow-2xl"
               />
             </div>
@@ -428,7 +465,7 @@
             <div class="use-case-card category-content">
               <div class="flex flex-col h-full">
                 <div class="mb-4 rounded-lg overflow-hidden" style="aspect-ratio: 4/3;">
-                  <img src="./assets/use-cases/instant-replay.png" alt="Instant Replay and Highlights Recording" class="w-full h-full object-cover">
+                  <img src="./assets/use-cases/instant-replay.png" alt="Instant Replay and Highlights Recording" title="Instant Replay and Highlights Recording" class="w-full h-full object-cover">
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">Instant Replay & Highlights</h3>
                 <p class="text-gray-300 text-sm mb-4 flex-grow">Save the last 30-60 seconds of gameplay on demand. Let players capture epic moments, clutch plays, and share their best highlights instantly.</p>
@@ -445,7 +482,7 @@
             <div class="use-case-card category-content">
               <div class="flex flex-col h-full">
                 <div class="mb-4 rounded-lg overflow-hidden" style="aspect-ratio: 4/3;">
-                  <img src="./assets/use-cases/vr-recordings.png" alt="VR Recordings" class="w-full h-full object-cover">
+                  <img src="./assets/use-cases/vr-recordings.png" alt="VR Recordings" title="VR Recordings for Unreal Engine" class="w-full h-full object-cover">
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">VR Recordings</h3>
                 <p class="text-gray-300 text-sm mb-4 flex-grow">Capture immersive VR experiences using render targets. Record handheld virtual cameras and scene capture components flawlessly.</p>
@@ -462,7 +499,7 @@
             <div class="use-case-card category-content">
               <div class="flex flex-col h-full">
                 <div class="mb-4 rounded-lg overflow-hidden" style="aspect-ratio: 4/3;">
-                  <img src="./assets/use-cases/in-game-camera.png" alt="In-Game Camera Recording" class="w-full h-full object-cover">
+                  <img src="./assets/use-cases/in-game-camera.png" alt="In-Game Camera Recording" title="In-Game Camera Recording" class="w-full h-full object-cover">
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">In-Game Camera Recording</h3>
                 <p class="text-gray-300 text-sm mb-4 flex-grow">Multi-camera setups for cinematic content. Perfect for recording security cameras, spectator views, or custom camera angles.</p>
@@ -479,7 +516,7 @@
             <div class="use-case-card category-content">
               <div class="flex flex-col h-full">
                 <div class="mb-4 rounded-lg overflow-hidden" style="aspect-ratio: 4/3;">
-                  <img src="./assets/use-cases/security-camera.png" alt="Security Camera Systems" class="w-full h-full object-cover">
+                  <img src="./assets/use-cases/security-camera.png" alt="Security Camera Systems" title="Security Camera Systems" class="w-full h-full object-cover">
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">Security Camera Systems</h3>
                 <p class="text-gray-300 text-sm mb-4 flex-grow">Build in-game surveillance systems with recorded footage. Create realistic security camera mechanics for your games.</p>
@@ -496,7 +533,7 @@
             <div class="use-case-card category-production">
               <div class="flex flex-col h-full">
                 <div class="mb-4 rounded-lg overflow-hidden" style="aspect-ratio: 4/3;">
-                  <img src="./assets/use-cases/drone-simulation.png" alt="Drone Simulation" class="w-full h-full object-cover">
+                  <img src="./assets/use-cases/drone-simulation.png" alt="Drone Simulation" title="Drone Simulation Recording" class="w-full h-full object-cover">
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">Drone Simulation</h3>
                 <p class="text-gray-300 text-sm mb-4 flex-grow">Capture flight data and visual recordings from drone simulations. Perfect for training and analysis.</p>
@@ -513,7 +550,7 @@
             <div class="use-case-card category-production">
               <div class="flex flex-col h-full">
                 <div class="mb-4 rounded-lg overflow-hidden" style="aspect-ratio: 4/3;">
-                  <img src="./assets/use-cases/dataset-creation.png" alt="Dataset Creation" class="w-full h-full object-cover">
+                  <img src="./assets/use-cases/dataset-creation.png" alt="Dataset Creation" title="Dataset Creation for ML/AI Training" class="w-full h-full object-cover">
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">Dataset Creation</h3>
                 <p class="text-gray-300 text-sm mb-4 flex-grow">Generate ML/AI training data from your Unreal Engine simulations. Automate dataset collection at scale.</p>
@@ -530,7 +567,7 @@
             <div class="use-case-card category-production">
               <div class="flex flex-col h-full">
                 <div class="mb-4 rounded-lg overflow-hidden" style="aspect-ratio: 4/3;">
-                  <img src="./assets/use-cases/pixel-streaming.png" alt="Pixel Streaming Capture" class="w-full h-full object-cover">
+                  <img src="./assets/use-cases/pixel-streaming.png" alt="Pixel Streaming Capture" title="Pixel Streaming Capture" class="w-full h-full object-cover">
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">Pixel Streaming Capture</h3>
                 <p class="text-gray-300 text-sm mb-4 flex-grow">Record user interactions in cloud-based applications. Capture the video feed when players interact with your pixel streaming app.</p>
@@ -554,22 +591,22 @@
           </h2>
           <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
             <div class="flex items-center justify-center p-5 rounded-xl" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-              <img src="./assets/customer-logos/amazon_games.png" alt="Amazon Games" class="h-16 w-auto max-w-full object-contain">
+              <img src="./assets/customer-logos/amazon_games.png" alt="Amazon Games" title="Amazon Games" class="h-16 w-auto max-w-full object-contain">
             </div>
             <div class="flex items-center justify-center p-5 rounded-xl" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-              <img src="./assets/customer-logos/meta.png" alt="Meta Research" class="h-12 w-auto max-w-full object-contain">
+              <img src="./assets/customer-logos/meta.png" alt="Meta Research" title="Meta Research" class="h-12 w-auto max-w-full object-contain">
             </div>
             <div class="flex items-center justify-center p-5 rounded-xl" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-              <img src="./assets/customer-logos/rico.png" alt="Riot Games" class="h-12 w-auto max-w-full object-contain">
+              <img src="./assets/customer-logos/rico.png" alt="Riot Games" title="Riot Games" class="h-12 w-auto max-w-full object-contain">
             </div>
             <div class="flex items-center justify-center p-5 rounded-xl" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-              <img src="./assets/customer-logos/unlit.png" alt="Unlit Studio" class="h-12 w-auto max-w-full object-contain">
+              <img src="./assets/customer-logos/unlit.png" alt="Unlit Studio" title="Unlit Studio" class="h-12 w-auto max-w-full object-contain">
             </div>
             <div class="flex items-center justify-center p-5 rounded-xl" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-              <img src="./assets/customer-logos/kara.png" alt="Kara.tech" class="h-12 w-auto max-w-full object-contain">
+              <img src="./assets/customer-logos/kara.png" alt="Kara.tech" title="Kara.tech" class="h-12 w-auto max-w-full object-contain">
             </div>
             <div class="flex items-center justify-center p-5 rounded-xl" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-              <img src="./assets/customer-logos/arovertech.png" alt="Arovertech" class="h-12 w-auto max-w-full object-contain">
+              <img src="./assets/customer-logos/arovertech.png" alt="Arovertech" title="Arovertech" class="h-12 w-auto max-w-full object-contain">
             </div>
           </div>
         </div>
