@@ -54,10 +54,14 @@ jobs:
           cp privacy.html deploy/ || true
           cp recorders.html deploy/ || true
           cp video.html deploy/ || true
+          cp sitemap.xml deploy/ || true
+          cp llms.txt deploy/ || true
           cp CNAME deploy/ || true
           cp -r assets deploy/ || true
           cp -r scripts deploy/ || true
-          cp -r products deploy/ || true  # Redirect pages for old URLs
+          cp -r products deploy/ || true
+          cp -r insights deploy/ || true
+          cp -r use-cases deploy/ || true
           
           # Copy VitePress docs to /docs/ subdirectory
           mkdir -p deploy/docs
