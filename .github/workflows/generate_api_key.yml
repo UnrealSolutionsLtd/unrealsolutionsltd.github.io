@@ -78,8 +78,8 @@ jobs:
           
           # Set duration based on validation
           if [ "$IS_VAGUE" = true ]; then
-            FINAL_DURATION=2
-            echo "📉 Vague use case detected. Limiting trial to 2 days."
+            FINAL_DURATION=3
+            echo "📉 Vague use case detected. Limiting trial to 5 days."
             echo "   Provided use case: '$USE_CASE'"
           else
             FINAL_DURATION=$DURATION
@@ -170,7 +170,7 @@ jobs:
           
           # Add note for vague use cases
           if [ "${{ env.IS_VAGUE }}" = "true" ]; then
-            VAGUE_NOTE="\n\n---\n\n*Note: You've received a 2-day trial. Reply with more details about your project (game genre, platform, how you plan to use the recorder) to receive an extended trial.*"
+            VAGUE_NOTE="\n\n---\n\n*Note: You've received a 3-day trial. Reply with more details about your project (game genre, platform, how you plan to use the recorder) to receive an extended trial.*"
             EMAIL_BODY="${EMAIL_BODY}${VAGUE_NOTE}"
           fi
           
