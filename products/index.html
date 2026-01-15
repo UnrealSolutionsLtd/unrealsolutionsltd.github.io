@@ -5,7 +5,7 @@
     <meta name="referrer" content="origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | Unreal Solutions - Professional Unreal Engine Plugins</title>
-    <meta name="description" content="Explore Unreal Solutions' suite of professional Unreal Engine plugins: Runtime Video Recorder, AI Mocap Pipeline, and AI Cinematic Director. Trusted by Amazon Games and Riot Games.">
+    <meta name="description" content="Explore Unreal Solutions' professional Unreal Engine plugins: Runtime Video Recorder, Vulkan Media Player, and upcoming AI-powered tools. Trusted by Amazon Games and Riot Games.">
     <meta name="keywords" content="unreal engine plugins, game development tools, video recording UE5, AI mocap, cinematic tools, game trailers, runtime video recorder">
     
     <!-- Open Graph / Facebook -->
@@ -51,7 +51,7 @@
       "name": "Unreal Solutions Products",
       "description": "Professional Unreal Engine plugins for game development and cinematic production",
       "url": "https://unrealsolutions.com/products/",
-      "numberOfItems": 3,
+      "numberOfItems": 4,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -68,6 +68,16 @@
           "position": 2,
           "item": {
             "@type": "SoftwareApplication",
+            "name": "Vulkan Media Player",
+            "url": "https://unrealsolutions.com/docs/products/vulkan-media-player/",
+            "description": "Hardware-accelerated video playback using Vulkan Video API"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "SoftwareApplication",
             "name": "AI Mocap Pipeline",
             "url": "https://unrealsolutions.com/products/ai-mocap-pipeline/",
             "description": "Video to game-ready animation with AI-powered cleanup"
@@ -75,7 +85,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 3,
+          "position": 4,
           "item": {
             "@type": "SoftwareApplication",
             "name": "AI Cinematic Director",
@@ -129,12 +139,29 @@
         box-shadow: 0 25px 50px rgba(245, 158, 11, 0.15);
       }
       
+      .product-card.emerald {
+        border-color: rgba(16, 185, 129, 0.2);
+      }
+      
+      .product-card.emerald:hover {
+        border-color: rgba(16, 185, 129, 0.5);
+        box-shadow: 0 25px 50px rgba(16, 185, 129, 0.15);
+      }
+      
       .badge-flagship {
         background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
       }
       
       .badge-new {
         background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      }
+      
+      .badge-experimental {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      }
+      
+      .badge-coming-soon {
+        background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
       }
     </style>
     
@@ -235,12 +262,54 @@
               </div>
             </a>
 
+            <!-- Vulkan Media Player -->
+            <a href="/docs/products/vulkan-media-player/" class="product-card emerald block p-8 group">
+              <div class="flex flex-col lg:flex-row lg:items-center gap-6">
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-4">
+                    <span class="badge-experimental px-3 py-1 rounded-full text-xs font-bold text-white">EXPERIMENTAL</span>
+                    <span class="text-gray-500 text-sm">Vulkan Video API</span>
+                  </div>
+                  <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3 group-hover:text-emerald-300 transition-colors">
+                    Vulkan Media Player
+                  </h2>
+                  <p class="text-gray-400 mb-4 max-w-2xl">
+                    Hardware-accelerated video playback using the Vulkan Video API. GPU-decoded video streaming 
+                    with minimal CPU overhead for cinematics, UI elements, and virtual production.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded text-xs text-emerald-300">Windows</span>
+                    <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded text-xs text-emerald-300">Linux</span>
+                    <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded text-xs text-emerald-300">Linux ARM64</span>
+                    <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded text-xs text-emerald-300">H.264</span>
+                  </div>
+                </div>
+                <div class="lg:text-right">
+                  <span class="inline-flex items-center text-emerald-400 font-medium group-hover:text-emerald-300 transition-colors">
+                    View Docs 
+                    <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Divider for Coming Soon products -->
+            <div class="pt-8 pb-4">
+              <div class="flex items-center gap-4">
+                <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
+                <span class="text-gray-500 text-sm font-medium tracking-wider">COMING SOON</span>
+                <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
+              </div>
+            </div>
+
             <!-- AI Mocap Pipeline -->
             <a href="/products/ai-mocap-pipeline/" class="product-card orange block p-8 group">
               <div class="flex flex-col lg:flex-row lg:items-center gap-6">
                 <div class="flex-1">
                   <div class="flex items-center gap-3 mb-4">
-                    <span class="badge-new px-3 py-1 rounded-full text-xs font-bold text-white">NEW</span>
+                    <span class="badge-coming-soon px-3 py-1 rounded-full text-xs font-bold text-white">COMING SOON</span>
                     <span class="text-gray-500 text-sm">AI-Powered Animation</span>
                   </div>
                   <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3 group-hover:text-orange-300 transition-colors">
@@ -273,7 +342,7 @@
               <div class="flex flex-col lg:flex-row lg:items-center gap-6">
                 <div class="flex-1">
                   <div class="flex items-center gap-3 mb-4">
-                    <span class="badge-new px-3 py-1 rounded-full text-xs font-bold text-white">NEW</span>
+                    <span class="badge-coming-soon px-3 py-1 rounded-full text-xs font-bold text-white">COMING SOON</span>
                     <span class="text-gray-500 text-sm">Intelligent Cinematography</span>
                   </div>
                   <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3 group-hover:text-amber-300 transition-colors">
