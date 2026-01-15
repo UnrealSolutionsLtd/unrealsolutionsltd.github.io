@@ -55,19 +55,13 @@ jobs:
           
           echo "📊 Word analysis: $WORD_COUNT total, $VAGUE_COUNT vague/filler, $MEANINGFUL_COUNT meaningful"
           
-          # Heuristic 1: Too few total words
-          if [ "$WORD_COUNT" -le 4 ]; then
+          # Heuristic 1: Not enough meaningful words (need at least 2 non-vague words)
+          if [ "$MEANINGFUL_COUNT" -lt 2 ]; then
             IS_VAGUE=true
-            echo "⚠️ Too few words ($WORD_COUNT words, minimum 5)"
+            echo "⚠️ Not enough meaningful words ($MEANINGFUL_COUNT meaningful, minimum 2)"
           fi
           
-          # Heuristic 2: Not enough meaningful words (need at least 3 non-vague words)
-          if [ "$MEANINGFUL_COUNT" -lt 3 ]; then
-            IS_VAGUE=true
-            echo "⚠️ Not enough meaningful words ($MEANINGFUL_COUNT meaningful, minimum 3)"
-          fi
-          
-          # Heuristic 3: More than 70% vague words
+          # Heuristic 2: More than 70% vague words
           if [ "$WORD_COUNT" -gt 0 ]; then
             VAGUE_PERCENT=$((VAGUE_COUNT * 100 / WORD_COUNT))
             if [ "$VAGUE_PERCENT" -ge 70 ]; then
