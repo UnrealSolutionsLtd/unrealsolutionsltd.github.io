@@ -13,36 +13,9 @@ Vulkan Media Player leverages the **Vulkan Video extension** for hardware-accele
 - **Higher Resolution Support**: GPU can handle higher resolutions efficiently
 - **Reduced Heat**: Less CPU load = less heat generation
 
-### Verifying Hardware Acceleration
-
-#### Linux
-```bash
-# Check Vulkan Video extension support
-vulkaninfo | grep -i "VK_KHR_video_decode"
-
-# Expected output (at minimum):
-# VK_KHR_video_decode_queue
-# VK_KHR_video_decode_h264  <-- Required for H.264 support
-```
-
-#### Windows
-Use tools like:
-- GPU-Z
-- GPU Caps Viewer
-- Vulkan Info (from Vulkan SDK)
-
-Look for "VK_KHR_video_decode" extensions.
-
-### GPU Requirements
-
-**Minimum:**
-- Vulkan 1.3 support
-- VK_KHR_video_decode_queue extension
-- VK_KHR_video_decode_h264 extension
-
-**Recommended:**
-- Modern GPU (2019+)
-- Latest drivers with Vulkan Video support
+::: tip Verify Hardware Support
+Before optimizing, ensure your system supports Vulkan Video. See the [Installation Guide](../installation#verification-check-vulkan-video-support) for verification steps.
+:::
 
 ## Performance Best Practices
 

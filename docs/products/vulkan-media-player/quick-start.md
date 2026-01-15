@@ -214,7 +214,7 @@ Now that you have basic video playback working:
 
 Want a ready-to-use example? Check out our sample project:
 
-- Download from [FAB Marketplace](https://www.fab.com/listings/a883f9ac-b253-487b-b5ab-d612b660e41b)
+- Download from [FAB Marketplace](https://www.fab.com/listings/b2fe4881-084b-4b6b-9142-f834ed7aab16)
 - Includes example levels, materials, and blueprints
 
 ## Need Help?

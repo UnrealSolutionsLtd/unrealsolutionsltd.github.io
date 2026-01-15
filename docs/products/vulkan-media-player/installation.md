@@ -28,21 +28,30 @@ Before installing Vulkan Media Player, ensure your system meets these requiremen
 
 ## Verification: Check Vulkan Video Support
 
-Before proceeding, verify your GPU supports Vulkan Video:
+Before proceeding, verify your GPU supports Vulkan Video extensions:
 
 ### Linux
 ```bash
 # Install vulkan-tools if not already installed
 sudo apt-get install vulkan-tools
 
-# Check Vulkan capabilities
-vulkaninfo | grep -i "video"
+# Check Vulkan Video extension support
+vulkaninfo | grep -i "VK_KHR_video_decode"
+
+# Expected output (at minimum):
+# VK_KHR_video_decode_queue
+# VK_KHR_video_decode_h264  <-- Required for H.264 support
 ```
 
-You should see output indicating video decode extensions are supported.
+If you don't see these extensions, update your GPU drivers or check the [Troubleshooting](#troubleshooting) section.
 
 ### Windows
-Download and run [GPU Caps Viewer](https://www.geeks3d.com/gpu-caps-viewer/) or similar tool to verify Vulkan Video extension support.
+Use one of these tools to verify Vulkan Video extension support:
+- [GPU Caps Viewer](https://www.geeks3d.com/gpu-caps-viewer/)
+- GPU-Z
+- Vulkan Info (included in Vulkan SDK)
+
+Look for **VK_KHR_video_decode_queue** and **VK_KHR_video_decode_h264** in the extensions list.
 
 ## Installation Methods
 
@@ -179,7 +188,7 @@ If you encounter issues:
 
 - 💬 Join our [Discord](https://discord.com/invite/pBDSCBcdgv) for community support
 - 📧 Email support: business@unrealsolutions.com
-- 📚 Check the [FAB product page](https://www.fab.com/listings/a883f9ac-b253-487b-b5ab-d612b660e41b) for updates
+- 📚 Check the [FAB product page](https://www.fab.com/listings/b2fe4881-084b-4b6b-9142-f834ed7aab16) for updates
 
 ---
 
