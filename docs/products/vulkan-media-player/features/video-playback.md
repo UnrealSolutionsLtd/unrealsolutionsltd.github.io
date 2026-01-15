@@ -20,9 +20,7 @@ Support for additional codecs (H.265/HEVC, VP9, AV1) is planned for future relea
 
 | Format | Extension | Support |
 |--------|-----------|---------|
-| MP4 | `.mp4` | ✅ Recommended |
-| MKV | `.mkv` | ✅ Supported |
-| WebM | `.webm` | ⚠️ Limited |
+| MP4 | `.mp4` | ✅ |
 
 ::: tip Best Practices
 For optimal playback with Vulkan Media Player:
