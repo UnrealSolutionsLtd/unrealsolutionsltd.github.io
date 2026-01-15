@@ -49,11 +49,19 @@ Download and run [GPU Caps Viewer](https://www.geeks3d.com/gpu-caps-viewer/) or 
 ### Method 1: Install from FAB Marketplace (Recommended)
 
 1. **Download the Plugin**
-   - Fill the form to get access to full version of VulkanMediaPlayer [here](https://tally.so/r/1AW1oM) 
+   - Get access to full version of VulkanMediaPlayer [here](https://tally.so/r/1AW1oM) 
    - Download Vulkan Media Player binaries
 
-2. **Install the plugin Plugin**
-   - Copy VulkanMediaPlayer to your project Plugins folder i.e. `<PROJECT_PATH>/Plugins`
+2. **Extract to Plugins Folder**
+   ```
+   YourProject/
+   └── Plugins/
+       └── VulkanMediaPlayer/
+           ├── Source/
+           ├── Resources/
+           ├── Content/
+           └── VulkanMediaPlayer.uplugin
+   ```
 
 2. **Regenerate Project Files**
    - Right-click your `.uproject` file

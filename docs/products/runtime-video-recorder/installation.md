@@ -13,7 +13,7 @@ This guide will help you install Runtime Video Recorder (RVR) in your Unreal Eng
 1. **Get the Plugin**
    - Visit our [Download Page](/download)
    - Complete your purchase or download the trial
-   - You'll receive download instructions via email
+   - You'll receive the download instructions via email
 
 2. **Extract to Plugins Folder**
    ```
