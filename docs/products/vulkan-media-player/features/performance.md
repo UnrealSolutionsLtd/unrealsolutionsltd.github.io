@@ -64,6 +64,71 @@ ffmpeg -i input.mp4 -c:v libx264 \
 - `-preset medium`: Encoding speed/efficiency balance
 - `-b:a 192k`: Audio bitrate
 
+### Input Video Requirements
+
+::: danger B-Frames Not Supported
+**Vulkan Media Player does NOT support B-frames (bidirectional frames).** Videos encoded with B-frames will fail to play or cause decoding errors.
+:::
+
+#### What Are B-Frames?
+
+B-frames (Bidirectional frames) are a compression technique where frames reference both past AND future frames. While they provide better compression, they add complexity to the decoding process and are not supported by the Vulkan Video decode pipeline in this plugin at this point.
+
+#### How to Check for B-Frames
+
+Use FFprobe to check if your video contains B-frames:
+
+```bash
+ffprobe -v error -select_streams v:0 -show_entries stream=has_b_frames -of default=noprint_wrappers=1 input.mp4
+```
+
+If the output shows `has_b_frames=1`, the video contains B-frames and must be re-encoded.
+
+#### Convert Any Video to Compatible Format
+
+Use this FFmpeg command to convert any video into a fully compatible format:
+
+```bash
+ffmpeg -i input.mp4 -c:v libx264 \
+  -profile:v high -level 4.1 \
+  -preset medium \
+  -crf 23 \
+  -bf 0 \
+  -g 30 -keyint_min 30 \
+  -c:a aac -b:a 192k \
+  output_compatible.mp4
+```
+
+**Critical Parameter:** `-bf 0` disables B-frames entirely, ensuring compatibility.
+
+::: tip Batch Conversion Script
+For converting multiple videos at once:
+
+**Windows (PowerShell):**
+```powershell
+Get-ChildItem -Filter *.mp4 | ForEach-Object {
+    ffmpeg -i $_.FullName -c:v libx264 -profile:v high -level 4.1 -preset medium -crf 23 -bf 0 -g 30 -keyint_min 30 -c:a aac -b:a 192k "compatible_$($_.Name)"
+}
+```
+
+**Linux/macOS:**
+```bash
+for f in *.mp4; do
+    ffmpeg -i "$f" -c:v libx264 -profile:v high -level 4.1 -preset medium -crf 23 -bf 0 -g 30 -keyint_min 30 -c:a aac -b:a 192k "compatible_${f}"
+done
+```
+:::
+
+#### Quick Compatibility Checklist
+
+| Requirement | Value | Status |
+|-------------|-------|--------|
+| Codec | H.264 only | Required |
+| B-Frames | Disabled (`-bf 0`) | Required |
+| Profile | High or lower | Recommended |
+| Level | 4.1 or lower | Recommended |
+| Container | MP4 | Recommended |
+
 ### 3. Bitrate Optimization
 
 | Resolution | Recommended Bitrate | Use Case |
