@@ -48,48 +48,16 @@ Download and run [GPU Caps Viewer](https://www.geeks3d.com/gpu-caps-viewer/) or 
 
 ### Method 1: Install from FAB Marketplace (Recommended)
 
-1. **Purchase the Plugin**
-   - Visit the [FAB Marketplace](https://www.fab.com/listings/a883f9ac-b253-487b-b5ab-d612b660e41b)
-   - Purchase or download Vulkan Media Player
-   - Open Epic Games Launcher
+1. **Download the Plugin**
+   - Fill the form to get access to full version of VulkanMediaPlayer [here](https://tally.so/r/1AW1oM) 
+   - Download Vulkan Media Player binaries
 
-2. **Install to Engine**
-   - Open Epic Games Launcher
-   - Navigate to **Unreal Engine** → **Library**
-   - Find **Vulkan Media Player** in your library
-   - Click **Install to Engine**
-   - Select your target Unreal Engine version
-   - Click **Install**
-
-3. **Enable in Project**
-   - Open your Unreal Engine project
-   - Go to **Edit** → **Plugins**
-   - Search for "Vulkan Media Player"
-   - Check the **Enabled** checkbox
-   - Click **Restart Now**
-
-### Method 2: Manual Installation from Source
-
-1. **Copy Plugin Files**
-   ```bash
-   # Copy plugin to your project's Plugins folder
-   cp -r VulkanMediaPlayer /path/to/YourProject/Plugins/
-   ```
+2. **Install the plugin Plugin**
+   - Copy VulkanMediaPlayer to your project Plugins folder i.e. `<PROJECT_PATH>/Plugins`
 
 2. **Regenerate Project Files**
    - Right-click your `.uproject` file
    - Select **Generate Visual Studio project files** (Windows) or equivalent
-
-3. **Build the Plugin**
-   - Open your project in Unreal Engine
-   - When prompted, click **Yes** to rebuild the plugin
-   - Wait for compilation to complete
-
-4. **Enable the Plugin**
-   - Go to **Edit** → **Plugins**
-   - Search for "Vulkan Media Player"
-   - Check the **Enabled** checkbox
-   - Click **Restart Now**
 
 ## Configuration
 
