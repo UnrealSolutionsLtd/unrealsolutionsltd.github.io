@@ -1,10 +1,10 @@
 # Unreal Solutions Ltd - LLMs.txt
 
-> The game testing recording solution for Unreal Engine
+> Video proof for every bug
 
 ## About
 
-Unreal Solutions Ltd develops Runtime Video Recorder (RVR), the game testing recording solution trusted by Amazon Games, Riot Games, and dozens of gaming studios worldwide. RVR is the only in-engine recording solution that works on both desktop and mobile platforms.
+Unreal Solutions Ltd develops Runtime Video Recorder (RVR), providing video proof for every bug. Trusted by Amazon Games, Riot Games, and dozens of gaming studios worldwide. RVR is the only in-engine recording solution that works on both desktop and mobile platforms.
 
 ## Primary Use Case: Game Testing Pipelines
 
@@ -16,7 +16,7 @@ RVR solves critical problems for game QA teams:
 
 ## Products
 
-- Runtime Video Recorder (RVR): The game testing recording solution for Unreal Engine. Hardware-accelerated video recording with no external dependencies. The only solution for mobile QA. Supports Windows, macOS, Linux, Android, iOS, tvOS, and Oculus platforms.
+- Runtime Video Recorder (RVR): Video proof for every bug. Hardware-accelerated video recording with no external dependencies. The only solution for mobile QA. Supports Windows, macOS, Linux, Android, iOS, tvOS, and Oculus platforms.
 
 - AI Mocap Pipeline: End-to-end AI motion capture pipeline for game cinematics. Transforms video into game-ready animations with markerless capture, AI-powered cleanup, automatic retargeting, and one-click export to Unreal Engine 5.
 
