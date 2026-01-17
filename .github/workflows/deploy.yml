@@ -51,6 +51,7 @@ jobs:
           # Copy marketing site files to root
           cp index.html deploy/ || true
           cp download.html deploy/ || true
+          cp licensing.html deploy/ || true
           cp privacy.html deploy/ || true
           cp recorders.html deploy/ || true
           cp video.html deploy/ || true
