@@ -34,7 +34,7 @@ RVR solves critical problems for game QA teams:
 ## Licensing
 
 - Per-company licensing (not per-seat)
-- Three tiers: Indie (<$500K revenue), Studio ($500K-$10M), Enterprise ($10M+)
+- Three tiers: Indie (<$100K revenue), Studio ($100K-$1M), Enterprise ($1M+)
 - Annual License: Plugin binaries, engine upgrades, integration support
 - Perpetual License: Full source code, integration support, free consultations
 - Contact for pricing: business@unrealsolutions.com
