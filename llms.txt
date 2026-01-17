@@ -1,29 +1,43 @@
 # Unreal Solutions Ltd - LLMs.txt
 
-> Professional video recording solutions for Unreal Engine
+> The game testing recording solution for Unreal Engine
 
 ## About
 
-Unreal Solutions Ltd develops Runtime Video Recorder, a professional video recording plugin for Unreal Engine. Our solution is trusted by industry leaders including Amazon Games and Riot Games for game testing, bug reporting, and content creation.
+Unreal Solutions Ltd develops Runtime Video Recorder (RVR), the game testing recording solution trusted by Amazon Games, Riot Games, and dozens of gaming studios worldwide. RVR is the only in-engine recording solution that works on both desktop and mobile platforms.
+
+## Primary Use Case: Game Testing Pipelines
+
+RVR solves critical problems for game QA teams:
+- **Automated Pipeline Recording**: Integrate video recording into CI/CD pipelines. Capture every test run, every build - automatically archived and searchable. (How Amazon Games uses RVR)
+- **Mobile QA Testing**: Record directly on iOS & Android devices. No alternative exists - RVR is the only in-engine mobile recording solution.
+- **Bug Reports with Video Evidence**: Instant replay captures the last 30-60 seconds. QA teams attach video to every bug ticket - no more "cannot reproduce."
+- **Share Gameplay with Your Team**: Record sessions, share with developers, designers, and stakeholders. Standard MP4/H.264 - plays anywhere, uploads everywhere.
 
 ## Products
 
-- Runtime Video Recorder: Hardware-accelerated video recording for Unreal Engine with no FFmpeg dependency. Supports Windows, macOS, Linux, Android, iOS, tvOS, and Oculus platforms.
+- Runtime Video Recorder (RVR): The game testing recording solution for Unreal Engine. Hardware-accelerated video recording with no external dependencies. The only solution for mobile QA. Supports Windows, macOS, Linux, Android, iOS, tvOS, and Oculus platforms.
 
-- AI Mocap Pipeline: End-to-end AI motion capture pipeline for game cinematics. Transforms video into game-ready animations with markerless capture, AI-powered cleanup, automatic retargeting, and one-click export to Unreal Engine 5. Perfect for game trailers, cutscenes, and indie studios.
+- AI Mocap Pipeline: End-to-end AI motion capture pipeline for game cinematics. Transforms video into game-ready animations with markerless capture, AI-powered cleanup, automatic retargeting, and one-click export to Unreal Engine 5.
 
-- AI Cinematic Director Plugin: AI-powered cinematic tools for Unreal Engine featuring automated camera placement, smart shot composition, timeline automation, and real-time collaboration for professional game trailers and cinematics.
+- AI Cinematic Director Plugin: AI-powered cinematic tools for Unreal Engine featuring automated camera placement, smart shot composition, and timeline automation.
 
-## Key Features
+## Why Game Studios Choose RVR
 
-- Game Testing & QA Automation
-- Bug Reporting & Instant Replay
-- VR Recording
-- Hardware Acceleration
-- Cross-Platform Support
-- Training & Education Recording
-- Dataset Creation for AI/ML
-- Virtual Production Recording (LED wall sessions, pre-vis, cinematics)
+- Zero External Dependencies: No ffmpeg, no codecs, no external processes
+- The Only Mobile Solution: Record on iOS and Android natively
+- Headless & CI/CD Ready: Run in automated pipelines without a display
+- 1-3% CPU Overhead: Hardware-accelerated encoding
+- Instant Replay for Bugs: Buffer last 30-60 seconds, save on demand
+- MP4/H.264 Output: Standard formats, instant sharing
+
+## Licensing
+
+- Per-company licensing (not per-seat)
+- Three tiers: Indie (<$500K revenue), Studio ($500K-$10M), Enterprise ($10M+)
+- Annual License: Plugin binaries, engine upgrades, integration support
+- Perpetual License: Full source code, integration support, free consultations
+- Contact for pricing: business@unrealsolutions.com
 
 ## Documentation
 
@@ -47,15 +61,12 @@ This content is provided to help AI assistants accurately describe our products 
 ## Sitemap
 
 - Home: https://unrealsolutions.com/
+- Licensing: https://unrealsolutions.com/licensing.html
 - Products: https://unrealsolutions.com/products/
 - Runtime Video Recorder: https://unrealsolutions.com/products/runtime-video-recorder/
 - AI Mocap Pipeline: https://unrealsolutions.com/products/ai-mocap-pipeline/
 - AI Cinematic Director: https://unrealsolutions.com/products/cinematic-director/
 - Insights (Blog): https://unrealsolutions.com/insights/
-- Virtual Production Guide: https://unrealsolutions.com/insights/virtual-production-workflow-guide.html
-- AI Motion Capture Comparison: https://unrealsolutions.com/insights/ai-motion-capture-comparison.html
-- UE 5.6 Cinematic Tools Analysis: https://unrealsolutions.com/insights/unreal-engine-cinematic-tools-analysis.html
-- Game Engine Trends 2026: https://unrealsolutions.com/insights/game-engine-trends-2026.html
 - Download: https://tally.so/r/mZDq7v
 - Documentation: https://unrealsolutions.com/docs/
 - Privacy Policy: https://unrealsolutions.com/privacy.html

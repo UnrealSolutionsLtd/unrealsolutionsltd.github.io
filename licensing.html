@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licensing | Runtime Video Recorder for Unreal Engine</title>
+    <meta name="description" content="Flexible licensing for game studios of all sizes. Annual and perpetual options with integration support. Contact us for pricing.">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unrealsolutions.com/licensing">
+    <meta property="og:title" content="RVR Licensing - Flexible Options for Every Studio">
+    <meta property="og:description" content="From indie teams to AAA studios. Annual subscriptions or perpetual licenses with source code access.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/linkedin_preview.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://unrealsolutions.com/licensing">
+    <meta name="twitter:title" content="RVR Licensing - Indie, Studio & Enterprise Options">
+    <meta name="twitter:description" content="Per-company licensing for game testing recording. Annual or perpetual. No per-seat fees.">
+    <meta name="twitter:image" content="https://unrealsolutions.com/assets/linkedin_preview.png">
+    
+    <!-- Additional SEO -->
+    <meta name="author" content="Unreal Solutions Ltd">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unrealsolutions.com/licensing">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://unrealsolutions.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Licensing",
+        "item": "https://unrealsolutions.com/licensing"
+      }]
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How is company size determined for RVR licensing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Company size is based on annual revenue. We trust our customers to self-select the appropriate tier: Indie (under $500K), Studio ($500K-$10M), or Enterprise ($10M+). For studios with variable revenue, we're happy to discuss the best fit."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can I upgrade from Annual to Perpetual license?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can upgrade at any time. We'll credit a portion of your annual payments toward the perpetual license."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What's included in RVR integration support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We help you integrate RVR into your project and CI/CD pipeline. This includes setup guidance, troubleshooting, and best practices for your specific use case."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is the RVR license per-seat or per-company?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Per-company. One license covers your entire team - no per-seat fees, no counting developers."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What happens when a new Unreal Engine version releases?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Annual license holders receive engine upgrades automatically at no extra cost. Perpetual license holders can purchase upgrade packages or handle upgrades themselves with source access."
+        }
+      }]
+    }
+    </script>
+    
+    <!-- Product Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Runtime Video Recorder (RVR)",
+      "description": "Game testing recording solution for Unreal Engine. Record gameplay, capture bugs with video, integrate into CI/CD pipelines.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Unreal Solutions"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "offerCount": "3"
+      }
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico">
+    <meta name="theme-color" content="#000000">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    
+    <style>
+      .tier-card {
+        background: rgba(17, 24, 39, 0.8);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        transition: all 0.3s ease;
+      }
+      
+      .tier-card:hover {
+        border-color: rgba(99, 102, 241, 0.5);
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+      
+      .tier-card.featured {
+        border-color: rgba(99, 102, 241, 0.5);
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(17, 24, 39, 0.9) 100%);
+      }
+      
+      .license-toggle {
+        background: rgba(31, 41, 55, 0.8);
+        border-radius: 9999px;
+        padding: 4px;
+      }
+      
+      .license-toggle button {
+        padding: 0.5rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+      
+      .license-toggle button.active {
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        color: white;
+      }
+      
+      .license-toggle button:not(.active) {
+        color: #9ca3af;
+      }
+      
+      .license-toggle button:not(.active):hover {
+        color: white;
+      }
+    </style>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+  </head>
+  <body class="bg-gradient-to-b from-gray-900 to-black min-h-screen">
+    <main class="container mx-auto px-4 sm:px-20">
+      <!-- Top Navigation Bar -->
+      <div class="mb-4 sm:mb-0 sm:fixed sm:top-0 sm:left-0 sm:right-0 z-50 sm:bg-gray-900/80 sm:backdrop-blur-md sm:border-b sm:border-gray-800">
+        <div class="flex items-center justify-between sm:px-6 sm:py-3">
+          <!-- Logo -->
+          <a href="/">
+            <img 
+              src="./assets/logo.png" 
+              alt="Unreal Solutions Logo" 
+              title="Unreal Solutions Logo"
+              class="h-12 sm:h-14 w-auto drop-shadow-[0_0_0.3rem_#ffffff70] cursor-pointer"
+            >
+          </a>
+          <!-- Navigation Links -->
+          <nav class="hidden sm:flex items-center gap-6">
+            <a href="/products/" class="text-gray-400 hover:text-white transition-colors text-sm font-medium">Products</a>
+            <a href="/licensing.html" class="text-white transition-colors text-sm font-medium">Licensing</a>
+            <a href="/docs/" class="text-gray-400 hover:text-white transition-colors text-sm font-medium">Docs</a>
+            <a 
+              href="https://crosslayerai.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 rounded-lg hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-200"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+              CrossLayerAI
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Hero Section -->
+      <div class="pt-8 sm:pt-32 pb-16 text-center">
+        <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6">
+          Licensing Built for <span class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Your Studio</span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+          From indie teams to AAA studios. Per-company licensing with flexible terms.
+        </p>
+        
+        <!-- License Type Toggle -->
+        <div class="flex justify-center mb-12">
+          <div class="license-toggle inline-flex">
+            <button id="btn-annual" class="active" onclick="showLicenseType('annual')">Annual License</button>
+            <button id="btn-perpetual" onclick="showLicenseType('perpetual')">Perpetual License</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing Tiers -->
+      <div class="max-w-6xl mx-auto pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Indie Tier -->
+          <div class="tier-card p-8">
+            <div class="mb-6">
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-sm font-medium mb-4">
+                Indie
+              </span>
+              <h3 class="text-2xl font-bold text-white mb-2">Indie Studio</h3>
+              <p class="text-gray-400 text-sm">For studios with less than $500K annual revenue</p>
+            </div>
+            
+            <div class="mb-8">
+              <p class="text-3xl font-bold text-white mb-1">Contact Us</p>
+              <p class="text-gray-400 text-sm license-term">per company / year</p>
+            </div>
+            
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Plugin binaries</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">All platforms (Windows, Mac, Linux, iOS, Android, Oculus)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Engine version upgrades</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Discord community support</span>
+              </li>
+              <li class="flex items-start gap-3 source-code-feature hidden">
+                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Full source code access</span>
+              </li>
+            </ul>
+            
+            <a 
+              href="mailto:business@unrealsolutions.com?subject=Indie%20License%20Inquiry"
+              class="block w-full text-center px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg transition-colors"
+            >
+              Get Quote
+            </a>
+          </div>
+          
+          <!-- Studio Tier (Featured) -->
+          <div class="tier-card featured p-8 relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="px-4 py-1 bg-indigo-500 text-white text-sm font-medium rounded-full">Most Popular</span>
+            </div>
+            
+            <div class="mb-6">
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">
+                Studio
+              </span>
+              <h3 class="text-2xl font-bold text-white mb-2">Game Studio</h3>
+              <p class="text-gray-400 text-sm">For studios with $500K - $10M annual revenue</p>
+            </div>
+            
+            <div class="mb-8">
+              <p class="text-3xl font-bold text-white mb-1">Contact Us</p>
+              <p class="text-gray-400 text-sm license-term">per company / year</p>
+            </div>
+            
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Everything in Indie</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Integration support</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Priority email support</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Unlimited projects</span>
+              </li>
+              <li class="flex items-start gap-3 source-code-feature hidden">
+                <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Full source code access</span>
+              </li>
+              <li class="flex items-start gap-3 source-code-feature hidden">
+                <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Free consultation calls</span>
+              </li>
+            </ul>
+            
+            <a 
+              href="mailto:business@unrealsolutions.com?subject=Studio%20License%20Inquiry"
+              class="block w-full text-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium rounded-lg transition-colors"
+            >
+              Get Quote
+            </a>
+          </div>
+          
+          <!-- Enterprise Tier -->
+          <div class="tier-card p-8">
+            <div class="mb-6">
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-sm font-medium mb-4">
+                Enterprise
+              </span>
+              <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
+              <p class="text-gray-400 text-sm">For studios with $10M+ annual revenue</p>
+            </div>
+            
+            <div class="mb-8">
+              <p class="text-3xl font-bold text-white mb-1">Custom</p>
+              <p class="text-gray-400 text-sm license-term">tailored to your needs</p>
+            </div>
+            
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Everything in Studio</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Full source code access</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Dedicated support channel</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Custom SLA</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">On-call consulting</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-300">Custom feature development</span>
+              </li>
+            </ul>
+            
+            <a 
+              href="mailto:business@unrealsolutions.com?subject=Enterprise%20License%20Inquiry"
+              class="block w-full text-center px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg transition-colors"
+            >
+              Contact Sales
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- License Comparison -->
+      <div class="max-w-4xl mx-auto pb-16">
+        <h2 class="text-3xl font-bold text-white text-center mb-8">Annual vs Perpetual</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Annual -->
+          <div class="tier-card p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white">Annual License</h3>
+            </div>
+            <p class="text-gray-400 mb-6">Lower upfront cost. Stay current with the latest features and engine versions.</p>
+            
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-gray-300">
+                <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Plugin binaries
+              </li>
+              <li class="flex items-center gap-3 text-gray-300">
+                <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Engine upgrades included
+              </li>
+              <li class="flex items-center gap-3 text-gray-300">
+                <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Integration support
+              </li>
+              <li class="flex items-center gap-3 text-gray-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+                No source code
+              </li>
+            </ul>
+            
+            <p class="text-sm text-gray-500 mt-6">Best for: Studios that want flexibility and always-current software</p>
+          </div>
+          
+          <!-- Perpetual -->
+          <div class="tier-card p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white">Perpetual License</h3>
+            </div>
+            <p class="text-gray-400 mb-6">Own it forever. Full source code access for customization and security audits.</p>
+            
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-gray-300">
+                <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Full source code
+              </li>
+              <li class="flex items-center gap-3 text-gray-300">
+                <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Integration support
+              </li>
+              <li class="flex items-center gap-3 text-gray-300">
+                <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Free consultation calls
+              </li>
+              <li class="flex items-center gap-3 text-gray-300">
+                <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Modify & customize
+              </li>
+            </ul>
+            
+            <p class="text-sm text-gray-500 mt-6">Best for: Studios needing source access for security, compliance, or customization</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="max-w-3xl mx-auto pb-16">
+        <h2 class="text-3xl font-bold text-white text-center mb-8">Frequently Asked Questions</h2>
+        
+        <div class="space-y-4">
+          <details class="tier-card p-6 cursor-pointer group">
+            <summary class="flex items-center justify-between text-white font-medium">
+              How is company size determined?
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-400">Company size is based on annual revenue. We trust our customers to self-select the appropriate tier. For studios with variable revenue, we're happy to discuss the best fit.</p>
+          </details>
+          
+          <details class="tier-card p-6 cursor-pointer group">
+            <summary class="flex items-center justify-between text-white font-medium">
+              Can I upgrade from Annual to Perpetual?
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-400">Yes! You can upgrade at any time. We'll credit a portion of your annual payments toward the perpetual license.</p>
+          </details>
+          
+          <details class="tier-card p-6 cursor-pointer group">
+            <summary class="flex items-center justify-between text-white font-medium">
+              What's included in integration support?
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-400">We help you integrate RVR into your project and CI/CD pipeline. This includes setup guidance, troubleshooting, and best practices for your specific use case.</p>
+          </details>
+          
+          <details class="tier-card p-6 cursor-pointer group">
+            <summary class="flex items-center justify-between text-white font-medium">
+              Is the license per-seat or per-company?
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-400">Per-company. One license covers your entire team - no per-seat fees, no counting developers.</p>
+          </details>
+          
+          <details class="tier-card p-6 cursor-pointer group">
+            <summary class="flex items-center justify-between text-white font-medium">
+              What happens when a new Unreal Engine version releases?
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-400">Annual license holders receive engine upgrades automatically at no extra cost. Perpetual license holders can purchase upgrade packages or handle upgrades themselves with source access.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="max-w-3xl mx-auto pb-16 text-center">
+        <div class="tier-card p-12">
+          <h2 class="text-2xl font-bold text-white mb-4">Not Sure Which License is Right?</h2>
+          <p class="text-gray-400 mb-8">Let's discuss your needs. We'll help you find the best option for your studio.</p>
+          <a 
+            href="mailto:business@unrealsolutions.com?subject=Licensing%20Question"
+            class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-200"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            Contact Us
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="text-center text-gray-500 text-sm pb-8 border-t border-gray-800 pt-8">
+        <div class="flex flex-wrap justify-center gap-6 mb-4">
+          <a href="/" class="text-gray-400 hover:text-white transition-colors">Home</a>
+          <a href="/products/" class="text-gray-400 hover:text-white transition-colors">Products</a>
+          <a href="/docs/" class="text-gray-400 hover:text-white transition-colors">Docs</a>
+          <a href="mailto:business@unrealsolutions.com" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+        </div>
+        © Unreal Solutions Ltd. All Rights Reserved 2025
+      </div>
+    </main>
+
+    <script>
+      function showLicenseType(type) {
+        const btnAnnual = document.getElementById('btn-annual');
+        const btnPerpetual = document.getElementById('btn-perpetual');
+        const licenseTerms = document.querySelectorAll('.license-term');
+        const sourceCodeFeatures = document.querySelectorAll('.source-code-feature');
+        
+        if (type === 'annual') {
+          btnAnnual.classList.add('active');
+          btnPerpetual.classList.remove('active');
+          licenseTerms.forEach(el => el.textContent = el.textContent.includes('tailored') ? 'tailored to your needs' : 'per company / year');
+          sourceCodeFeatures.forEach(el => el.classList.add('hidden'));
+        } else {
+          btnPerpetual.classList.add('active');
+          btnAnnual.classList.remove('active');
+          licenseTerms.forEach(el => el.textContent = el.textContent.includes('tailored') ? 'tailored to your needs' : 'per company / one-time');
+          sourceCodeFeatures.forEach(el => el.classList.remove('hidden'));
+        }
+      }
+    </script>
+  </body>
+</html>
