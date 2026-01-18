@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD Video Capture for Unreal Engine | Automated Test Recording</title>
+    <meta name="description" content="Capture video evidence from automated tests in CI/CD pipelines. Headless recording, crash recovery, auto-upload. No display required.">
+    <meta name="keywords" content="CI/CD video capture, Unreal Engine automated testing, headless video recording, Jenkins Unreal recording, GitHub Actions game testing, automated QA video, test pipeline recording">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://unrealsolutions.com/insights/ci-cd-video-capture-unreal-engine.html">
+    <meta property="og:title" content="CI/CD Video Capture for Unreal Engine">
+    <meta property="og:description" content="Capture video from automated tests. Headless. No display required.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/linkedin_preview.png">
+    <meta property="article:published_time" content="2026-01-18">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CI/CD Video Capture for Unreal Engine">
+    <meta name="twitter:description" content="Automated test recording in pipelines. Headless. Crash recovery.">
+    
+    <link rel="canonical" href="https://unrealsolutions.com/insights/ci-cd-video-capture-unreal-engine.html">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "CI/CD Video Capture for Unreal Engine",
+      "description": "Capture video evidence from automated tests in CI/CD pipelines.",
+      "author": {"@type": "Organization", "name": "Unreal Solutions Ltd"},
+      "publisher": {"@type": "Organization", "name": "Unreal Solutions Ltd"},
+      "datePublished": "2026-01-18"
+    }
+    </script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="bg-gray-900 text-white">
+    <main class="container mx-auto px-4 sm:px-20 py-8">
+      <!-- Nav -->
+      <nav class="flex items-center justify-between mb-12">
+        <a href="/"><img src="../assets/logo.png" alt="Unreal Solutions" class="h-12"></a>
+        <div class="flex gap-6 text-sm">
+          <a href="/" class="text-gray-400 hover:text-white">Home</a>
+          <a href="/products/" class="text-gray-400 hover:text-white">Products</a>
+          <a href="/insights/" class="text-gray-400 hover:text-white">Insights</a>
+        </div>
+      </nav>
+
+      <!-- Header -->
+      <div class="max-w-3xl mx-auto mb-12">
+        <div class="flex items-center gap-3 mb-4 text-sm">
+          <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full">DevOps</span>
+          <span class="text-gray-500">January 2026</span>
+        </div>
+        <h1 class="text-4xl font-bold mb-4">CI/CD Video Capture for Unreal Engine</h1>
+        <p class="text-xl text-gray-400">Every failed test gets a video. Automatically.</p>
+      </div>
+
+      <!-- Content -->
+      <article class="max-w-3xl mx-auto space-y-12">
+        
+        <!-- The Problem -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-red-400">The Problem</h2>
+          <p class="text-gray-300 mb-4">Automated tests fail. Without video, you don't know why.</p>
+          <div class="bg-red-900/20 border border-red-500/30 rounded-lg p-4">
+            <p class="text-gray-300 mb-2"><strong class="text-red-400">Test Output:</strong></p>
+            <code class="text-sm text-gray-400">
+              FAILED: PlayerMovementTest<br>
+              Expected: Player at position (100, 200)<br>
+              Actual: Player at position (100, 198)<br>
+              <br>
+              → What happened? No idea. Run it again manually?
+            </code>
+          </div>
+        </section>
+
+        <!-- Why Alternatives Fail -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Why Alternatives Fail</h2>
+          <table class="w-full text-sm border border-gray-700 rounded-lg overflow-hidden">
+            <thead class="bg-gray-800">
+              <tr>
+                <th class="p-3 text-left">Tool</th>
+                <th class="p-3 text-left">Headless?</th>
+                <th class="p-3 text-left">Problem</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-300">
+              <tr class="border-t border-gray-700">
+                <td class="p-3">OBS</td>
+                <td class="p-3 text-red-400">No</td>
+                <td class="p-3">Requires display, manual start</td>
+              </tr>
+              <tr class="border-t border-gray-700">
+                <td class="p-3">NVIDIA ShadowPlay</td>
+                <td class="p-3 text-red-400">No</td>
+                <td class="p-3">Requires GPU + display</td>
+              </tr>
+              <tr class="border-t border-gray-700">
+                <td class="p-3">FFmpeg screen capture</td>
+                <td class="p-3 text-red-400">No</td>
+                <td class="p-3">Needs display server</td>
+              </tr>
+              <tr class="border-t border-gray-700 bg-emerald-500/10">
+                <td class="p-3 text-emerald-400">RVR</td>
+                <td class="p-3 text-emerald-400">Yes</td>
+                <td class="p-3 text-emerald-400">Records from engine, no display needed</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- How It Works -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-emerald-400">The Solution</h2>
+          <p class="text-gray-300 mb-4">RVR records from inside Unreal Engine. No display. No external process.</p>
+          <div class="bg-gray-800 rounded-lg p-6 font-mono text-sm">
+            <p class="text-gray-400 mb-2"># Jenkins/GitHub Actions pipeline</p>
+            <p class="text-gray-300">
+              <span class="text-blue-400">1.</span> Game starts with RVR enabled<br>
+              <span class="text-blue-400">2.</span> Automated test runs<br>
+              <span class="text-blue-400">3.</span> Test fails → RVR.SaveReplayBuffer()<br>
+              <span class="text-blue-400">4.</span> Video uploaded to artifact storage<br>
+              <span class="text-blue-400">5.</span> Bug report includes video link
+            </p>
+          </div>
+        </section>
+
+        <!-- Code Example -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Integration</h2>
+          <div class="bg-gray-800 rounded-lg p-4">
+            <p class="text-gray-400 text-sm mb-2">// In your automated test</p>
+            <pre class="text-sm text-gray-300 overflow-x-auto">
+if (TestFailed())
+{
+    // Save last 60 seconds
+    VideoRecorder->SaveReplayBuffer();
+    
+    // Upload to CI artifacts
+    FString VideoPath = VideoRecorder->GetLastRecordingPath();
+    UploadToBuildArtifacts(VideoPath);
+}</pre>
+          </div>
+        </section>
+
+        <!-- Key Features -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Key Features</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-gray-800 rounded-lg p-4">
+              <h3 class="font-semibold text-emerald-400 mb-2">Headless Operation</h3>
+              <p class="text-gray-400 text-sm">Runs on build servers without monitors. Works in Docker containers.</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4">
+              <h3 class="font-semibold text-emerald-400 mb-2">Crash Recovery</h3>
+              <p class="text-gray-400 text-sm">If game crashes, video is preserved. Captures the crash moment.</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4">
+              <h3 class="font-semibold text-emerald-400 mb-2">Replay Buffer</h3>
+              <p class="text-gray-400 text-sm">Always recording. Save only when test fails. No wasted storage.</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4">
+              <h3 class="font-semibold text-emerald-400 mb-2">Event Triggers</h3>
+              <p class="text-gray-400 text-sm">Auto-save on assertions, exceptions, test failures.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ROI -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">ROI</h2>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-4 text-center">
+              <div class="text-3xl font-bold text-emerald-400">80%</div>
+              <div class="text-gray-400 text-sm">Faster flaky test diagnosis</div>
+            </div>
+            <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-4 text-center">
+              <div class="text-3xl font-bold text-emerald-400">0</div>
+              <div class="text-gray-400 text-sm">"Can't reproduce" from CI</div>
+            </div>
+            <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-4 text-center">
+              <div class="text-3xl font-bold text-emerald-400">24/7</div>
+              <div class="text-gray-400 text-sm">Automated coverage</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Platforms -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Supported Environments</h2>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-gray-800 rounded text-sm">Jenkins</span>
+            <span class="px-3 py-1 bg-gray-800 rounded text-sm">GitHub Actions</span>
+            <span class="px-3 py-1 bg-gray-800 rounded text-sm">GitLab CI</span>
+            <span class="px-3 py-1 bg-gray-800 rounded text-sm">TeamCity</span>
+            <span class="px-3 py-1 bg-gray-800 rounded text-sm">AWS Device Farm</span>
+            <span class="px-3 py-1 bg-gray-800 rounded text-sm">Docker</span>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="bg-purple-600 rounded-xl p-8 text-center">
+          <h2 class="text-2xl font-bold mb-2">Add Video to Your CI/CD Pipeline</h2>
+          <p class="text-purple-100 mb-6">Every failed test gets proof. Automatically.</p>
+          <a href="https://tally.so/r/mZDq7v" target="_blank" class="inline-block px-6 py-3 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-100">
+            Request API Key & Download
+          </a>
+        </section>
+
+      </article>
+
+      <!-- Footer -->
+      <footer class="max-w-3xl mx-auto mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+        © Unreal Solutions Ltd. All Rights Reserved 2026
+      </footer>
+    </main>
+</body>
+</html>

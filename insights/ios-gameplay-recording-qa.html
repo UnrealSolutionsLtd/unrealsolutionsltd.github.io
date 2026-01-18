@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Record Gameplay on iOS for QA | In-Engine Video Capture</title>
+    <meta name="description" content="The only way to capture bug videos directly on iOS devices. No screen mirroring, no external apps. In-engine recording with hardware acceleration.">
+    <meta name="keywords" content="iOS gameplay recording, iPhone game testing, iOS QA video capture, mobile game testing iOS, record bugs on iPhone, iOS game QA, in-engine recording iOS">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://unrealsolutions.com/insights/ios-gameplay-recording-qa.html">
+    <meta property="og:title" content="How to Record Gameplay on iOS for QA">
+    <meta property="og:description" content="The only in-engine solution for capturing bug videos directly on iOS devices.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/linkedin_preview.png">
+    <meta property="article:published_time" content="2026-01-18">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Record Gameplay on iOS for QA">
+    <meta name="twitter:description" content="In-engine video capture on iOS. No screen mirroring. No external apps.">
+    
+    <link rel="canonical" href="https://unrealsolutions.com/insights/ios-gameplay-recording-qa.html">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Record Gameplay on iOS for QA",
+      "description": "The only way to capture bug videos directly on iOS devices for game testing.",
+      "author": {"@type": "Organization", "name": "Unreal Solutions Ltd"},
+      "publisher": {"@type": "Organization", "name": "Unreal Solutions Ltd"},
+      "datePublished": "2026-01-18"
+    }
+    </script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="bg-gray-900 text-white">
+    <main class="container mx-auto px-4 sm:px-20 py-8">
+      <!-- Nav -->
+      <nav class="flex items-center justify-between mb-12">
+        <a href="/"><img src="../assets/logo.png" alt="Unreal Solutions" class="h-12"></a>
+        <div class="flex gap-6 text-sm">
+          <a href="/" class="text-gray-400 hover:text-white">Home</a>
+          <a href="/products/" class="text-gray-400 hover:text-white">Products</a>
+          <a href="/insights/" class="text-gray-400 hover:text-white">Insights</a>
+        </div>
+      </nav>
+
+      <!-- Header -->
+      <div class="max-w-3xl mx-auto mb-12">
+        <div class="flex items-center gap-3 mb-4 text-sm">
+          <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full">Mobile QA</span>
+          <span class="text-gray-500">January 2026</span>
+        </div>
+        <h1 class="text-4xl font-bold mb-4">How to Record Gameplay on iOS for QA</h1>
+        <p class="text-xl text-gray-400">The only in-engine solution. No alternatives exist.</p>
+      </div>
+
+      <!-- Content -->
+      <article class="max-w-3xl mx-auto space-y-12">
+        
+        <!-- The Problem -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-red-400">The Problem</h2>
+          <p class="text-gray-300 mb-4">Every iOS QA approach fails:</p>
+          <table class="w-full text-sm border border-gray-700 rounded-lg overflow-hidden">
+            <thead class="bg-gray-800">
+              <tr>
+                <th class="p-3 text-left">Method</th>
+                <th class="p-3 text-left">Why It Fails</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-300">
+              <tr class="border-t border-gray-700">
+                <td class="p-3">Screen Recording (iOS built-in)</td>
+                <td class="p-3">5-10% performance hit, misses game state</td>
+              </tr>
+              <tr class="border-t border-gray-700">
+                <td class="p-3">QuickTime mirroring</td>
+                <td class="p-3">Adds latency, can't catch timing bugs</td>
+              </tr>
+              <tr class="border-t border-gray-700">
+                <td class="p-3">Physical camera</td>
+                <td class="p-3">Poor quality, no debug info</td>
+              </tr>
+              <tr class="border-t border-gray-700">
+                <td class="p-3">TestFlight recordings</td>
+                <td class="p-3">User-facing only, not QA workflow</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- The Solution -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-emerald-400">The Solution</h2>
+          <p class="text-gray-300 mb-4">Record from inside the engine. RVR captures directly from Unreal Engine's render pipeline on iOS:</p>
+          <ul class="space-y-2 text-gray-300">
+            <li class="flex items-center gap-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Hardware-accelerated via VideoToolbox (Apple's encoder)</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-emerald-400">✓</span>
+              <span>3-5% overhead — no impact on bug reproduction</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Runs on device — no tethering required</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Standard MP4 output — attach directly to Jira</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- How It Works -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">How It Works</h2>
+          <div class="bg-gray-800 rounded-lg p-6">
+            <ol class="space-y-4 text-gray-300">
+              <li><strong class="text-white">1.</strong> RVR hooks into Unreal's render thread</li>
+              <li><strong class="text-white">2.</strong> Captures frames before they hit the display</li>
+              <li><strong class="text-white">3.</strong> Encodes via VideoToolbox (hardware H.264)</li>
+              <li><strong class="text-white">4.</strong> Writes MP4 to device storage</li>
+              <li><strong class="text-white">5.</strong> QA retrieves video via iTunes/Files or uploads directly</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- ROI -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">ROI</h2>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-4 text-center">
+              <div class="text-3xl font-bold text-emerald-400">100%</div>
+              <div class="text-gray-400 text-sm">Coverage previously impossible</div>
+            </div>
+            <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-4 text-center">
+              <div class="text-3xl font-bold text-emerald-400">60%</div>
+              <div class="text-gray-400 text-sm">Faster iOS bug resolution</div>
+            </div>
+            <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-4 text-center">
+              <div class="text-3xl font-bold text-emerald-400">0</div>
+              <div class="text-gray-400 text-sm">External dependencies</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Who Uses This -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Who Uses This</h2>
+          <p class="text-gray-300">Studios shipping mobile games on iOS who need video evidence for QA:</p>
+          <div class="flex flex-wrap gap-4 mt-4">
+            <img src="../assets/customer-logos/amazon_games.png" alt="Amazon Games" class="h-8 opacity-70">
+            <img src="../assets/customer-logos/riot_games.png" alt="Riot Games" class="h-8 opacity-70">
+            <img src="../assets/customer-logos/meta.png" alt="Meta" class="h-8 opacity-70">
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="bg-emerald-600 rounded-xl p-8 text-center">
+          <h2 class="text-2xl font-bold mb-2">Get iOS Video Recording for QA</h2>
+          <p class="text-emerald-100 mb-6">No alternatives exist. RVR is the only solution.</p>
+          <a href="https://tally.so/r/mZDq7v" target="_blank" class="inline-block px-6 py-3 bg-white text-emerald-600 font-semibold rounded-lg hover:bg-gray-100">
+            Request API Key & Download
+          </a>
+        </section>
+
+      </article>
+
+      <!-- Footer -->
+      <footer class="max-w-3xl mx-auto mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+        © Unreal Solutions Ltd. All Rights Reserved 2026
+      </footer>
+    </main>
+</body>
+</html>
