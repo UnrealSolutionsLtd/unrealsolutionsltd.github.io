@@ -468,8 +468,9 @@
                 <div>
                   <h4 class="text-lg font-semibold text-red-400 mb-3">Limitations</h4>
                   <ul class="text-gray-300 space-y-2 mb-0">
+                    <li>Windows only - no mobile, VR, or console support</li>
+                    <li>High performance overhead (no hardware acceleration)</li>
                     <li>Subscription-based model may not fit all budgets</li>
-                    <li>Video quality and buffer length tied to plan tier</li>
                     <li>Requires cloud upload (not suitable for all security requirements)</li>
                     <li>Limited customization for specialized workflows</li>
                   </ul>
@@ -478,7 +479,7 @@
               
               <div class="bg-gray-700/50 rounded-lg p-4">
                 <p class="text-gray-300 text-sm mb-0">
-                  <strong class="text-white">Best for:</strong> Indie to mid-size studios who want an all-in-one solution without building custom infrastructure. Works well for teams using outsourced QA who need a standardized workflow.
+                  <strong class="text-white">Best for:</strong> Indie to mid-size studios developing Windows games who want an all-in-one solution without building custom infrastructure. Not suitable for mobile, VR, or console projects.
                 </p>
               </div>
             </div>
@@ -648,7 +649,7 @@
                   </tr>
                   <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium text-white">Performance Overhead</td>
-                    <td class="p-4">3-5%</td>
+                    <td class="p-4 text-red-400">High (no HW accel)</td>
                     <td class="p-4 text-green-400">1-3%</td>
                     <td class="p-4 text-green-400">&lt;1%</td>
                     <td class="p-4">Varies (often 5-10%)</td>
@@ -662,21 +663,21 @@
                   </tr>
                   <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium text-white">Desktop Support</td>
-                    <td class="p-4"><span class="feature-check">Windows</span></td>
+                    <td class="p-4"><span class="feature-partial">Windows only</span></td>
                     <td class="p-4"><span class="feature-check">Windows, macOS, Linux</span></td>
                     <td class="p-4"><span class="feature-check">All</span></td>
                     <td class="p-4"><span class="feature-check">Usually</span></td>
                   </tr>
                   <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium text-white">Mobile Support</td>
-                    <td class="p-4"><span class="feature-partial">Limited</span></td>
+                    <td class="p-4"><span class="feature-missing">No</span></td>
                     <td class="p-4"><span class="feature-check">Full (iOS/Android)</span></td>
                     <td class="p-4"><span class="feature-partial">Crash only</span></td>
                     <td class="p-4"><span class="feature-partial">Varies</span></td>
                   </tr>
                   <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium text-white">VR Support</td>
-                    <td class="p-4"><span class="feature-partial">Limited</span></td>
+                    <td class="p-4"><span class="feature-missing">No</span></td>
                     <td class="p-4"><span class="feature-check">Full (Quest, PCVR)</span></td>
                     <td class="p-4"><span class="feature-partial">Crash only</span></td>
                     <td class="p-4"><span class="feature-partial">Varies</span></td>
@@ -697,7 +698,7 @@
                   </tr>
                   <tr class="border-t border-gray-700 bg-blue-500/10">
                     <td class="p-4 font-bold text-white">Best For</td>
-                    <td class="p-4">All-in-one needs</td>
+                    <td class="p-4">Windows-only, all-in-one</td>
                     <td class="p-4">Video-first, all platforms</td>
                     <td class="p-4">Crash analytics only</td>
                     <td class="p-4">Specialized AAA workflows</td>
@@ -788,10 +789,10 @@
                 <strong class="text-white">Priority:</strong> Minimal setup, low maintenance, good enough capture.
               </p>
               <p class="text-gray-300 mb-4">
-                Small teams can't afford to spend engineering time on QA infrastructure. An integrated solution like BetaHub offers the fastest path to functional bug reporting with video capture. The subscription cost is likely lower than the engineering time to build and maintain an alternative.
+                Small teams can't afford to spend engineering time on QA infrastructure. For Windows-only projects, an integrated solution like BetaHub offers a fast path to functional bug reporting with video capture. However, BetaHub's lack of hardware acceleration means noticeable performance overhead during recording.
               </p>
               <p class="text-gray-300 mb-0">
-                For teams on tight budgets, combining a simple bug tracker (even a spreadsheet) with RVR for video capture can work - the videos are the critical piece.
+                For teams targeting multiple platforms, or those on tight budgets, combining a simple bug tracker (even a spreadsheet) with RVR for video capture is often the better approach - the videos are the critical piece, and RVR's hardware acceleration keeps overhead minimal.
               </p>
             </div>
 
@@ -804,12 +805,12 @@
                 Mid-size studios typically have established bug tracking (Jira, Azure DevOps, etc.) and need tools that integrate rather than replace. The choice often comes down to:
               </p>
               <ul class="text-gray-300 mb-4 space-y-2">
-                <li>BetaHub if you want dashboard features and don't mind a parallel system</li>
-                <li>RVR + custom integration if video is the main gap in your current workflow</li>
+                <li>BetaHub if you're Windows-only and want dashboard features with a parallel system</li>
+                <li>RVR + custom integration if you need cross-platform video or video is the main gap in your current workflow</li>
                 <li>Internal tooling only if you have specialized requirements that off-the-shelf tools can't meet</li>
               </ul>
               <p class="text-gray-300 mb-0">
-                Mobile and VR projects at this scale strongly favor in-engine solutions due to platform constraints.
+                Mobile, VR, and console projects at this scale require in-engine solutions like RVR due to platform constraints - BetaHub doesn't support these platforms.
               </p>
             </div>
 
