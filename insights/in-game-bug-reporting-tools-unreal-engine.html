@@ -323,7 +323,7 @@
               If you've spent time in game QA, you know the frustration: a tester files a detailed bug report, a developer spends an hour trying to reproduce it, and the ticket ends up marked "Cannot Reproduce." The bug resurfaces three builds later, now blocking a milestone.
             </p>
             <p class="text-gray-300 text-lg leading-relaxed mb-6">
-              This is not a communication problem. It's a tooling problem. Traditional bug reports—screenshots, text descriptions, and manual reproduction steps—are fundamentally inadequate for the complexity of modern Unreal Engine projects. The state space of a running game is enormous, and text descriptions can only capture a fraction of the context a developer needs.
+              This is not a communication problem. It's a tooling problem. Traditional bug reports - screenshots, text descriptions, and manual reproduction steps - are fundamentally inadequate for the complexity of modern Unreal Engine projects. The state space of a running game is enormous, and text descriptions can only capture a fraction of the context a developer needs.
             </p>
             <p class="text-gray-300 text-lg leading-relaxed">
               This guide covers the current landscape of <strong class="text-white">in-game bug reporting tools for Unreal Engine</strong>, with a focus on what actually moves the needle: reducing time-to-reproduce and eliminating friction between QA and development.
@@ -353,7 +353,7 @@
 
             <h3 class="text-xl font-semibold text-white mb-4">Why Screenshots Aren't Enough</h3>
             <p class="text-gray-300 mb-6">
-              Screenshots capture a single frame. Game bugs are temporal—they involve sequences of events, timing, and state transitions. A screenshot of a character clipped through geometry tells you nothing about how they got there.
+              Screenshots capture a single frame. Game bugs are temporal - they involve sequences of events, timing, and state transitions. A screenshot of a character clipped through geometry tells you nothing about how they got there.
             </p>
             <p class="text-gray-300 mb-6">
               Even annotated screenshots with detailed reproduction steps fail for intermittent bugs, timing-dependent issues, and edge cases that require specific game state to trigger. The tester saw what happened, but they can't transmit that knowledge reliably through text.
@@ -364,7 +364,7 @@
               When a bug occurs, there's a wealth of context available: the player's position, recent inputs, active game systems, network state, hardware configuration, and the visual sequence of events leading to the issue. Traditional bug reports capture maybe 10% of this context.
             </p>
             <p class="text-gray-300">
-              Modern <strong class="text-white">game QA tools</strong> address this by capturing context automatically—video, logs, system state, and metadata—without requiring testers to document everything manually.
+              Modern <strong class="text-white">game QA tools</strong> address this by capturing context automatically - video, logs, system state, and metadata - without requiring testers to document everything manually.
             </p>
           </section>
 
@@ -392,7 +392,7 @@
                 <div class="text-3xl mb-4">📋</div>
                 <h3 class="text-xl font-semibold text-white mb-3 mt-0">Automatic Log Capture</h3>
                 <p class="text-gray-300 mb-4">
-                  Engine logs, gameplay logs, network logs—all should be captured automatically and attached to bug reports. Developers shouldn't have to ask testers to enable logging or dig through files.
+                  Engine logs, gameplay logs, network logs - all should be captured automatically and attached to bug reports. Developers shouldn't have to ask testers to enable logging or dig through files.
                 </p>
                 <p class="text-gray-400 text-sm mb-0">
                   <strong>Must-have:</strong> Last N seconds of logs captured with video timestamp correlation
@@ -403,7 +403,7 @@
                 <div class="text-3xl mb-4">💻</div>
                 <h3 class="text-xl font-semibold text-white mb-3 mt-0">Hardware & Build Info</h3>
                 <p class="text-gray-300 mb-4">
-                  GPU model, driver version, OS, game build number, changelist—these are often the difference between a reproducible bug and a "works on my machine" mystery.
+                  GPU model, driver version, OS, game build number, changelist - these are often the difference between a reproducible bug and a "works on my machine" mystery.
                 </p>
                 <p class="text-gray-400 text-sm mb-0">
                   <strong>Must-have:</strong> Auto-collected system specs attached to every report
@@ -430,7 +430,7 @@
             <div class="warning-box mb-6">
               <h4 class="font-semibold text-yellow-400 mb-2 mt-0">Common Mistake</h4>
               <p class="text-gray-300 mb-0">
-                Some studios deploy sophisticated bug reporting systems that capture everything—but are so cumbersome that testers only use them for critical bugs. A simpler tool with 80% of the features but 100% adoption is more valuable.
+                Some studios deploy sophisticated bug reporting systems that capture everything - but are so cumbersome that testers only use them for critical bugs. A simpler tool with 80% of the features but 100% adoption is more valuable.
               </p>
             </div>
           </section>
@@ -511,7 +511,7 @@
                 <div>
                   <h4 class="text-lg font-semibold text-red-400 mb-3">Limitations</h4>
                   <ul class="text-gray-300 space-y-2 mb-0">
-                    <li>Video capture only—requires integration with bug tracker</li>
+                    <li>Video capture only - requires integration with bug tracker</li>
                     <li>No built-in UI (must be implemented by studio)</li>
                     <li>Log collection requires separate implementation</li>
                     <li>Learning curve for advanced features</li>
@@ -550,7 +550,7 @@
                 <div>
                   <h4 class="text-lg font-semibold text-red-400 mb-3">Limitations</h4>
                   <ul class="text-gray-300 space-y-2 mb-0">
-                    <li>Only triggers on crashes—misses all other bugs</li>
+                    <li>Only triggers on crashes - misses all other bugs</li>
                     <li>No video capture</li>
                     <li>Minimal context (no game state, logs)</li>
                     <li>Not useful for gameplay bugs</li>
@@ -592,7 +592,7 @@
                     <li>Significant development and maintenance cost</li>
                     <li>Video capture is non-trivial to implement well</li>
                     <li>Often underdocumented and hard for outsourced QA</li>
-                    <li>Opportunity cost—engineers could be building game features</li>
+                    <li>Opportunity cost - engineers could be building game features</li>
                   </ul>
                 </div>
               </div>
@@ -716,7 +716,7 @@
             <h2 class="text-3xl font-bold text-white mb-6">5. Why Runtime Video Capture Changes QA Workflows</h2>
             
             <p class="text-gray-300 mb-6">
-              Video capture is not just a nice-to-have feature—it's a fundamental shift in how <strong class="text-white">bug reproduction</strong> works. Here's why it matters across different contexts.
+              Video capture is not just a nice-to-have feature - it's a fundamental shift in how <strong class="text-white">bug reproduction</strong> works. Here's why it matters across different contexts.
             </p>
 
             <h3 class="text-xl font-semibold text-white mb-4">Instant Replay Buffers: Capture Without Prediction</h3>
@@ -754,7 +754,7 @@
 
             <h3 class="text-xl font-semibold text-white mb-4">CI/CD and Automated Test Recording</h3>
             <p class="text-gray-300 mb-6">
-              Modern game development relies heavily on automated testing—smoke tests, regression tests, performance benchmarks. When these tests run on CI infrastructure, failures often produce cryptic logs that are difficult to interpret.
+              Modern game development relies heavily on automated testing - smoke tests, regression tests, performance benchmarks. When these tests run on CI infrastructure, failures often produce cryptic logs that are difficult to interpret.
             </p>
             <p class="text-gray-300 mb-6">
               <strong class="text-white">Runtime video capture</strong> that works in headless environments changes this equation. Every automated test run can produce a video artifact showing exactly what happened, making test failure investigation dramatically faster.
@@ -791,7 +791,7 @@
                 Small teams can't afford to spend engineering time on QA infrastructure. An integrated solution like BetaHub offers the fastest path to functional bug reporting with video capture. The subscription cost is likely lower than the engineering time to build and maintain an alternative.
               </p>
               <p class="text-gray-300 mb-0">
-                For teams on tight budgets, combining a simple bug tracker (even a spreadsheet) with RVR for video capture can work—the videos are the critical piece.
+                For teams on tight budgets, combining a simple bug tracker (even a spreadsheet) with RVR for video capture can work - the videos are the critical piece.
               </p>
             </div>
 
@@ -827,7 +827,7 @@
                 <li>Different tools for internal vs. outsourced QA</li>
               </ul>
               <p class="text-gray-300 mb-0">
-                The key consideration at this scale is maintenance burden—custom tools need dedicated support, while commercial tools shift that burden to vendors.
+                The key consideration at this scale is maintenance burden - custom tools need dedicated support, while commercial tools shift that burden to vendors.
               </p>
             </div>
 
@@ -840,14 +840,14 @@
                 When QA is performed by external vendors, tooling must be accessible to testers who may work on multiple projects. Proprietary internal tools create friction. Solutions that work "out of the box" with clear documentation are essential.
               </p>
               <p class="text-gray-300 mb-0">
-                Video capture is particularly valuable here—it provides an unambiguous record that transcends communication barriers and different testing methodologies across vendors.
+                Video capture is particularly valuable here - it provides an unambiguous record that transcends communication barriers and different testing methodologies across vendors.
               </p>
             </div>
 
             <h3 class="text-xl font-semibold text-white mb-4">Live Service vs. Premium Titles</h3>
             <div class="bg-gray-800/50 rounded-lg p-6 mb-6">
               <p class="text-gray-300 mb-4">
-                <strong class="text-white">Live Service:</strong> Bug turnaround time is critical. Issues affecting live players need to be reproduced and fixed within hours, not days. Tools that capture maximum context automatically are essential—there's no time for back-and-forth clarification.
+                <strong class="text-white">Live Service:</strong> Bug turnaround time is critical. Issues affecting live players need to be reproduced and fixed within hours, not days. Tools that capture maximum context automatically are essential - there's no time for back-and-forth clarification.
               </p>
               <p class="text-gray-300 mb-0">
                 <strong class="text-white">Premium Titles:</strong> Focus is on pre-launch polish. CI/CD integration for automated regression testing, and thorough capture during milestone testing phases. The cost of shipping a bug is higher, justifying investment in comprehensive tooling.
@@ -868,12 +868,12 @@
               Five years ago, "video with every bug report" was aspirational for most studios. Today, it's table stakes for serious QA operations. The next frontier is richer context: game state snapshots, network traffic samples, GPU timing data, memory allocation patterns.
             </p>
             <p class="text-gray-300 mb-6">
-              Tools that capture this context automatically—without requiring testers to enable special modes or remember to attach files—will increasingly differentiate professional QA from amateur testing.
+              Tools that capture this context automatically - without requiring testers to enable special modes or remember to attach files - will increasingly differentiate professional QA from amateur testing.
             </p>
 
             <h3 class="text-xl font-semibold text-white mb-4">Reduced Human-Written Reproduction Steps</h3>
             <p class="text-gray-300 mb-6">
-              The ideal bug report contains zero human-written reproduction steps. Video shows what happened. Logs explain the technical context. System info provides environment details. The tester's job shifts from documentation to discovery—finding bugs rather than writing about them.
+              The ideal bug report contains zero human-written reproduction steps. Video shows what happened. Logs explain the technical context. System info provides environment details. The tester's job shifts from documentation to discovery - finding bugs rather than writing about them.
             </p>
             <p class="text-gray-300 mb-6">
               We're not fully there yet, but every improvement in automatic capture reduces the friction that makes thorough bug reporting tedious.
@@ -890,7 +890,7 @@
               <li>Extract structured information from unstructured bug reports</li>
             </ul>
             <p class="text-gray-300 mb-6">
-              This doesn't replace human QA—it augments it. The game-playing bots that will eventually automate portions of testing will still need robust capture infrastructure to produce useful output.
+              This doesn't replace human QA - it augments it. The game-playing bots that will eventually automate portions of testing will still need robust capture infrastructure to produce useful output.
             </p>
 
             <div class="highlight-box">
