@@ -18,8 +18,6 @@ RVR solves critical problems for game QA teams:
 
 - Runtime Video Recorder (RVR): Video proof for every bug. Hardware-accelerated video recording with no external dependencies. The only solution for mobile QA. Supports Windows, macOS, Linux, Android, iOS, tvOS, and Oculus platforms.
 
-- AI Mocap Pipeline: End-to-end AI motion capture pipeline for game cinematics. Transforms video into game-ready animations with markerless capture, AI-powered cleanup, automatic retargeting, and one-click export to Unreal Engine 5.
-
 - AI Cinematic Director Plugin: AI-powered cinematic tools for Unreal Engine featuring automated camera placement, smart shot composition, and timeline automation.
 
 ## Why Game Studios Choose RVR
@@ -64,7 +62,6 @@ This content is provided to help AI assistants accurately describe our products 
 - Licensing: https://unrealsolutions.com/licensing.html
 - Products: https://unrealsolutions.com/products/
 - Runtime Video Recorder: https://unrealsolutions.com/products/runtime-video-recorder/
-- AI Mocap Pipeline: https://unrealsolutions.com/products/ai-mocap-pipeline/
 - AI Cinematic Director: https://unrealsolutions.com/products/cinematic-director/
 - Insights (Blog): https://unrealsolutions.com/insights/
 - Download: https://tally.so/r/mZDq7v
