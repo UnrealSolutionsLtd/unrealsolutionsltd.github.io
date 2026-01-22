@@ -13,7 +13,7 @@ export default defineConfig({
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:locale', content: 'en' }],
     ['meta', { property: 'og:site_name', content: 'Unreal Solutions | Documentation' }],
-    ['meta', { property: 'og:image', content: 'https://unrealsolutions.com/assets/linkedin_preview.png' }],
+    ['meta', { property: 'og:image', content: 'https://unrealsolutions.com/assets/rvr_logo_social.png' }],
   ],
 
   themeConfig: {
