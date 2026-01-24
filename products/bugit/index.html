@@ -334,9 +334,9 @@
           </div>
 
           <!-- Workflow Steps -->
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-4 lg:gap-0">
             <!-- Step 1: Capture -->
-            <div class="workflow-step p-8 text-center">
+            <div class="workflow-step p-8 text-center flex-1 max-w-sm">
               <div class="w-16 h-16 rounded-full bg-indigo-500/20 flex items-center justify-center mx-auto mb-6">
                 <span class="text-3xl font-bold text-indigo-400">1</span>
               </div>
@@ -352,15 +352,15 @@
               </a>
             </div>
 
-            <!-- Arrow -->
-            <div class="hidden lg:flex items-center justify-center">
-              <svg class="w-24 h-24 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Arrow 1 -->
+            <div class="hidden lg:flex items-center justify-center px-4">
+              <svg class="w-12 h-12 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
             </div>
 
-            <!-- Step 2: Upload (overlapping with arrow on mobile) -->
-            <div class="workflow-step p-8 text-center lg:col-start-2">
+            <!-- Step 2: Upload -->
+            <div class="workflow-step p-8 text-center flex-1 max-w-sm">
               <div class="w-16 h-16 rounded-full bg-yellow-500/20 flex items-center justify-center mx-auto mb-6">
                 <span class="text-3xl font-bold text-yellow-400">2</span>
               </div>
@@ -371,15 +371,15 @@
               <span class="text-yellow-400/60 text-sm">Automatic upload via BugIt SDK</span>
             </div>
 
-            <!-- Arrow -->
-            <div class="hidden lg:flex items-center justify-center lg:col-start-3 lg:row-start-1">
-              <svg class="w-24 h-24 text-gray-600 rotate-90 lg:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Arrow 2 -->
+            <div class="hidden lg:flex items-center justify-center px-4">
+              <svg class="w-12 h-12 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
             </div>
 
             <!-- Step 3: View -->
-            <div class="workflow-step p-8 text-center lg:col-start-3">
+            <div class="workflow-step p-8 text-center flex-1 max-w-sm">
               <div class="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-6">
                 <span class="text-3xl font-bold text-green-400">3</span>
               </div>
