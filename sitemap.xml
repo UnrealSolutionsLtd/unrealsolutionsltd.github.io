@@ -23,7 +23,15 @@
   <!-- Products Index -->
   <url>
     <loc>https://unrealsolutions.com/products/</loc>
-    <lastmod>2024-12-23</lastmod>
+    <lastmod>2026-01-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- BugIt - QA Dashboard -->
+  <url>
+    <loc>https://unrealsolutions.com/products/bugit/</loc>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
