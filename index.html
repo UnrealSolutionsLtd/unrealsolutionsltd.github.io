@@ -281,7 +281,156 @@
         'allow_ad_personalization_signals': false
       });
 
-      // Custom event tracking function
+      // ============================================
+      // UTM TRACKING - Capture traffic source
+      // ============================================
+      (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const referrer = document.referrer.toLowerCase();
+        
+        // Detect source from referrer if no UTM params
+        function detectSourceFromReferrer() {
+          if (!referrer) return { source: 'direct', medium: 'none' };
+          
+          // Search engines
+          if (referrer.includes('google.')) return { source: 'google', medium: 'organic' };
+          if (referrer.includes('bing.')) return { source: 'bing', medium: 'organic' };
+          if (referrer.includes('duckduckgo.')) return { source: 'duckduckgo', medium: 'organic' };
+          if (referrer.includes('yahoo.')) return { source: 'yahoo', medium: 'organic' };
+          if (referrer.includes('baidu.')) return { source: 'baidu', medium: 'organic' };
+          if (referrer.includes('yandex.')) return { source: 'yandex', medium: 'organic' };
+          
+          // Social & community
+          if (referrer.includes('reddit.com')) return { source: 'reddit', medium: 'social' };
+          if (referrer.includes('twitter.com') || referrer.includes('x.com')) return { source: 'twitter', medium: 'social' };
+          if (referrer.includes('linkedin.com')) return { source: 'linkedin', medium: 'social' };
+          if (referrer.includes('facebook.com')) return { source: 'facebook', medium: 'social' };
+          if (referrer.includes('discord.com')) return { source: 'discord', medium: 'social' };
+          
+          // Unreal ecosystem
+          if (referrer.includes('unrealengine.com')) return { source: 'unreal_forums', medium: 'referral' };
+          if (referrer.includes('fab.com')) return { source: 'fab', medium: 'marketplace' };
+          
+          // YouTube
+          if (referrer.includes('youtube.com')) return { source: 'youtube', medium: 'video' };
+          
+          // Other referral - extract domain
+          try {
+            const domain = new URL(referrer).hostname.replace('www.', '');
+            return { source: domain, medium: 'referral' };
+          } catch {
+            return { source: 'referral', medium: 'referral' };
+          }
+        }
+        
+        // Check for UTM params first, then fall back to referrer detection
+        const hasUtmParams = urlParams.get('utm_source');
+        const referrerData = detectSourceFromReferrer();
+        
+        const utmData = {
+          utm_source: urlParams.get('utm_source') || referrerData.source,
+          utm_medium: urlParams.get('utm_medium') || referrerData.medium,
+          utm_campaign: urlParams.get('utm_campaign') || 'none',
+          utm_content: urlParams.get('utm_content') || 'none',
+          referrer: referrer || 'direct'
+        };
+        
+        // Store UTM data for session (if new session or has UTM params)
+        const existingData = sessionStorage.getItem('rvr_utm_data');
+        if (!existingData || hasUtmParams) {
+          sessionStorage.setItem('rvr_utm_data', JSON.stringify(utmData));
+        }
+        
+        // Retrieve stored UTM data or use current
+        window.getRVRUtmData = function() {
+          const stored = sessionStorage.getItem('rvr_utm_data');
+          return stored ? JSON.parse(stored) : utmData;
+        };
+        
+        // Set user properties for attribution
+        const utm = window.getRVRUtmData();
+        gtag('set', 'user_properties', {
+          'traffic_source': utm.utm_source,
+          'traffic_medium': utm.utm_medium,
+          'traffic_campaign': utm.utm_campaign
+        });
+      })();
+
+      // ============================================
+      // BUILD TALLY URL WITH UTM ATTRIBUTION
+      // ============================================
+      function getTallyUrlWithAttribution(position) {
+        const base = 'https://tally.so/r/mZDq7v';
+        const utm = window.getRVRUtmData();
+        const params = new URLSearchParams({
+          utm_source: utm.utm_source === 'direct' ? 'website' : utm.utm_source,
+          utm_medium: utm.utm_medium === 'none' ? 'cta_button' : utm.utm_medium,
+          utm_campaign: utm.utm_campaign === 'none' ? 'rvr_download' : utm.utm_campaign,
+          utm_content: position || 'unknown'
+        });
+        return base + '?' + params.toString();
+      }
+
+      // ============================================
+      // IMPROVED EVENT TRACKING FUNCTIONS
+      // ============================================
+      
+      // Track CTA download button clicks (FIXED: unique event name)
+      function trackCtaClick(position, buttonText) {
+        const utm = window.getRVRUtmData();
+        gtag('event', 'cta_download_click', {
+          'button_position': position,
+          'button_text': buttonText,
+          'page_path': window.location.pathname,
+          'traffic_source': utm.utm_source,
+          'traffic_medium': utm.utm_medium
+        });
+      }
+      
+      // Track documentation clicks
+      function trackDocsClick(linkText, linkUrl) {
+        gtag('event', 'docs_navigation', {
+          'link_text': linkText,
+          'link_url': linkUrl,
+          'page_path': window.location.pathname
+        });
+      }
+      
+      // Track use case engagement
+      function trackUseCaseClick(useCaseTitle, action) {
+        gtag('event', 'usecase_engagement', {
+          'usecase_title': useCaseTitle,
+          'action_type': action,
+          'page_path': window.location.pathname
+        });
+      }
+      
+      // Track outbound links (FIXED: unique event name)
+      function trackOutboundClick(linkUrl, linkText) {
+        gtag('event', 'outbound_link_click', {
+          'link_url': linkUrl,
+          'link_text': linkText,
+          'page_path': window.location.pathname
+        });
+      }
+      
+      // Track scroll depth (kept for compatibility, uses unique name)
+      function trackScrollDepth(depth) {
+        gtag('event', 'scroll_milestone', {
+          'scroll_depth': depth,
+          'page_path': window.location.pathname
+        });
+      }
+      
+      // Track time engagement
+      function trackTimeEngagement(seconds) {
+        gtag('event', 'time_engagement', {
+          'time_seconds': seconds,
+          'page_path': window.location.pathname
+        });
+      }
+
+      // Legacy trackEvent function (for backward compatibility)
       function trackEvent(category, action, label) {
         gtag('event', action, {
           'event_category': category,
@@ -338,7 +487,8 @@
                 href="https://tally.so/r/mZDq7v"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+                data-cta-position="hero"
+                class="cta-download inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
@@ -460,13 +610,14 @@
               href="https://tally.so/r/mZDq7v"
               target="_blank"
               rel="noopener noreferrer"
-                class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl"
-              >
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                </svg>
+              data-cta-position="middle"
+              class="cta-download inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
               Request API Key & Download
-              </a>
+            </a>
               <a 
                 href="/docs/"
               class="inline-flex items-center px-6 py-3 text-sm font-medium text-indigo-400 bg-gray-800/50 border border-indigo-500/50 rounded-lg hover:bg-gray-700/50 hover:text-indigo-300 hover:border-indigo-400 transition-all duration-200"
@@ -990,7 +1141,8 @@
           href="https://tally.so/r/mZDq7v"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 shadow-lg hover:shadow-xl"
+          data-cta-position="bottom"
+          class="cta-download inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 shadow-lg hover:shadow-xl"
         >
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
@@ -1219,52 +1371,67 @@
         // Draw arrow once on page load
         drawConnectionLines();
 
-        // Use case cards tracking and hover effects
+        // ============================================
+        // CTA BUTTON TRACKING (with position & attribution)
+        // ============================================
+        const ctaButtons = document.querySelectorAll('.cta-download');
+        ctaButtons.forEach(button => {
+          button.addEventListener('click', (e) => {
+            const position = button.getAttribute('data-cta-position') || 'unknown';
+            const buttonText = button.textContent.trim();
+            
+            // Track the click with position
+            if (typeof trackCtaClick !== 'undefined') {
+              trackCtaClick(position, buttonText);
+            }
+            
+            // Update href with UTM attribution
+            if (typeof getTallyUrlWithAttribution !== 'undefined') {
+              const newUrl = getTallyUrlWithAttribution(position);
+              button.href = newUrl;
+            }
+          });
+        });
+
+        // ============================================
+        // USE CASE CARDS TRACKING
+        // ============================================
         const useCaseCards = document.querySelectorAll('.use-case-card');
         useCaseCards.forEach(card => {
           card.addEventListener('mouseenter', () => {
-            // Add subtle scale animation
             card.style.transition = 'all 0.3s ease';
           });
           
-          // Track clicks on use case cards
           card.addEventListener('click', (e) => {
             const cardTitle = card.querySelector('h3');
-            if (cardTitle && typeof trackEvent !== 'undefined') {
-              trackEvent('Use Cases', 'card_click', cardTitle.textContent.trim());
+            if (cardTitle && typeof trackUseCaseClick !== 'undefined') {
+              trackUseCaseClick(cardTitle.textContent.trim(), 'card_click');
             }
           });
         });
 
-        // Track CTA button clicks
-        const ctaButtons = document.querySelectorAll('a[href*="tally.so"]');
-        ctaButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            if (typeof trackEvent !== 'undefined') {
-              const buttonText = button.textContent.trim();
-              trackEvent('CTA', 'click', buttonText);
-            }
-          });
-        });
-
-        // Track "Learn More" link clicks in use cases
+        // ============================================
+        // LEARN MORE LINKS IN USE CASES
+        // ============================================
         const learnMoreLinks = document.querySelectorAll('#expanded-use-cases a[href*="/docs/"]');
         learnMoreLinks.forEach(link => {
           link.addEventListener('click', () => {
-            if (typeof trackEvent !== 'undefined') {
-              const useCaseCard = link.closest('.use-case-card');
-              const useCaseTitle = useCaseCard ? useCaseCard.querySelector('h3').textContent.trim() : 'Unknown';
-              trackEvent('Use Cases', 'learn_more', useCaseTitle);
+            const useCaseCard = link.closest('.use-case-card');
+            const useCaseTitle = useCaseCard ? useCaseCard.querySelector('h3').textContent.trim() : 'Unknown';
+            if (typeof trackUseCaseClick !== 'undefined') {
+              trackUseCaseClick(useCaseTitle, 'learn_more');
             }
           });
         });
 
-        // Track documentation link clicks
+        // ============================================
+        // DOCUMENTATION LINK TRACKING
+        // ============================================
         const docLinks = document.querySelectorAll('a[href^="/docs/"]');
         docLinks.forEach(link => {
           link.addEventListener('click', () => {
-            if (typeof trackEvent !== 'undefined') {
-              trackEvent('Navigation', 'docs_click', link.textContent.trim());
+            if (typeof trackDocsClick !== 'undefined') {
+              trackDocsClick(link.textContent.trim(), link.href);
             }
           });
         });
@@ -1304,7 +1471,9 @@
           });
         }
 
-        // Track scroll depth
+        // ============================================
+        // SCROLL DEPTH TRACKING (unique event name)
+        // ============================================
         let scrollDepths = [25, 50, 75, 100];
         let scrollTracked = [];
         
@@ -1314,14 +1483,16 @@
           scrollDepths.forEach(depth => {
             if (scrollPercent >= depth && !scrollTracked.includes(depth)) {
               scrollTracked.push(depth);
-              if (typeof trackEvent !== 'undefined') {
-                trackEvent('Scroll Depth', 'scroll', depth + '%');
+              if (typeof trackScrollDepth !== 'undefined') {
+                trackScrollDepth(depth + '%');
               }
             }
           });
         });
 
-        // Track time on page
+        // ============================================
+        // TIME ON PAGE TRACKING (unique event name)
+        // ============================================
         const pageLoadTime = Date.now();
         const trackTimeIntervals = [30, 60, 120, 300]; // seconds
         let timeTracked = [];
@@ -1332,21 +1503,34 @@
           trackTimeIntervals.forEach(interval => {
             if (timeOnPage >= interval && !timeTracked.includes(interval)) {
               timeTracked.push(interval);
-              if (typeof trackEvent !== 'undefined') {
-                trackEvent('Engagement', 'time_on_page', interval + 's');
+              if (typeof trackTimeEngagement !== 'undefined') {
+                trackTimeEngagement(interval);
               }
             }
           });
-        }, 5000); // Check every 5 seconds
+        }, 5000);
 
-        // Track outbound links
-        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        // ============================================
+        // OUTBOUND LINK TRACKING (unique event name)
+        // Excludes CTA buttons (tracked separately)
+        // ============================================
+        document.querySelectorAll('a[target="_blank"]:not(.cta-download)').forEach(link => {
           link.addEventListener('click', () => {
-            if (typeof trackEvent !== 'undefined') {
-              trackEvent('Outbound Link', 'click', link.href);
+            if (typeof trackOutboundClick !== 'undefined') {
+              trackOutboundClick(link.href, link.textContent.trim());
             }
           });
         });
+
+        // ============================================
+        // DEBUG: Log UTM data on page load (remove in production)
+        // ============================================
+        if (window.location.search.includes('debug=true')) {
+          console.log('RVR Analytics Debug:', {
+            utm: window.getRVRUtmData(),
+            page: window.location.pathname
+          });
+        }
       });
     </script>
   </body>

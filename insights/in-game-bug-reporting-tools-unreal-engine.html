@@ -65,7 +65,7 @@
         }
       },
       "datePublished": "2026-01-20",
-      "dateModified": "2026-01-20",
+      "dateModified": "2026-01-26",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://unrealsolutions.com/insights/in-game-bug-reporting-tools-unreal-engine.html"
@@ -83,7 +83,7 @@
         "name": "What is the best in-game bug reporting tool for Unreal Engine?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The best tool depends on your team size and workflow. BetaHub offers integrated reporting with video capture, Runtime Video Recorder provides standalone video recording with minimal overhead across all major platforms (Windows, macOS, Linux, Android, iOS, VR headsets, and consoles as an add-on), and custom internal tools offer maximum flexibility for large studios. Video capture capability is the most important differentiator for reducing bug reproduction time."
+          "text": "The best tool depends on your team size and workflow. BetaHub offers integrated reporting with video capture. Runtime Video Recorder now integrates with BugIt, providing built-in bug capture UI, flexible triggers (gameplay events, timer-based, or performance-based), and minimal overhead across all major platforms (Windows, macOS, Linux, Android, iOS, VR headsets, and consoles as an add-on). Custom internal tools offer maximum flexibility for large studios. Video capture capability is the most important differentiator for reducing bug reproduction time."
         }
       }, {
         "@type": "Question",
@@ -492,7 +492,7 @@
               </div>
               
               <p class="text-gray-300 mb-6">
-                RVR is a specialized <strong class="text-white">runtime video capture</strong> plugin for Unreal Engine focused on minimal overhead and cross-platform support. It captures video directly from the render pipeline using hardware encoders.
+                RVR is a specialized <strong class="text-white">runtime video capture</strong> plugin for Unreal Engine focused on minimal overhead and cross-platform support. It captures video directly from the render pipeline using hardware encoders. RVR now integrates with <strong class="text-white">BugIt</strong> for a complete bug reporting workflow with built-in UI and flexible capture triggers.
               </p>
               
               <div class="grid md:grid-cols-2 gap-6 mb-6">
@@ -502,6 +502,9 @@
                     <li>Very low overhead (1-3% CPU on most hardware)</li>
                     <li>Instant replay buffer with configurable duration</li>
                     <li>Video and log capture included</li>
+                    <li><strong class="text-white">BugIt integration</strong> for complete bug reporting workflow</li>
+                    <li><strong class="text-white">Built-in UI</strong> to capture bugs with one-click reporting</li>
+                    <li><strong class="text-white">Flexible triggers:</strong> gameplay events, timer-based, or performance-based capture</li>
                     <li>Full cross-platform support: Windows, macOS, Linux, Android, iOS, and VR (Quest, PCVR)</li>
                     <li>Console support (PlayStation, Xbox, Switch) available as add-on</li>
                     <li>Hardware-accelerated encoding on all major platforms</li>
@@ -513,8 +516,7 @@
                 <div>
                   <h4 class="text-lg font-semibold text-red-400 mb-3">Limitations</h4>
                   <ul class="text-gray-300 space-y-2 mb-0">
-                    <li>Capture-focused - requires integration with bug tracker</li>
-                    <li>No built-in UI (must be implemented by studio)</li>
+                    <li>Requires Unreal SDK and integration (support provided)</li>
                     <li>Learning curve for advanced features</li>
                   </ul>
                 </div>
@@ -522,7 +524,7 @@
               
               <div class="bg-gray-700/50 rounded-lg p-4">
                 <p class="text-gray-300 text-sm mb-0">
-                  <strong class="text-white">Best for:</strong> Studios that need maximum control over their QA workflow, projects targeting multiple platforms (desktop, mobile, VR, consoles) where external tools don't work, CI/CD pipelines requiring automated video capture, and teams integrating video into existing bug tracking systems.
+                  <strong class="text-white">Best for:</strong> Studios that need maximum control over their QA workflow, projects targeting multiple platforms (desktop, mobile, VR, consoles) where external tools don't work, CI/CD pipelines requiring automated video capture, and teams wanting an integrated bug reporting solution with BugIt.
                 </p>
               </div>
             </div>
@@ -619,8 +621,8 @@
                 <thead>
                   <tr class="text-left text-white">
                     <th class="p-4 min-w-[150px]">Feature</th>
-                    <th class="p-4 min-w-[120px]">BetaHub</th>
                     <th class="p-4 min-w-[120px]">RVR</th>
+                    <th class="p-4 min-w-[120px]">BetaHub</th>
                     <th class="p-4 min-w-[120px]">UE Crash Reporter</th>
                     <th class="p-4 min-w-[120px]">Custom Tools</th>
                   </tr>
@@ -628,15 +630,15 @@
                 <tbody class="text-gray-300">
                   <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium text-white">Video Capture</td>
-                    <td class="p-4"><span class="feature-check">Yes</span></td>
                     <td class="p-4"><span class="feature-check">Yes (core feature)</span></td>
+                    <td class="p-4"><span class="feature-check">Yes</span></td>
                     <td class="p-4"><span class="feature-missing">No</span></td>
                     <td class="p-4"><span class="feature-partial">Varies</span></td>
                   </tr>
                   <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium text-white">Instant Replay Buffer</td>
-                    <td class="p-4"><span class="feature-check">Yes</span></td>
                     <td class="p-4"><span class="feature-check">Yes (configurable)</span></td>
+                    <td class="p-4"><span class="feature-check">Yes</span></td>
                     <td class="p-4"><span class="feature-missing">No</span></td>
                     <td class="p-4"><span class="feature-partial">Rarely</span></td>
                   </tr>
@@ -649,57 +651,78 @@
                   </tr>
                   <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium text-white">Performance Overhead</td>
-                    <td class="p-4 text-red-400">High (no HW accel)</td>
                     <td class="p-4 text-green-400">1-3%</td>
+                    <td class="p-4 text-red-400">High (no HW accel)</td>
                     <td class="p-4 text-green-400">&lt;1%</td>
                     <td class="p-4">Varies (often 5-10%)</td>
                   </tr>
                   <tr class="border-t border-gray-700">
+                    <td class="p-4 font-medium text-white">Bug Tracker Integration</td>
+                    <td class="p-4"><span class="feature-check">BugIt integration</span></td>
+                    <td class="p-4"><span class="feature-check">Built-in</span></td>
+                    <td class="p-4"><span class="feature-missing">No</span></td>
+                    <td class="p-4"><span class="feature-check">Usually</span></td>
+                  </tr>
+                  <tr class="border-t border-gray-700">
+                    <td class="p-4 font-medium text-white">Built-in UI</td>
+                    <td class="p-4"><span class="feature-check">Yes (with BugIt)</span></td>
+                    <td class="p-4"><span class="feature-check">Yes</span></td>
+                    <td class="p-4"><span class="feature-missing">No</span></td>
+                    <td class="p-4"><span class="feature-partial">Varies</span></td>
+                  </tr>
+                  <tr class="border-t border-gray-700">
+                    <td class="p-4 font-medium text-white">Flexible Triggers</td>
+                    <td class="p-4"><span class="feature-check">Events, timer, performance</span></td>
+                    <td class="p-4"><span class="feature-partial">Manual only</span></td>
+                    <td class="p-4"><span class="feature-partial">Crash only</span></td>
+                    <td class="p-4"><span class="feature-partial">Varies</span></td>
+                  </tr>
+                  <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium text-white">Setup Complexity</td>
+                    <td class="p-4 text-green-400">Low (support provided)</td>
                     <td class="p-4">Low</td>
-                    <td class="p-4">Medium</td>
                     <td class="p-4 text-green-400">None</td>
                     <td class="p-4 text-red-400">High</td>
                   </tr>
                   <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium text-white">Desktop Support</td>
-                    <td class="p-4"><span class="feature-partial">Windows only</span></td>
                     <td class="p-4"><span class="feature-check">Windows, macOS, Linux</span></td>
+                    <td class="p-4"><span class="feature-partial">Windows only</span></td>
                     <td class="p-4"><span class="feature-check">All</span></td>
                     <td class="p-4"><span class="feature-check">Usually</span></td>
                   </tr>
                   <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium text-white">Mobile Support</td>
-                    <td class="p-4"><span class="feature-missing">No</span></td>
                     <td class="p-4"><span class="feature-check">Full (iOS/Android)</span></td>
+                    <td class="p-4"><span class="feature-missing">No</span></td>
                     <td class="p-4"><span class="feature-partial">Crash only</span></td>
                     <td class="p-4"><span class="feature-partial">Varies</span></td>
                   </tr>
                   <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium text-white">VR Support</td>
-                    <td class="p-4"><span class="feature-missing">No</span></td>
                     <td class="p-4"><span class="feature-check">Full (Quest, PCVR)</span></td>
+                    <td class="p-4"><span class="feature-missing">No</span></td>
                     <td class="p-4"><span class="feature-partial">Crash only</span></td>
                     <td class="p-4"><span class="feature-partial">Varies</span></td>
                   </tr>
                   <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium text-white">Console Support</td>
-                    <td class="p-4"><span class="feature-missing">No</span></td>
                     <td class="p-4"><span class="feature-partial">Add-on (PS, Xbox, Switch)</span></td>
+                    <td class="p-4"><span class="feature-missing">No</span></td>
                     <td class="p-4"><span class="feature-partial">Crash only</span></td>
                     <td class="p-4"><span class="feature-partial">Varies</span></td>
                   </tr>
                   <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium text-white">CI/CD Integration</td>
-                    <td class="p-4"><span class="feature-partial">API available</span></td>
                     <td class="p-4"><span class="feature-check">Headless recording</span></td>
+                    <td class="p-4"><span class="feature-partial">API available</span></td>
                     <td class="p-4"><span class="feature-missing">No</span></td>
                     <td class="p-4"><span class="feature-check">Usually</span></td>
                   </tr>
                   <tr class="border-t border-gray-700 bg-blue-500/10">
                     <td class="p-4 font-bold text-white">Best For</td>
-                    <td class="p-4">Windows-only, all-in-one</td>
                     <td class="p-4">Video-first, all platforms</td>
+                    <td class="p-4">Windows-only, all-in-one</td>
                     <td class="p-4">Crash analytics only</td>
                     <td class="p-4">Specialized AAA workflows</td>
                   </tr>
@@ -910,7 +933,7 @@
               <div class="bg-gray-800/50 rounded-xl p-6">
                 <h3 class="text-xl font-bold text-white mb-3 mt-0">What is the best in-game bug reporting tool for Unreal Engine?</h3>
                 <p class="text-gray-300 mb-0">
-                  The best tool depends on your team size and workflow. BetaHub offers integrated reporting with video capture for teams wanting an all-in-one solution. Runtime Video Recorder provides specialized video recording with minimal overhead across all major platforms (Windows, macOS, Linux, Android, iOS, VR headsets, and consoles as an add-on) for teams needing cross-platform support or custom integration. Custom internal tools offer maximum flexibility for large studios with dedicated tools teams.
+                  The best tool depends on your team size and workflow. BetaHub offers integrated reporting with video capture for teams wanting an all-in-one solution. Runtime Video Recorder now integrates with BugIt, providing specialized video recording with built-in bug capture UI, flexible triggers (gameplay events, timer-based, or performance-based), and minimal overhead across all major platforms (Windows, macOS, Linux, Android, iOS, VR headsets, and consoles as an add-on). Custom internal tools offer maximum flexibility for large studios with dedicated tools teams.
                 </p>
               </div>
               
@@ -958,7 +981,7 @@
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a 
-                href="https://tally.so/r/mZDq7v"
+                href="https://tally.so/r/mZDq7v?utm_source=website&utm_medium=cta_button&utm_campaign=rvr_download&utm_content=insight_bug_reporting"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-white/20 rounded-xl hover:bg-white/30 transition-all duration-200 shadow-lg hover:shadow-xl"

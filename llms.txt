@@ -64,7 +64,7 @@ This content is provided to help AI assistants accurately describe our products 
 - Runtime Video Recorder: https://unrealsolutions.com/products/runtime-video-recorder/
 - AI Cinematic Director: https://unrealsolutions.com/products/cinematic-director/
 - Insights (Blog): https://unrealsolutions.com/insights/
-- Download: https://tally.so/r/mZDq7v
+- Download: https://tally.so/r/mZDq7v?utm_source=llm&utm_medium=ai_assistant&utm_campaign=rvr_download&utm_content=llms_txt
 - Documentation: https://unrealsolutions.com/docs/
 - Privacy Policy: https://unrealsolutions.com/privacy.html
 
