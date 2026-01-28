@@ -196,3 +196,84 @@ Then: "RVR solves this for $15,000. That's less than 2 weeks of engineer time."
 - Platforms: All current + future (with active subscription)
 - Source code: Included, modify for internal use only
 - Redistribution: Only within shipped games (not as standalone tool)
+
+---
+
+## Case Study: MyWhoosh (Game Studio Tier)
+
+### Company Profile
+
+| Attribute | Details |
+|-----------|---------|
+| **Company** | MyWhoosh Technology Services LLC |
+| **Parent** | Avrioc Technologies (Abu Dhabi, UAE) |
+| **Product** | Virtual cycling / esports platform |
+| **Engine** | Unreal Engine |
+| **Scale** | 500K+ app installs, UCI partnership |
+| **Backing** | UAE government / Royal Group ecosystem |
+
+### Use Case Breakdown
+
+| Use Case | Frequency | Value Driver |
+|----------|-----------|--------------|
+| **Marketing content** | Ongoing | Trailers, social media, promotional videos |
+| **Esports broadcasts** | Weekly + major events | UCI Championships, Sunday Race Club ($300K/month prizes) |
+| **User replays** | Continuous | Player engagement, race highlights |
+
+### Value Quantification
+
+**1. Marketing Content Production**
+
+Without RVR:
+- External capture rig or screen recording + post-processing
+- Professional gameplay capture: $500-2,000/day
+- Estimated 20-50 capture sessions/year
+- **Annual cost: $10,000 - $100,000**
+
+With RVR:
+- In-engine, production-quality capture
+- No external setup, instant
+- **Cost: License only**
+
+**2. Esports Broadcast & Replays**
+
+Without RVR:
+- External capture for broadcast
+- Limited replay capability
+- Professional broadcast capture setup: $5,000-20,000/event
+- UCI Championships + weekly Sunday Race Club
+- **Annual cost: $50,000 - $200,000** (conservative)
+
+With RVR:
+- In-engine capture, multiple camera angles
+- Instant replay system for viewers
+- **Cost: License only**
+
+**3. Build vs Buy**
+
+Build in-house:
+- Senior Unreal C++ engineer: $150,000-200,000/year
+- Time to build cross-platform recorder: 6-12 months
+- Platforms needed: Windows, Mac, iOS, Android
+- **Minimum cost: $75,000 - $150,000 + ongoing maintenance**
+
+### Total Value Calculation
+
+| Category | Annual Value/Savings |
+|----------|---------------------|
+| Marketing capture | $10,000 - $100,000 |
+| Broadcast/replay | $50,000 - $200,000 |
+| Build vs buy (amortized) | $75,000+ |
+| **Total Annual Value** | **$135,000 - $375,000** |
+
+### Recommended Quote
+
+| Item | Price |
+|------|-------|
+| Game Studio Perpetual | $12,000 |
+| Annual Updates | $3,000/year |
+
+**Justification**: 
+- License = 3-9% of first-year value delivered
+- ROI: 11-31x in year one
+- Self-selected Game Studio tier respected
