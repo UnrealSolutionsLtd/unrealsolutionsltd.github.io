@@ -201,23 +201,9 @@
     <main class="container mx-auto px-4 sm:px-20">
       <!-- Navigation -->
       <div class="relative pt-4 sm:pt-0">
-        <div class="mb-4 sm:mb-0 sm:fixed sm:top-0 sm:left-0 sm:right-0 z-50 sm:bg-gray-900/80 sm:backdrop-blur-md sm:border-b sm:border-gray-800">
-          <div class="flex items-center justify-between sm:px-6 sm:py-3">
-            <a href="/">
-              <img 
-                src="../assets/logo.png" 
-                alt="Unreal Solutions Logo" 
-                class="h-12 sm:h-14 w-auto drop-shadow-[0_0_0.3rem_#ffffff70] cursor-pointer hover:opacity-80 transition-opacity"
-              >
-            </a>
-            <nav class="hidden sm:flex items-center gap-6">
-              <a href="/" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Home</a>
-              <a href="/products/" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Products</a>
-              <a href="/insights/" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Insights</a>
-              <a href="/docs/" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Docs</a>
-            </nav>
-          </div>
-        </div>
+        <!-- Shared Navigation -->
+        <div id="site-nav" data-logo-path="../assets/logo.png"></div>
+        <script src="/assets/js/nav.js"></script>
 
         <!-- Hero Section -->
         <div class="sm:pt-28 pb-8 sm:py-12">

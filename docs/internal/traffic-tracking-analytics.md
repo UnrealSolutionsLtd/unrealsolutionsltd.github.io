@@ -1,6 +1,6 @@
 # Traffic Tracking & Analytics Setup
 
-**Last Updated:** January 2026  
+**Last Updated:** January 26, 2026  
 **Owner:** Growth/Marketing  
 **Status:** Implemented
 
@@ -316,6 +316,52 @@ All Tally links across the site now include UTM tracking:
 | recorders.html | `recorders_comparison` |
 | docs/download.md | `docs_download` |
 | llms.txt | `llms_txt` (source: `llm`, medium: `ai_assistant`) |
+
+---
+
+## External Repository Tracking (GitHub)
+
+### BugIt Repository
+The BugIt GitHub repo README links back to unrealsolutions.com with UTM tracking:
+
+```markdown
+**Powered by [RVR](https://unrealsolutions.com/?utm_source=github&utm_medium=readme&utm_campaign=bugit&utm_content=powered_by_rvr)**
+```
+
+| Parameter | Value |
+|-----------|-------|
+| utm_source | `github` |
+| utm_medium | `readme` |
+| utm_campaign | `bugit` |
+| utm_content | `powered_by_rvr` |
+
+### GitHub Traffic Analytics
+
+GitHub provides built-in traffic data (Repo → Insights → Traffic):
+- Unique visitors (14-day retention)
+- Page views (14-day retention)  
+- Referring sites (14-day retention)
+- Clone counts (14-day retention)
+
+**Important:** GitHub only retains 14 days of traffic data. Consider setting up automated export via GitHub Actions if you need historical data.
+
+### Tracking GitHub → Website → Conversion
+
+```
+GitHub Repo View (GitHub Traffic Insights)
+           │
+           ▼
+README Link Click (GA4: source=github)
+           │
+           ▼
+Website Visit (GA4)
+           │
+           ▼
+Tally Form (utm_source=github visible in Tally)
+           │
+           ▼
+Lead Captured
+```
 
 ---
 
