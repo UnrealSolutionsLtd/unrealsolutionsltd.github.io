@@ -19,6 +19,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://unrealsolutions.com/licensing</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   
   <!-- Products Index -->
   <url>
@@ -141,7 +147,7 @@
   
   <!-- Comparison & Info Pages -->
   <url>
-    <loc>https://unrealsolutions.com/recorders.html</loc>
+    <loc>https://unrealsolutions.com/recorders</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
