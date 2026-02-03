@@ -43,6 +43,11 @@
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <!-- Article Schema -->
     <script type="application/ld+json">
     {
@@ -136,13 +141,23 @@
     
     <!-- Custom CSS -->
     <style>
+      body {
+        font-family: 'Outfit', system-ui, sans-serif;
+        background: linear-gradient(to bottom, #0f0f0f 0%, #0a0a0a 100%);
+      }
+      
+      .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      
       .article-content h2 {
         scroll-margin-top: 100px;
+        color: #fbbf24;
       }
       
       .tool-card {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.9) 100%);
-        border: 1px solid rgba(75, 85, 99, 0.3);
+        background: linear-gradient(135deg, rgba(23, 23, 23, 0.95) 0%, rgba(38, 38, 38, 0.95) 100%);
+        border: 1px solid rgba(234, 179, 8, 0.2);
         border-radius: 1rem;
         padding: 2rem;
         transition: all 0.3s ease;
@@ -151,18 +166,19 @@
       .tool-card:hover {
         transform: translateY(-4px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        border-color: rgba(59, 130, 246, 0.5);
+        border-color: rgba(234, 179, 8, 0.5);
       }
       
       .comparison-table {
         background: rgba(17, 24, 39, 0.8);
-        border: 1px solid rgba(75, 85, 99, 0.3);
+        border: 1px solid rgba(234, 179, 8, 0.2);
         border-radius: 1rem;
         overflow: hidden;
       }
       
       .comparison-table th {
-        background: rgba(59, 130, 246, 0.2);
+        background: rgba(234, 179, 8, 0.1);
+        color: #fbbf24;
       }
       
       .comparison-table td, .comparison-table th {
@@ -175,21 +191,21 @@
       }
       
       .toc-link:hover {
-        color: #60a5fa;
+        color: #fbbf24;
         padding-left: 0.5rem;
       }
       
       blockquote {
-        border-left: 4px solid #3b82f6;
-        background: rgba(59, 130, 246, 0.1);
+        border-left: 4px solid #fbbf24;
+        background: rgba(234, 179, 8, 0.1);
         padding: 1rem 1.5rem;
         margin: 1.5rem 0;
         border-radius: 0 0.5rem 0.5rem 0;
       }
       
       .highlight-box {
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(37, 99, 235, 0.15) 100%);
-        border: 1px solid rgba(59, 130, 246, 0.3);
+        background: linear-gradient(135deg, rgba(234, 179, 8, 0.1) 0%, rgba(217, 119, 6, 0.1) 100%);
+        border: 1px solid rgba(234, 179, 8, 0.3);
         border-radius: 1rem;
         padding: 2rem;
       }
