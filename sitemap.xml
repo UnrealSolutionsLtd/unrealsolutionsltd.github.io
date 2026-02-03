@@ -37,12 +37,29 @@
   <!-- BugIt - QA Dashboard -->
   <url>
     <loc>https://unrealsolutions.com/products/bugit/</loc>
-    <lastmod>2026-01-24</lastmod>
+    <lastmod>2026-02-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://unrealsolutions.com/products/bugit/vs-betahub</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unrealsolutions.com/products/bugit/unreal-engine</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unrealsolutions.com/products/bugit/unity</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   
-    
   <!-- SEO Landing Pages (Use Cases) -->
   <url>
     <loc>https://unrealsolutions.com/use-cases/game-testing-video-recording.html</loc>
@@ -139,6 +156,18 @@
   <url>
     <loc>https://unrealsolutions.com/insights/in-game-bug-reporting-tools-unreal-engine.html</loc>
     <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://unrealsolutions.com/insights/cannot-reproduce-bugs-cost</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://unrealsolutions.com/insights/self-hosted-qa-tools</loc>
+    <lastmod>2026-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
