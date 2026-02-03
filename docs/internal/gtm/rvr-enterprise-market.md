@@ -1,8 +1,8 @@
-# RVR Market Research & GTM Analysis 2026
+# RVR Enterprise Market Research & GTM 2026
 
 Internal document: Market sizing, ICP analysis, and go-to-market projections for Runtime Video Recorder targeting Unreal Engine-heavy gaming companies.
 
-**Last Updated:** January 2026
+**Last Updated:** February 2026
 
 ---
 
@@ -156,6 +156,18 @@ Companies with Unreal Engine as **primary/exclusive engine** and live service op
 5. **VR support** - Unique in marketplace
 6. **Circular buffer** - Instant replay capability
 7. **CI/CD ready** - Headless operation
+
+### Why RVR Wins vs Alternatives
+
+| vs ShadowPlay | vs OBS |
+|---------------|--------|
+| ✅ Works on mobile (iOS/Android) | ✅ No FFmpeg dependency |
+| ✅ Runs headless/CI/CD | ✅ Embeds in game (not external) |
+| ✅ Works on all GPUs | ✅ Game event triggers |
+| ✅ Programmatic control | ✅ Multi-platform |
+| ✅ Internal camera access | ✅ 1-3% CPU vs 5-15% |
+
+**One-liner:** "ShadowPlay is for gamers. RVR is for QA teams that need mobile, automation, and proof."
 
 ### Competitive Win Rate: 60-70%
 
