@@ -608,7 +608,7 @@ Includes:
 
 ## Remaining - Near-term
 
-- [ ] Add pricing section to BugIt page
+- [x] Add pricing section to BugIt page → **DONE** (Feb 2026)
 - [ ] Plan Discord bot feature for Q2
 - [ ] Write first case study (when testimonials available)
 - [ ] Create `/products/bugit/discord-integration` page (even if "coming soon")
