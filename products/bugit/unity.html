@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BugIt for Unity | Bug Reporting with Video Evidence | Coming Soon</title>
+    <meta name="description" content="Bug reporting for Unity games with video evidence. BugIt captures video, inputs, logs, and frame timings. Self-hosted, open source QA dashboard. Unity support coming soon.">
+    <meta name="keywords" content="unity bug reporting, unity QA tool, unity bug tracking, bug reporting plugin unity, unity bug reporting tool, game testing unity, video evidence bug reports unity, unity QA dashboard">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unrealsolutions.com/products/bugit/unity">
+    <meta property="og:title" content="BugIt for Unity | Bug Reporting with Video Evidence | Coming Soon">
+    <meta property="og:description" content="Bug reporting for Unity with frame-synced video, inputs, logs, and performance data. Self-hosted QA dashboard. Unity support coming soon.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/bugit/dashboard.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://unrealsolutions.com/products/bugit/unity">
+    <meta name="twitter:title" content="BugIt for Unity | Bug Reporting with Video Evidence">
+    <meta name="twitter:description" content="Bug reporting for Unity with frame-synced video, inputs, logs, and performance data. Coming soon.">
+    <meta name="twitter:image" content="https://unrealsolutions.com/assets/bugit/dashboard.png">
+    
+    <!-- Additional SEO -->
+    <meta name="author" content="Unreal Solutions Ltd">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unrealsolutions.com/products/bugit/unity">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../../assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BugIt for Unity",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "Bug Tracking",
+      "operatingSystem": ["Windows", "macOS", "Linux"],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/PreOrder"
+      },
+      "description": "QA Dashboard for Unity games with frame-synced video, inputs, logs, and frame timing visualization. Coming soon.",
+      "url": "https://unrealsolutions.com/products/bugit/unity",
+      "author": {
+        "@type": "Organization",
+        "name": "Unreal Solutions Ltd",
+        "url": "https://unrealsolutions.com"
+      }
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://unrealsolutions.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Products",
+        "item": "https://unrealsolutions.com/products/"
+      }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "BugIt",
+        "item": "https://unrealsolutions.com/products/bugit/"
+      }, {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Unity",
+        "item": "https://unrealsolutions.com/products/bugit/unity"
+      }]
+    }
+    </script>
+    
+    <style>
+      body {
+        font-family: 'Outfit', system-ui, sans-serif;
+        background: linear-gradient(to bottom, #0f0f0f 0%, #0a0a0a 100%);
+      }
+      
+      .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      
+      .feature-card {
+        background: linear-gradient(135deg, rgba(23, 23, 23, 0.95) 0%, rgba(38, 38, 38, 0.95) 100%);
+        border: 1px solid rgba(234, 179, 8, 0.2);
+        border-radius: 1rem;
+        transition: all 0.3s ease;
+      }
+      
+      .feature-card:hover {
+        border-color: rgba(234, 179, 8, 0.5);
+        transform: translateY(-4px);
+        box-shadow: 0 15px 40px rgba(234, 179, 8, 0.1);
+      }
+
+      .coming-soon-badge {
+        background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.8; }
+      }
+    </style>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-black min-h-screen text-white">
+    <main class="container mx-auto px-4 sm:px-8 lg:px-20">
+      <!-- Navigation -->
+      <div class="relative pt-4 sm:pt-0">
+        <!-- Shared Navigation -->
+        <div id="site-nav" data-logo-path="../../assets/logo.png"></div>
+        <script src="/assets/js/nav.js"></script>
+
+        <!-- Hero Section -->
+        <div class="sm:pt-32 pb-8 sm:py-16">
+          <div class="mx-auto max-w-5xl">
+            <!-- Breadcrumb -->
+            <nav class="mb-8 text-sm">
+              <ol class="flex items-center gap-2 text-gray-500">
+                <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                <li class="text-gray-600">/</li>
+                <li><a href="/products/" class="hover:text-white transition-colors">Products</a></li>
+                <li class="text-gray-600">/</li>
+                <li><a href="/products/bugit/" class="hover:text-white transition-colors">BugIt</a></li>
+                <li class="text-gray-600">/</li>
+                <li class="text-yellow-400">Unity</li>
+              </ol>
+            </nav>
+
+            <div class="text-center mb-12">
+              <span class="coming-soon-badge inline-block px-4 py-1 text-white rounded-full text-sm font-medium mb-4">
+                Coming Soon
+              </span>
+              <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+                Bug Reporting for<br>
+                <span class="text-yellow-400">Unity Games</span>
+              </h1>
+              <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                Frame-synced video, inputs, logs, and performance data for Unity projects. 
+                The same powerful QA workflow that works in Unreal Engine, coming to Unity.
+              </p>
+              
+              <!-- Notify CTA -->
+              <div class="bg-gray-800/50 border border-purple-500/30 rounded-2xl p-8 max-w-xl mx-auto mb-12">
+                <h2 class="text-xl font-bold text-white mb-4">Get Notified When Unity Support Launches</h2>
+                <p class="text-gray-400 mb-6">
+                  We're building Unity capture support. Join the waitlist to be first to know when it's ready.
+                </p>
+                <a 
+                  href="mailto:business@unrealsolutions.com?subject=BugIt%20Unity%20Waitlist&body=I'm%20interested%20in%20BugIt%20for%20Unity.%20Please%20notify%20me%20when%20it's%20available."
+                  class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-700 rounded-xl hover:from-purple-500 hover:to-purple-600 transition-all"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                  Join Waitlist
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What's Planned -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="text-3xl font-bold text-center text-white mb-12">What BugIt for Unity Will Capture</h2>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="feature-card p-6 text-center">
+              <div class="text-4xl mb-4">🎬</div>
+              <h3 class="text-lg font-semibold text-white mb-2">Video</h3>
+              <p class="text-gray-400 text-sm">In-engine recording with frame-accurate playback in dashboard.</p>
+            </div>
+            <div class="feature-card p-6 text-center">
+              <div class="text-4xl mb-4">🎮</div>
+              <h3 class="text-lg font-semibold text-white mb-2">Inputs</h3>
+              <p class="text-gray-400 text-sm">Keyboard, mouse, gamepad. Every button press timestamped.</p>
+            </div>
+            <div class="feature-card p-6 text-center">
+              <div class="text-4xl mb-4">📋</div>
+              <h3 class="text-lg font-semibold text-white mb-2">Logs</h3>
+              <p class="text-gray-400 text-sm">Debug.Log output captured and synced to video timeline.</p>
+            </div>
+            <div class="feature-card p-6 text-center">
+              <div class="text-4xl mb-4">📊</div>
+              <h3 class="text-lg font-semibold text-white mb-2">Frame Timing</h3>
+              <p class="text-gray-400 text-sm">FPS graphs, frame time, stutters visualized.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why BugIt -->
+      <div class="py-12">
+        <div class="mx-auto max-w-5xl">
+          <h2 class="text-3xl font-bold text-center text-white mb-12">Why Use BugIt for Unity?</h2>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="feature-card p-6">
+              <h3 class="text-xl font-semibold text-white mb-3">⏱️ Frame-Perfect Sync</h3>
+              <p class="text-gray-400">
+                Video, inputs, and logs timestamped at the frame level. When you scrub the video, 
+                everything else updates to that exact moment. No more guessing what happened.
+              </p>
+            </div>
+            <div class="feature-card p-6">
+              <h3 class="text-xl font-semibold text-white mb-3">🔒 Self-Hosted</h3>
+              <p class="text-gray-400">
+                Your bug reports stay on your servers. Important for studios under NDA, 
+                console development, or security requirements.
+              </p>
+            </div>
+            <div class="feature-card p-6">
+              <h3 class="text-xl font-semibold text-white mb-3">📱 Mobile Support</h3>
+              <p class="text-gray-400">
+                Record natively on Android and iOS. Test your Unity mobile game and get 
+                the same frame-synced evidence as desktop.
+              </p>
+            </div>
+            <div class="feature-card p-6">
+              <h3 class="text-xl font-semibold text-white mb-3">🆓 Open Source Dashboard</h3>
+              <p class="text-gray-400">
+                The BugIt dashboard is free and open source (MIT). View your bug reports 
+                without any subscription fees.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Already Available -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl">
+          <div class="bg-gradient-to-r from-yellow-600/20 to-amber-600/10 border border-yellow-500/30 rounded-2xl p-8 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Already Using Unreal Engine?</h2>
+            <p class="text-gray-300 mb-6">
+              BugIt is fully available for Unreal Engine today. Same frame-synced workflow, 
+              ready to use right now.
+            </p>
+            <a 
+              href="/products/bugit/unreal-engine"
+              class="inline-flex items-center px-8 py-4 text-base font-semibold text-black bg-gradient-to-r from-yellow-400 to-amber-500 rounded-xl hover:from-yellow-300 hover:to-amber-400 transition-all"
+            >
+              BugIt for Unreal Engine
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Links -->
+      <div class="py-12">
+        <div class="mx-auto max-w-5xl">
+          <h2 class="text-2xl font-bold text-white mb-8">Related</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <a href="/products/bugit/" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">BugIt Overview</h3>
+              <p class="text-gray-400 text-sm">Full feature list and how it works.</p>
+            </a>
+            <a href="/products/bugit/unreal-engine" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">BugIt for Unreal Engine</h3>
+              <p class="text-gray-400 text-sm">Available now for UE4 and UE5.</p>
+            </a>
+            <a href="/products/bugit/vs-betahub" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">BugIt vs BetaHub</h3>
+              <p class="text-gray-400 text-sm">Compare self-hosted vs cloud QA tools.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="py-8 border-t border-neutral-800">
+        <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+          <a href="/" class="text-gray-500 hover:text-yellow-400 transition-colors">Home</a>
+          <a href="/products/" class="text-gray-500 hover:text-yellow-400 transition-colors">Products</a>
+          <a href="/docs/" class="text-gray-500 hover:text-yellow-400 transition-colors">Documentation</a>
+          <a href="mailto:business@unrealsolutions.com" class="text-gray-500 hover:text-yellow-400 transition-colors">Contact</a>
+          <a href="/privacy.html" class="text-gray-500 hover:text-yellow-400 transition-colors">Privacy Policy</a>
+        </div>
+        
+        <div class="text-center text-gray-600 text-sm">
+          © Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2026
+        </div>
+      </div>
+    </main>
+</body>
+</html>

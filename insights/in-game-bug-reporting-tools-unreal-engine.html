@@ -5,14 +5,14 @@
     <meta name="referrer" content="origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best In-Game Bug Reporting Tools for Unreal Engine (2026 Guide) | QA Workflows & Video Capture</title>
-    <meta name="description" content="Comprehensive guide to in-game bug reporting tools for Unreal Engine. Compare BetaHub, RVR, and custom solutions. Learn how runtime video capture and automatic context capture reduce time-to-reproduce bugs.">
+    <meta name="description" content="Comprehensive guide to in-game bug reporting tools for Unreal Engine. Compare BugIt, BetaHub, and custom solutions. Learn how runtime video capture and automatic context capture reduce time-to-reproduce bugs.">
     <meta name="keywords" content="in-game bug reporting tools for Unreal Engine, QA workflows, bug reproduction, runtime video capture, game QA tools, Unreal Engine QA, cannot reproduce bugs, UE5 bug reporting, game testing tools 2026">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://unrealsolutions.com/insights/in-game-bug-reporting-tools-unreal-engine.html">
     <meta property="og:title" content="Best In-Game Bug Reporting Tools for Unreal Engine (2026 Guide)">
-    <meta property="og:description" content="How modern in-game bug reporting tools reduce time-to-reproduce bugs. Compare BetaHub, RVR, and custom solutions for Unreal Engine QA workflows.">
+    <meta property="og:description" content="How modern in-game bug reporting tools reduce time-to-reproduce bugs. Compare BugIt, BetaHub, and custom solutions for Unreal Engine QA workflows.">
     <meta property="og:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -83,7 +83,7 @@
         "name": "What is the best in-game bug reporting tool for Unreal Engine?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The best tool depends on your team size and workflow. BetaHub offers integrated reporting with video capture. Runtime Video Recorder now integrates with BugIt, providing built-in bug capture UI, flexible triggers (gameplay events, timer-based, or performance-based), and minimal overhead across all major platforms (Windows, macOS, Linux, Android, iOS, VR headsets, and consoles as an add-on). Custom internal tools offer maximum flexibility for large studios. Video capture capability is the most important differentiator for reducing bug reproduction time."
+          "text": "The best tool depends on your team size and workflow. BetaHub offers integrated reporting with video capture for Windows-only projects. BugIt is a self-hosted, open-source QA dashboard that displays frame-synced video, inputs, logs, and performance data - powered by RVR for capture. It works across all platforms (Windows, macOS, Linux, Android, iOS, VR, and consoles). Custom internal tools offer maximum flexibility for large studios. Video capture capability is the most important differentiator for reducing bug reproduction time."
         }
       }, {
         "@type": "Question",
@@ -462,55 +462,49 @@
                   </ul>
                 </div>
               </div>
-              
-              <div class="bg-gray-700/50 rounded-lg p-4">
-                <p class="text-gray-300 text-sm mb-0">
-                  <strong class="text-white">Best for:</strong> Indie to mid-size studios developing Windows games who want an all-in-one solution without building custom infrastructure. Not suitable for mobile, VR, or console projects.
-                </p>
-              </div>
             </div>
 
-            <!-- Runtime Video Recorder -->
+            <!-- BugIt -->
             <div class="bg-gray-800/50 rounded-xl p-8 mb-8">
               <div class="flex items-start justify-between mb-4">
-                <h3 class="text-2xl font-bold text-white mt-0">Runtime Video Recorder (RVR)</h3>
-                <span class="text-purple-400 text-sm bg-purple-400/20 px-3 py-1 rounded-full">Video Capture Plugin</span>
+                <h3 class="text-2xl font-bold text-white mt-0">BugIt</h3>
+                <span class="text-yellow-400 text-sm bg-yellow-400/20 px-3 py-1 rounded-full">QA Dashboard</span>
               </div>
               
               <p class="text-gray-300 mb-6">
-                RVR is a specialized <strong class="text-white">runtime video capture</strong> plugin for Unreal Engine focused on minimal overhead and cross-platform support. It captures video directly from the render pipeline using hardware encoders. RVR now integrates with <strong class="text-white">BugIt</strong> for a complete bug reporting workflow with built-in UI and flexible capture triggers.
+                BugIt is a <strong class="text-white">self-hosted, open-source QA dashboard</strong> that displays bug reports with frame-synced video, inputs, logs, and performance data. Powered by <strong class="text-white">Runtime Video Recorder (RVR)</strong> for capture, it provides a complete bug reporting workflow with minimal overhead across all platforms.
               </p>
               
               <div class="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <h4 class="text-lg font-semibold text-green-400 mb-3">Strengths</h4>
                   <ul class="text-gray-300 space-y-2 mb-0">
-                    <li>Very low overhead (1-3% CPU on most hardware)</li>
+                    <li><strong class="text-white">Frame-synced everything:</strong> video, inputs, logs, frame timing all linked</li>
+                    <li><strong class="text-white">Self-hosted:</strong> your data stays on your infrastructure</li>
+                    <li><strong class="text-white">Open source:</strong> MIT licensed dashboard, no vendor lock-in</li>
+                    <li>Very low capture overhead (1-3% CPU via RVR)</li>
                     <li>Instant replay buffer with configurable duration</li>
-                    <li>Video and log capture included</li>
-                    <li><strong class="text-white">BugIt integration</strong> for complete bug reporting workflow</li>
-                    <li><strong class="text-white">Built-in UI</strong> to capture bugs with one-click reporting</li>
-                    <li><strong class="text-white">Flexible triggers:</strong> gameplay events, timer-based, or performance-based capture</li>
-                    <li>Full cross-platform support: Windows, macOS, Linux, Android, iOS, and VR (Quest, PCVR)</li>
+                    <li>Built-in UI for one-click bug capture</li>
+                    <li>Full cross-platform: Windows, macOS, Linux, Android, iOS, VR (Quest, PCVR)</li>
                     <li>Console support (PlayStation, Xbox, Switch) available as add-on</li>
-                    <li>Hardware-accelerated encoding on all major platforms</li>
+                    <li>Hardware-accelerated encoding</li>
                     <li>Works in headless/CI environments</li>
-                    <li>No external service dependencies</li>
-                    <li>Full Blueprint and C++ API</li>
+                    <li>No cloud dependencies or monthly fees</li>
                   </ul>
                 </div>
                 <div>
                   <h4 class="text-lg font-semibold text-red-400 mb-3">Limitations</h4>
                   <ul class="text-gray-300 space-y-2 mb-0">
-                    <li>Requires Unreal SDK and integration (support provided)</li>
-                    <li>Learning curve for advanced features</li>
+                    <li>Requires RVR license for capture (dashboard is free)</li>
+                    <li>Self-hosting requires server setup (Docker available)</li>
+                    <li>No built-in Discord bot (yet)</li>
                   </ul>
                 </div>
               </div>
               
               <div class="bg-gray-700/50 rounded-lg p-4">
                 <p class="text-gray-300 text-sm mb-0">
-                  <strong class="text-white">Best for:</strong> Studios that need maximum control over their QA workflow, projects targeting multiple platforms (desktop, mobile, VR, consoles) where external tools don't work, CI/CD pipelines requiring automated video capture, and teams wanting an integrated bug reporting solution with BugIt.
+                  <strong class="text-white">Best for:</strong> Studios needing self-hosted solutions (NDA, console dev, security requirements), teams wanting frame-synced video evidence, projects targeting multiple platforms where external tools don't work, and studios that want to eliminate "cannot reproduce" bugs entirely.
                 </p>
               </div>
             </div>
@@ -607,7 +601,7 @@
                 <thead>
                   <tr class="text-left text-white">
                     <th class="p-4 min-w-[150px]">Feature</th>
-                    <th class="p-4 min-w-[120px]">RVR</th>
+                    <th class="p-4 min-w-[120px]">BugIt</th>
                     <th class="p-4 min-w-[120px]">BetaHub</th>
                     <th class="p-4 min-w-[120px]">UE Crash Reporter</th>
                     <th class="p-4 min-w-[120px]">Custom Tools</th>
@@ -777,7 +771,7 @@
             <ul class="text-gray-300 mb-6 space-y-2">
               <li><strong>Mobile:</strong> Screen recording apps consume device resources, affect performance, and often can't capture at full quality. Device mirroring adds latency that makes timing-sensitive bugs unreproducible.</li>
               <li><strong>VR:</strong> Headset recordings need to capture what the player sees, not a flat screen. External capture solutions don't work in standalone VR devices.</li>
-              <li><strong>Console:</strong> Development kits have limited external recording options, and certification requirements often prohibit certain capture methods. In-engine solutions like RVR (with console add-on) provide the only reliable capture method.</li>
+              <li><strong>Console:</strong> Development kits have limited external recording options, and certification requirements often prohibit certain capture methods. In-engine solutions like BugIt (with console add-on) provide the only reliable capture method.</li>
             </ul>
             <p class="text-gray-300">
               In-engine video capture that runs within the Unreal Engine process is often the <em>only</em> viable option for these platforms.
@@ -801,7 +795,7 @@
                 Small teams can't afford to spend engineering time on QA infrastructure. For Windows-only projects, an integrated solution like BetaHub offers a fast path to functional bug reporting with video capture. However, BetaHub's lack of hardware acceleration means noticeable performance overhead during recording.
               </p>
               <p class="text-gray-300 mb-0">
-                For teams targeting multiple platforms, or those on tight budgets, combining a simple bug tracker (even a spreadsheet) with RVR for video capture is often the better approach - the videos are the critical piece, and RVR's hardware acceleration keeps overhead minimal.
+                For teams targeting multiple platforms, or those on tight budgets, BugIt provides a complete self-hosted solution - the open-source dashboard is free, and it captures frame-synced video evidence that eliminates "cannot reproduce" issues.
               </p>
             </div>
 
@@ -814,12 +808,12 @@
                 Mid-size studios typically have established bug tracking (Jira, Azure DevOps, etc.) and need tools that integrate rather than replace. The choice often comes down to:
               </p>
               <ul class="text-gray-300 mb-4 space-y-2">
-                <li>BetaHub if you're Windows-only and want dashboard features with a parallel system</li>
-                <li>RVR + custom integration if you need cross-platform video or video is the main gap in your current workflow</li>
+                <li>BetaHub if you're Windows-only and want cloud-hosted dashboard with Discord integration</li>
+                <li>BugIt if you need self-hosted, cross-platform support, or frame-synced video evidence</li>
                 <li>Internal tooling only if you have specialized requirements that off-the-shelf tools can't meet</li>
               </ul>
               <p class="text-gray-300 mb-0">
-                Mobile, VR, and console projects at this scale require in-engine solutions like RVR due to platform constraints - BetaHub doesn't support these platforms.
+                Mobile, VR, and console projects at this scale require in-engine solutions like BugIt due to platform constraints - BetaHub doesn't support these platforms.
               </p>
             </div>
 
@@ -959,29 +953,26 @@
       <!-- CTA Section -->
       <div class="py-12">
         <div class="mx-auto max-w-4xl text-center">
-          <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8">
-            <h2 class="text-3xl font-bold text-white mb-4">Need Video Capture for Your QA Workflow?</h2>
-            <p class="text-blue-100 mb-6 text-lg">
-              Runtime Video Recorder provides cross-platform video capture with minimal overhead. 
-              Used by Amazon Games, Riot Games, and leading studios.
+          <div class="bg-gradient-to-r from-yellow-600 to-amber-600 rounded-2xl p-8">
+            <h2 class="text-3xl font-bold text-white mb-4">Ready to Eliminate "Cannot Reproduce"?</h2>
+            <p class="text-yellow-100 mb-6 text-lg">
+              BugIt captures video, inputs, logs, and frame timing - all synced together. 
+              Self-hosted, open source, works on every platform.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a 
-                href="https://tally.so/r/mZDq7v?utm_source=website&utm_medium=cta_button&utm_campaign=rvr_download&utm_content=insight_bug_reporting"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-white/20 rounded-xl hover:bg-white/30 transition-all duration-200 shadow-lg hover:shadow-xl"
+                href="/products/bugit/"
+                class="inline-flex items-center px-8 py-4 text-base font-semibold text-black bg-white rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl"
               >
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                </svg>
-                Request API Key & Download
+                Learn About BugIt
               </a>
               <a 
-                href="/use-cases/game-testing-video-recording.html"
-                class="text-blue-100 hover:text-white underline"
+                href="https://youtu.be/MrrIpXYn-rs"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-yellow-100 hover:text-white underline"
               >
-                View QA Use Case
+                Watch Demo Video
               </a>
             </div>
           </div>

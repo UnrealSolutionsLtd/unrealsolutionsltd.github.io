@@ -365,39 +365,43 @@ bug tracking for indie games
 
 ## 4.2 Priority Landing Pages
 
-| Priority | Page | Target Keywords |
-|----------|------|-----------------|
-| 🔴 P0 | `/bugit-vs-betahub` | betahub alternative, betahub vs |
-| 🔴 P0 | `/products/bugit/unreal-engine` | unreal engine bug reporting |
-| 🔴 P0 | `/products/bugit/unity` | unity bug reporting tool |
-| 🟡 P1 | `/products/bugit/discord-integration` | discord bug reporting |
-| 🟡 P1 | `/insights/self-hosted-qa-tools` | self hosted bug tracking |
-| 🟡 P1 | `/insights/video-evidence-bug-reports` | video evidence bugs |
-| 🟢 P2 | `/products/bugit/roblox` | roblox bug reporting |
-| 🟢 P2 | `/products/bugit/godot` | godot bug reporting |
+| Priority | Page | Target Keywords | Status |
+|----------|------|-----------------|--------|
+| 🔴 P0 | `/products/bugit/vs-betahub` | betahub alternative, betahub vs | ✅ DONE |
+| 🔴 P0 | `/products/bugit/unreal-engine` | unreal engine bug reporting | ✅ DONE |
+| 🔴 P0 | `/products/bugit/unity` | unity bug reporting tool | ✅ DONE (Coming Soon) |
+| 🟡 P1 | `/products/bugit/discord-integration` | discord bug reporting | 🔲 TODO |
+| 🟡 P1 | `/insights/self-hosted-qa-tools` | self hosted bug tracking | ✅ DONE |
+| 🟡 P1 | `/insights/cannot-reproduce-bugs-cost` | cannot reproduce bug | ✅ DONE |
+| 🟡 P1 | `/insights/video-evidence-bug-reports` | video evidence bugs | 🔲 TODO |
+| 🟢 P2 | `/products/bugit/roblox` | roblox bug reporting | 🔲 TODO |
+| 🟢 P2 | `/products/bugit/godot` | godot bug reporting | 🔲 TODO |
 
 ## 4.3 Content Calendar (8 Weeks)
 
-| Week | Content Type | Title | Keywords |
-|------|--------------|-------|----------|
-| 1 | Landing Page | BugIt vs BetaHub Comparison | betahub alternative |
-| 2 | Blog | "Why 'Cannot Reproduce' Bugs Cost Studios Millions" | cannot reproduce bug |
-| 3 | Landing Page | BugIt for Unreal Engine | unreal engine bug reporting |
-| 4 | Case Study | [Internal usage case study] | frame-synced bug reports |
-| 5 | Blog | "Self-Hosted vs Cloud QA Tools" | self hosted qa dashboard |
-| 6 | Landing Page | BugIt for Unity | unity bug reporting |
-| 7 | Tutorial | "Setting Up In-Game Bug Reporting in UE5" | in-game bug reporting unreal |
-| 8 | Comparison | "BugIt vs Sentry vs BetaHub for Game QA" | game bug tracking comparison |
+| Week | Content Type | Title | Keywords | Status |
+|------|--------------|-------|----------|--------|
+| 1 | Landing Page | BugIt vs BetaHub Comparison | betahub alternative | ✅ DONE |
+| 1 | Landing Page | BugIt for Unreal Engine | unreal engine bug reporting | ✅ DONE |
+| 1 | Video | YouTube Demo linked on BugIt page | bugit demo | ✅ DONE |
+| 2 | Blog | "Why 'Cannot Reproduce' Bugs Cost Studios Millions" | cannot reproduce bug | ✅ DONE |
+| 3 | Case Study | [Requires testimonials first] | frame-synced bug reports | ⏸️ BLOCKED |
+| 4 | Blog | "Self-Hosted vs Cloud QA Tools" | self hosted qa dashboard | ✅ DONE |
+| 5 | Landing Page | BugIt for Unity | unity bug reporting | ✅ DONE (Coming Soon) |
+| 6 | Tutorial | "Setting Up In-Game Bug Reporting in UE5" | in-game bug reporting unreal | 🔲 TODO |
+| 7 | Landing Page | BugIt Discord Integration (Coming Soon) | discord bug reporting | 🔲 TODO |
+| 8 | Comparison | "BugIt vs Sentry vs BetaHub for Game QA" | game bug tracking comparison | 🔲 TODO |
 
 ## 4.4 BetaHub Pages to Clone
 
-| BetaHub Page | BugIt Equivalent |
-|--------------|------------------|
-| `/features/discord-bot` | `/products/bugit/discord-integration` |
-| `/features/unreal-plugin` | `/products/bugit/unreal-engine` |
-| `/features/unity-plugin` | `/products/bugit/unity` |
-| `/resources/[case-study]` | `/insights/[case-study]` |
-| `/pricing` | `/products/bugit/pricing` |
+| BetaHub Page | BugIt Equivalent | Status |
+|--------------|------------------|--------|
+| `/features/unreal-plugin` | `/products/bugit/unreal-engine` | ✅ DONE |
+| (comparison traffic) | `/products/bugit/vs-betahub` | ✅ DONE |
+| `/features/discord-bot` | `/products/bugit/discord-integration` | 🔲 TODO |
+| `/features/unity-plugin` | `/products/bugit/unity` | ✅ DONE (Coming Soon) |
+| `/resources/[case-study]` | `/insights/[case-study]` | ⏸️ BLOCKED (need testimonials) |
+| `/pricing` | `/products/bugit/pricing` | 🔲 TODO |
 
 ---
 
@@ -492,49 +496,63 @@ Get 5-10 logos for "Used by" section:
 
 ---
 
-# Part 8: Comparison Page Template
+# Part 8: Implemented Pages
 
-## BugIt vs BetaHub (Draft)
+## BugIt vs BetaHub
 
-```markdown
-# BugIt vs BetaHub: Self-Hosted QA Dashboard Comparison 2026
+**Status:** ✅ LIVE at `/products/bugit/vs-betahub`
 
-## Quick Comparison
+Includes:
+- Full feature comparison table
+- "When to Choose" sections for both tools
+- Deep dive on key differences (frame sync, self-hosted, Discord, mobile)
+- Honest comparison acknowledging BetaHub's advantages
+- CTAs for both tools
 
-| Feature | BugIt | BetaHub |
-|---------|-------|---------|
-| Deployment | Self-hosted | Cloud only |
-| Pricing | Free (open source) | $0-99/month |
-| Video Recording | RVR (mobile-ready) | Plugin-based |
-| Input Sync | ✅ Frame-perfect | ❌ Not synced |
-| Log Sync | ✅ Frame-perfect | ✅ Uploaded |
-| Frame Timing | ✅ Full graphs | ❌ None |
-| Discord Bot | ❌ Coming soon | ✅ Native |
-| AI Duplicates | ❌ Coming soon | ✅ Native |
+## BugIt for Unreal Engine
 
-## When to Choose BugIt
+**Status:** ✅ LIVE at `/products/bugit/unreal-engine`
 
-✅ You need self-hosted (security/compliance)
-✅ You want frame-synced video + inputs + logs
-✅ You're developing for mobile (Android/iOS)
-✅ You want open source customization
-✅ You don't want monthly fees
+Includes:
+- UE-specific SEO keywords
+- What BugIt captures (video, inputs, logs, frame timing)
+- 3-step workflow explanation
+- C++ code example
+- FAQ with structured data schema
+- Engine version badges (UE 4.25+, UE5)
 
-## When to Choose BetaHub
+## BugIt for Unity
 
-✅ You have a large Discord community
-✅ You need AI duplicate detection now
-✅ You prefer managed cloud infrastructure
-✅ You need sentiment analysis
+**Status:** ✅ LIVE at `/products/bugit/unity` (Coming Soon page)
 
-## The Bottom Line
+Includes:
+- "Coming Soon" badge with email waitlist CTA
+- Feature preview (what BugIt will capture)
+- Why BugIt for Unity (frame-sync, self-hosted, mobile, open source)
+- Link to existing Unreal Engine support
+- Unity-specific SEO keywords
 
-**BetaHub** excels at community-driven feedback collection through Discord.
+## Blog: Cannot Reproduce Bugs Cost Millions
 
-**BugIt** excels at forensic QA analysis with frame-synced evidence.
+**Status:** ✅ LIVE at `/insights/cannot-reproduce-bugs-cost`
 
-Choose based on your primary use case: community feedback vs. internal QA.
-```
+Includes:
+- ~1,400 words on the real cost of "cannot reproduce" bugs
+- Statistics (40% of bugs, 2-4 hours wasted, 60% are real)
+- Why bugs don't reproduce (context, timing, state, hardware)
+- Solution: video evidence workflow
+- Added to insights index page
+
+## Blog: Self-Hosted QA Tools
+
+**Status:** ✅ LIVE at `/insights/self-hosted-qa-tools`
+
+Includes:
+- When to self-host (NDA, console, data residency, performance, cost)
+- When cloud is better (small teams, rapid setup)
+- Comparison table (self-hosted vs cloud)
+- Deployment options (on-premise, private cloud, dedicated)
+- Added to insights index page
 
 ---
 
@@ -570,21 +588,49 @@ Choose based on your primary use case: community feedback vs. internal QA.
 
 # Action Items
 
-## Immediate
+## Completed ✅
 
-- [ ] Create `/bugit-vs-betahub` comparison page
-- [ ] Create `/products/bugit/unreal-engine` landing page
-- [ ] Add "Self-Hosted" and "Open Source" badges
-- [ ] Publish YouTube demo with optimized metadata
+- [x] Create `/bugit-vs-betahub` comparison page → **DONE** (Feb 2026)
+- [x] Create `/products/bugit/unreal-engine` landing page → **DONE** (Feb 2026)
+- [x] Add "Self-Hosted" and "Open Source" badges → **Already existed on page**
+- [x] Add YouTube demo video to BugIt page → **DONE** (https://youtu.be/MrrIpXYn-rs)
+- [x] Update BugIt page meta keywords for SEO → **DONE**
+- [x] Add new pages to sitemap.xml → **DONE**
+- [x] Create `/products/bugit/unity` landing page → **DONE** (Feb 2026, Coming Soon)
+- [x] Write blog: "Why 'Cannot Reproduce' Bugs Cost Studios Millions" → **DONE** `/insights/cannot-reproduce-bugs-cost`
+- [x] Write blog: "Self-Hosted QA Tools" → **DONE** `/insights/self-hosted-qa-tools`
+- [x] Add new articles to `/insights/` index page → **DONE**
+
+## Remaining - Immediate Priority
+
 - [ ] Reach out to 5 RVR customers for testimonials
+- [ ] Create `/insights/video-evidence-bug-reports` problem-aware content
 
-## Near-term
+## Remaining - Near-term
 
 - [ ] Add pricing section to BugIt page
 - [ ] Plan Discord bot feature for Q2
-- [ ] Write first case study
-- [ ] Launch content calendar
+- [ ] Write first case study (when testimonials available)
+- [ ] Create `/products/bugit/discord-integration` page (even if "coming soon")
+
+## Remaining - Future
+
+- [ ] Create `/products/bugit/roblox` page
+- [ ] Create `/products/bugit/godot` page
+- [ ] Write comparison: "BugIt vs Sentry vs BetaHub for Game QA"
 
 ---
 
-*Document maintained by Growth Team. Last updated: February 2026*
+## Progress Summary
+
+| Category | Done | Remaining |
+|----------|------|-----------|
+| Landing Pages | 4 (main, vs-betahub, unreal-engine, unity) | 3 (discord, roblox, godot) |
+| Blog Posts | 2 (cannot-reproduce, self-hosted-qa) | 1 (video-evidence) |
+| SEO Optimization | Keywords updated, sitemap done | Monitor rankings |
+| Content | YouTube demo, insights index updated | Case studies |
+| Social Proof | 0 | Need testimonials first |
+
+---
+
+*Document maintained by Growth Team. Last updated: February 3, 2026*

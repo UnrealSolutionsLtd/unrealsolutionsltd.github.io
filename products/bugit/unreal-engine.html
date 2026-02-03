@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BugIt for Unreal Engine | Bug Reporting with Video Evidence | UE5 QA Tool</title>
+    <meta name="description" content="Bug reporting for Unreal Engine games with video evidence. BugIt captures video, inputs, logs, and frame timings directly from UE5. Self-hosted, open source, frame-synced QA dashboard.">
+    <meta name="keywords" content="unreal engine bug reporting, UE5 QA tool, unreal engine bug tracking, bug reporting plugin unreal, UE5 bug reporting, game testing unreal engine, video evidence bug reports unreal, unreal engine QA dashboard">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unrealsolutions.com/products/bugit/unreal-engine">
+    <meta property="og:title" content="BugIt for Unreal Engine | Bug Reporting with Video Evidence">
+    <meta property="og:description" content="Bug reporting for Unreal Engine with frame-synced video, inputs, logs, and performance data. Self-hosted QA dashboard.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/bugit/dashboard.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://unrealsolutions.com/products/bugit/unreal-engine">
+    <meta name="twitter:title" content="BugIt for Unreal Engine | Bug Reporting with Video Evidence">
+    <meta name="twitter:description" content="Bug reporting for UE5 with frame-synced video, inputs, logs, and performance data.">
+    <meta name="twitter:image" content="https://unrealsolutions.com/assets/bugit/dashboard.png">
+    
+    <!-- Additional SEO -->
+    <meta name="author" content="Unreal Solutions Ltd">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unrealsolutions.com/products/bugit/unreal-engine">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../../assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BugIt for Unreal Engine",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "Bug Tracking",
+      "operatingSystem": ["Windows", "macOS", "Linux"],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "description": "QA Dashboard for Unreal Engine games with frame-synced video, inputs, logs, and frame timing visualization.",
+      "url": "https://unrealsolutions.com/products/bugit/unreal-engine",
+      "author": {
+        "@type": "Organization",
+        "name": "Unreal Solutions Ltd",
+        "url": "https://unrealsolutions.com"
+      },
+      "featureList": [
+        "Frame-synced video recording",
+        "Input capture and visualization",
+        "Log synchronization",
+        "Frame timing graphs",
+        "Self-hosted deployment",
+        "Open source (MIT)"
+      ]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://unrealsolutions.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Products",
+        "item": "https://unrealsolutions.com/products/"
+      }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "BugIt",
+        "item": "https://unrealsolutions.com/products/bugit/"
+      }, {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Unreal Engine",
+        "item": "https://unrealsolutions.com/products/bugit/unreal-engine"
+      }]
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How do I report bugs with video in Unreal Engine?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BugIt + RVR captures video, inputs, logs, and frame timings directly from your UE game. When a bug occurs, press one button to save everything as a bundle. Open the BugIt dashboard to see all data synced together."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does BugIt work with UE5?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, BugIt works with Unreal Engine 4 and 5. The capture is powered by Runtime Video Recorder (RVR), which supports UE 4.25+ and all UE5 versions."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is BugIt free for Unreal Engine projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, BugIt is open source and free forever. The dashboard and backend are MIT licensed. You only need RVR (sold separately) for the capture side."
+        }
+      }]
+    }
+    </script>
+    
+    <style>
+      body {
+        font-family: 'Outfit', system-ui, sans-serif;
+        background: linear-gradient(to bottom, #0f0f0f 0%, #0a0a0a 100%);
+      }
+      
+      .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      
+      .feature-card {
+        background: linear-gradient(135deg, rgba(23, 23, 23, 0.95) 0%, rgba(38, 38, 38, 0.95) 100%);
+        border: 1px solid rgba(234, 179, 8, 0.2);
+        border-radius: 1rem;
+        transition: all 0.3s ease;
+      }
+      
+      .feature-card:hover {
+        border-color: rgba(234, 179, 8, 0.5);
+        transform: translateY(-4px);
+        box-shadow: 0 15px 40px rgba(234, 179, 8, 0.1);
+      }
+
+      .code-block {
+        background: #1e293b;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        overflow-x: auto;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.875rem;
+        border: 1px solid #374151;
+      }
+      
+      .code-block .keyword { color: #c792ea; }
+      .code-block .function { color: #82aaff; }
+      .code-block .string { color: #c3e88d; }
+      .code-block .comment { color: #546e7a; }
+    </style>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-black min-h-screen text-white">
+    <main class="container mx-auto px-4 sm:px-8 lg:px-20">
+      <!-- Navigation -->
+      <div class="relative pt-4 sm:pt-0">
+        <!-- Shared Navigation -->
+        <div id="site-nav" data-logo-path="../../assets/logo.png"></div>
+        <script src="/assets/js/nav.js"></script>
+
+        <!-- Hero Section -->
+        <div class="sm:pt-32 pb-8 sm:py-16">
+          <div class="mx-auto max-w-5xl">
+            <!-- Breadcrumb -->
+            <nav class="mb-8 text-sm">
+              <ol class="flex items-center gap-2 text-gray-500">
+                <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                <li class="text-gray-600">/</li>
+                <li><a href="/products/" class="hover:text-white transition-colors">Products</a></li>
+                <li class="text-gray-600">/</li>
+                <li><a href="/products/bugit/" class="hover:text-white transition-colors">BugIt</a></li>
+                <li class="text-gray-600">/</li>
+                <li class="text-yellow-400">Unreal Engine</li>
+              </ol>
+            </nav>
+
+            <div class="text-center mb-12">
+              <span class="inline-block px-4 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-medium mb-4">
+                Unreal Engine Integration
+              </span>
+              <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+                Bug Reporting for<br>
+                <span class="text-yellow-400">Unreal Engine Games</span>
+              </h1>
+              <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                Capture video, inputs, logs, and frame timings directly from your UE5 project. 
+                Frame-synced evidence so developers can reproduce bugs on the first try.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                <a 
+                  href="https://github.com/unrealsolutionsltd/bugit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center px-8 py-4 text-base font-semibold text-black bg-gradient-to-r from-yellow-400 to-amber-500 rounded-xl hover:from-yellow-300 hover:to-amber-400 transition-all"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                  View on GitHub
+                </a>
+                <a 
+                  href="https://youtu.be/MrrIpXYn-rs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center px-6 py-3 text-sm font-medium text-red-400 bg-gray-800/50 border border-red-500/50 rounded-lg hover:bg-gray-700/50 transition-all"
+                >
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                  Watch Demo
+                </a>
+              </div>
+
+              <!-- Engine Support Badges -->
+              <div class="flex flex-wrap justify-center gap-3">
+                <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-gray-300">UE 4.25+</span>
+                <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-gray-300">UE 5.0+</span>
+                <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-gray-300">UE 5.4+</span>
+                <span class="px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-sm text-yellow-300">Blueprints & C++</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What BugIt Captures -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="text-3xl font-bold text-center text-white mb-12">What BugIt Captures from Your UE Project</h2>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="feature-card p-6 text-center">
+              <div class="text-4xl mb-4">🎬</div>
+              <h3 class="text-lg font-semibold text-white mb-2">Video</h3>
+              <p class="text-gray-400 text-sm">In-engine recording via RVR. Frame-accurate playback in dashboard.</p>
+            </div>
+            <div class="feature-card p-6 text-center">
+              <div class="text-4xl mb-4">🎮</div>
+              <h3 class="text-lg font-semibold text-white mb-2">Inputs</h3>
+              <p class="text-gray-400 text-sm">Keyboard, mouse, gamepad. Every button press timestamped.</p>
+            </div>
+            <div class="feature-card p-6 text-center">
+              <div class="text-4xl mb-4">📋</div>
+              <h3 class="text-lg font-semibold text-white mb-2">Logs</h3>
+              <p class="text-gray-400 text-sm">UE_LOG output captured and synced to video timeline.</p>
+            </div>
+            <div class="feature-card p-6 text-center">
+              <div class="text-4xl mb-4">📊</div>
+              <h3 class="text-lg font-semibold text-white mb-2">Frame Timing</h3>
+              <p class="text-gray-400 text-sm">FPS graphs, frame time, stutters visualized.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How It Works -->
+      <div class="py-12">
+        <div class="mx-auto max-w-5xl">
+          <h2 class="text-3xl font-bold text-center text-white mb-12">How It Works in Unreal Engine</h2>
+          
+          <div class="space-y-8">
+            <!-- Step 1 -->
+            <div class="bg-gray-800/50 rounded-2xl p-8">
+              <div class="flex items-start gap-6">
+                <div class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
+                  <span class="text-xl font-bold text-yellow-400">1</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-white mb-3">Add RVR Plugin to Your Project</h3>
+                  <p class="text-gray-300 mb-4">
+                    Runtime Video Recorder handles the capture side. It runs in-engine, capturing video, inputs, and logs 
+                    with minimal performance impact (1-3% CPU).
+                  </p>
+                  <a href="/products/runtime-video-recorder/" class="text-yellow-400 hover:text-yellow-300 text-sm">
+                    Learn about RVR →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-gray-800/50 rounded-2xl p-8">
+              <div class="flex items-start gap-6">
+                <div class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
+                  <span class="text-xl font-bold text-yellow-400">2</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-white mb-3">Trigger Bug Report (Blueprint or C++)</h3>
+                  <p class="text-gray-300 mb-4">
+                    When a tester finds a bug, one function call packages everything into a bundle and uploads to BugIt.
+                  </p>
+                  <div class="code-block">
+                    <span class="comment">// C++ - Trigger bug report</span><br>
+                    UBugItCaptureSubsystem* BugIt = GetGameInstance()-><span class="function">GetSubsystem</span>&lt;UBugItCaptureSubsystem&gt;();<br>
+                    BugIt-><span class="function">ReportBug</span>(TEXT(<span class="string">"Player fell through floor"</span>));
+                  </div>
+                  <p class="text-gray-400 text-sm mt-4">Also available as Blueprint nodes - no C++ required.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-gray-800/50 rounded-2xl p-8">
+              <div class="flex items-start gap-6">
+                <div class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
+                  <span class="text-xl font-bold text-yellow-400">3</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-white mb-3">View in BugIt Dashboard</h3>
+                  <p class="text-gray-300 mb-4">
+                    Developers open the self-hosted BugIt dashboard. Video, inputs, logs, and frame timing are all synced. 
+                    Scrub to any moment and see exactly what happened.
+                  </p>
+                  <img 
+                    src="../../assets/bugit/dashboard.png" 
+                    alt="BugIt Dashboard showing UE bug report"
+                    class="rounded-lg border border-gray-700 mt-4"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why BugIt for UE -->
+      <div class="py-12">
+        <div class="mx-auto max-w-5xl">
+          <h2 class="text-3xl font-bold text-center text-white mb-12">Why Use BugIt for Unreal Engine?</h2>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="feature-card p-6">
+              <h3 class="text-xl font-semibold text-white mb-3">🔗 Native UE Integration</h3>
+              <p class="text-gray-400">
+                Built specifically for Unreal Engine. Captures data directly from the engine - no external screen recorders, 
+                no performance overhead from capture software.
+              </p>
+            </div>
+            <div class="feature-card p-6">
+              <h3 class="text-xl font-semibold text-white mb-3">⏱️ Frame-Perfect Sync</h3>
+              <p class="text-gray-400">
+                Video, inputs, and logs are timestamped at the frame level. When you scrub the video, everything else 
+                updates to that exact moment.
+              </p>
+            </div>
+            <div class="feature-card p-6">
+              <h3 class="text-xl font-semibold text-white mb-3">📱 Mobile Support</h3>
+              <p class="text-gray-400">
+                RVR records natively on Android and iOS. Test your UE mobile game and get the same frame-synced 
+                evidence as desktop.
+              </p>
+            </div>
+            <div class="feature-card p-6">
+              <h3 class="text-xl font-semibold text-white mb-3">🔒 Self-Hosted</h3>
+              <p class="text-gray-400">
+                Your bug reports stay on your servers. Important for studios under NDA, console development, 
+                or security requirements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="text-3xl font-bold text-center text-white mb-12">Frequently Asked Questions</h2>
+          
+          <div class="space-y-6">
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">How do I report bugs with video in Unreal Engine?</h3>
+              <p class="text-gray-300">
+                BugIt + RVR captures video, inputs, logs, and frame timings directly from your UE game. 
+                When a bug occurs, press one button to save everything as a bundle. Open the BugIt dashboard 
+                to see all data synced together.
+              </p>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Does BugIt work with UE5?</h3>
+              <p class="text-gray-300">
+                Yes, BugIt works with Unreal Engine 4.25+ and all UE5 versions including 5.4. The capture is 
+                powered by Runtime Video Recorder (RVR), which fully supports UE5.
+              </p>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Is BugIt free for Unreal Engine projects?</h3>
+              <p class="text-gray-300">
+                Yes, BugIt (the dashboard) is open source and free forever under the MIT license. 
+                You need RVR (sold separately) for the capture side - it's the plugin that runs in your UE project.
+              </p>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">What's the performance impact?</h3>
+              <p class="text-gray-300">
+                RVR uses hardware-accelerated encoding with 1-3% CPU overhead. Recording runs on a separate 
+                thread and doesn't block the game thread, so your testing environment stays accurate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl text-center">
+          <div class="bg-gradient-to-r from-yellow-600 to-amber-600 rounded-2xl p-8">
+            <h2 class="text-3xl font-bold text-white mb-4">Start Using BugIt with Unreal Engine</h2>
+            <p class="text-yellow-100 mb-6 text-lg">
+              Self-hosted, open source, frame-synced bug evidence for your UE project.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a 
+                href="https://github.com/unrealsolutionsltd/bugit"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-8 py-4 text-base font-semibold text-yellow-600 bg-white rounded-xl hover:bg-gray-100 transition-all"
+              >
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                View on GitHub
+              </a>
+              <a 
+                href="https://tally.so/r/mZDq7v?utm_source=website&utm_medium=cta_button&utm_campaign=rvr_download&utm_content=bugit_unreal"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-yellow-100 hover:text-white underline"
+              >
+                Get RVR for Capture →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Links -->
+      <div class="py-12">
+        <div class="mx-auto max-w-5xl">
+          <h2 class="text-2xl font-bold text-white mb-8">Related</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <a href="/products/bugit/" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">BugIt Overview</h3>
+              <p class="text-gray-400 text-sm">Full feature list and how it works.</p>
+            </a>
+            <a href="/products/bugit/vs-betahub" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">BugIt vs BetaHub</h3>
+              <p class="text-gray-400 text-sm">Compare self-hosted vs cloud QA tools.</p>
+            </a>
+            <a href="/products/runtime-video-recorder/" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Runtime Video Recorder</h3>
+              <p class="text-gray-400 text-sm">The capture plugin that powers BugIt.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="py-8 border-t border-neutral-800">
+        <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+          <a href="/" class="text-gray-500 hover:text-yellow-400 transition-colors">Home</a>
+          <a href="/products/" class="text-gray-500 hover:text-yellow-400 transition-colors">Products</a>
+          <a href="/docs/" class="text-gray-500 hover:text-yellow-400 transition-colors">Documentation</a>
+          <a href="mailto:business@unrealsolutions.com" class="text-gray-500 hover:text-yellow-400 transition-colors">Contact</a>
+          <a href="/privacy.html" class="text-gray-500 hover:text-yellow-400 transition-colors">Privacy Policy</a>
+        </div>
+        
+        <div class="text-center text-gray-600 text-sm">
+          © Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2026
+        </div>
+      </div>
+    </main>
+</body>
+</html>

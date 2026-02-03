@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Hosted QA Tools for Game Development | When and Why to Self-Host</title>
+    <meta name="description" content="When should game studios use self-hosted QA tools? Learn the benefits, trade-offs, and use cases for self-hosted bug tracking and video evidence systems.">
+    <meta name="keywords" content="self hosted QA tools, self hosted bug tracking, game qa self hosted, on premise bug tracking, game studio security, NDA game testing, self hosted video evidence, game qa infrastructure">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://unrealsolutions.com/insights/self-hosted-qa-tools">
+    <meta property="og:title" content="Self-Hosted QA Tools for Game Development">
+    <meta property="og:description" content="When should game studios use self-hosted QA tools? Benefits, trade-offs, and use cases.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/bugit/dashboard.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://unrealsolutions.com/insights/self-hosted-qa-tools">
+    <meta name="twitter:title" content="Self-Hosted QA Tools for Game Development">
+    <meta name="twitter:description" content="When should game studios use self-hosted QA tools? Benefits, trade-offs, and use cases.">
+    <meta name="twitter:image" content="https://unrealsolutions.com/assets/bugit/dashboard.png">
+    
+    <!-- Additional SEO -->
+    <meta name="author" content="Unreal Solutions Ltd">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unrealsolutions.com/insights/self-hosted-qa-tools">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Article Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Self-Hosted QA Tools for Game Development",
+      "description": "When should game studios use self-hosted QA tools? Learn the benefits, trade-offs, and use cases for self-hosted bug tracking and video evidence systems.",
+      "author": {
+        "@type": "Organization",
+        "name": "Unreal Solutions Ltd",
+        "url": "https://unrealsolutions.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Unreal Solutions Ltd",
+        "url": "https://unrealsolutions.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://unrealsolutions.com/assets/logo.png"
+        }
+      },
+      "datePublished": "2026-02-03",
+      "dateModified": "2026-02-03",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://unrealsolutions.com/insights/self-hosted-qa-tools"
+      },
+      "url": "https://unrealsolutions.com/insights/self-hosted-qa-tools"
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://unrealsolutions.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Insights",
+        "item": "https://unrealsolutions.com/insights/"
+      }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Self-Hosted QA Tools",
+        "item": "https://unrealsolutions.com/insights/self-hosted-qa-tools"
+      }]
+    }
+    </script>
+    
+    <style>
+      body {
+        font-family: 'Outfit', system-ui, sans-serif;
+        background: linear-gradient(to bottom, #0f0f0f 0%, #0a0a0a 100%);
+      }
+      
+      .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      .prose-custom h2 {
+        color: #fbbf24;
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .prose-custom h3 {
+        color: #ffffff;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .prose-custom p {
+        color: #d1d5db;
+        line-height: 1.8;
+        margin-bottom: 1.25rem;
+      }
+
+      .prose-custom ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        color: #d1d5db;
+        margin-bottom: 1.25rem;
+      }
+
+      .prose-custom li {
+        margin-bottom: 0.5rem;
+      }
+
+      .prose-custom strong {
+        color: #ffffff;
+      }
+
+      .callout {
+        background: linear-gradient(135deg, rgba(23, 23, 23, 0.95) 0%, rgba(38, 38, 38, 0.95) 100%);
+        border-left: 4px solid #fbbf24;
+        padding: 1.5rem;
+        border-radius: 0 0.75rem 0.75rem 0;
+        margin: 2rem 0;
+      }
+
+      .callout-blue {
+        border-left-color: #3b82f6;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2rem 0;
+      }
+
+      .comparison-table th {
+        background: rgba(234, 179, 8, 0.1);
+        color: #fbbf24;
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+      }
+
+      .comparison-table td {
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: #d1d5db;
+      }
+
+      .comparison-table tr:hover td {
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .feature-card {
+        background: linear-gradient(135deg, rgba(23, 23, 23, 0.95) 0%, rgba(38, 38, 38, 0.95) 100%);
+        border: 1px solid rgba(234, 179, 8, 0.2);
+        border-radius: 1rem;
+        padding: 1.5rem;
+      }
+    </style>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-black min-h-screen text-white">
+    <main class="container mx-auto px-4 sm:px-8 lg:px-20">
+      <!-- Navigation -->
+      <div class="relative pt-4 sm:pt-0">
+        <!-- Shared Navigation -->
+        <div id="site-nav" data-logo-path="../assets/logo.png"></div>
+        <script src="/assets/js/nav.js"></script>
+
+        <!-- Hero Section -->
+        <div class="sm:pt-32 pb-8 sm:py-16">
+          <div class="mx-auto max-w-3xl">
+            <!-- Breadcrumb -->
+            <nav class="mb-8 text-sm">
+              <ol class="flex items-center gap-2 text-gray-500">
+                <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                <li class="text-gray-600">/</li>
+                <li><a href="/insights/" class="hover:text-white transition-colors">Insights</a></li>
+                <li class="text-gray-600">/</li>
+                <li class="text-yellow-400">Self-Hosted QA Tools</li>
+              </ol>
+            </nav>
+
+            <span class="text-yellow-400 text-sm font-medium">Infrastructure</span>
+            <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-2 mb-6">
+              Self-Hosted QA Tools for Game Development
+            </h1>
+            <p class="text-lg text-gray-400 mb-8">
+              When to self-host your bug tracking and video evidence systems. A practical guide for studios of all sizes.
+            </p>
+            <div class="flex items-center gap-4 text-sm text-gray-500 mb-12">
+              <span>February 2026</span>
+              <span>•</span>
+              <span>10 min read</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article Content -->
+      <div class="pb-16">
+        <div class="mx-auto max-w-3xl prose-custom">
+          
+          <p>
+            Most game studios default to cloud-based tools for bug tracking and QA. It's the easiest path: 
+            sign up, create a project, start filing bugs. No servers to manage, no infrastructure to maintain.
+          </p>
+          <p>
+            But there's a growing movement back toward self-hosted solutions. Not because cloud tools are bad, 
+            but because for certain studios and certain projects, self-hosting is simply the better choice.
+          </p>
+          <p>
+            This article explains when self-hosting makes sense, what the trade-offs are, and how to evaluate 
+            whether it's right for your team.
+          </p>
+
+          <h2>What "Self-Hosted" Actually Means</h2>
+
+          <p>
+            Self-hosted QA tools run on infrastructure you control. That could mean:
+          </p>
+          <ul>
+            <li>Physical servers in your office</li>
+            <li>Virtual machines in your private cloud</li>
+            <li>Containers in your existing Kubernetes cluster</li>
+            <li>A single server at a hosting provider, but one you manage</li>
+          </ul>
+          <p>
+            The key distinction: your data stays on machines you control. Bug reports, video recordings, 
+            screenshots, logs, and test results never leave your infrastructure.
+          </p>
+
+          <h2>When Self-Hosting Makes Sense</h2>
+
+          <h3>1. NDA and Confidentiality Requirements</h3>
+          <p>
+            If you're working on a licensed IP, a console launch title, or any project with strict NDA requirements, 
+            uploading bug reports to third-party servers may violate your agreements.
+          </p>
+          <p>
+            Publishers often require that all project materials stay within controlled environments. Video evidence 
+            of gameplay is particularly sensitive because it can reveal unannounced features, characters, or storylines.
+          </p>
+
+          <div class="callout">
+            <p class="text-white font-semibold mb-2">Example scenario:</p>
+            <p class="text-gray-300 mb-0">
+              A studio working on a major franchise sequel. Their publisher agreement specifies that no gameplay 
+              footage can be stored on third-party servers. A cloud QA tool that stores video uploads would 
+              violate this requirement.
+            </p>
+          </div>
+
+          <h3>2. Console Development</h3>
+          <p>
+            Sony, Microsoft, and Nintendo have specific requirements about development kit footage and data. 
+            Many console manufacturers require that devkit captures remain within secured environments.
+          </p>
+          <p>
+            Self-hosted tools let you maintain compliance while still having a modern QA workflow.
+          </p>
+
+          <h3>3. Data Residency and Compliance</h3>
+          <p>
+            Some regions have strict data residency laws. If your studio or publisher requires that data 
+            stay within specific geographic boundaries, you need infrastructure in those locations.
+          </p>
+          <p>
+            Self-hosting gives you complete control over where your data physically resides.
+          </p>
+
+          <h3>4. Network Performance</h3>
+          <p>
+            Video files are large. A 30-second clip at 1080p can easily be 50-100MB. If your team is 
+            uploading hundreds of bug reports per day, bandwidth to external servers becomes a bottleneck.
+          </p>
+          <p>
+            Self-hosted tools on your local network transfer files at gigabit speeds. Uploads that took 
+            minutes now take seconds.
+          </p>
+
+          <h3>5. Cost at Scale</h3>
+          <p>
+            Cloud QA tools typically charge per seat or per storage. For a large studio with 50+ QA staff 
+            generating terabytes of video evidence, costs add up quickly.
+          </p>
+          <p>
+            Self-hosted solutions have a higher initial setup cost but much lower marginal cost. 
+            Storage is just hard drive space. Seats are just user accounts.
+          </p>
+
+          <h2>When Cloud Makes More Sense</h2>
+
+          <p>
+            Self-hosting isn't always the right choice. Cloud tools are better when:
+          </p>
+
+          <ul>
+            <li><strong>You're a small team.</strong> If you have 5 people, the overhead of managing servers isn't worth it.</li>
+            <li><strong>You need rapid setup.</strong> Cloud tools work immediately. Self-hosted tools require configuration.</li>
+            <li><strong>Your project isn't confidential.</strong> If you're making an indie game with no NDA, security concerns are minimal.</li>
+            <li><strong>You lack IT resources.</strong> Someone needs to maintain self-hosted infrastructure. If you don't have that person, cloud is safer.</li>
+            <li><strong>You need built-in integrations.</strong> Cloud tools often have deeper integrations with other cloud services.</li>
+          </ul>
+
+          <h2>Comparison: Self-Hosted vs Cloud QA Tools</h2>
+
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th>Self-Hosted</th>
+                <th>Cloud</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Data Control</strong></td>
+                <td>Complete control</td>
+                <td>Stored on vendor servers</td>
+              </tr>
+              <tr>
+                <td><strong>Setup Time</strong></td>
+                <td>Hours to days</td>
+                <td>Minutes</td>
+              </tr>
+              <tr>
+                <td><strong>Maintenance</strong></td>
+                <td>Your responsibility</td>
+                <td>Vendor handles</td>
+              </tr>
+              <tr>
+                <td><strong>Cost Model</strong></td>
+                <td>Fixed infrastructure cost</td>
+                <td>Per-seat or storage fees</td>
+              </tr>
+              <tr>
+                <td><strong>Network Speed</strong></td>
+                <td>LAN speeds (fast)</td>
+                <td>Internet speeds (variable)</td>
+              </tr>
+              <tr>
+                <td><strong>Customization</strong></td>
+                <td>Full access to modify</td>
+                <td>Limited to vendor features</td>
+              </tr>
+              <tr>
+                <td><strong>NDA Compliance</strong></td>
+                <td>Easy to guarantee</td>
+                <td>Depends on vendor</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>What to Look for in Self-Hosted QA Tools</h2>
+
+          <h3>Easy Deployment</h3>
+          <p>
+            The best self-hosted tools offer Docker containers or simple installers. You shouldn't need 
+            a week of configuration to get running. Look for tools that work with a single command.
+          </p>
+
+          <h3>Minimal Dependencies</h3>
+          <p>
+            Avoid tools that require complex stacks. If you need Kubernetes, Redis, Elasticsearch, 
+            PostgreSQL, and three microservices just to track bugs, the maintenance burden is too high.
+          </p>
+
+          <h3>Standard Data Formats</h3>
+          <p>
+            Your bug reports and video evidence should be stored in formats you can access directly. 
+            If you ever need to migrate or audit your data, you should be able to do so without 
+            vendor-specific export tools.
+          </p>
+
+          <h3>Open Source Options</h3>
+          <p>
+            Open source self-hosted tools give you the most control. You can inspect the code, 
+            modify it for your needs, and ensure there are no hidden data transmissions.
+          </p>
+
+          <div class="callout callout-blue">
+            <p class="text-white font-semibold mb-2">What BugIt offers:</p>
+            <p class="text-gray-300 mb-0">
+              BugIt is a self-hosted QA dashboard (open source, MIT licensed) that stores bug reports 
+              with frame-synced video, inputs, logs, and performance data. Single Docker container, 
+              SQLite database, standard MP4 video files. Your data stays on your servers.
+            </p>
+          </div>
+
+          <h2>Deployment Options</h2>
+
+          <h3>On-Premise Servers</h3>
+          <p>
+            The most secure option. Hardware sits in your office, on your network, under your physical control. 
+            Best for studios with strict security requirements.
+          </p>
+          <p>
+            Trade-off: You're responsible for hardware maintenance, backups, and uptime.
+          </p>
+
+          <h3>Private Cloud (AWS, GCP, Azure)</h3>
+          <p>
+            Run self-hosted tools on virtual machines in a major cloud provider, but in a private VPC 
+            that only your team can access. Good balance of control and convenience.
+          </p>
+          <p>
+            Trade-off: Data is technically on someone else's hardware, but you control network access 
+            and encryption.
+          </p>
+
+          <h3>Dedicated Hosting</h3>
+          <p>
+            Rent a physical server from a hosting provider. You get root access and full control, 
+            but don't need to manage hardware.
+          </p>
+          <p>
+            Trade-off: Monthly costs, and you're trusting the hosting provider's physical security.
+          </p>
+
+          <h2>Hybrid Approaches</h2>
+
+          <p>
+            Many studios use a hybrid approach:
+          </p>
+          <ul>
+            <li><strong>Self-hosted for sensitive projects.</strong> Unannounced titles, licensed IP, console development.</li>
+            <li><strong>Cloud for everything else.</strong> Internal tools, prototypes, jam games.</li>
+          </ul>
+          <p>
+            This gives you security where it matters without the overhead of self-hosting everything.
+          </p>
+
+          <h2>Making the Decision</h2>
+
+          <p>
+            Ask yourself these questions:
+          </p>
+          <ul>
+            <li>Do our contracts or NDAs restrict where data can be stored?</li>
+            <li>Are we doing console development with devkit footage?</li>
+            <li>Do we have someone who can maintain a server?</li>
+            <li>How much video evidence will we generate per month?</li>
+            <li>What's our budget for QA tooling?</li>
+          </ul>
+          <p>
+            If you answered yes to the first two questions and yes to the third, self-hosting 
+            is probably the right choice. If your team is small and your project isn't confidential, 
+            cloud tools will be easier.
+          </p>
+
+          <h2>Conclusion</h2>
+
+          <p>
+            Self-hosted QA tools aren't just for enterprises with dedicated IT teams. Modern self-hosted 
+            solutions are simple enough that any studio can run them. The question is whether 
+            the benefits (data control, compliance, network speed, cost) outweigh the overhead.
+          </p>
+          <p>
+            For studios working on confidential projects, the answer is usually yes. Your bug reports 
+            contain information about unreleased games. That information deserves the same security 
+            as your source code.
+          </p>
+
+          <!-- CTA -->
+          <div class="mt-12 pt-8 border-t border-gray-700">
+            <h3>Need a Self-Hosted QA Dashboard?</h3>
+            <p>
+              BugIt is an open source, self-hosted QA dashboard with frame-synced video, inputs, logs, 
+              and performance data. Deploy with Docker, keep your data on your servers.
+            </p>
+            <div class="flex flex-wrap gap-4 mt-6">
+              <a 
+                href="/products/bugit/"
+                class="inline-flex items-center px-6 py-3 text-base font-semibold text-black bg-gradient-to-r from-yellow-400 to-amber-500 rounded-lg hover:from-yellow-300 hover:to-amber-400 transition-all"
+              >
+                Learn About BugIt
+              </a>
+              <a 
+                href="https://github.com/UnrealSolutionsLtd/BugIt"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-6 py-3 text-base font-semibold text-white bg-gray-800 rounded-lg hover:bg-gray-700 transition-all"
+              >
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                </svg>
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <div class="py-12 border-t border-gray-800">
+        <div class="mx-auto max-w-5xl">
+          <h2 class="text-2xl font-bold text-white mb-8">Related Insights</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <a href="/insights/cannot-reproduce-bugs-cost" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Cannot Reproduce Bugs Cost Millions</h3>
+              <p class="text-gray-400 text-sm">Why video evidence eliminates the most expensive QA problem.</p>
+            </a>
+            <a href="/products/bugit/vs-betahub" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">BugIt vs BetaHub</h3>
+              <p class="text-gray-400 text-sm">Comparing self-hosted and cloud QA solutions.</p>
+            </a>
+            <a href="/use-cases/game-testing-video-recording" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Game Testing with Video Recording</h3>
+              <p class="text-gray-400 text-sm">How to implement video evidence in your QA workflow.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="py-8 border-t border-neutral-800">
+        <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+          <a href="/" class="text-gray-500 hover:text-yellow-400 transition-colors">Home</a>
+          <a href="/products/" class="text-gray-500 hover:text-yellow-400 transition-colors">Products</a>
+          <a href="/docs/" class="text-gray-500 hover:text-yellow-400 transition-colors">Documentation</a>
+          <a href="mailto:business@unrealsolutions.com" class="text-gray-500 hover:text-yellow-400 transition-colors">Contact</a>
+          <a href="/privacy.html" class="text-gray-500 hover:text-yellow-400 transition-colors">Privacy Policy</a>
+        </div>
+        
+        <div class="text-center text-gray-600 text-sm">
+          © Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2026
+        </div>
+      </div>
+    </main>
+</body>
+</html>
