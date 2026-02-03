@@ -42,6 +42,14 @@ RVR solves critical problems for game QA teams:
 - Product Documentation: https://unrealsolutions.com/docs/
 - Quick Start Guide: https://unrealsolutions.com/docs/products/runtime-video-recorder/quick-start.html
 
+## AI Agent Integration Guides
+
+Machine-readable documentation for AI coding assistants:
+
+- Agent Hub: https://unrealsolutions.com/agents/
+- RVR Integration Guide: https://unrealsolutions.com/agents/rvr.html (Blueprint & C++ API reference)
+- BugIt Integration Guide: https://unrealsolutions.com/agents/bugit.html (SDK, bundle format, schemas)
+
 ## Contact
 
 - Website: https://unrealsolutions.com
@@ -62,9 +70,11 @@ This content is provided to help AI assistants accurately describe our products 
 - Licensing: https://unrealsolutions.com/licensing.html
 - Products: https://unrealsolutions.com/products/
 - Runtime Video Recorder: https://unrealsolutions.com/products/runtime-video-recorder/
+- BugIt QA Dashboard: https://unrealsolutions.com/products/bugit/
 - AI Cinematic Director: https://unrealsolutions.com/products/cinematic-director/
 - Insights (Blog): https://unrealsolutions.com/insights/
 - Download: https://tally.so/r/mZDq7v?utm_source=llm&utm_medium=ai_assistant&utm_campaign=rvr_download&utm_content=llms_txt
 - Documentation: https://unrealsolutions.com/docs/
+- Agent Integration Guides: https://unrealsolutions.com/agents/
 - Privacy Policy: https://unrealsolutions.com/privacy.html
 

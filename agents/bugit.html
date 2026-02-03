@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BugIt Agent Integration Guide | Unreal Solutions</title>
+    <meta name="description" content="AI agent integration guide for BugIt QA Dashboard. SDK integration, bundle format, and API reference.">
+    <meta name="robots" content="index, follow">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    
+    <style>
+        pre { background: #1e293b; border-radius: 8px; padding: 16px; overflow-x: auto; margin: 0; }
+        code { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 13px; }
+        .code-block { position: relative; }
+        .code-label { position: absolute; top: 8px; right: 8px; font-size: 11px; color: #64748b; }
+        h2 { scroll-margin-top: 80px; }
+        h3 { scroll-margin-top: 80px; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <main class="container mx-auto px-4 sm:px-8 lg:px-20 py-8">
+        <!-- Navigation -->
+        <div id="site-nav" data-logo-path="../assets/logo.png"></div>
+        <script src="/assets/js/nav.js"></script>
+
+        <div class="max-w-4xl mx-auto mt-8 sm:mt-20">
+            <!-- Breadcrumb -->
+            <div class="text-sm text-gray-500 mb-4">
+                <a href="/agents/" class="hover:text-gray-300">Agents</a> / 
+                <span class="text-gray-300">BugIt</span>
+            </div>
+
+            <!-- Header -->
+            <div class="mb-8">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-3xl">🐛</span>
+                    <h1 class="text-3xl font-bold text-white">BugIt QA Dashboard</h1>
+                </div>
+                <p class="text-gray-400">
+                    Bug reporting SDK for Unreal Engine. Captures video, inputs, logs, and game state into reproducible bundles.
+                </p>
+            </div>
+
+            <!-- Table of Contents -->
+            <nav class="bg-gray-800/50 rounded-xl p-4 mb-8">
+                <h2 class="text-sm font-semibold text-gray-400 uppercase mb-3">Contents</h2>
+                <ul class="text-sm space-y-1">
+                    <li><a href="#overview" class="text-yellow-400 hover:text-yellow-300">1. Overview</a></li>
+                    <li><a href="#quick-start" class="text-yellow-400 hover:text-yellow-300">2. Quick Start</a></li>
+                    <li><a href="#capture-subsystem" class="text-yellow-400 hover:text-yellow-300">3. Capture Subsystem API</a></li>
+                    <li><a href="#custom-data" class="text-yellow-400 hover:text-yellow-300">4. Custom Game Data</a></li>
+                    <li><a href="#bundle-format" class="text-yellow-400 hover:text-yellow-300">5. Bundle Format</a></li>
+                    <li><a href="#json-schemas" class="text-yellow-400 hover:text-yellow-300">6. JSON Schemas</a></li>
+                    <li><a href="#triggers" class="text-yellow-400 hover:text-yellow-300">7. Capture Triggers</a></li>
+                </ul>
+            </nav>
+
+            <!-- Overview -->
+            <section id="overview" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">1. Overview</h2>
+                
+                <p class="text-gray-400 mb-4">
+                    BugIt captures <strong class="text-white">deterministic, frame-aligned repro bundles</strong> containing:
+                </p>
+                
+                <ul class="text-gray-400 space-y-2 mb-6">
+                    <li>• <strong class="text-white">Video</strong> - MP4 recording via RVR circular buffer</li>
+                    <li>• <strong class="text-white">Inputs</strong> - Every keyboard, mouse, gamepad, touch event</li>
+                    <li>• <strong class="text-white">Logs</strong> - Frame-aligned UE_LOG output</li>
+                    <li>• <strong class="text-white">Timing</strong> - Frame context with player/camera positions</li>
+                    <li>• <strong class="text-white">Hardware</strong> - System specs for reproduction</li>
+                    <li>• <strong class="text-white">Custom Data</strong> - Game state, events, markers, screenshots</li>
+                </ul>
+
+                <div class="bg-gray-800/50 rounded-lg p-4 text-sm">
+                    <strong class="text-yellow-400">Dependency:</strong> BugIt requires 
+                    <a href="/agents/rvr.html" class="text-purple-400 hover:text-purple-300">Runtime Video Recorder (RVR)</a> 
+                    for video capture.
+                </div>
+            </section>
+
+            <!-- Quick Start -->
+            <section id="quick-start" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">2. Quick Start</h2>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">C++ Integration</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">// In GameMode or PlayerController
+#include "BugItCaptureSubsystem.h"
+
+void AMyGameMode::BeginPlay()
+{
+    Super::BeginPlay();
+    
+    // Get the subsystem
+    UBugItCaptureSubsystem* BugIt = GetGameInstance()->GetSubsystem&lt;UBugItCaptureSubsystem&gt;();
+    
+    // Configure capture settings
+    FBugItCaptureSettings Settings;
+    Settings.BufferDurationSeconds = 60.0f;  // 1 minute buffer
+    Settings.TargetFPS = 30;
+    Settings.bCaptureInputs = true;
+    Settings.bCaptureLogs = true;
+    
+    // Set build info for tracking
+    BugIt->SetBuildInfo(GetBuildInfo());
+    
+    // Start capture
+    BugIt->StartCapture(Settings);
+    
+    // Bind completion handler
+    BugIt->OnBugReportReady.AddDynamic(this, &AMyGameMode::OnBugReportComplete);
+}
+
+void AMyGameMode::ReportBug(const FString& Notes)
+{
+    UBugItCaptureSubsystem* BugIt = GetGameInstance()->GetSubsystem&lt;UBugItCaptureSubsystem&gt;();
+    BugIt->ReportBug(Notes, {TEXT("crash"), TEXT("gameplay")});
+}
+
+void AMyGameMode::OnBugReportComplete(const FString& BundlePath, const FString& BundleId)
+{
+    UE_LOG(LogGame, Log, TEXT("Bug report ready: %s"), *BundleId);
+    // Upload to BugIt server
+    UploadBundle(BundlePath);
+}</code></pre>
+                </div>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">Blueprint Integration</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">Blueprint</span>
+<pre><code class="text-green-400">Event BeginPlay
+    │
+    ├──► Get BugIt Capture Subsystem
+    │
+    └──► Start Capture
+              ├── Buffer Duration: 60.0
+              ├── Target FPS: 30
+              ├── Capture Inputs: true
+              └── Capture Logs: true
+
+Event "Report Bug" Button Pressed
+    │
+    ├──► Get BugIt Capture Subsystem
+    │
+    └──► Report Bug
+              ├── Notes: [User Input Text]
+              └── Tags: ["ui", "crash"]
+                    │
+                    └──► On Bug Report Ready
+                              └──► Upload Bundle (BundlePath)</code></pre>
+                </div>
+            </section>
+
+            <!-- Capture Subsystem API -->
+            <section id="capture-subsystem" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">3. Capture Subsystem API</h2>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">StartCapture</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">void StartCapture(FBugItCaptureSettings Settings);
+
+struct FBugItCaptureSettings
+{
+    float BufferDurationSeconds = 30.0f;   // Rolling buffer size (max 600 = 10 min)
+    int32 TargetFPS = 30;
+    int32 VideoWidth = -1;                  // -1 = viewport
+    int32 VideoHeight = -1;
+    bool bCaptureInputs = true;             // Capture all input events
+    bool bCaptureLogs = true;               // Capture UE_LOG output
+    bool bIncludeAudio = true;
+    TArray&lt;FName&gt; LogCategories;            // Filter log categories (empty = all)
+};</code></pre>
+                </div>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">ReportBug</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">void ReportBug(
+    const FString& Notes,                   // User description
+    const TArray&lt;FString&gt;& Tags             // Categorization tags
+);
+
+// Triggers:
+// 1. Freeze all rolling buffers (atomic snapshot)
+// 2. Encode video from circular buffer
+// 3. Write all artifacts to disk
+// 4. Calculate content hash
+// 5. Fire OnBugReportReady delegate</code></pre>
+                </div>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">SetBuildInfo</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">void SetBuildInfo(FBugItBuildInfo Info);
+
+struct FBugItBuildInfo
+{
+    FString BuildId;          // CI build number
+    FString CommitHash;       // Git SHA
+    FString Branch;           // Git branch
+    FString BuildConfig;      // Development/Shipping
+    FString EngineVersion;    // 5.4.1
+    FString ProjectName;
+    FString ProjectVersion;
+};</code></pre>
+                </div>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">Delegates</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">// Fired when bundle is ready on disk
+UPROPERTY(BlueprintAssignable)
+FOnBugReportReady OnBugReportReady;
+// Signature: void(const FString& BundlePath, const FString& BundleId)
+
+// Fired if report fails
+UPROPERTY(BlueprintAssignable)
+FOnBugReportFailed OnBugReportFailed;
+// Signature: void(const FString& ErrorMessage)</code></pre>
+                </div>
+            </section>
+
+            <!-- Custom Game Data -->
+            <section id="custom-data" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">4. Custom Game Data</h2>
+                
+                <p class="text-gray-400 mb-4">
+                    Inject game-specific context to complement system-level capture:
+                </p>
+
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">UBugItCaptureSubsystem* BugIt = GetGameInstance()->GetSubsystem&lt;UBugItCaptureSubsystem&gt;();
+
+// Persistent properties (included in every state snapshot)
+BugIt->SetPersistentProperty(TEXT("PlayerClass"), TEXT("Warrior"));
+BugIt->SetPersistentPropertyInt(TEXT("Difficulty"), 3);
+
+// Log custom events at important moments
+BugIt->LogCustomEvent(
+    TEXT("BossSpawned"),           // Event name
+    TEXT("Combat"),                // Category
+    1,                             // Severity (0=Info, 1=Warning, 2=Error)
+    {                              // Custom data map
+        {TEXT("BossId"), TEXT("dragon_01")},
+        {TEXT("PlayerHealth"), TEXT("85")}
+    }
+);
+
+// Push game state each frame (or on significant changes)
+TMap&lt;FString, FString&gt; State;
+State.Add(TEXT("Health"), FString::FromInt(Player->Health));
+State.Add(TEXT("Ammo"), FString::FromInt(Player->Ammo));
+State.Add(TEXT("QuestId"), CurrentQuest->GetId());
+BugIt->PushGameState(State);
+
+// Add timeline markers at key moments
+BugIt->AddMarker(TEXT("Boss Phase 2"), TEXT("Dragon entered rage mode"), FColor::Red);
+
+// Take annotated screenshot
+BugIt->TakeAnnotatedScreenshot(
+    TEXT("UI glitch visible here"),    // Caption
+    {TEXT("ui"), TEXT("glitch")},      // Tags
+    {{TEXT("MenuName"), TEXT("Inventory")}}  // Metadata
+);</code></pre>
+                </div>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">Blueprint Nodes</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="text-gray-400 border-b border-gray-700">
+                            <tr>
+                                <th class="text-left py-2 pr-4">Node</th>
+                                <th class="text-left py-2 pr-4">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-300">
+                            <tr class="border-b border-gray-800"><td class="py-2 pr-4"><code>Log Custom Event</code></td><td>Record game event with name, category, severity, data</td></tr>
+                            <tr class="border-b border-gray-800"><td class="py-2 pr-4"><code>Push Game State</code></td><td>Snapshot current game state (key-value pairs)</td></tr>
+                            <tr class="border-b border-gray-800"><td class="py-2 pr-4"><code>Add Marker</code></td><td>Add timeline marker at current frame</td></tr>
+                            <tr class="border-b border-gray-800"><td class="py-2 pr-4"><code>Take Annotated Screenshot</code></td><td>Screenshot with caption, tags, metadata</td></tr>
+                            <tr><td class="py-2 pr-4"><code>Set Persistent Property</code></td><td>Set value included in all state snapshots</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Bundle Format -->
+            <section id="bundle-format" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">5. Bundle Format</h2>
+
+                <div class="code-block mb-4">
+                    <span class="code-label">Directory Structure</span>
+<pre><code class="text-gray-300">rb_&lt;8char_id&gt;/
+├── manifest.json      # Bundle metadata (required)
+├── video.mp4          # H.264 video (required)
+├── inputs.json        # All input events (optional)
+├── timing.json        # Frame context with positions (optional)
+├── logs.txt           # UE_LOG output (optional)
+├── hardware.json      # System specs (optional)
+├── thumbnail.jpg      # Video thumbnail (optional)
+│
+│   # Custom Game Data
+├── game_events.json   # Custom events
+├── game_state.json    # Game state snapshots
+├── markers.json       # Timeline markers
+├── screenshots.json   # Screenshot metadata
+└── screenshots/       # Annotated screenshots
+    └── screenshot_20260121_143022.png</code></pre>
+                </div>
+            </section>
+
+            <!-- JSON Schemas -->
+            <section id="json-schemas" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">6. JSON Schemas</h2>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">manifest.json</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">JSON</span>
+<pre><code class="text-yellow-400">{
+  "schemaVersion": "1.0.0",
+  "bundleId": "rb_a1b2c3d4",
+  "contentHash": "sha256:e3b0c442...",
+  "reportTimestampUtc": 1737475200000,
+  "durationSeconds": 30.5,
+  "totalFrames": 915,
+  
+  "buildInfo": {
+    "buildId": "ci-12345",
+    "commitHash": "a1b2c3d4",
+    "branch": "main",
+    "buildConfig": "Development",
+    "engineVersion": "5.4.1",
+    "projectName": "MyGame",
+    "projectVersion": "0.9.0"
+  },
+  
+  "sessionInfo": {
+    "sessionId": "550e8400-e29b-41d4-a716-446655440000",
+    "mapName": "/Game/Maps/Level01",
+    "testerName": "qa_john",
+    "viewportSize": [1920, 1080],
+    "targetFps": 30
+  },
+  
+  "hardwareInfo": {
+    "platform": "Win64",
+    "cpuBrand": "AMD Ryzen 9 5950X",
+    "gpuBrand": "NVIDIA RTX 4090",
+    "ramBytes": 68719476736
+  },
+  
+  "artifacts": ["video.mp4", "inputs.json", "timing.json", "logs.txt"],
+  "notes": "Crash when opening inventory",
+  "tags": ["crash", "inventory"]
+}</code></pre>
+                </div>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">inputs.json (Every Input Event)</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">JSON</span>
+<pre><code class="text-yellow-400">{
+  "schemaVersion": "1.0.0",
+  "totalEvents": 1847,
+  "events": [
+    {
+      "frameNumber": 0,
+      "timestampMs": 0.0,
+      "inputType": "KeyDown",
+      "keyName": "W",
+      "keyCode": 87,
+      "isRepeat": false,
+      "modifierFlags": 0
+    },
+    {
+      "frameNumber": 1,
+      "timestampMs": 33.3,
+      "inputType": "MouseMove",
+      "position": [0.52, 0.49],
+      "screenPosition": [998, 529],
+      "delta": [38.0, -11.0],
+      "mouseButtonFlags": 0
+    },
+    {
+      "frameNumber": 30,
+      "timestampMs": 1000.0,
+      "inputType": "GamepadAxis",
+      "keyName": "Gamepad_LeftX",
+      "axisValue": 0.75,
+      "deviceIndex": 0
+    }
+  ]
+}
+
+// Input Types: KeyDown, KeyUp, KeyChar, MouseMove, MouseButtonDown,
+// MouseButtonUp, MouseWheel, GamepadButtonDown, GamepadButtonUp,
+// GamepadAxis, TouchStart, TouchMove, TouchEnd, MotionController</code></pre>
+                </div>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">timing.json</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">JSON</span>
+<pre><code class="text-yellow-400">{
+  "schemaVersion": "1.0.0",
+  "targetFps": 30,
+  "frames": [
+    {
+      "videoFrameIndex": 0,
+      "engineFrameCounter": 12450,
+      "timestampMs": 0.0,
+      "deltaTimeSeconds": 0.0333,
+      "gameTimeSeconds": 125.5,
+      "isPaused": false,
+      "playerLocation": [1000.0, 2000.0, 100.0],
+      "playerRotation": [0.0, 90.0, 0.0],
+      "cameraLocation": [1000.0, 1950.0, 160.0],
+      "cameraRotation": [-5.0, 90.0, 0.0]
+    }
+  ]
+}</code></pre>
+                </div>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">logs.txt Format</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">Text</span>
+<pre><code class="text-gray-300">[FrameNumber|TimestampMs|Verbosity] Category: Message
+
+[0|0.000|Log] LogTemp: Game started
+[15|500.123|Warning] LogInventory: Item not found: sword_01
+[30|1000.456|Error] LogCharacter: Failed to spawn enemy
+[45|1500.789|Fatal] LogCore: Assertion failed: IsValid()</code></pre>
+                </div>
+            </section>
+
+            <!-- Triggers -->
+            <section id="triggers" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">7. Capture Triggers</h2>
+                
+                <p class="text-gray-400 mb-4">
+                    BugIt supports multiple trigger types for automatic bug capture:
+                </p>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="text-gray-400 border-b border-gray-700">
+                            <tr>
+                                <th class="text-left py-2 pr-4">Trigger</th>
+                                <th class="text-left py-2 pr-4">Description</th>
+                                <th class="text-left py-2 pr-4">Example</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-300">
+                            <tr class="border-b border-gray-800">
+                                <td class="py-2 pr-4"><strong>Manual</strong></td>
+                                <td class="py-2 pr-4">User presses button</td>
+                                <td class="py-2 pr-4"><code>ReportBug(Notes, Tags)</code></td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-2 pr-4"><strong>Gameplay Event</strong></td>
+                                <td class="py-2 pr-4">On death, level fail, etc.</td>
+                                <td class="py-2 pr-4">Call ReportBug in OnPlayerDeath</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-2 pr-4"><strong>Timer</strong></td>
+                                <td class="py-2 pr-4">Periodic auto-capture</td>
+                                <td class="py-2 pr-4">Every 5 minutes during playtest</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-2 pr-4"><strong>Performance</strong></td>
+                                <td class="py-2 pr-4">FPS drops below threshold</td>
+                                <td class="py-2 pr-4">Auto-capture when FPS &lt; 20</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 pr-4"><strong>Error/Assert</strong></td>
+                                <td class="py-2 pr-4">On ensure/check failure</td>
+                                <td class="py-2 pr-4">Bind to FCoreDelegates</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">Performance Trigger Example</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">void AMyGameMode::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+    
+    float CurrentFPS = 1.0f / DeltaTime;
+    
+    if (CurrentFPS < 20.0f && !bLowFPSReported)
+    {
+        bLowFPSReported = true;
+        
+        UBugItCaptureSubsystem* BugIt = GetGameInstance()->GetSubsystem&lt;UBugItCaptureSubsystem&gt;();
+        BugIt->LogCustomEvent(TEXT("LowFPS"), TEXT("Performance"), 1, 
+            {{TEXT("FPS"), FString::Printf(TEXT("%.1f"), CurrentFPS)}});
+        BugIt->ReportBug(
+            FString::Printf(TEXT("Auto-captured: FPS dropped to %.1f"), CurrentFPS),
+            {TEXT("performance"), TEXT("auto")}
+        );
+    }
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- Links -->
+            <section class="bg-gray-800/30 rounded-xl p-6">
+                <h2 class="text-lg font-semibold text-white mb-3">More Resources</h2>
+                <ul class="text-sm space-y-2">
+                    <li><a href="/products/bugit/" class="text-yellow-400 hover:text-yellow-300">BugIt Product Page →</a></li>
+                    <li><a href="/agents/rvr.html" class="text-yellow-400 hover:text-yellow-300">RVR Integration (required) →</a></li>
+                    <li><a href="https://discord.com/invite/pBDSCBcdgv" class="text-yellow-400 hover:text-yellow-300">Discord Support →</a></li>
+                </ul>
+            </section>
+        </div>
+
+        <footer class="max-w-4xl mx-auto mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+            <p>© 2026 Unreal Solutions Ltd. All rights reserved.</p>
+        </footer>
+    </main>
+</body>
+</html>

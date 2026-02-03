@@ -247,6 +247,26 @@
     <priority>0.6</priority>
   </url>
   
+  <!-- AI Agent Integration Guides -->
+  <url>
+    <loc>https://unrealsolutions.com/agents/</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unrealsolutions.com/agents/rvr.html</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unrealsolutions.com/agents/bugit.html</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
   <!-- Legal -->
   <url>
     <loc>https://unrealsolutions.com/privacy.html</loc>

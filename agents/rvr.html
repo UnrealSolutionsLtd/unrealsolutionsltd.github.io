@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RVR Agent Integration Guide | Unreal Solutions</title>
+    <meta name="description" content="AI agent integration guide for Runtime Video Recorder (RVR). Complete API reference with Blueprint and C++ code snippets.">
+    <meta name="robots" content="index, follow">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    
+    <style>
+        pre { background: #1e293b; border-radius: 8px; padding: 16px; overflow-x: auto; margin: 0; }
+        code { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 13px; }
+        .code-block { position: relative; }
+        .code-label { position: absolute; top: 8px; right: 8px; font-size: 11px; color: #64748b; }
+        h2 { scroll-margin-top: 80px; }
+        h3 { scroll-margin-top: 80px; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <main class="container mx-auto px-4 sm:px-8 lg:px-20 py-8">
+        <!-- Navigation -->
+        <div id="site-nav" data-logo-path="../assets/logo.png"></div>
+        <script src="/assets/js/nav.js"></script>
+
+        <div class="max-w-4xl mx-auto mt-8 sm:mt-20">
+            <!-- Breadcrumb -->
+            <div class="text-sm text-gray-500 mb-4">
+                <a href="/agents/" class="hover:text-gray-300">Agents</a> / 
+                <span class="text-gray-300">RVR</span>
+            </div>
+
+            <!-- Header -->
+            <div class="mb-8">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-3xl">🎬</span>
+                    <h1 class="text-3xl font-bold text-white">Runtime Video Recorder (RVR)</h1>
+                </div>
+                <p class="text-gray-400">
+                    Video capture plugin for Unreal Engine 5.0+. Hardware-accelerated encoding, instant replay, multi-camera support.
+                </p>
+            </div>
+
+            <!-- Table of Contents -->
+            <nav class="bg-gray-800/50 rounded-xl p-4 mb-8">
+                <h2 class="text-sm font-semibold text-gray-400 uppercase mb-3">Contents</h2>
+                <ul class="text-sm space-y-1">
+                    <li><a href="#quick-start" class="text-purple-400 hover:text-purple-300">1. Quick Start</a></li>
+                    <li><a href="#get-subsystem" class="text-purple-400 hover:text-purple-300">2. Get Subsystem</a></li>
+                    <li><a href="#recording-methods" class="text-purple-400 hover:text-purple-300">3. Recording Methods</a></li>
+                    <li><a href="#instant-replay" class="text-purple-400 hover:text-purple-300">4. Instant Replay (Circular Buffer)</a></li>
+                    <li><a href="#encoder-settings" class="text-purple-400 hover:text-purple-300">5. Encoder Settings</a></li>
+                    <li><a href="#events" class="text-purple-400 hover:text-purple-300">6. Events / Delegates</a></li>
+                    <li><a href="#common-patterns" class="text-purple-400 hover:text-purple-300">7. Common Patterns</a></li>
+                    <li><a href="#platform-notes" class="text-purple-400 hover:text-purple-300">8. Platform Notes</a></li>
+                </ul>
+            </nav>
+
+            <!-- Quick Start -->
+            <section id="quick-start" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">1. Quick Start</h2>
+                
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">Blueprint (Simplest)</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">Blueprint</span>
+<pre><code class="text-green-400">// Start Recording
+Get Engine Subsystem (Class: RuntimeVideoRecorder)
+    → Start Recording
+        OutFilename: "%auto%"  // Saves to ProjectDir/Saved/&lt;timestamp&gt;.mp4
+
+// Stop Recording  
+Get Engine Subsystem (Class: RuntimeVideoRecorder)
+    → Stop Recording</code></pre>
+                </div>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">C++ (Minimal)</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">#include "RuntimeVideoRecorder.h"
+
+// Get the subsystem
+URuntimeVideoRecorder* RVR = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;();
+
+// Start recording with defaults
+RVR->StartRecording();
+
+// Stop recording (non-blocking)
+RVR->StopRecording_NativeAPI();
+
+// Get output path
+FString Path = RVR->GetLastRecordingFilepath();</code></pre>
+                </div>
+            </section>
+
+            <!-- Get Subsystem -->
+            <section id="get-subsystem" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">2. Get Subsystem</h2>
+                
+                <p class="text-gray-400 mb-4">RVR is an Engine Subsystem. Access it from anywhere:</p>
+
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">URuntimeVideoRecorder* RVR = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;();</code></pre>
+                </div>
+
+                <div class="code-block mb-4">
+                    <span class="code-label">Blueprint</span>
+<pre><code class="text-green-400">Get Engine Subsystem → Class: RuntimeVideoRecorder</code></pre>
+                </div>
+            </section>
+
+            <!-- Recording Methods -->
+            <section id="recording-methods" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">3. Recording Methods</h2>
+
+                <!-- StartRecording -->
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">StartRecording</h3>
+                <p class="text-gray-400 text-sm mb-3">Records from the game viewport.</p>
+                
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">bool StartRecording(
+    const FString& OutFilename = TEXT("%auto%"),  // Output path, %auto% = auto-generate
+    int32 TargetFPS = -1,                         // -1 = 30 FPS default
+    int32 Width = -1,                             // -1 = viewport width
+    int32 Height = -1,                            // -1 = viewport height
+    FRuntimeEncoderSettings EncoderSettings = FRuntimeEncoderSettings(),
+    bool bRecordUI = true,                        // Include UMG widgets
+    bool bEnableAudioRecording = true,
+    bool bFrameRateIndependent = false,           // Lock to exact FPS
+    bool bAllowManualCaptureOnly = false,         // Manual frame capture mode
+    float LastSecondsToRecord = -1.0,             // Circular buffer duration
+    bool bPostponeEncoding = false,               // Delay encoding to stop
+    class USoundSubmix* InSubmix = nullptr        // Specific audio submix
+);
+// Returns: true if started successfully</code></pre>
+                </div>
+
+                <!-- StartRecordingRenderTarget -->
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">StartRecordingRenderTarget</h3>
+                <p class="text-gray-400 text-sm mb-3">Records from a UTextureRenderTarget2D.</p>
+                
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">bool StartRecordingRenderTarget(
+    UTextureRenderTarget2D* RenderTarget,         // Source render target
+    const FString& OutFilename = TEXT("%auto%"),
+    int32 TargetFPS = -1,
+    int32 Width = -1,
+    int32 Height = -1,
+    FRuntimeEncoderSettings EncoderSettings = FRuntimeEncoderSettings(),
+    bool bEnableAudioRecording = true,
+    // ... same parameters as StartRecording (minus bRecordUI)
+);</code></pre>
+                </div>
+
+                <!-- StartRecordingCamera -->
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">StartRecordingCamera</h3>
+                <p class="text-gray-400 text-sm mb-3">Records from a camera component's perspective.</p>
+                
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">bool StartRecordingCamera(
+    UCameraComponent* Camera,                     // Camera to record from
+    const FString& OutFilename = TEXT("%auto%"),
+    int32 TargetFPS = -1,
+    int32 Width = -1,
+    int32 Height = -1,
+    FRuntimeEncoderSettings EncoderSettings = FRuntimeEncoderSettings(),
+    bool bEnableAudioRecording = true,
+    bool bFrameRateIndependent = false,
+    bool bAllowManualCaptureOnly = false,
+    float LastSecondsToRecord = -1.0,
+    bool bPostponeEncoding = false,
+    class USoundSubmix* InSubmix = nullptr,
+    float ScreenPercentage = 100.0f               // Render quality
+);</code></pre>
+                </div>
+
+                <!-- StartRecordingMultipleCameras -->
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">StartRecordingMultipleCameras</h3>
+                <p class="text-gray-400 text-sm mb-3">Records multiple cameras in a grid layout.</p>
+                
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">bool StartRecordingMultipleCameras(
+    const TArray&lt;UCameraComponent*&gt;& Cameras,    // Array of cameras (auto grid layout)
+    // ... same parameters as StartRecordingCamera
+);
+
+// Example: 4 cameras = 2x2 grid in output video</code></pre>
+                </div>
+
+                <!-- StopRecording -->
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">StopRecording</h3>
+                
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">// Latent (Blueprint-friendly, waits for completion)
+void StopRecording(FLatentActionInfo LatentInfo, UObject* WorldContextObject = nullptr);
+
+// Non-blocking (C++ friendly, returns immediately)
+void StopRecording_NativeAPI();</code></pre>
+                </div>
+
+                <!-- Status Methods -->
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">Status Methods</h3>
+                
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">bool IsRecordingInProgress() const;              // Is currently recording?
+FString GetLastRecordingFilepath() const;        // Path to last saved video</code></pre>
+                </div>
+            </section>
+
+            <!-- Instant Replay -->
+            <section id="instant-replay" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">4. Instant Replay (Circular Buffer)</h2>
+                
+                <p class="text-gray-400 mb-4">
+                    Use <code class="bg-gray-800 px-2 py-1 rounded">LastSecondsToRecord</code> parameter to enable circular buffer mode.
+                    Only the last N seconds are kept in memory.
+                </p>
+
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">// Start recording with 30-second rolling buffer
+RVR->StartRecording(
+    TEXT("%auto%"),
+    30,           // 30 FPS
+    -1, -1,       // Viewport size
+    FRuntimeEncoderSettings(),
+    true,         // Record UI
+    true,         // Record audio
+    false,        // Frame rate dependent
+    false,        // Auto capture
+    30.0f         // ← 30 seconds circular buffer (max 600 = 10 minutes)
+);
+
+// Later, when something interesting happens:
+RVR->StopRecording_NativeAPI();  // Saves last 30 seconds
+
+// Or for crash recovery:
+RVR->EncodeCircularBufferToVideo(TEXT("E:/CrashRecovery"));</code></pre>
+                </div>
+
+                <div class="code-block mb-4">
+                    <span class="code-label">Blueprint</span>
+<pre><code class="text-green-400">Start Recording
+    ├── Out Filename: "%auto%"
+    ├── Target FPS: 30
+    ├── Last Seconds To Record: 30.0  // ← This enables circular buffer
+    └── [other defaults]
+
+// On "Save Replay" button:
+Stop Recording</code></pre>
+                </div>
+            </section>
+
+            <!-- Encoder Settings -->
+            <section id="encoder-settings" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">5. Encoder Settings</h2>
+
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">struct FRuntimeEncoderSettings
+{
+    int32 VideoBitrate = 10000000;      // 10 Mbps default (in bits/sec)
+    int32 TargetQuality = 70;           // 0-100, higher = better quality
+    int32 GOPSize = -1;                 // Keyframe interval (-1 = auto)
+    int32 NumberOfBFrames = 0;          // B-frames (0 = none)
+    ERuntimeEncoderPreset EncoderPreset = ERuntimeEncoderPreset::LowLatency;
+    ERuntimeRateControlMethod RateControlMethod = ERuntimeRateControlMethod::VBR;
+    bool bUseHardwareEncoder = true;    // Use GPU encoder (NVENC/AMF/etc)
+};
+
+// Example: High quality settings
+FRuntimeEncoderSettings Settings;
+Settings.VideoBitrate = 25000000;  // 25 Mbps
+Settings.TargetQuality = 90;
+Settings.EncoderPreset = ERuntimeEncoderPreset::Quality;</code></pre>
+                </div>
+
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">Encoder Presets</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="text-gray-400 border-b border-gray-700">
+                            <tr>
+                                <th class="text-left py-2 pr-4">Preset</th>
+                                <th class="text-left py-2 pr-4">Use Case</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-300">
+                            <tr class="border-b border-gray-800"><td class="py-2 pr-4"><code>LowLatency</code></td><td>Real-time streaming, instant replay</td></tr>
+                            <tr class="border-b border-gray-800"><td class="py-2 pr-4"><code>Quality</code></td><td>Final renders, marketing videos</td></tr>
+                            <tr class="border-b border-gray-800"><td class="py-2 pr-4"><code>Balanced</code></td><td>General purpose</td></tr>
+                            <tr><td class="py-2 pr-4"><code>Performance</code></td><td>Minimum CPU/GPU overhead</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Events -->
+            <section id="events" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">6. Events / Delegates</h2>
+
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">// Available delegates
+UPROPERTY(BlueprintAssignable)
+FOnRuntimeRecordingEvent OnRecordingStarted;
+
+UPROPERTY(BlueprintAssignable)
+FOnRuntimeRecordingEvent OnRecordingFinished;
+
+UPROPERTY(BlueprintAssignable)
+FOnRuntimeRecordingEvent OnPreviewStarted;
+
+UPROPERTY(BlueprintAssignable)
+FOnRuntimeRecordingEvent OnPreviewStopped;
+
+// Usage
+void AMyActor::BeginPlay()
+{
+    URuntimeVideoRecorder* RVR = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;();
+    RVR->OnRecordingFinished.AddDynamic(this, &AMyActor::OnRecordingComplete);
+}
+
+void AMyActor::OnRecordingComplete()
+{
+    FString Path = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;()->GetLastRecordingFilepath();
+    UE_LOG(LogTemp, Log, TEXT("Video saved: %s"), *Path);
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- Common Patterns -->
+            <section id="common-patterns" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">7. Common Patterns</h2>
+
+                <!-- Pattern 1: Bug Report -->
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">Bug Report (Save Last 30 Seconds)</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">// On game start - begin circular buffer
+void AMyGameMode::BeginPlay()
+{
+    URuntimeVideoRecorder* RVR = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;();
+    RVR->StartRecording(TEXT("%auto%"), 30, -1, -1, 
+        FRuntimeEncoderSettings(), true, true, false, false, 
+        30.0f  // 30 second buffer
+    );
+}
+
+// When player reports bug
+void AMyGameMode::OnReportBug()
+{
+    URuntimeVideoRecorder* RVR = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;();
+    RVR->StopRecording_NativeAPI();
+    
+    FString VideoPath = RVR->GetLastRecordingFilepath();
+    // Attach VideoPath to bug report
+    
+    // Restart buffer for next bug
+    RVR->StartRecording(TEXT("%auto%"), 30, -1, -1,
+        FRuntimeEncoderSettings(), true, true, false, false, 30.0f);
+}</code></pre>
+                </div>
+
+                <!-- Pattern 2: Record Match -->
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">Record Entire Match</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">void AMyGameMode::OnMatchStart()
+{
+    FString MatchId = FGuid::NewGuid().ToString();
+    FString OutputPath = FPaths::ProjectSavedDir() / TEXT("Matches") / MatchId + TEXT(".mp4");
+    
+    URuntimeVideoRecorder* RVR = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;();
+    RVR->StartRecording(OutputPath, 30, 1920, 1080);
+}
+
+void AMyGameMode::OnMatchEnd()
+{
+    URuntimeVideoRecorder* RVR = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;();
+    RVR->StopRecording_NativeAPI();
+}</code></pre>
+                </div>
+
+                <!-- Pattern 3: Screenshot -->
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">Photo Mode / Screenshot</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">void APhotoModeController::TakePhoto()
+{
+    FString Timestamp = FDateTime::Now().ToString(TEXT("%Y%m%d_%H%M%S"));
+    FString OutputPath = FPaths::ProjectSavedDir() / TEXT("Photos") / Timestamp + TEXT(".png");
+    
+    URuntimeVideoRecorder* RVR = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;();
+    RVR->MakeScreenshot(OutputPath, false);  // false = hide UI
+}</code></pre>
+                </div>
+
+                <!-- Pattern 4: Security Camera -->
+                <h3 class="text-lg font-semibold text-white mt-6 mb-3">Security Camera (Record From Actor)</h3>
+                <div class="code-block mb-4">
+                    <span class="code-label">C++</span>
+<pre><code class="text-blue-400">void ASecurityCamera::StartRecording()
+{
+    URuntimeVideoRecorder* RVR = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;();
+    
+    RVR->StartRecordingCamera(
+        CameraComponent,
+        FPaths::ProjectSavedDir() / TEXT("Security") / GetName() + TEXT(".mp4"),
+        15,           // 15 FPS (lower for security cam)
+        640, 480,     // Lower resolution
+        FRuntimeEncoderSettings(),
+        false,        // No audio
+        false,        // Frame rate dependent
+        false,        // Auto capture
+        300.0f        // 5 minute rolling buffer
+    );
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- Platform Notes -->
+            <section id="platform-notes" class="mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4">8. Platform Notes</h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="text-gray-400 border-b border-gray-700">
+                            <tr>
+                                <th class="text-left py-2 pr-4">Platform</th>
+                                <th class="text-left py-2 pr-4">Encoder</th>
+                                <th class="text-left py-2 pr-4">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-300">
+                            <tr class="border-b border-gray-800">
+                                <td class="py-2 pr-4">Windows</td>
+                                <td class="py-2 pr-4">NVENC / AMD AMF / Intel QSV</td>
+                                <td>Auto-detects best GPU encoder</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-2 pr-4">macOS</td>
+                                <td class="py-2 pr-4">VideoToolbox</td>
+                                <td>Apple Silicon optimized</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-2 pr-4">Linux</td>
+                                <td class="py-2 pr-4">NVENC / VAAPI</td>
+                                <td>Headless/CI supported</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-2 pr-4">Android</td>
+                                <td class="py-2 pr-4">MediaCodec</td>
+                                <td>Only in-engine mobile solution</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-2 pr-4">iOS</td>
+                                <td class="py-2 pr-4">VideoToolbox</td>
+                                <td>Only in-engine mobile solution</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 pr-4">VR (Quest, PCVR)</td>
+                                <td class="py-2 pr-4">Platform-specific</td>
+                                <td>Single-eye or stereo recording</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Links -->
+            <section class="bg-gray-800/30 rounded-xl p-6">
+                <h2 class="text-lg font-semibold text-white mb-3">More Resources</h2>
+                <ul class="text-sm space-y-2">
+                    <li><a href="/docs/products/runtime-video-recorder/quick-start.html" class="text-purple-400 hover:text-purple-300">Quick Start Tutorial →</a></li>
+                    <li><a href="/docs/products/runtime-video-recorder/api/runtime-video-recorder.html" class="text-purple-400 hover:text-purple-300">Full API Reference →</a></li>
+                    <li><a href="/docs/products/runtime-video-recorder/troubleshooting.html" class="text-purple-400 hover:text-purple-300">Troubleshooting →</a></li>
+                    <li><a href="https://discord.com/invite/pBDSCBcdgv" class="text-purple-400 hover:text-purple-300">Discord Support →</a></li>
+                </ul>
+            </section>
+        </div>
+
+        <footer class="max-w-4xl mx-auto mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+            <p>© 2026 Unreal Solutions Ltd. All rights reserved.</p>
+        </footer>
+    </main>
+</body>
+</html>

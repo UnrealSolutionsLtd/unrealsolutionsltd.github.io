@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Integration Guide | Unreal Solutions</title>
+    <meta name="description" content="Integration guides for AI coding assistants working with Runtime Video Recorder (RVR) and BugIt. Copy-paste ready code snippets for Blueprint and C++.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    
+    <style>
+        pre { background: #1e293b; border-radius: 8px; padding: 16px; overflow-x: auto; }
+        code { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 14px; }
+        .copy-btn { position: absolute; top: 8px; right: 8px; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <main class="container mx-auto px-4 sm:px-8 lg:px-20 py-8">
+        <!-- Navigation -->
+        <div id="site-nav" data-logo-path="../assets/logo.png"></div>
+        <script src="/assets/js/nav.js"></script>
+
+        <!-- Header -->
+        <div class="max-w-4xl mx-auto mt-8 sm:mt-20">
+            <div class="mb-8">
+                <span class="text-purple-400 text-sm font-medium">FOR AI CODING ASSISTANTS</span>
+                <h1 class="text-4xl font-bold text-white mt-2">Agent Integration Guides</h1>
+                <p class="text-gray-400 mt-4 text-lg">
+                    Machine-readable documentation for AI assistants integrating Unreal Solutions products. 
+                    Copy-paste ready code for Blueprint and C++.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <a href="/agents/rvr.html" class="block bg-gray-800/50 border border-gray-700 rounded-xl p-6 hover:border-purple-500/50 transition-colors">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-3xl">🎬</span>
+                        <h2 class="text-xl font-bold text-white">Runtime Video Recorder</h2>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Video capture plugin for Unreal Engine. Recording, instant replay, multi-camera, screenshots.
+                    </p>
+                    <span class="text-purple-400 text-sm">View Integration Guide →</span>
+                </a>
+
+                <a href="/agents/bugit.html" class="block bg-gray-800/50 border border-gray-700 rounded-xl p-6 hover:border-yellow-500/50 transition-colors">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-3xl">🐛</span>
+                        <h2 class="text-xl font-bold text-white">BugIt QA Dashboard</h2>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Bug reporting SDK with video, inputs, logs. Capture subsystem, bundle format, upload API.
+                    </p>
+                    <span class="text-yellow-400 text-sm">View Integration Guide →</span>
+                </a>
+            </div>
+
+            <!-- What This Is -->
+            <div class="bg-gray-800/30 rounded-xl p-6 mb-8">
+                <h2 class="text-lg font-semibold text-white mb-3">What are these pages?</h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    These guides are optimized for AI coding assistants (Claude, GPT, Copilot, etc.) helping developers 
+                    integrate our products. Each guide contains:
+                </p>
+                <ul class="text-gray-400 text-sm mt-3 space-y-1">
+                    <li>• <strong class="text-white">Quick Start</strong> - Minimal code to get running</li>
+                    <li>• <strong class="text-white">API Reference</strong> - All methods with parameters and return types</li>
+                    <li>• <strong class="text-white">Common Patterns</strong> - Copy-paste solutions for typical use cases</li>
+                    <li>• <strong class="text-white">Data Schemas</strong> - JSON formats for configuration and output</li>
+                </ul>
+            </div>
+
+            <!-- LLMs.txt -->
+            <div class="bg-gray-800/30 rounded-xl p-6 mb-8">
+                <h2 class="text-lg font-semibold text-white mb-3">For LLM Crawlers</h2>
+                <p class="text-gray-400 text-sm mb-3">
+                    We also provide an <code class="bg-gray-700 px-2 py-1 rounded">llms.txt</code> file with high-level product information:
+                </p>
+                <a href="/llms.txt" class="text-purple-400 hover:text-purple-300 text-sm">
+                    https://unrealsolutions.com/llms.txt →
+                </a>
+            </div>
+
+            <!-- Full Documentation -->
+            <div class="text-center text-gray-500 text-sm">
+                <p>For complete documentation with tutorials and examples:</p>
+                <a href="/docs/" class="text-purple-400 hover:text-purple-300">
+                    https://unrealsolutions.com/docs/ →
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="max-w-4xl mx-auto mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+            <p>© 2026 Unreal Solutions Ltd. All rights reserved.</p>
+        </footer>
+    </main>
+</body>
+</html>
