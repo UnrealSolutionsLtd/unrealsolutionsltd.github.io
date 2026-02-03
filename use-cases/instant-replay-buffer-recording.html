@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Recording Buffer Software | Instant Replay for Unreal Engine | Save Last 30 Seconds</title>
+    <meta name="description" content="Circular buffer recording for Unreal Engine games. Continuously record the last 30-60 seconds and save instant replays on demand. Hardware-accelerated, cross-platform, zero external dependencies.">
+    <meta name="keywords" content="game recording buffer software, instant replay unreal engine, circular buffer recording, save last 30 seconds game, instant capture game recording, buffer recording software, gameplay buffer recorder, instant replay buffer, shadowplay alternative unreal, game highlight capture">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unrealsolutions.com/use-cases/instant-replay-buffer-recording">
+    <meta property="og:title" content="Game Recording Buffer Software | Instant Replay for Unreal Engine">
+    <meta property="og:description" content="Save the last 30-60 seconds of gameplay instantly. Circular buffer recording with hardware acceleration for Unreal Engine games.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://unrealsolutions.com/use-cases/instant-replay-buffer-recording">
+    <meta name="twitter:title" content="Game Recording Buffer Software | Instant Replay for Unreal Engine">
+    <meta name="twitter:description" content="Circular buffer recording - save the last 30-60 seconds of gameplay on demand. Perfect for highlights and bug capture.">
+    <meta name="twitter:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
+    
+    <!-- Additional SEO -->
+    <meta name="author" content="Unreal Solutions Ltd">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unrealsolutions.com/use-cases/instant-replay-buffer-recording">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Runtime Video Recorder - Instant Replay Buffer",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "Game Recording Software",
+      "operatingSystem": ["Windows", "macOS", "Linux", "Android", "Oculus", "iOS"],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "description": "Circular buffer recording software for Unreal Engine. Continuously record the last 30-60 seconds of gameplay and save instant replays on demand.",
+      "url": "https://unrealsolutions.com/use-cases/instant-replay-buffer-recording",
+      "author": {
+        "@type": "Organization",
+        "name": "Unreal Solutions Ltd",
+        "url": "https://unrealsolutions.com"
+      },
+      "featureList": [
+        "Circular Buffer Recording",
+        "Instant Replay Capture",
+        "Hardware Accelerated Encoding",
+        "Cross-Platform Support",
+        "Zero External Dependencies",
+        "Configurable Buffer Duration"
+      ]
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is game recording buffer software?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Game recording buffer software continuously records gameplay in the background, keeping only the last 30-60 seconds in memory. When something interesting happens, you save that buffer to a video file. This is more efficient than recording everything because you only keep what matters."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How does instant replay work in Runtime Video Recorder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "RVR uses a circular buffer that continuously captures frames. When you trigger a save, it writes the buffered frames to an MP4 file. The buffer duration is configurable from 10 seconds to several minutes, and encoding uses hardware acceleration for minimal CPU impact."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is this like NVIDIA ShadowPlay for Unreal Engine?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, similar concept but built directly into Unreal Engine. Unlike ShadowPlay which is external and NVIDIA-only, RVR works on all platforms (Windows, Mac, Linux, Android, iOS) and integrates with your game code for programmatic control."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can I trigger instant replay saves from game events?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can trigger saves via Blueprints or C++ from any game event - player achievements, kills, crashes, errors, or custom conditions. Perfect for automatic highlight capture or bug recording."
+        }
+      }]
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://unrealsolutions.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Use Cases",
+        "item": "https://unrealsolutions.com/use-cases/"
+      }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Instant Replay Buffer Recording",
+        "item": "https://unrealsolutions.com/use-cases/instant-replay-buffer-recording"
+      }]
+    }
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+      .feature-card {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.8) 100%);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        padding: 2rem;
+        transition: all 0.3s ease;
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border-color: rgba(16, 185, 129, 0.5);
+      }
+      
+      .code-block {
+        background: #1e293b;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        overflow-x: auto;
+        font-family: 'Fira Code', 'Consolas', monospace;
+        font-size: 0.875rem;
+        border: 1px solid #374151;
+      }
+      
+      .code-block .keyword { color: #c792ea; }
+      .code-block .function { color: #82aaff; }
+      .code-block .string { color: #c3e88d; }
+      .code-block .comment { color: #546e7a; }
+      .code-block .number { color: #f78c6c; }
+      
+      .comparison-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: rgba(30, 41, 59, 0.5);
+        border-radius: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+    </style>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-black min-h-screen">
+    <main class="container mx-auto px-4 sm:px-20">
+      <!-- Navigation -->
+      <div class="relative pt-4 sm:pt-0">
+        <!-- Shared Navigation -->
+        <div id="site-nav" data-logo-path="../assets/logo.png"></div>
+        <script src="/assets/js/nav.js"></script>
+
+        <!-- Hero Section -->
+        <div class="sm:pt-28 pb-8 sm:py-12">
+          <div class="mx-auto max-w-5xl">
+            <!-- Breadcrumb -->
+            <nav class="mb-6 text-sm">
+              <ol class="flex items-center gap-2 text-gray-400">
+                <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                <li>/</li>
+                <li><a href="/use-cases/" class="hover:text-white transition-colors">Use Cases</a></li>
+                <li>/</li>
+                <li class="text-emerald-400">Instant Replay Buffer Recording</li>
+              </ol>
+            </nav>
+
+            <div class="text-center mb-12">
+              <span class="inline-block px-4 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-medium mb-4">
+                Game Recording Buffer Software
+              </span>
+              <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+                Instant Replay Buffer Recording<br>
+                <span class="text-emerald-400">Save the Last 30 Seconds On Demand</span>
+              </h1>
+              <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                Circular buffer recording for Unreal Engine. Continuously capture gameplay in the background 
+                and save instant replays when highlights happen. Hardware-accelerated, cross-platform, zero dependencies.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a 
+                  href="https://tally.so/r/mZDq7v?utm_source=website&utm_medium=cta_button&utm_campaign=rvr_download&utm_content=usecase_instant_replay"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-xl hover:from-emerald-700 hover:to-emerald-800 transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                  </svg>
+                  Get Started Free
+                </a>
+                <a 
+                  href="/docs/products/runtime-video-recorder/how-to/instant-replay"
+                  class="inline-flex items-center px-6 py-3 text-sm font-medium text-emerald-400 bg-gray-800/50 border border-emerald-500/50 rounded-lg hover:bg-gray-700/50 transition-all duration-200"
+                >
+                  View Implementation Guide →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How Buffer Recording Works -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-white mb-4">How Buffer Recording Works</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto">
+              Unlike traditional recording that captures everything, buffer recording keeps only what you need.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl">1</span>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">Continuous Capture</h3>
+              <p class="text-gray-400">RVR continuously records frames to a circular buffer in memory, keeping the last 30-60 seconds.</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl">2</span>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">Event Trigger</h3>
+              <p class="text-gray-400">When something interesting happens - a kill, achievement, bug - trigger a save via button press or game event.</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl">3</span>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">Instant Save</h3>
+              <p class="text-gray-400">The buffer is encoded and saved as an MP4 file. Hardware acceleration ensures fast encoding with minimal CPU usage.</p>
+            </div>
+          </div>
+
+          <!-- Code Example -->
+          <div class="bg-gray-800/50 rounded-2xl p-8">
+            <h3 class="text-xl font-bold text-white mb-4">Quick Implementation (C++)</h3>
+            <div class="code-block">
+              <span class="comment">// Start circular buffer recording (last 30 seconds)</span><br>
+              <span class="keyword">void</span> AGameMode::<span class="function">BeginPlay</span>()<br>
+              {<br>
+              &nbsp;&nbsp;URuntimeVideoRecorder* Recorder = GEngine-><span class="function">GetEngineSubsystem</span>&lt;URuntimeVideoRecorder&gt;();<br>
+              &nbsp;&nbsp;<span class="keyword">if</span> (Recorder)<br>
+              &nbsp;&nbsp;{<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;Recorder-><span class="function">StartRecording</span>(<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TEXT(<span class="string">"%auto%"</span>),<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="number">30</span>, <span class="number">1920</span>, <span class="number">1080</span>,  <span class="comment">// 30 FPS, 1080p</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Settings,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="number">30.0f</span>  <span class="comment">// ← Buffer duration: 30 seconds</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;);<br>
+              &nbsp;&nbsp;}<br>
+              }<br><br>
+              <span class="comment">// Save replay when player gets a kill</span><br>
+              <span class="keyword">void</span> ACharacter::<span class="function">OnEnemyKilled</span>()<br>
+              {<br>
+              &nbsp;&nbsp;URuntimeVideoRecorder* Recorder = GEngine-><span class="function">GetEngineSubsystem</span>&lt;URuntimeVideoRecorder&gt;();<br>
+              &nbsp;&nbsp;<span class="keyword">if</span> (Recorder && Recorder-><span class="function">IsRecordingInProgress</span>())<br>
+              &nbsp;&nbsp;{<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;Recorder-><span class="function">StopRecording_NativeAPI</span>();  <span class="comment">// Saves the buffer</span><br>
+              &nbsp;&nbsp;}<br>
+              }
+            </div>
+            <p class="text-gray-400 text-sm mt-4">Also available as Blueprint nodes - no C++ required.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="text-3xl font-bold text-white text-center mb-12">Buffer Recording vs. Traditional Recording</h2>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-xl font-semibold text-emerald-400 mb-4">Buffer Recording (RVR)</h3>
+              <div class="comparison-item">
+                <span class="text-emerald-400 text-xl">✓</span>
+                <span class="text-gray-300">Only saves clips you want to keep</span>
+              </div>
+              <div class="comparison-item">
+                <span class="text-emerald-400 text-xl">✓</span>
+                <span class="text-gray-300">No massive video files to manage</span>
+              </div>
+              <div class="comparison-item">
+                <span class="text-emerald-400 text-xl">✓</span>
+                <span class="text-gray-300">Minimal memory footprint (configurable)</span>
+              </div>
+              <div class="comparison-item">
+                <span class="text-emerald-400 text-xl">✓</span>
+                <span class="text-gray-300">Perfect for highlights &amp; bug capture</span>
+              </div>
+              <div class="comparison-item">
+                <span class="text-emerald-400 text-xl">✓</span>
+                <span class="text-gray-300">Works on all platforms including mobile</span>
+              </div>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-red-400 mb-4">Traditional Recording</h3>
+              <div class="comparison-item">
+                <span class="text-red-400 text-xl">✗</span>
+                <span class="text-gray-300">Records everything, wastes storage</span>
+              </div>
+              <div class="comparison-item">
+                <span class="text-red-400 text-xl">✗</span>
+                <span class="text-gray-300">Hours of footage to sort through</span>
+              </div>
+              <div class="comparison-item">
+                <span class="text-red-400 text-xl">✗</span>
+                <span class="text-gray-300">Constant disk I/O during recording</span>
+              </div>
+              <div class="comparison-item">
+                <span class="text-red-400 text-xl">✗</span>
+                <span class="text-gray-300">Must remember to start recording</span>
+              </div>
+              <div class="comparison-item">
+                <span class="text-red-400 text-xl">✗</span>
+                <span class="text-gray-300">External tools required for mobile</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Cases Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="text-3xl font-bold text-white text-center mb-12">Perfect For</h2>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="feature-card">
+              <div class="text-emerald-400 text-3xl mb-4">🎮</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Highlight Capture</h3>
+              <p class="text-gray-300">Automatically save replays when players achieve kills, complete levels, or hit milestones. Share-worthy moments captured instantly.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="text-emerald-400 text-3xl mb-4">🐛</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Bug Reporting</h3>
+              <p class="text-gray-300">When testers find bugs, they save the last 30 seconds showing exactly what happened. No more "cannot reproduce" issues.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="text-emerald-400 text-3xl mb-4">💥</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Crash Recovery</h3>
+              <p class="text-gray-300">Buffer is preserved even when games crash. Capture the moments leading up to crashes for debugging.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="text-emerald-400 text-3xl mb-4">📱</div>
+              <h3 class="text-xl font-semibold text-white mb-3">Mobile Games</h3>
+              <p class="text-gray-300">Works on Android and iOS. No external screen recording apps needed - buffer recording built right into your game.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="text-emerald-400 text-3xl mb-4">🥽</div>
+              <h3 class="text-xl font-semibold text-white mb-3">VR Experiences</h3>
+              <p class="text-gray-300">Capture VR moments on Oculus and Meta Quest. Buffer recording works seamlessly in XR applications.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="text-emerald-400 text-3xl mb-4">🔄</div>
+              <h3 class="text-xl font-semibold text-white mb-3">CI/CD Pipelines</h3>
+              <p class="text-gray-300">Trigger buffer saves from automated tests. When tests fail, you get video evidence of what went wrong.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Performance Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <div class="bg-gradient-to-r from-emerald-900/30 to-teal-900/30 border border-emerald-500/30 rounded-2xl p-8">
+            <h2 class="text-2xl font-bold text-white text-center mb-8">Performance Impact</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div class="text-4xl font-bold text-emerald-400 mb-2">1-3%</div>
+                <p class="text-gray-300">CPU overhead with hardware encoding</p>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-emerald-400 mb-2">~100MB</div>
+                <p class="text-gray-300">Memory for 30-second buffer at 1080p</p>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-emerald-400 mb-2">60 FPS</div>
+                <p class="text-gray-300">Recording independent of game framerate</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="text-3xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
+          <div class="space-y-6">
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">What is game recording buffer software?</h3>
+              <p class="text-gray-300">Game recording buffer software continuously records gameplay in the background, keeping only the last 30-60 seconds in memory. When something interesting happens, you save that buffer to a video file. This is more efficient than recording everything because you only keep what matters.</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">How does instant replay work in Runtime Video Recorder?</h3>
+              <p class="text-gray-300">RVR uses a circular buffer that continuously captures frames. When you trigger a save, it writes the buffered frames to an MP4 file. The buffer duration is configurable from 10 seconds to several minutes, and encoding uses hardware acceleration for minimal CPU impact.</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Is this like NVIDIA ShadowPlay for Unreal Engine?</h3>
+              <p class="text-gray-300">Yes, similar concept but built directly into Unreal Engine. Unlike ShadowPlay which is external and NVIDIA-only, RVR works on all platforms (Windows, Mac, Linux, Android, iOS) and integrates with your game code for programmatic control.</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Can I trigger instant replay saves from game events?</h3>
+              <p class="text-gray-300">Yes! You can trigger saves via Blueprints or C++ from any game event - player achievements, kills, crashes, errors, or custom conditions. Perfect for automatic highlight capture or bug recording.</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">How much memory does buffer recording use?</h3>
+              <p class="text-gray-300">Memory usage depends on resolution and buffer duration. A 30-second buffer at 1080p/30fps uses approximately 100MB. You can configure buffer duration based on your needs and platform constraints.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl text-center">
+          <div class="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-8">
+            <h2 class="text-3xl font-bold text-white mb-4">Start Using Buffer Recording Today</h2>
+            <p class="text-emerald-100 mb-6 text-lg">Add instant replay capability to your Unreal Engine game in minutes.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a 
+                href="https://tally.so/r/mZDq7v?utm_source=website&utm_medium=cta_button&utm_campaign=rvr_download&utm_content=usecase_instant_replay"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-white/20 rounded-xl hover:bg-white/30 transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                Request API Key & Download
+              </a>
+              <a 
+                href="/docs/products/runtime-video-recorder/how-to/instant-replay"
+                class="text-emerald-100 hover:text-white underline"
+              >
+                Read Implementation Guide
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Pages -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="text-2xl font-bold text-white mb-8">Related Use Cases</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <a href="/use-cases/game-testing-video-recording.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Game Testing & QA</h3>
+              <p class="text-gray-400 text-sm">Automatic bug capture with video evidence for QA workflows.</p>
+            </a>
+            <a href="/use-cases/cross-platform-recording.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Cross-Platform Recording</h3>
+              <p class="text-gray-400 text-sm">One solution for Windows, Mac, Linux, Android, iOS, and VR.</p>
+            </a>
+            <a href="/recorders" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Compare Recorders</h3>
+              <p class="text-gray-400 text-sm">See how RVR compares to OBS, Bandicam, Fraps, and ShadowPlay.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="py-8 border-t border-gray-800">
+        <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+          <a href="/docs/" class="text-indigo-400 hover:text-indigo-300 transition-colors">Documentation</a>
+          <a href="/recorders" class="text-indigo-400 hover:text-indigo-300 transition-colors">Compare Recorders</a>
+          <a href="mailto:business@unrealsolutions.com" class="text-indigo-400 hover:text-indigo-300 transition-colors">Contact</a>
+          <a href="/privacy.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Privacy Policy</a>
+        </div>
+        <div class="text-center text-gray-500 text-sm">
+          © Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2025
+        </div>
+      </div>
+    </main>
+</body>
+</html>
