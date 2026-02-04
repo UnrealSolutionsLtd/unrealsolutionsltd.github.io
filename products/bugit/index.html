@@ -111,7 +111,104 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-39LZYGQJL9');
+      gtag('config', 'G-39LZYGQJL9', {
+        'anonymize_ip': true,
+        'allow_google_signals': true,
+        'allow_ad_personalization_signals': false
+      });
+
+      // ============================================
+      // UTM TRACKING - Capture traffic source
+      // ============================================
+      (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const referrer = document.referrer.toLowerCase();
+        
+        // Detect source from referrer if no UTM params
+        function detectSourceFromReferrer() {
+          if (!referrer) return { source: 'direct', medium: 'none' };
+          if (referrer.includes('google.')) return { source: 'google', medium: 'organic' };
+          if (referrer.includes('bing.')) return { source: 'bing', medium: 'organic' };
+          if (referrer.includes('duckduckgo.')) return { source: 'duckduckgo', medium: 'organic' };
+          if (referrer.includes('reddit.com')) return { source: 'reddit', medium: 'social' };
+          if (referrer.includes('twitter.com') || referrer.includes('x.com')) return { source: 'twitter', medium: 'social' };
+          if (referrer.includes('linkedin.com')) return { source: 'linkedin', medium: 'social' };
+          if (referrer.includes('facebook.com')) return { source: 'facebook', medium: 'social' };
+          if (referrer.includes('discord.com')) return { source: 'discord', medium: 'social' };
+          if (referrer.includes('youtube.com')) return { source: 'youtube', medium: 'video' };
+          
+          try {
+            const domain = new URL(referrer).hostname.replace('www.', '');
+            return { source: domain, medium: 'referral' };
+          } catch {
+            return { source: 'referral', medium: 'referral' };
+          }
+        }
+        
+        const hasUtmParams = urlParams.get('utm_source');
+        const referrerData = detectSourceFromReferrer();
+        const utmData = {
+          utm_source: urlParams.get('utm_source') || referrerData.source,
+          utm_medium: urlParams.get('utm_medium') || referrerData.medium,
+          utm_campaign: urlParams.get('utm_campaign') || 'none',
+          utm_content: urlParams.get('utm_content') || 'none'
+        };
+        
+        const existingData = sessionStorage.getItem('rvr_utm_data');
+        if (!existingData || hasUtmParams) {
+          sessionStorage.setItem('rvr_utm_data', JSON.stringify(utmData));
+        }
+        
+        window.getRVRUtmData = function() {
+          const stored = sessionStorage.getItem('rvr_utm_data');
+          return stored ? JSON.parse(stored) : utmData;
+        };
+      })();
+
+      // ============================================
+      // BUILD TALLY URL WITH UTM ATTRIBUTION
+      // ============================================
+      function getTallyUrlWithAttribution(position, tallyId = '2EPzlj') {
+        const base = `https://tally.so/r/${tallyId}`;
+        const utm = window.getRVRUtmData();
+        const params = new URLSearchParams({
+          utm_source: utm.utm_source === 'direct' ? 'website' : utm.utm_source,
+          utm_medium: utm.utm_medium === 'none' ? 'cta_button' : utm.utm_medium,
+          utm_campaign: utm.utm_campaign,
+          utm_content: position || 'unknown'
+        });
+        return base + '?' + params.toString();
+      }
+
+      function trackCtaClick(position, buttonText) {
+        const utm = window.getRVRUtmData();
+        gtag('event', 'cta_download_click', {
+          'button_position': position,
+          'button_text': buttonText,
+          'page_path': window.location.pathname,
+          'traffic_source': utm.utm_source,
+          'traffic_medium': utm.utm_medium
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const ctaButtons = document.querySelectorAll('.cta-download');
+        ctaButtons.forEach(button => {
+          button.addEventListener('click', (e) => {
+            const position = button.getAttribute('data-cta-position') || 'unknown';
+            const buttonText = button.textContent.trim();
+            
+            // Determine which Tally form to use
+            let tallyId = '2EPzlj'; // Default BugIt form
+            if (button.href.includes('mZDq7v')) {
+              tallyId = 'mZDq7v'; // RVR form
+            }
+
+            trackCtaClick(position, buttonText);
+            button.href = getTallyUrlWithAttribution(position, tallyId);
+          });
+        });
+      });
     </script>
 </head>
 <body class="bg-gradient-to-b from-gray-900 to-black min-h-screen text-white">
@@ -158,15 +255,14 @@
               <!-- CTAs -->
               <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
                 <a 
-                  href="https://github.com/unrealsolutionsltd/bugit"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center px-8 py-4 text-base font-semibold text-black bg-gradient-to-r from-yellow-400 to-amber-500 rounded-xl hover:from-yellow-300 hover:to-amber-400 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+                  href="https://tally.so/r/2EPzlj"
+                  class="cta-download inline-flex items-center px-8 py-4 text-base font-semibold text-black bg-gradient-to-r from-yellow-400 to-amber-500 rounded-xl hover:from-yellow-300 hover:to-amber-400 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+                  data-cta-position="hero_get_started"
                 >
-                  <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                   </svg>
-                  View on GitHub
+                  Get Started (Free)
                 </a>
                 <a 
                   href="https://youtu.be/MrrIpXYn-rs"
@@ -285,12 +381,11 @@
                 </li>
               </ul>
               <a 
-                href="https://github.com/unrealsolutionsltd/bugit"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="block w-full text-center px-6 py-3 text-base font-semibold text-white bg-green-600 rounded-xl hover:bg-green-500 transition-all"
+                href="https://tally.so/r/2EPzlj"
+                class="cta-download block w-full text-center px-6 py-3 text-base font-semibold text-white bg-green-600 rounded-xl hover:bg-green-500 transition-all"
+                data-cta-position="pricing_get_started"
               >
-                Get Started on GitHub
+                Get Started (Free)
               </a>
             </div>
 
@@ -634,24 +729,14 @@
             </p>
             <div class="flex flex-wrap justify-center gap-4">
               <a 
-                href="https://github.com/unrealsolutionsltd/bugit"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-gray-800 border border-gray-700 rounded-lg hover:bg-gray-700 transition-all"
-              >
-                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                GitHub Repository
-              </a>
-              <a 
-                href="mailto:business@unrealsolutions.com?subject=BugIt%20Commercial%20License"
-                class="inline-flex items-center px-6 py-3 text-sm font-medium text-yellow-400 bg-yellow-500/10 border border-yellow-500/30 rounded-lg hover:bg-yellow-500/20 transition-all"
+                href="https://tally.so/r/2EPzlj"
+                class="cta-download inline-flex items-center px-8 py-4 text-base font-semibold text-black bg-gradient-to-r from-yellow-400 to-amber-500 rounded-xl hover:from-yellow-300 hover:to-amber-400 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+                data-cta-position="technical_get_started"
               >
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                 </svg>
-                Commercial Licensing
+                Get Started (Free)
               </a>
             </div>
           </div>
@@ -678,10 +763,11 @@
                 Learn About RVR
               </a>
               <a 
-                href="https://tally.so/r/mZDq7v?utm_source=website&utm_medium=cta_button&utm_campaign=rvr_download&utm_content=product_bugit"
+                href="https://tally.so/r/mZDq7v"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-indigo-300 hover:text-indigo-200 underline text-sm"
+                class="cta-download text-indigo-300 hover:text-indigo-200 underline text-sm"
+                data-cta-position="product_bugit_rvr_upsell"
               >
                 Request RVR API Key
               </a>
@@ -719,15 +805,6 @@
             <span class="sr-only">LinkedIn</span>
             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-          </a>
-          <a href="https://github.com/unrealsolutionsltd/bugit" 
-             target="_blank" 
-             rel="noopener noreferrer"
-             class="text-gray-600 hover:text-yellow-500 transition-colors duration-200">
-            <span class="sr-only">GitHub</span>
-            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
             </svg>
           </a>
         </div>
