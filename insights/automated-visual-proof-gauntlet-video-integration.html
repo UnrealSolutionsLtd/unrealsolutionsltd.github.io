@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Visual Proof: Integrating Video Recording with Unreal Gauntlet | Unreal Solutions</title>
+    <meta name="description" content="Learn how to integrate video recording into Unreal Engine's Gauntlet automation framework. Automatically capture visual proof for every test run, headless, on any platform.">
+    <meta name="keywords" content="Unreal Engine Gauntlet video recording, automated testing video, game CI/CD video, RVR Gauntlet integration, headless game recording, automated visual regression, Unreal automation tool video">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://unrealsolutions.com/insights/automated-visual-proof-gauntlet-video-integration.html">
+    <meta property="og:title" content="Automated Visual Proof: Integrating Video Recording with Unreal Gauntlet">
+    <meta property="og:description" content="Learn how to integrate video recording into Unreal Engine's Gauntlet automation framework. Automatically capture visual proof for every test run.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
+    <meta property="article:published_time" content="2026-02-04">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Automated Visual Proof: Integrating Video Recording with Unreal Gauntlet">
+    <meta name="twitter:description" content="Turn abstract logs into visual proof. Automate video recording for Gauntlet tests.">
+    
+    <link rel="canonical" href="https://unrealsolutions.com/insights/automated-visual-proof-gauntlet-video-integration.html">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+      body {
+        font-family: 'Outfit', system-ui, sans-serif;
+        background: linear-gradient(to bottom, #0f0f0f 0%, #0a0a0a 100%);
+      }
+      .font-mono { font-family: 'JetBrains Mono', monospace; }
+      h2 { color: #fbbf24; }
+      blockquote { border-left: 4px solid #fbbf24; background: rgba(234, 179, 8, 0.1); padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+    </style>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Automated Visual Proof: Integrating Video Recording with Unreal Gauntlet",
+      "description": "Learn how to integrate video recording into Unreal Engine's Gauntlet automation framework.",
+      "author": {"@type": "Organization", "name": "Unreal Solutions Ltd"},
+      "publisher": {"@type": "Organization", "name": "Unreal Solutions Ltd"},
+      "datePublished": "2026-02-04"
+    }
+    </script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="bg-gray-900 text-white">
+    <main class="container mx-auto px-4 sm:px-20 py-8">
+      <!-- Shared Navigation -->
+      <div id="site-nav" data-logo-path="../assets/logo.png"></div>
+      <script src="/assets/js/nav.js"></script>
+
+      <!-- Header -->
+      <div class="max-w-3xl mx-auto mb-12">
+        <div class="flex items-center gap-3 mb-4 text-sm">
+          <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full">Automated Testing</span>
+          <span class="text-gray-500">February 2026</span>
+        </div>
+        <h1 class="text-4xl font-bold mb-4">Automated Visual Proof: Integrating Video Recording with Unreal Gauntlet</h1>
+        <p class="text-xl text-gray-400">Transform abstract test logs into undeniable visual evidence.</p>
+      </div>
+
+      <!-- Content -->
+      <article class="max-w-3xl mx-auto space-y-12">
+        
+        <!-- The Missing Piece -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">The Missing Piece in Automation</h2>
+          <p class="text-gray-300 mb-4">
+            Unreal Engine's Gauntlet automation framework is powerful for running tests at scale. It launches your game, runs scripts, and reports pass/fail status. 
+            But when a test fails, you're often left with a text log:
+          </p>
+          <div class="bg-red-900/20 border border-red-500/30 rounded-lg p-4 font-mono text-sm">
+            <span class="text-red-400">Error:</span> Expected actor 'BP_Enemy_C_21' to be destroyed. Found active.<br>
+            <span class="text-gray-500">... 500 lines of callstacks ...</span>
+          </div>
+          <p class="text-gray-300 mt-4">
+            Why wasn't it destroyed? Did the projectile miss? Did the animation fail? Did it fall through the floor? 
+            Logs can't tell you. <strong>Video can.</strong>
+          </p>
+        </section>
+
+        <!-- The Solution -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-emerald-400">The Solution: Gauntlet + RVR</h2>
+          <p class="text-gray-300 mb-4">
+            By integrating Runtime Video Recorder (RVR) directly into your Gauntlet controllers, you can automatically capture a video for every test session.
+            Because RVR works <strong>headless</strong> (without a monitor) and uses <strong>hardware acceleration</strong>, it adds minimal overhead to your CI pipeline.
+          </p>
+        </section>
+
+        <!-- Implementation -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Implementation Guide</h2>
+          <p class="text-gray-300 mb-6">
+            The cleanest way to integrate is by creating a custom <code>UGauntletTestController</code>. 
+            This allows you to control exactly when recording starts and stops during your test lifecycle.
+          </p>
+
+          <div class="bg-gray-800 rounded-lg p-6 font-mono text-sm overflow-x-auto">
+            <div class="text-gray-400 mb-2">// MyGauntletController.h</div>
+            <pre class="text-gray-300">#pragma once
+#include "GauntletTestController.h"
+#include "RuntimeVideoRecorder.h"
+#include "MyGauntletController.generated.h"
+
+UCLASS()
+class UMyGauntletController : public UGauntletTestController
+{
+    GENERATED_BODY()
+
+protected:
+    // Called when the map finishes loading
+    virtual void OnPostMapChange(UWorld* World) override
+    {
+        Super::OnPostMapChange(World);
+
+        // Access the RVR subsystem
+        if (URuntimeVideoRecorder* Recorder = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;())
+        {
+            // Start recording automatically
+            // %auto% generates a timestamped filename
+            // We use a specific prefix to easily find it later
+            Recorder->StartRecording(TEXT("GauntletTest_%auto%"));
+            
+            UE_LOG(LogGauntlet, Display, TEXT("Started Gauntlet Video Recording"));
+        }
+    }
+    
+    // Check for test completion
+    virtual void OnTick(float DeltaTime) override
+    {
+        Super::OnTick(DeltaTime);
+
+        // Your logic to determine if the test is done
+        if (IsTestComplete()) 
+        {
+            if (URuntimeVideoRecorder* Recorder = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;())
+            {
+                 // Ensure we close the file properly before exiting
+                 Recorder->StopRecording_NativeAPI();
+                 UE_LOG(LogGauntlet, Display, TEXT("Stopped Gauntlet Video Recording"));
+            }
+            
+            EndTest(0);
+        }
+    }
+    
+    // Helper to determine if test finished (example)
+    bool IsTestComplete() const
+    {
+        // ... Check your test state ...
+        return false; 
+    }
+};</pre>
+          </div>
+        </section>
+
+        <!-- Configuring Gauntlet -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Running with Gauntlet</h2>
+          <p class="text-gray-300 mb-4">
+            Once compiled, you can instruct Gauntlet to use your controller via the command line or your C# build script.
+          </p>
+          <div class="bg-gray-800 rounded-lg p-4 font-mono text-sm">
+            <p class="text-purple-400 mb-2"># Command Line Example</p>
+            <p class="text-gray-300">
+              RunUAT.bat BuildCookRun -project="MyProject" -platform=Win64 -client -gauntlet -GauntletTestController="MyGauntletController"
+            </p>
+          </div>
+        </section>
+
+        <!-- Benefits -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Why This Changes Everything</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-gray-800 rounded-lg p-4">
+              <h3 class="font-semibold text-emerald-400 mb-2">Headless Recording</h3>
+              <p class="text-gray-400 text-sm">
+                Most recorders (OBS, ShadowPlay) require a monitor. RVR works on headless servers, Docker containers, and cloud instances.
+              </p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4">
+              <h3 class="font-semibold text-emerald-400 mb-2">Cross-Platform</h3>
+              <p class="text-gray-400 text-sm">
+                The same code works for Windows, Android, and iOS tests. Validate mobile touch inputs and gestures visually.
+              </p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4">
+              <h3 class="font-semibold text-emerald-400 mb-2">Artifact Collection</h3>
+              <p class="text-gray-400 text-sm">
+                Gauntlet automatically collects saved files from the <code>Saved/</code> directory. Your videos appear right next to your logs in the build report.
+              </p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4">
+              <h3 class="font-semibold text-emerald-400 mb-2">Zero Flakiness</h3>
+              <p class="text-gray-400 text-sm">
+                RVR runs in-engine. It starts when the engine starts. No "forgot to press record" or "recorder crashed" external issues.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="bg-purple-600 rounded-xl p-8 text-center">
+          <h2 class="text-2xl font-bold mb-2">Start Recording Your Tests</h2>
+          <p class="text-purple-100 mb-6">Stop guessing why tests failed. See it happen.</p>
+          <a href="https://tally.so/r/mZDq7v?utm_source=website&utm_medium=cta_button&utm_campaign=rvr_download&utm_content=insight_gauntlet" target="_blank" class="inline-block px-6 py-3 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-100">
+            Get Runtime Video Recorder
+          </a>
+        </section>
+
+      </article>
+
+      <!-- Footer -->
+      <footer class="max-w-3xl mx-auto mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+        © Unreal Solutions Ltd. All Rights Reserved 2026
+      </footer>
+    </main>
+</body>
+</html>
