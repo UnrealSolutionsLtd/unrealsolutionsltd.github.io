@@ -430,14 +430,26 @@ void MakeScreenshot(const FString& OutFilename, bool bShowUI);
 
 ### EncodeCircularBufferToVideo
 
-Encodes circular buffer contents (for crash recovery).
+Encodes circular buffer contents to video. **Synchronous** - may cause 3–5s hitch for 30s of footage. Use for crash recovery where sync completion is required.
 
 ```cpp
-UFUNCTION(BlueprintCallable, Category = "RuntimeVideoRecorder | Emergency")
+UFUNCTION(BlueprintCallable, Category = "RuntimeVideoRecorder | Circular Buffer")
 bool EncodeCircularBufferToVideo(const FString& OutputBasePath);
 ```
 
-Automatically appends `_crash_recovery.mp4` to the output path.
+Adds `.mp4` extension if not present.
+
+### EncodeCircularBufferToVideoAsync
+
+Encodes buffered footage **asynchronously** - avoids hitches for bug submission and instant replay. Uses snapshot; recording continues during encode. Must be called on Game Thread.
+
+```cpp
+TFuture<bool> EncodeCircularBufferToVideoAsync(const FString& OutputBasePath);
+```
+
+Returns a future that completes with `true` on success. Use `.Next([](bool bSuccess){ ... })` for completion callback.
+
+**Blueprint:** Use `UAsyncEncodeCircularBufferToVideo::EncodeCircularBufferToVideoAsync` node. Provides `On Completed (bSuccess)` delegate—bind execution flow to run when encoding finishes.
 
 ---
 
