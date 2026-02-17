@@ -253,9 +253,16 @@ UFUNCTION(BlueprintCallable, Category = "RuntimeVideoRecorder | Video",
           meta = (Latent, LatentInfo = "LatentInfo"))
 void StopRecording(
     FLatentActionInfo LatentInfo,
-    UObject* WorldContextObject = nullptr
+    UObject* WorldContextObject = nullptr,
+    bool bEncodeBeforeStop = true
 );
 ```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `LatentInfo` | FLatentActionInfo | - | Latent execution info |
+| `WorldContextObject` | UObject* | `nullptr` | World context |
+| `bEncodeBeforeStop` | bool | `true` | If true, encodes buffered frames before clearing in buffer-only mode. Set to false for hitch-free stop on EndPlay/Deinitialize (buffered content discarded). |
 
 ::: tip Blueprint Usage
 This is a **latent action** - execution will pause until recording is fully stopped and file is written.
@@ -269,8 +276,12 @@ Stops recording immediately (synchronous, C++ friendly).
 
 ```cpp
 UFUNCTION(BlueprintCallable, Category = "RuntimeVideoRecorder | Video")
-void StopRecording_NativeAPI();
+void StopRecording_NativeAPI(bool bEncodeBeforeStop = true);
 ```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `bEncodeBeforeStop` | bool | `true` | If true, encodes buffered frames before clearing in buffer-only mode. Set to false for hitch-free stop (buffered content discarded). |
 
 ::: warning Non-Blocking
 This returns immediately. Check `IsRecordingInProgress()` to verify completion.
