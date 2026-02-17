@@ -138,17 +138,19 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY="${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}"
           API_KEY="${{ env.API_KEY }}"
           CREDITS="${{ inputs.credits }}"
-          # MD5 hash must match Unreal C++ (UTF-8 bytes)
-          API_KEY_HASH=$(echo -n "$API_KEY" | md5sum | awk '{print $1}')
+          USER_EMAIL="${{ inputs.email }}"
+          # Escape for JSON
+          API_KEY_JSON=$(echo "$API_KEY" | sed 's/\\/\\\\/g; s/"/\\"/g; s/\n/\\n/g')
+          USER_EMAIL_JSON=$(echo "$USER_EMAIL" | sed 's/"/\\"/g')
           # Strip trailing slash
           SUPABASE_URL="${SUPABASE_URL%/}"
-          echo "Adding API key to Supabase with $CREDITS credits (hash: ${API_KEY_HASH:0:8}...)"
+          echo "Adding API key to Supabase with $CREDITS credits for ${USER_EMAIL}"
           curl -s -X POST "${SUPABASE_URL}/rest/v1/rvr_api_keys" \
             -H "apikey: ${SUPABASE_SERVICE_ROLE_KEY}" \
             -H "Authorization: Bearer ${SUPABASE_SERVICE_ROLE_KEY}" \
             -H "Content-Type: application/json" \
             -H "Prefer: resolution=merge-duplicates" \
-            -d "{\"api_key_hash\": \"${API_KEY_HASH}\", \"credits_remaining\": ${CREDITS}}"
+            -d "{\"api_key\": \"${API_KEY_JSON}\", \"credits_remaining\": ${CREDITS}, \"email\": \"${USER_EMAIL_JSON}\"}"
           echo "✅ API key added to Supabase."
       
       - name: Trigger documentation deployment
