@@ -16,6 +16,11 @@ on:
         required: false
         type: integer
         default: 7  # Default duration is 7 days if not specified
+      credits:
+        description: "Recording credits for Supabase (credit-based licensing)"
+        required: false
+        type: integer
+        default: 10
 
 permissions:
   contents: write
@@ -126,6 +131,25 @@ jobs:
             git add assets/rvr/rvr_trial.bin
             git commit -m "Add new API key to rvr_trial.bin"
             git push origin ${{ github.ref }}
+
+      - name: Add API key to Supabase (credits)
+        if: ${{ secrets.SUPABASE_URL != '' && secrets.SUPABASE_SERVICE_ROLE_KEY != '' }}
+        run: |
+          API_KEY="${{ env.API_KEY }}"
+          CREDITS="${{ inputs.credits }}"
+          # MD5 hash must match Unreal C++ (UTF-8 bytes)
+          API_KEY_HASH=$(echo -n "$API_KEY" | md5sum | awk '{print $1}')
+          SUPABASE_URL="${{ secrets.SUPABASE_URL }}"
+          # Strip trailing slash
+          SUPABASE_URL="${SUPABASE_URL%/}"
+          echo "Adding API key to Supabase with $CREDITS credits (hash: ${API_KEY_HASH:0:8}...)"
+          curl -s -X POST "${SUPABASE_URL}/rest/v1/rvr_api_keys" \
+            -H "apikey: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            -H "Content-Type: application/json" \
+            -H "Prefer: resolution=merge-duplicates" \
+            -d "{\"api_key_hash\": \"${API_KEY_HASH}\", \"credits_remaining\": ${CREDITS}}"
+          echo "✅ API key added to Supabase."
       
       - name: Trigger documentation deployment
         uses: actions/github-script@v6
