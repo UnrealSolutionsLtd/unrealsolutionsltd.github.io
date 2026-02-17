@@ -89,7 +89,7 @@ Vulkan Media Player is currently in **experimental** status. While it's function
 - **Discord:** [Join our community](https://discord.com/invite/pBDSCBcdgv) for support and discussions
 - **FAB Marketplace:** [Get the plugin](https://www.fab.com/listings/b2fe4881-084b-4b6b-9142-f834ed7aab16)
 - **Website:** [unrealsolutions.com](https://unrealsolutions.com)
-- **Creator:** Petr Leontev
+- **Creator:** Unreal Solutions Ltd
 
 ## Next Steps
 
@@ -101,5 +101,5 @@ Get started with Vulkan Media Player:
 
 ---
 
-*Created by Petr Leontev | © 2023-2025 Unreal Solutions Ltd*
+*2023-2025 Unreal Solutions Ltd*
 
