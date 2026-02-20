@@ -11,11 +11,6 @@ on:
         description: "Use Case"
         required: true
         type: string
-      duration:
-        description: "Duration in days for API Key validity"
-        required: false
-        type: integer
-        default: 7  # Default duration is 7 days if not specified
       credits:
         description: "Recording credits for Supabase (credit-based licensing)"
         required: false
@@ -23,7 +18,7 @@ on:
         default: 10
 
 permissions:
-  contents: write
+  contents: read
   actions: write
 
 jobs:
@@ -33,104 +28,17 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-  
-      - name: Validate Use Case
-        id: validate_use_case
-        run: |
-          USE_CASE="${{ inputs.use_case }}"
-          DURATION="${{ inputs.duration }}"
-          
-          # Convert to lowercase for comparison
-          USE_CASE_LOWER=$(echo "$USE_CASE" | tr '[:upper:]' '[:lower:]')
-          
-          # Check for vague/generic use cases
-          IS_VAGUE=false
-          
-          # Count total words
-          WORD_COUNT=$(echo "$USE_CASE" | wc -w)
-          
-          # Define vague/filler words
-          VAGUE_WORDS="test|testing|try|trying|demo|check|checking|evaluation|eval|trial|bla|blah|just|want|need|to|the|a|an|it|for|my|i|am|is|see|if|out|works|unreal|engine|ue4|ue5|project|game|video|record|recorder|recording"
-          
-          # Count vague words in the input
-          VAGUE_COUNT=$(echo "$USE_CASE_LOWER" | grep -oE "\b($VAGUE_WORDS)\b" | wc -l)
-          
-          # Calculate meaningful words
-          MEANINGFUL_COUNT=$((WORD_COUNT - VAGUE_COUNT))
-          
-          echo "📊 Word analysis: $WORD_COUNT total, $VAGUE_COUNT vague/filler, $MEANINGFUL_COUNT meaningful"
-          
-          # Heuristic 1: Not enough meaningful words (need at least 2 non-vague words)
-          if [ "$MEANINGFUL_COUNT" -lt 2 ]; then
-            IS_VAGUE=true
-            echo "⚠️ Not enough meaningful words ($MEANINGFUL_COUNT meaningful, minimum 2)"
-          fi
-          
-          # Heuristic 2: More than 70% vague words
-          if [ "$WORD_COUNT" -gt 0 ]; then
-            VAGUE_PERCENT=$((VAGUE_COUNT * 100 / WORD_COUNT))
-            if [ "$VAGUE_PERCENT" -ge 70 ]; then
-              IS_VAGUE=true
-              echo "⚠️ Too many vague/filler words (${VAGUE_PERCENT}% vague, max 70%)"
-            fi
-          fi
-          
-          # Set duration based on validation
-          if [ "$IS_VAGUE" = true ]; then
-            FINAL_DURATION=3
-            echo "📉 Vague use case detected. Limiting trial to 5 days."
-            echo "   Provided use case: '$USE_CASE'"
-          else
-            FINAL_DURATION=$DURATION
-            echo "✅ Use case is detailed enough."
-          fi
-          
-          echo "FINAL_DURATION=$FINAL_DURATION" >> $GITHUB_ENV
-          echo "IS_VAGUE=$IS_VAGUE" >> $GITHUB_ENV
 
       - name: Generate API Key
         id: generate_key
         run: |
-            # Get email and duration inputs from the workflow
             USER_EMAIL="${{ inputs.email }}"
-            DURATION="${{ env.FINAL_DURATION }}"
-
-            # Generate a random API key using the email as a seed
-            # Use SHA256 hash of email combined with random data for uniqueness
-
-            SALT="salty-salt-3214"  # Optional but recommended
-            API_KEY_HASH=$(echo -n "${SALT}${USER_EMAIL}" | sha256sum | head -c 8 | tr '[:lower:]' '[:upper:]')
-
-            # Get expiry dates - compact for key, readable for emails
-            EXPIRY_DATE_KEY=$(date -d "+$DURATION days" +"%d%m%y")
-            EXPIRY_DATE=$(date -d "+$DURATION days" +"%d-%m-%Y")
-
-            # Combine into searchable format: RVRTRIAL + hash + expiry
-            API_KEY="RVRTRIAL${API_KEY_HASH}${EXPIRY_DATE_KEY}"
-
-            # Debug: Check if variables are set
-            echo "Generated API_KEY_HASH: $API_KEY_HASH"
-            echo "Expiry Date: $EXPIRY_DATE"
-            echo "Final API_KEY with Expiry: $API_KEY"
-            
-            echo "CURRENT_DATE=$(date +"%d-%m-%Y")" >> $GITHUB_ENV
-            echo "EXPIRY_DATE=$EXPIRY_DATE" >> $GITHUB_ENV
+            SALT="salty-salt-3214"
+            API_KEY_HASH=$(echo -n "${SALT}${USER_EMAIL}$(date +%s)" | sha256sum | head -c 8 | tr '[:lower:]' '[:upper:]')
+            RANDOM_SUFFIX=$(head -c 4 /dev/urandom | xxd -p | tr '[:lower:]' '[:upper:]')
+            API_KEY="RVRTRIAL${API_KEY_HASH}${RANDOM_SUFFIX}"
+            echo "Generated API_KEY: $API_KEY"
             echo "API_KEY=$API_KEY" >> $GITHUB_ENV
-
-            if grep -q "RVRTRIAL${API_KEY_HASH}" assets/rvr/rvr_trial.bin; then
-              echo "❌ API key prefix already exists in rvr_trial.bin. Skipping append and commit."
-              exit 1
-            fi
-
-            # Append API key to the file
-            echo -e "\n$API_KEY" >> assets/rvr/rvr_trial.bin
-            
-            git config user.email "github-actions@github.com"
-            git config user.name "GitHub Actions"
-          
-            git add assets/rvr/rvr_trial.bin
-            git commit -m "Add new API key to rvr_trial.bin"
-            git push origin ${{ github.ref }}
 
       - name: Add API key to Supabase (credits)
         run: |
@@ -164,38 +72,11 @@ jobs:
               ref: 'main'
             });
       
-      - name: Trigger rvr_crm workflow
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.RVR_CRM_TOKEN }}
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: 'rvr_crm',
-              workflow_id: 'add_user.yml',
-              ref: 'main',
-              inputs: {
-                user_email: '${{ inputs.email }}',
-                api_key: '${{ env.API_KEY }}',
-                start_date: '${{ env.CURRENT_DATE }}',
-                expiry_date: '${{ env.EXPIRY_DATE }}'
-              }
-            });
-      
-      - name: Read and Modify Email Body Template
-        id: modify_email_body
+      - name: Prepare email body
         run: |
-          # Read the Markdown template file and replace the placeholders with actual values
-          EMAIL_BODY=$(cat assets/email_template.md | sed "s/{{API_KEY}}/${{ env.API_KEY }}/g" | sed "s/{{EXPIRY_DATE}}/${{ env.EXPIRY_DATE }}/g")
-          
-          # Add note for vague use cases
-          if [ "${{ env.IS_VAGUE }}" = "true" ]; then
-            VAGUE_NOTE="\n\n---\n\n*Note: You've received a 3-day trial. Reply with more details about your project (game genre, platform, how you plan to use the recorder) to receive an extended trial.*"
-            EMAIL_BODY="${EMAIL_BODY}${VAGUE_NOTE}"
-          fi
-          
-          # Save the modified email body to a file
-          echo -e "$EMAIL_BODY" > email.md
+          sed -e "s/{{API_KEY}}/${{ env.API_KEY }}/g" \
+              -e "s/{{CREDITS}}/${{ inputs.credits }}/g" \
+              assets/email_template.md > email.md
           
       - name: Send API Key Email
         uses: dawidd6/action-send-mail@v3
@@ -207,7 +88,7 @@ jobs:
           subject: "Runtime Video Recorder | Your API Key"
           to: "${{ inputs.email }}"
           bcc: ${{secrets.BCC}}
-          from: ${{secrets.FROM}}
+          from: ${{ secrets.FROM }}
           html_body: file://email.md  # Use the modified email body file
           secure: true
           ignore_cert: true
