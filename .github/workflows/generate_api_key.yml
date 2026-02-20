@@ -61,17 +61,6 @@ jobs:
             -d "{\"api_key\": \"${API_KEY_JSON}\", \"credits_remaining\": ${CREDITS}, \"email\": \"${USER_EMAIL_JSON}\"}"
           echo "✅ API key added to Supabase."
       
-      - name: Trigger documentation deployment
-        uses: actions/github-script@v6
-        with:
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'deploy.yml',
-              ref: 'main'
-            });
-      
       - name: Prepare email body
         run: |
           sed -e "s/{{API_KEY}}/${{ env.API_KEY }}/g" \
