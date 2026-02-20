@@ -63,6 +63,20 @@ void AMyCharacter::OnKillEnemy()
 
 **Key Point:** With `LastSecondsToRecord = 30.0f`, RVR continuously records but only keeps the most recent 30 seconds in memory. When you stop, it saves those 30 seconds.
 
+### Hitch-free option: async encode
+
+To avoid a short frame hitch when saving the replay, use **EncodeCircularBufferToVideoAsync** instead of stopping and encoding. The buffer is snapshotted and encoded in the background while recording continues:
+
+```cpp
+// Save last 30 seconds without blocking (e.g. on "Save replay" button)
+auto Future = Recorder->EncodeCircularBufferToVideoAsync(FPaths::ProjectSavedDir() / TEXT("Replay"));
+Future.Next([](bool bSuccess) {
+    if (bSuccess) UE_LOG(LogTemp, Log, TEXT("Replay saved!"));
+});
+```
+
+See [EncodeCircularBufferToVideoAsync](../api/runtime-video-recorder#encodecircularbuffertovideoasync) in the API reference.
+
 ## See Also
 
 - [How-To Guide Index](./index) - Browse all scenarios

@@ -441,26 +441,45 @@ void MakeScreenshot(const FString& OutFilename, bool bShowUI);
 
 ### EncodeCircularBufferToVideo
 
-Encodes circular buffer contents to video. **Synchronous** - may cause 3–5s hitch for 30s of footage. Use for crash recovery where sync completion is required.
+Encodes circular buffer contents to video. **Synchronous** — may cause a 3–5s hitch for ~30s of footage. Use when you need encoding to finish before continuing (e.g. crash recovery or shutdown).
 
 ```cpp
 UFUNCTION(BlueprintCallable, Category = "RuntimeVideoRecorder | Circular Buffer")
 bool EncodeCircularBufferToVideo(const FString& OutputBasePath);
 ```
 
-Adds `.mp4` extension if not present.
+| Parameter | Type | Description |
+|-----------|------|--------------|
+| `OutputBasePath` | FString | Base path for the output file. `.mp4` is added if missing. Use `%auto%` for `ProjectDir/Saved/<datetime>.mp4`. |
+
+**Returns:** `bool` — `true` if encoding succeeded.
+
+---
 
 ### EncodeCircularBufferToVideoAsync
 
-Encodes buffered footage **asynchronously** - avoids hitches for bug submission and instant replay. Uses snapshot; recording continues during encode. Must be called on Game Thread.
+Encodes buffered footage **asynchronously** — no frame hitch. Ideal for bug reports and instant replay. Uses a snapshot of the buffer; recording continues during encode. Must be called on the Game Thread.
 
 ```cpp
 TFuture<bool> EncodeCircularBufferToVideoAsync(const FString& OutputBasePath);
 ```
 
-Returns a future that completes with `true` on success. Use `.Next([](bool bSuccess){ ... })` for completion callback.
+| Parameter | Type | Description |
+|-----------|------|--------------|
+| `OutputBasePath` | FString | Base path for the output file. `.mp4` is added if missing. Use `%auto%` for `ProjectDir/Saved/<datetime>.mp4`. |
 
-**Blueprint:** Use `UAsyncEncodeCircularBufferToVideo::EncodeCircularBufferToVideoAsync` node. Provides `On Completed (bSuccess)` delegate—bind execution flow to run when encoding finishes.
+**Returns:** `TFuture<bool>` — completes with `true` on success. Use `.Next()` to run code when encoding finishes.
+
+#### C++ Example
+
+```cpp
+auto Future = Recorder->EncodeCircularBufferToVideoAsync(FPaths::ProjectSavedDir() / TEXT("BugReport"));
+Future.Next([](bool bSuccess) {
+    UE_LOG(LogTemp, Log, TEXT("Encoding %s"), bSuccess ? TEXT("succeeded") : TEXT("failed"));
+});
+```
+
+**Blueprint:** Use the **Encode Circular Buffer to Video Async** node (RuntimeVideoRecorder | Circular Buffer). Set **Output Base Path** and bind **On Completed** — execution continues from the completion pin when encoding finishes.
 
 ---
 
