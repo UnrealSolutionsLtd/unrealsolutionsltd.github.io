@@ -6,7 +6,7 @@ Your key comes with **{{CREDITS}} recording credits**. Each time you start a rec
 
 Download Runtime Video Recorder [here](https://drive.google.com/drive/folders/1vv2RanJ07J2719C7mW-6G6-fQ_oTK391?usp=drive_link).
 
-For licensing, see [unrealsolutions.com/licensing](https://unrealsolutions.com/licensing.html). For help or more credits, contact **business@unrealsolutions.com**.
+For licensing, see [unrealsolutions.com/licensing](https://unrealsolutions.com/licensing.html).
 
 Best wishes,  
 [Unreal Solutions](https://unrealsolutions.com)
