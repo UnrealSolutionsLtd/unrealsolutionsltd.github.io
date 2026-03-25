@@ -15,7 +15,7 @@ on:
         description: "Recording credits for Supabase (credit-based licensing)"
         required: false
         type: integer
-        default: 10
+        default: 0
 
 permissions:
   contents: read
