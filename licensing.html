@@ -53,6 +53,20 @@
       "@type": "FAQPage",
       "mainEntity": [{
         "@type": "Question",
+        "name": "How do RVR credits work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Credits are consumed when you record videos using the Runtime Video Recorder plugin. Purchase a monthly or yearly credit plan, and credits are used as you record. Request an API key, buy credits, and start recording."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is the difference between credits and a company license?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Credits-based plans are self-serve and pay-as-you-go, ideal for individuals and small teams. Company licenses (Indie, Studio, Enterprise) provide dedicated support, source code access, custom SLAs, or perpetual licensing terms."
+        }
+      }, {
+        "@type": "Question",
         "name": "How is company size determined for RVR licensing?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -116,6 +130,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
     <link rel="shortcut icon" href="./assets/favicon/favicon.ico">
     <meta name="theme-color" content="#000000">
+
+    <!-- Stripe Pricing Table -->
+    <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     
@@ -209,6 +226,96 @@
         visibility: visible;
         opacity: 1;
       }
+
+      /* Credits section */
+      .credits-section {
+        position: relative;
+        border-radius: 1.25rem;
+        padding: 3rem;
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.06) 0%, rgba(99, 102, 241, 0.06) 100%);
+        border: 1px solid rgba(6, 182, 212, 0.15);
+      }
+
+      .credits-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        background: rgba(6, 182, 212, 0.15);
+        color: #22d3ee;
+        border: 1px solid rgba(6, 182, 212, 0.25);
+        margin-bottom: 1rem;
+      }
+
+      .credits-badge::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background: #22d3ee;
+        border-radius: 50%;
+      }
+
+      .how-it-works {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      @media (max-width: 768px) {
+        .how-it-works { grid-template-columns: 1fr; }
+        .credits-section { padding: 2rem 1.25rem; }
+      }
+
+      .step-card {
+        text-align: center;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        background: rgba(17, 24, 39, 0.5);
+        border: 1px solid rgba(75, 85, 99, 0.2);
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        background: linear-gradient(135deg, #06b6d4, #6366f1);
+        color: #fff;
+      }
+
+      .section-divider {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin: 3rem 0;
+      }
+
+      .section-divider::before,
+      .section-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(75, 85, 99, 0.5), transparent);
+      }
+
+      .section-divider span {
+        color: #6b7280;
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+      }
     </style>
     
     <!-- Google Analytics -->
@@ -232,9 +339,68 @@
           Licensing Built for <span class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Your Studio</span>
         </h1>
         <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-          From indie teams to AAA studios. Per-company licensing with flexible terms.
+          Pay-as-you-go credits or per-company licensing. Flexible options for every team.
         </p>
         
+      </div>
+
+      <!-- Credits-Based Plans -->
+      <div class="max-w-5xl mx-auto pb-16" id="credits">
+        <div class="credits-section">
+          <div class="text-center">
+            <div class="credits-badge">CREDITS-BASED LICENSING</div>
+            <h2 class="text-3xl font-bold text-white mb-3">Pay As You Go</h2>
+            <p class="text-gray-400 max-w-xl mx-auto">
+              Runtime Video Recorder uses a credits-based system. Purchase credits to start recording videos — no long-term commitment required.
+            </p>
+          </div>
+
+          <div class="how-it-works">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <h4 class="text-white font-semibold mb-1">Get Your API Key</h4>
+              <p class="text-gray-400 text-sm">Request a free API key to set up the plugin in your project.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <h4 class="text-white font-semibold mb-1">Purchase Credits</h4>
+              <p class="text-gray-400 text-sm">Choose a monthly or yearly plan that fits your recording needs.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <h4 class="text-white font-semibold mb-1">Start Recording</h4>
+              <p class="text-gray-400 text-sm">Credits are consumed as you record. Scale up or down anytime.</p>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <stripe-pricing-table pricing-table-id="prctbl_1TEyUuL8Ex2PyaLAONsn43Yf"
+              publishable-key="pk_live_51QtDztL8Ex2PyaLAmDN5BfqJGjKgsY3FxYwJ76i3z9Tv10jegLvAab0pKbCnPWtfpuLbVImZgkRFpPOKvvu9zlRk00ku23OdeJ">
+            </stripe-pricing-table>
+          </div>
+
+          <p class="text-center text-gray-500 text-sm mt-6">
+            Need an API key first? <a href="/download" class="text-cyan-400 hover:text-cyan-300 transition-colors font-medium">Request one here</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Divider between credits and studio licensing -->
+      <div class="max-w-6xl mx-auto">
+        <div class="section-divider">
+          <span>Studio &amp; Enterprise Licensing</span>
+        </div>
+      </div>
+
+      <!-- Studio intro + toggle -->
+      <div class="pt-4 pb-16 text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">
+          Need a <span class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Company License</span>?
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+          Per-company licensing for studios that need dedicated support, source code access, or custom terms.
+        </p>
+
         <!-- License Type Toggle -->
         <div class="flex flex-col items-center mb-12">
           <div class="license-toggle inline-flex mb-3">
@@ -540,6 +706,26 @@
         <h2 class="text-3xl font-bold text-white text-center mb-8">Frequently Asked Questions</h2>
         
         <div class="space-y-4">
+          <details class="tier-card p-6 cursor-pointer group">
+            <summary class="flex items-center justify-between text-white font-medium">
+              How do credits work?
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-400">Credits are consumed when you record videos using the Runtime Video Recorder plugin. You purchase a monthly or yearly credit plan, and credits are used as you record. This is the simplest way to get started — just request an API key, buy credits, and start recording.</p>
+          </details>
+
+          <details class="tier-card p-6 cursor-pointer group">
+            <summary class="flex items-center justify-between text-white font-medium">
+              What's the difference between credits and a company license?
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-400">Credits-based plans are self-serve and pay-as-you-go — great for individuals and small teams who want to get started quickly. Company licenses (Indie, Studio, Enterprise) are for teams that need dedicated support, source code access, custom SLAs, or perpetual licensing terms.</p>
+          </details>
+
           <details class="tier-card p-6 cursor-pointer group">
             <summary class="flex items-center justify-between text-white font-medium">
               How is company size determined?
