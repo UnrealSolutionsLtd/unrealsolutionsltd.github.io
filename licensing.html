@@ -63,14 +63,14 @@
         "name": "What is the difference between credits and a company license?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Credits-based plans are self-serve and pay-as-you-go, ideal for individuals and small teams. Company licenses (Indie, Studio, Enterprise) provide dedicated support, source code access, custom SLAs, or perpetual licensing terms."
+          "text": "Credits-based plans are self-serve and pay-as-you-go, ideal for individuals and small teams. Company licenses (Starter, Pro, Enterprise) provide dedicated support, source code access, custom SLAs, or perpetual licensing terms."
         }
       }, {
         "@type": "Question",
-        "name": "How is company size determined for RVR licensing?",
+        "name": "Which RVR company license tier should I choose?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Company size is based on annual revenue. We trust our customers to self-select the appropriate tier: Indie (under $100K), Studio ($100K-$1M), or Enterprise ($1M+). For studios with variable revenue, we're happy to discuss the best fit."
+          "text": "Choose based on the features you need: Starter for core recording with select platforms and community support, Pro for all-platform coverage with priority support and integration help, or Enterprise for custom SLAs, dedicated support, and custom feature development."
         }
       }, {
         "@type": "Question",
@@ -339,7 +339,7 @@
           Licensing Built for <span class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Your Studio</span>
         </h1>
         <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-          Pay-as-you-go credits or per-company licensing. Flexible options for every team.
+          Pay-as-you-go or per-company licensing. Flexible options for every team.
         </p>
         
       </div>
@@ -351,7 +351,7 @@
             <div class="credits-badge">CREDITS-BASED LICENSING</div>
             <h2 class="text-3xl font-bold text-white mb-3">Pay As You Go</h2>
             <p class="text-gray-400 max-w-xl mx-auto">
-              Runtime Video Recorder uses a credits-based system. Purchase credits to start recording videos — no long-term commitment required.
+              Select plan and start recording videos — no long-term commitment required.
             </p>
           </div>
 
@@ -363,13 +363,13 @@
             </div>
             <div class="step-card">
               <div class="step-number">2</div>
-              <h4 class="text-white font-semibold mb-1">Purchase Credits</h4>
-              <p class="text-gray-400 text-sm">Choose a monthly or yearly plan that fits your recording needs.</p>
+              <h4 class="text-white font-semibold mb-1">Select Plan</h4>
+              <p class="text-gray-400 text-sm">Choose a plan that fits your recording needs.</p>
             </div>
             <div class="step-card">
               <div class="step-number">3</div>
               <h4 class="text-white font-semibold mb-1">Start Recording</h4>
-              <p class="text-gray-400 text-sm">Credits are consumed as you record. Scale up or down anytime.</p>
+              <p class="text-gray-400 text-sm">Requires internet access!</p>
             </div>
           </div>
 
@@ -415,14 +415,14 @@
       <div class="max-w-6xl mx-auto pb-16">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           
-          <!-- Indie Tier -->
+          <!-- Starter Tier -->
           <div class="tier-card p-8">
             <div class="mb-6">
               <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-sm font-medium mb-4">
-                Indie
+                Starter
               </span>
-              <h3 class="text-2xl font-bold text-white mb-2">Indie Studio</h3>
-              <p class="text-gray-400 text-sm">< $100K annual revenue</p>
+              <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
+              <p class="text-gray-400 text-sm">Core recording for small teams</p>
             </div>
             
             <ul class="space-y-3 mb-8">
@@ -448,9 +448,9 @@
                 <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                 </svg>
-                <span class="text-gray-300 platform-tooltip">Platform support available
+                <span class="text-gray-300 platform-tooltip">Select platforms included
                   <span class="tooltip-icon">ⓘ</span>
-                  <span class="tooltip-content">Indie tier includes your choice of platforms. Most customers select 1-2 platforms (e.g., Windows + Mac). Additional platforms available at added cost. Contact us for multi-platform bundles.</span>
+                  <span class="tooltip-content">Starter tier includes your choice of platforms (e.g., Windows + Mac). Additional platforms available at added cost. Contact us for multi-platform bundles.</span>
                 </span>
               </li>
               <li class="flex items-start gap-3 binaries-feature">
@@ -463,20 +463,20 @@
                 <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                 </svg>
-                <span class="text-gray-300">Discord community support</span>
+                <span class="text-gray-300">Community support</span>
               </li>
             </ul>
             
             <a 
               href="#"
               class="block w-full text-center px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg transition-colors license-cta"
-              data-tier="Indie"
+              data-tier="Starter"
             >
               Get Quote
             </a>
           </div>
           
-          <!-- Studio Tier (Featured) -->
+          <!-- Pro Tier (Featured) -->
           <div class="tier-card featured p-8 relative">
             <div class="absolute -top-3 left-1/2 -translate-x-1/2">
               <span class="px-4 py-1 bg-indigo-500 text-white text-sm font-medium rounded-full">Most Popular</span>
@@ -484,10 +484,10 @@
             
             <div class="mb-6">
               <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">
-                Studio
+                Pro
               </span>
-              <h3 class="text-2xl font-bold text-white mb-2">Game Studio</h3>
-              <p class="text-gray-400 text-sm">$100K - $1M annual revenue</p>
+              <h3 class="text-2xl font-bold text-white mb-2">Pro</h3>
+              <p class="text-gray-400 text-sm">Full platform coverage with priority support</p>
             </div>
             
             <ul class="space-y-3 mb-8">
@@ -507,7 +507,7 @@
                 <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                 </svg>
-                <span class="text-gray-300"><strong class="text-indigo-300">All platforms included</strong> (Windows, Mac, Linux, iOS, Android, Oculus)</span>
+                <span class="text-gray-300"><strong class="text-indigo-300">All platforms included</strong> (Windows, Mac, Linux, iOS, Android, Meta Quest)</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -525,14 +525,14 @@
                 <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                 </svg>
-                <span class="text-gray-300">Free consultation calls</span>
+                <span class="text-gray-300">Consultation calls included</span>
               </li>
             </ul>
             
             <a 
               href="#"
               class="block w-full text-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium rounded-lg transition-colors license-cta"
-              data-tier="Studio"
+              data-tier="Pro"
             >
               Get Quote
             </a>
@@ -545,7 +545,7 @@
                 Enterprise
               </span>
               <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
-              <p class="text-gray-400 text-sm">$1M+ annual revenue</p>
+              <p class="text-gray-400 text-sm">Custom terms, SLAs, and dedicated support</p>
             </div>
             
             <ul class="space-y-3 mb-8">
@@ -565,7 +565,7 @@
                 <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                 </svg>
-                <span class="text-gray-300">Everything in Studio</span>
+                <span class="text-gray-300">Everything in Pro</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -723,17 +723,17 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
             </summary>
-            <p class="mt-4 text-gray-400">Credits-based plans are self-serve and pay-as-you-go — great for individuals and small teams who want to get started quickly. Company licenses (Indie, Studio, Enterprise) are for teams that need dedicated support, source code access, custom SLAs, or perpetual licensing terms.</p>
+            <p class="mt-4 text-gray-400">Credits-based plans are self-serve and pay-as-you-go — great for individuals and small teams who want to get started quickly. Company licenses (Starter, Pro, Enterprise) are for teams that need dedicated support, source code access, custom SLAs, or perpetual licensing terms.</p>
           </details>
 
           <details class="tier-card p-6 cursor-pointer group">
             <summary class="flex items-center justify-between text-white font-medium">
-              How is company size determined?
+              Which company license tier should I choose?
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
             </summary>
-            <p class="mt-4 text-gray-400">Company size is based on annual revenue. We trust our customers to self-select the appropriate tier: Indie (under $100K), Studio ($100K-$1M), or Enterprise ($1M+). For studios with variable revenue, we're happy to discuss the best fit.</p>
+            <p class="mt-4 text-gray-400">Choose based on the features you need: <strong class="text-gray-300">Starter</strong> for core recording with select platforms and community support, <strong class="text-gray-300">Pro</strong> for all-platform coverage with priority support and integration help, or <strong class="text-gray-300">Enterprise</strong> for custom SLAs, dedicated support, and custom feature development.</p>
           </details>
           
           <details class="tier-card p-6 cursor-pointer group">
