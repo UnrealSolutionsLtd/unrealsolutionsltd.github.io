@@ -15,7 +15,7 @@ on:
         description: "Recording credits for Supabase (credit-based licensing)"
         required: false
         type: integer
-        default: 0
+        default: 3
 
 permissions:
   contents: read
@@ -36,7 +36,7 @@ jobs:
             SALT="salty-salt-3214"
             API_KEY_HASH=$(echo -n "${SALT}${USER_EMAIL}$(date +%s)" | sha256sum | head -c 8 | tr '[:lower:]' '[:upper:]')
             RANDOM_SUFFIX=$(head -c 4 /dev/urandom | xxd -p | tr '[:lower:]' '[:upper:]')
-            API_KEY="RVRTRIAL${API_KEY_HASH}${RANDOM_SUFFIX}"
+            API_KEY="RVRSUB${API_KEY_HASH}${RANDOM_SUFFIX}"
             echo "Generated API_KEY: $API_KEY"
             echo "API_KEY=$API_KEY" >> $GITHUB_ENV
 
