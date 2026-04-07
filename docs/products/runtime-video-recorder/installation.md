@@ -50,11 +50,11 @@ If you previously had the plugin in the Engine directory, **remove** `<ENGINE_DI
 1. Open your project in the Unreal Editor
 2. Go to **Edit → Project Settings**
 3. Scroll down to **Plugins → Runtime Video Recorder**
-4. Paste your API key into the **DEMO API KEY** field
+4. Paste your API key into the **API KEY** field
 
 ![RVR Settings](https://unrealsolutions.com/assets/rvr/settings.png)
 
-::: details DEMO API KEY field doesn't appear?
+::: details API KEY field doesn't appear?
 Delete the Engine copy of the plugin at `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. The settings panel should now display the API key field correctly.
 :::
 
@@ -141,10 +141,10 @@ PublicDependencyModuleNames.AddRange(new string[] {
 | Problem | Solution |
 |---------|----------|
 | Plugin doesn't appear in Plugins list | Verify the folder is in the correct location and contains the `.uplugin` file. Regenerate project files. |
-| DEMO API KEY field is missing | Delete `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. |
+| API KEY field is missing | Delete `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. |
 | Compilation errors | Ensure UE 5.3+. Delete `Intermediate` and `Binaries` folders, then regenerate project files. |
 | Module not found error | Add `"RuntimeVideoRecorder"` to your `.Build.cs` (see above). |
-| Android build fails | Verify NDK r21+, SDK 21+, and arm64 packaging is enabled. |
+| Android build fails | Verify Unreal Engine Android environment |
 
 ## Next Steps
 

@@ -8,7 +8,7 @@ Fill out the request form at **[tally.so/r/mZDq7v](https://tally.so/r/mZDq7v)**.
 
 ### For how long does an API key work?
 
-As long as you have credits. There is no fixed expiration date — your key remains active while your credit balance is positive.
+As long as you have active subscription. There is no fixed expiration date.
 
 ### Where do I enter the API key?
 
