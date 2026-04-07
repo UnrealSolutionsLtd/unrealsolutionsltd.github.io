@@ -15,9 +15,6 @@ hero:
     - theme: brand
       text: Vulkan Media Player
       link: /products/vulkan-media-player/
-    - theme: alt
-      text: Download binaries
-      link: /download
 
 features:
   - icon: 🎥
