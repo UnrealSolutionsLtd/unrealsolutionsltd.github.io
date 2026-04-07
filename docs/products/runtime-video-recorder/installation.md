@@ -55,7 +55,7 @@ If you previously had the plugin in the Engine directory, **remove** `<ENGINE_DI
 ![RVR Settings](https://unrealsolutions.com/assets/rvr/settings.png)
 
 ::: details API KEY field doesn't appear?
-Delete the Engine copy of the plugin at `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. The settings panel should now display the API key field correctly.
+Delete the Engine copy of the plugin at `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. The settings panel should now display the API key field correctly. Custom Engines require Perpetual license!
 :::
 
 ## Step 4 — Quick Test
@@ -141,7 +141,7 @@ PublicDependencyModuleNames.AddRange(new string[] {
 | Problem | Solution |
 |---------|----------|
 | Plugin doesn't appear in Plugins list | Verify the folder is in the correct location and contains the `.uplugin` file. Regenerate project files. |
-| API KEY field is missing | Delete `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. |
+| API KEY field is missing | Delete `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. Custom Engines require Perpetual license! |
 | Compilation errors | Ensure UE 5.3+. Delete `Intermediate` and `Binaries` folders, then regenerate project files. |
 | Module not found error | Add `"RuntimeVideoRecorder"` to your `.Build.cs` (see above). |
 | Android build fails | Verify Unreal Engine Android environment |
