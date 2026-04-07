@@ -22,7 +22,7 @@ Yes. The Subscription version includes every feature and works on all supported 
 
 ### Can I package my application using the Subscription version?
 
-Yes. Your application needs an active internet connection for license validation. You can test the Subscription in **Shipping** configuration. Use the [sample project](https://drive.google.com/file/d/1GygW34E9h0CxcTM-7OvsvPXgN7aNSTi_/view?usp=drive_link) to verify packaging works correctly.
+Yes. Your application needs an active internet connection for license validation. You can test the Subscription in **Shipping** configuration. Use the [sample project](https://drive.google.com/file/d/1GygW34E9h0CxcTM-7OvsvPXgN7aNSTi_/view?usp=drive_link) to verify the packaging process works correctly.
 
 ### What license does the plugin use?
 
