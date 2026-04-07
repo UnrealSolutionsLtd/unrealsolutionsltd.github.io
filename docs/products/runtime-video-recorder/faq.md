@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-## API Key & Credits
+## API Key
 
 ### How do I get an API key?
 
@@ -8,21 +8,21 @@ Fill out the request form at **[tally.so/r/mZDq7v](https://tally.so/r/mZDq7v)**.
 
 ### For how long does an API key work?
 
-As long as you have active subscription. There is no fixed expiration date.
+As long as you have a valid license.
 
 ### Where do I enter the API key?
 
 Go to **Edit → Project Settings → Plugins → Runtime Video Recorder** and paste it into the **DEMO API KEY** field. See the [Installation Guide](./installation#step-3-—-set-your-api-key) for details.
 
-## Trial & Licensing
+## Subscription & Licensing
 
-### Does the Trial include all features and all platforms?
+### Does the Subscription include all features and all platforms?
 
-Yes. The Trial version includes every feature and works on all supported platforms: Windows, macOS, iOS, tvOS, Android, Oculus / Meta Quest, and Linux.
+Yes. The Subscription version includes every feature and works on all supported platforms: Windows, MacOS, iOS, tvOS, Android, Oculus / Meta Quest, and Linux.
 
-### Can I package my application using the Trial version?
+### Can I package my application using the Subscription version?
 
-Yes. Your application needs an active internet connection for license validation. You can test the Trial in **Shipping** configuration. Use the [sample project](https://drive.google.com/file/d/1GygW34E9h0CxcTM-7OvsvPXgN7aNSTi_/view?usp=drive_link) to verify packaging works correctly.
+Yes. Your application needs an active internet connection for license validation. You can test the Subscription in **Shipping** configuration. Use the [sample project](https://drive.google.com/file/d/1GygW34E9h0CxcTM-7OvsvPXgN7aNSTi_/view?usp=drive_link) to verify packaging works correctly.
 
 ### What license does the plugin use?
 
@@ -40,11 +40,11 @@ Yes. macOS is fully supported with hardware-accelerated encoding via AVFoundatio
 
 ### Can I test on Oculus / Meta Quest / Android?
 
-Absolutely. All mobile and VR platforms are supported in both Trial and licensed versions.
+Absolutely. All mobile and VR platforms are supported in both Subscription and licensed versions.
 
 ### Can I use the plugin with a Source / Custom engine build?
 
-Yes, but only in the Editor. For full Source/Custom engine support (including packaging), the Perpetual license with full source code is required. For Editor-only testing, the standard Launcher engine works fine.
+Yes, but only in the Editor. For full Source/Custom engine support (including packaging), the Perpetual license with full source code is required. For Editor-only testing, the Epic Launcher engine works fine.
 
 ## Editor & Build Configuration
 

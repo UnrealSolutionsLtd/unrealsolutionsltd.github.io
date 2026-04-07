@@ -16,7 +16,7 @@ hero:
       text: Vulkan Media Player
       link: /products/vulkan-media-player/
     - theme: alt
-      text: Get Trial
+      text: Download binaries
       link: /download
 
 features:
