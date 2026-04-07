@@ -1,214 +1,158 @@
 # Installation
 
-This guide will help you install Runtime Video Recorder (RVR) in your Unreal Engine project.
+This guide walks you through installing Runtime Video Recorder (RVR) and getting your API key set up.
 
-## Prerequisites
+## Supported Versions & Platforms
 
-- **Unreal Engine:** 5.0 or higher (5.3+ recommended)
-- **Platforms:** Windows, macOS, Linux, Android, or Oculus development setup
-- **Disk Space:** ~50 MB for the plugin
+- **Unreal Engine:** 5.3+
+- **Platforms:** Windows, macOS, iOS, tvOS, Linux, Android, Oculus / Meta Quest
 
-## Method 1: Download from Website (Recommended)
+## Step 1 — Request an API Key
 
-1. **Get the Plugin**
-   - Visit our [Download Page](/download)
-   - Complete your purchase or download the trial
-   - You'll receive the download instructions via email
+RVR requires an API key to operate. Request yours here:
 
-2. **Extract to Plugins Folder**
-   ```
-   YourProject/
-   └── Plugins/
-       └── RuntimeVideoRecorder/
-           ├── Source/
-           ├── Resources/
-           ├── Content/
-           └── RuntimeVideoRecorder.uplugin
-   ```
+::: tip Get Your API Key
+Fill out the form at **[tally.so/r/mZDq7v](https://tally.so/r/mZDq7v)** — you'll receive your key via email.
+:::
 
-3. **Regenerate Project Files**
-   - Right-click your `.uproject` file
-   - Select **Generate Visual Studio project files** (Windows/Linux)
-   - Or **Generate Xcode project** (macOS)
+## Step 2 — Install the Plugin
 
-4. **Compile & Enable**
-   - Open the generated solution/project file
-   - Build in **Development Editor** configuration
-   - Launch the editor
-   - Go to **Edit** → **Plugins**
-   - Search for "Runtime Video Recorder"
-   - Check the **Enabled** checkbox
-   - Click **Restart Now**
+Choose the method that matches your project type.
 
-## Method 2: Alternative Installation
+### Blueprint-Only Project (no C++ code)
 
-### If You Have the Plugin Files
+Place the plugin in the **Engine** directory:
 
-1. **Download the Plugin**
-   - Download the RVR package from your purchase confirmation email
-
-2. **Extract to Plugins Folder**
-   ```
-   YourProject/
-   └── Plugins/
-       └── RuntimeVideoRecorder/
-           ├── Source/
-           ├── Resources/
-           ├── Content/
-           └── RuntimeVideoRecorder.uplugin
-   ```
-
-3. **Regenerate Project Files**
-   - Right-click your `.uproject` file
-   - Select **Generate Visual Studio project files** (Windows/Linux)
-   - Or **Generate Xcode project** (macOS)
-
-4. **Compile the Project**
-   - Open the generated solution/project file
-   - Build the project in **Development Editor** configuration
-
-5. **Enable the Plugin**
-   - Open your Unreal project
-   - Go to **Edit** → **Plugins**
-   - Search for "Runtime Video Recorder"
-   - Check the **Enabled** checkbox
-   - Click **Restart Now**
-
-## Verify Installation
-
-After restarting the editor, verify the installation:
-
-### Blueprint Verification
-
-1. Open any Blueprint
-2. Right-click in the graph
-3. Search for "Start Recording"
-4. You should see **Start Recording** node from Runtime Video Recorder
-
-### C++ Verification
-
-Check if you can include the header:
-
-```cpp
-#include "RuntimeVideoRecorder.h"
-
-void AMyActor::BeginPlay()
-{
-    Super::BeginPlay();
-    
-    URuntimeVideoRecorder* Recorder = GEngine->GetEngineSubsystem<URuntimeVideoRecorder>();
-    if (Recorder)
-    {
-        UE_LOG(LogTemp, Log, TEXT("Runtime Video Recorder is available!"));
-    }
-}
+```
+<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder/
 ```
 
-## Required Dependencies
+For example, a typical path on Windows:
 
-RVR automatically enables these plugins (no manual action needed):
+```
+C:/Program Files/Epic Games/UE_5.5/Engine/Plugins/Marketplace/RuntimeVideoRecorder/
+```
 
-- **ElectraPlayer** - For video playback support
-- **AudioCapture** - For audio recording functionality
+### C++ Project
 
-If you encounter issues, manually verify these plugins are enabled:
-- **Edit** → **Plugins** → Search for "ElectraPlayer" and "AudioCapture"
+Place the plugin in your **Project** directory instead:
 
-## Platform-Specific Setup
+```
+<PROJECT_DIR>/Plugins/RuntimeVideoRecorder/
+```
+
+::: warning Important for C++ projects
+If you previously had the plugin in the Engine directory, **remove** `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` before placing it in your project's `Plugins/` folder. Having copies in both locations causes conflicts.
+:::
+
+## Step 3 — Set Your API Key
+
+1. Open your project in the Unreal Editor
+2. Go to **Edit → Project Settings**
+3. Scroll down to **Plugins → Runtime Video Recorder**
+4. Paste your API key into the **DEMO API KEY** field
+
+![RVR Settings](/assets/rvr/settings.png)
+
+::: details DEMO API KEY field doesn't appear?
+Delete the Engine copy of the plugin at `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. The settings panel should now display the API key field correctly.
+:::
+
+## Step 4 — Quick Test
+
+The plugin ships with a demo level for quick verification:
+
+1. Open the **Content Browser**
+2. Enable **Show Plugin Content** (click the settings icon in Content Browser)
+3. Navigate to **Plugins → Runtime Video Recorder Content**
+4. Open **`Level_RuntimeVideoRecorder_UE53Plus`**
+5. Press **Play** — you should see the recording controls
+
+## Testing in Packaged Builds
+
+If you want to verify the plugin works in **Development** or **Shipping** configuration (outside the Editor), download and use the provided sample project:
+
+::: tip Sample Project
+**[Download Sample Project](https://drive.google.com/file/d/1GygW34E9h0CxcTM-7OvsvPXgN7aNSTi_/view?usp=drive_link)**
+
+Remember to replace the API key in the sample project with your own.
+:::
+
+## Platform-Specific Notes
 
 ### Windows
 
 No additional setup required. Hardware acceleration is enabled by default.
 
-::: tip
-For AMD/Intel GPUs, you may want to enable **Force Hardware Acceleration For All Vendors** in Project Settings if you experience issues.
+::: tip AMD / Intel GPUs
+If you experience encoding issues, enable **Force Hardware Acceleration For All Vendors** in Project Settings → Plugins → Runtime Video Recorder.
 :::
 
-### macOS
+### macOS / iOS / tvOS
 
-No additional setup required. AVFoundation is included with macOS.
+No additional setup required. AVFoundation handles encoding natively.
 
 ### Linux
 
-OpenH264 library is included. No additional setup required.
+OpenH264 library is bundled. No additional setup required.
 
 ::: warning
-Linux uses software encoding (no hardware acceleration). Expect higher CPU usage.
+Linux uses software encoding (no hardware acceleration). Expect higher CPU usage compared to other platforms.
 :::
 
-### Android
+### Android / Oculus
 
-1. **Set Minimum SDK Version**
-   - Go to **Edit** → **Project Settings** → **Platforms** → **Android**
-   - Set **Minimum SDK Version** to **21** or higher
-   - Set **Target SDK Version** to **30** or higher
+1. **Minimum SDK Version:** 21 or higher
+2. **Target SDK Version:** 30 or higher
+3. **Package for arm64** must be enabled
 
-2. **Enable Required Permissions**
-   Add to `Config/DefaultEngine.ini`:
-   ```ini
-   [/Script/AndroidRuntimeSettings.AndroidRuntimeSettings]
-   bEnablePermission_WRITE_EXTERNAL_STORAGE=True
-   bEnablePermission_READ_EXTERNAL_STORAGE=True
-   ```
+Add storage permissions to `Config/DefaultEngine.ini`:
 
-3. **Package Settings**
-   - **Project Settings** → **Packaging** → **Android**
-   - Ensure **Package for arm64** is checked
+```ini
+[/Script/AndroidRuntimeSettings.AndroidRuntimeSettings]
+bEnablePermission_WRITE_EXTERNAL_STORAGE=True
+bEnablePermission_READ_EXTERNAL_STORAGE=True
+```
 
-### Oculus/Meta Quest
+For **Oculus / Meta Quest**, also enable the Oculus VR plugin and set the target device under **Project Settings → Platforms → Android**.
 
-Follow the Android setup steps above, plus:
+## Verify Installation
 
-1. **Enable Oculus Plugin**
-   - **Edit** → **Plugins** → Enable "Oculus VR"
+After setup, confirm the plugin is working:
 
-2. **Configure for Quest**
-   - **Project Settings** → **Platforms** → **Android**
-   - Set **Package for Oculus Mobile devices** to **Quest** or **Quest 2**
+1. Open any Blueprint
+2. Right-click in the Event Graph
+3. Search for **"Start Recording"**
+4. You should see the **Start Recording** node from Runtime Video Recorder
+
+For C++ projects, add the module to your `.Build.cs`:
+
+```csharp
+PublicDependencyModuleNames.AddRange(new string[] { 
+    "Core", 
+    "CoreUObject", 
+    "Engine",
+    "RuntimeVideoRecorder"
+});
+```
 
 ## Troubleshooting Installation
 
-### Plugin Doesn't Appear in Plugins List
-
-**Solutions:**
-- Ensure the plugin folder is correctly placed in `YourProject/Plugins/`
-- Verify the `.uplugin` file exists
-- Regenerate project files
-- Check the Output Log for errors
-
-### Compilation Errors
-
-**Solutions:**
-- Ensure you're using UE 5.0 or higher
-- Clean and rebuild the project
-- Delete `Intermediate` and `Binaries` folders, then regenerate
-
-### "Module not found" Error
-
-**Solutions:**
-- Add to your project's `.Build.cs` file:
-  ```csharp
-  PublicDependencyModuleNames.AddRange(new string[] { 
-      "Core", 
-      "CoreUObject", 
-      "Engine",
-      "RuntimeVideoRecorder"  // Add this line
-  });
-  ```
-
-### Android Build Fails
-
-**Solutions:**
-- Ensure Android SDK is properly configured
-- Check minimum SDK version is 21+
-- Verify NDK is installed (r21 or higher)
+| Problem | Solution |
+|---------|----------|
+| Plugin doesn't appear in Plugins list | Verify the folder is in the correct location and contains the `.uplugin` file. Regenerate project files. |
+| DEMO API KEY field is missing | Delete `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. |
+| Compilation errors | Ensure UE 5.3+. Delete `Intermediate` and `Binaries` folders, then regenerate project files. |
+| Module not found error | Add `"RuntimeVideoRecorder"` to your `.Build.cs` (see above). |
+| Android build fails | Verify NDK r21+, SDK 21+, and arm64 packaging is enabled. |
 
 ## Next Steps
 
-Now that you've installed RVR, check out the [Quick Start Guide](./quick-start) to record your first video!
+- [Quick Start Guide](./quick-start) — Record your first video in under 5 minutes
+- [Project Settings](./project-settings) — Configure encoding quality, hardware acceleration, and more
+- [FAQ](./faq) — Common questions about licensing, platforms, and usage
 
 ## Need Help?
 
 - Join our [Discord community](https://discord.com/invite/pBDSCBcdgv) for quick support
-- Email us at [business@unrealsolutions.com](mailto:business@unrealsolutions.com)
-
+- Email [business@unrealsolutions.com](mailto:business@unrealsolutions.com)

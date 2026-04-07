@@ -41,7 +41,8 @@ export default defineConfig({
             { text: 'Installation', link: '/products/runtime-video-recorder/installation' },
             { text: 'Quick Start', link: '/products/runtime-video-recorder/quick-start' },
             { text: 'Project Settings', link: '/products/runtime-video-recorder/project-settings' },
-            { text: 'Troubleshooting', link: '/products/runtime-video-recorder/troubleshooting' }
+            { text: 'Troubleshooting', link: '/products/runtime-video-recorder/troubleshooting' },
+            { text: 'FAQ', link: '/products/runtime-video-recorder/faq' }
           ]
         },
         {
