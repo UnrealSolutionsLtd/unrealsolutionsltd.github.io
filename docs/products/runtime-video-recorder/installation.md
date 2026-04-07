@@ -52,7 +52,7 @@ If you previously had the plugin in the Engine directory, **remove** `<ENGINE_DI
 3. Scroll down to **Plugins → Runtime Video Recorder**
 4. Paste your API key into the **DEMO API KEY** field
 
-![RVR Settings](/assets/rvr/settings.png)
+![RVR Settings](https://unrealsolutions.com/assets/rvr/settings.png)
 
 ::: details DEMO API KEY field doesn't appear?
 Delete the Engine copy of the plugin at `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. The settings panel should now display the API key field correctly.
