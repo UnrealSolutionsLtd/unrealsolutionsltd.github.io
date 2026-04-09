@@ -17,7 +17,7 @@ Purchase a license to receive your API key and download link via email.
 - 🎥 **Full recording suite** - Viewport, camera, render target, multi-camera
 - 🎵 **Audio recording** - Synchronized audio with submix selection
 - ⚡ **Hardware acceleration** - Native OS API encoding (WMF, AVFoundation, MediaCodec)
-- 🌐 **Cross-platform** - Windows, macOS, Linux, Android, Oculus
+- 🌐 **Cross-platform** - Windows, MacOS, Linux, Android, Oculus
 - 📝 **Complete source code** - Full C++ source for customization
 - 📖 **Documentation** - Comprehensive guides and API reference
 - 🎬 **Sample content** - Demo levels and example Blueprints
@@ -42,8 +42,8 @@ Purchase a license to receive your API key and download link via email.
 - RAM: 8 GB minimum, 16 GB recommended
 - For HW acceleration: NVIDIA Kepler+ (GTX 600), AMD GCN 1.0+, Intel HD 4000+
 
-#### macOS
-- OS: macOS 10.15 (Catalina) or higher
+#### MacOS
+- OS: MacOS 10.15 (Catalina) or higher
 - Apple Silicon and Intel Macs supported
 - RAM: 8 GB minimum, 16 GB recommended
 

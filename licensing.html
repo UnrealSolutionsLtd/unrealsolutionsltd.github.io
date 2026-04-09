@@ -74,6 +74,13 @@
         }
       }, {
         "@type": "Question",
+        "name": "What platforms are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "RVR supports Windows, MacOS, Linux, iOS, tvOS, Android, and Meta Quest. All platforms are included with every license type - no per-platform fees."
+        }
+      }, {
+        "@type": "Question",
         "name": "What payment methods are accepted?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -112,7 +119,7 @@
         "name": "Do you offer refunds?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. We offer a full refund within 7 days of purchase - no questions asked. Contact us to request a refund."
+          "text": "Yes. We offer a full refund within 3 days of purchase - no questions asked. Contact us to request a refund."
         }
       }]
     }
@@ -318,6 +325,45 @@
         border-radius: 1rem;
       }
 
+      /* Hover bubble */
+      .hover-bubble {
+        position: relative;
+        cursor: help;
+        border-bottom: 1px dotted rgba(156, 163, 175, 0.5);
+      }
+
+      .hover-bubble .bubble {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        bottom: calc(100% + 8px);
+        left: 0;
+        background: rgba(17, 24, 39, 0.95);
+        border: 1px solid rgba(99, 102, 241, 0.4);
+        border-radius: 0.75rem;
+        padding: 0.75rem 1rem;
+        white-space: nowrap;
+        font-size: 0.8rem;
+        color: #d1d5db;
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        z-index: 10;
+      }
+
+      .hover-bubble .bubble::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 1.5rem;
+        border: 6px solid transparent;
+        border-top-color: rgba(99, 102, 241, 0.4);
+      }
+
+      .hover-bubble:hover .bubble {
+        visibility: visible;
+        opacity: 1;
+      }
+
       /* FAQ */
       details summary::-webkit-details-marker { display: none; }
       details summary { list-style: none; }
@@ -384,7 +430,7 @@
             <div class="mb-6">
               <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">Subscription</span>
               <h3 class="text-2xl font-bold text-white mb-2">Subscription</h3>
-              <p class="text-gray-400 text-sm">All features, all platforms, engine upgrades included. Cancel anytime.</p>
+              <p class="text-gray-400 text-sm">For hobbyists and evaluators. Access to all features. Cancel anytime.</p>
             </div>
             
             <div class="mb-4 flex-1">
@@ -415,7 +461,7 @@
             <div class="mb-6">
               <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">One-Time</span>
               <h3 class="text-2xl font-bold text-white mb-2">Standard</h3>
-              <p class="text-gray-400 text-sm">All features, all platforms.</p>
+              <p class="text-gray-400 text-sm">For indie developers and studios. All features, all platforms. No API key required.</p>
             </div>
             
             <div class="mb-6 flex-1">
@@ -433,7 +479,7 @@
             <div class="mb-6">
               <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">By Request</span>
               <h3 class="text-2xl font-bold text-white mb-2">Perpetual</h3>
-              <p class="text-gray-400 text-sm">Full source code, custom engine support. <strong class="text-white">Own it forever</strong>.</p>
+              <p class="text-gray-400 text-sm">For studios and enterprises. Full source code, custom engine support. <strong class="text-white">Own it forever</strong>.</p>
             </div>
             
             <div class="mb-6 flex-1">
@@ -459,40 +505,44 @@
               <thead>
                 <tr class="border-b border-gray-800">
                   <th class="px-6 py-4 text-gray-400 font-medium text-sm">Feature</th>
-                  <th class="px-6 py-4 text-white font-medium text-sm text-center">Standard</th>
                   <th class="px-6 py-4 text-white font-medium text-sm text-center">Subscription</th>
+                  <th class="px-6 py-4 text-white font-medium text-sm text-center">Standard</th>
                   <th class="px-6 py-4 text-white font-medium text-sm text-center">Perpetual</th>
                 </tr>
               </thead>
               <tbody class="text-sm">
                 <tr class="border-b border-gray-800/50">
-                  <td class="px-6 py-3 text-gray-300">All recording features</td>
+                  <td class="px-6 py-3 text-gray-300">
+                    <span class="hover-bubble">All platforms
+                      <span class="bubble">Windows &middot; MacOS &middot; Linux &middot; iOS &middot; tvOS &middot; Android &middot; Meta Quest</span>
+                    </span>
+                  </td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                 </tr>
                 <tr class="border-b border-gray-800/50">
-                  <td class="px-6 py-3 text-gray-300">All platforms (Windows, MacOS, iOS, tvOS, Meta Quest, Android, Linux)</td>
+                  <td class="px-6 py-3 text-gray-300">Engine upgrades</td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                 </tr>
-                <tr class="border-b border-gray-800/50">
-                  <td class="px-6 py-3 text-gray-300">Editor &amp; packaged builds</td>
+                <tr>
+                  <td class="px-6 py-3 text-gray-300">Support</td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                </tr>
-                <tr class="border-b border-gray-800/50">
-                  <td class="px-6 py-3 text-gray-300">API key required</td>
-                  <td class="px-6 py-3 text-center text-green-400">No</td>
-                  <td class="px-6 py-3 text-center text-gray-400 text-xs">Yes</td>
-                  <td class="px-6 py-3 text-center text-green-400">No</td>
                 </tr>
                 <tr class="border-b border-gray-800/50">
                   <td class="px-6 py-3 text-gray-300">Offline recording</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                   <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                </tr>
+                <tr class="border-b border-gray-800/50">
+                  <td class="px-6 py-3 text-gray-300">Works without API key</td>
+                  <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                 </tr>
                 <tr class="border-b border-gray-800/50">
@@ -506,24 +556,6 @@
                   <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
                   <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                </tr>
-                <tr class="border-b border-gray-800/50">
-                  <td class="px-6 py-3 text-gray-300">Engine upgrades</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                  <td class="px-6 py-3 text-center text-gray-400 text-xs">&#10007</td>
-                </tr>
-                <tr class="border-b border-gray-800/50">
-                  <td class="px-6 py-3 text-gray-300">Support</td>
-                  <td class="px-6 py-3 text-center text-gray-400 text-xs">Community</td>
-                  <td class="px-6 py-3 text-center text-gray-400 text-xs">Community</td>
-                  <td class="px-6 py-3 text-center text-gray-400 text-xs">Priority</td>
-                </tr>
-                <tr>
-                  <td class="px-6 py-3 text-gray-300">Payment</td>
-                  <td class="px-6 py-3 text-center text-gray-400 text-xs">One-time</td>
-                  <td class="px-6 py-3 text-center text-gray-400 text-xs">Monthly / Yearly</td>
-                  <td class="px-6 py-3 text-center text-gray-400 text-xs">By request</td>
                 </tr>
               </tbody>
             </table>
@@ -597,6 +629,14 @@
 
           <details class="price-card p-6 cursor-pointer group">
             <summary class="flex items-center justify-between text-white font-medium">
+              What platforms are supported?
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-4 text-gray-400">RVR supports Windows, MacOS, Linux, iOS, tvOS, Android, and Meta Quest. All platforms are included with every license type - no per-platform fees.</p>
+          </details>
+
+          <details class="price-card p-6 cursor-pointer group">
+            <summary class="flex items-center justify-between text-white font-medium">
               What payment methods do you accept?
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
@@ -640,7 +680,7 @@
               Do you offer refunds?
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="mt-4 text-gray-400">Yes. We offer a full refund within 7 days of purchase - no questions asked. Contact us at business@unrealsolutions.com to request a refund.</p>
+            <p class="mt-4 text-gray-400">Yes. We offer a full refund within 3 days of purchase - no questions asked. Contact us at business@unrealsolutions.com to request a refund.</p>
           </details>
         </div>
       </div>

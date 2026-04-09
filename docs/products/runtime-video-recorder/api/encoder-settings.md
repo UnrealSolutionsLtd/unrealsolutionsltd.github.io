@@ -311,7 +311,7 @@ Settings.WIN_QualityVsSpeed = 50;
 
 ---
 
-### macOS (AVFoundation)
+### MacOS (AVFoundation)
 
 **Supports:**
 - All settings except Windows-specific ones

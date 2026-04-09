@@ -19,7 +19,7 @@ hero:
 features:
   - icon: 🎥
     title: Runtime Video Recorder
-    details: Record MP4 videos at runtime with zero performance impact. Hardware-accelerated encoding for Windows, macOS, Android, and Linux.
+    details: Record MP4 videos at runtime with zero performance impact. Hardware-accelerated encoding for Windows, MacOS, Android, and Linux.
     link: /products/runtime-video-recorder/
   - icon: 📺
     title: Vulkan Media Player
@@ -30,7 +30,7 @@ features:
     details: All encoding happens on dedicated threads. No hitches, no stutters, just smooth gameplay while recording.
   - icon: 🌍
     title: Cross-Platform Support
-    details: Native support for Windows (WMF), macOS (AVFoundation), Linux (OpenH264), Android (MediaCodec), and Oculus.
+    details: Native support for Windows (WMF), MacOS (AVFoundation), Linux (OpenH264), Android (MediaCodec), and Oculus.
   - icon: 🎵
     title: Audio Support
     details: Synchronized audio/video capture and playback with selective submix recording. Crystal clear audio on all platforms.
@@ -50,11 +50,11 @@ This documentation provides comprehensive guides, API references, and best pract
 The most advanced video recording solution for Unreal Engine. Record high-quality MP4 videos with synchronized audio at runtime without any performance impact.
 
 **Key Features:**
-- 🚀 Hardware-accelerated encoding (Windows, macOS, Android, Oculus)
+- 🚀 Hardware-accelerated encoding (Windows, MacOS, Android, Oculus)
 - 🎬 Multiple recording sources (viewport, cameras, render targets)
 - 🎵 Full audio recording support with submix selection
 - ⚡ Zero game thread blocking
-- 🌐 Cross-platform (Windows, macOS, Linux, Android, Oculus)
+- 🌐 Cross-platform (Windows, MacOS, Linux, Android, Oculus)
 
 [Get Started →](/products/runtime-video-recorder/quick-start)
 

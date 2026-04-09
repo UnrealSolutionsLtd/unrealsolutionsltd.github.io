@@ -76,7 +76,7 @@ Common issues and their solutions for Runtime Video Recorder.
 3. **Verify file permissions**
    - Ensure the application has write access to the output directory
    - On Windows: Check antivirus isn't blocking writes
-   - On macOS: Grant app permissions in System Preferences
+   - On MacOS: Grant app permissions in System Preferences
 
 ---
 
@@ -236,7 +236,7 @@ Common issues and their solutions for Runtime Video Recorder.
    ```
 
 6. **Check GPU/CPU usage**
-   - Open Task Manager (Windows) or Activity Monitor (macOS)
+   - Open Task Manager (Windows) or Activity Monitor (MacOS)
    - If CPU is maxed: Lower resolution/FPS or enable hardware acceleration
    - If GPU is maxed: Reduce graphics settings or resolution
 
@@ -314,7 +314,7 @@ Common issues and their solutions for Runtime Video Recorder.
 
 ---
 
-### macOS
+### MacOS
 
 #### Black Screen in Recording
 

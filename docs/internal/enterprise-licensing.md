@@ -65,7 +65,7 @@ For a studio burning $500K-2M/month, 6 months delay = $3M-12M opportunity cost
 
 Building for ONE platform is hard. Building for 7 platforms:
 - Windows (NVENC, AMD, Intel, Software)
-- macOS (VideoToolbox)
+- MacOS (VideoToolbox)
 - Linux (VAAPI, NVENC)
 - iOS (VideoToolbox)
 - Android (MediaCodec + fragmentation)

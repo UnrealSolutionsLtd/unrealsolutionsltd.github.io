@@ -9,7 +9,7 @@ Unreal Solutions Ltd develops Runtime Video Recorder (RVR), the only in-engine v
 ## What RVR Does
 
 RVR records video directly inside Unreal Engine projects across all platforms:
-- **Cross-Platform Recording**: Windows, macOS, Linux, iOS, Android, tvOS, and Meta Quest/Oculus
+- **Cross-Platform Recording**: Windows, MacOS, Linux, iOS, Android, tvOS, and Meta Quest/Oculus
 - **Hardware-Accelerated Encoding**: Uses native platform APIs (WMF, AVFoundation, MediaCodec) - 1-3% CPU overhead
 - **Zero Dependencies**: No FFmpeg, no codec packs, no external executables
 - **Instant Replay**: Circular buffer records the last 30-60 seconds continuously - save on demand

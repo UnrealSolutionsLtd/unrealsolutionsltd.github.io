@@ -111,7 +111,7 @@ Get-ChildItem -Filter *.mp4 | ForEach-Object {
 }
 ```
 
-**Linux/macOS:**
+**Linux/MacOS:**
 ```bash
 for f in *.mp4; do
     ffmpeg -i "$f" -c:v libx264 -profile:v high -level 4.1 -preset medium -crf 23 -bf 0 -g 30 -keyint_min 30 -c:a aac -b:a 192k "compatible_${f}"

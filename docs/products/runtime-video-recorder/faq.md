@@ -34,9 +34,9 @@ Please contact [business@unrealsolutions.com](mailto:business@unrealsolutions.co
 
 ## Platform Support
 
-### Does it work on macOS?
+### Does it work on MacOS?
 
-Yes. macOS is fully supported with hardware-accelerated encoding via AVFoundation. iOS and tvOS are also supported.
+Yes. MacOS is fully supported with hardware-accelerated encoding via AVFoundation. iOS and tvOS are also supported.
 
 ### Can I test on Oculus / Meta Quest / Android?
 

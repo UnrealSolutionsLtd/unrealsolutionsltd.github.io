@@ -219,7 +219,7 @@ Before going live:
 
 Consider adding these pages (templates provided in sidebar config):
 
-- Platform-specific guides (Windows, macOS, Linux, Android, Oculus)
+- Platform-specific guides (Windows, MacOS, Linux, Android, Oculus)
 - Advanced feature guides (frame-rate independent, circular buffer, etc.)
 - Best practices guide
 - Performance guide

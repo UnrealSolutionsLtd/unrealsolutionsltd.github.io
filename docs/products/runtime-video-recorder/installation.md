@@ -5,7 +5,7 @@ This guide walks you through installing Runtime Video Recorder (RVR) and getting
 ## Supported Versions & Platforms
 
 - **Unreal Engine:** 5.3+
-- **Platforms:** Windows, macOS, iOS, tvOS, Linux, Android, Oculus / Meta Quest
+- **Platforms:** Windows, MacOS, iOS, tvOS, Linux, Android, Oculus / Meta Quest
 
 ## Step 1 - Get Your API Key
 
@@ -88,7 +88,7 @@ No additional setup required. Hardware acceleration is enabled by default.
 If you experience encoding issues, enable **Force Hardware Acceleration For All Vendors** in Project Settings → Plugins → Runtime Video Recorder.
 :::
 
-### macOS / iOS / tvOS
+### MacOS / iOS / tvOS
 
 No additional setup required. AVFoundation handles encoding natively.
 

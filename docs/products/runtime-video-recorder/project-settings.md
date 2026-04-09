@@ -19,12 +19,12 @@ Enable hardware-accelerated encoding.
 
 **Type:** `bool`  
 **Default:** `true`  
-**Platforms:** Windows, macOS, Android, Oculus
+**Platforms:** Windows, MacOS, Android, Oculus
 
 **Description:**
 When enabled, uses native OS APIs for hardware-accelerated video encoding:
 - **Windows:** Windows Media Foundation (WMF)
-- **macOS:** AVFoundation
+- **MacOS:** AVFoundation
 - **Android/Oculus:** MediaCodec
 - **Linux:** OpenH264 (software only, this setting has no effect)
 
@@ -346,7 +346,7 @@ MaxLastSecondsToRecord=600.0
 
 ---
 
-### macOS
+### MacOS
 
 ```ini
 bUseHardwareAcceleration=True

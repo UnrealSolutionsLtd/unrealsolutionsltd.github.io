@@ -9,7 +9,7 @@
 
 ## Overview
 
-Runtime Video Recorder (RVR) is a production-ready Unreal Engine plugin that enables **MP4 video recording at runtime without game or render thread hitches**. Built with performance in mind, it supports hardware-accelerated encoding on Windows (WMF), macOS (AVFoundation), Linux/Android (OpenH264), and includes specialized features for VR and multi-camera setups.
+Runtime Video Recorder (RVR) is a production-ready Unreal Engine plugin that enables **MP4 video recording at runtime without game or render thread hitches**. Built with performance in mind, it supports hardware-accelerated encoding on Windows (WMF), MacOS (AVFoundation), Linux/Android (OpenH264), and includes specialized features for VR and multi-camera setups.
 
 ## Key Features
 
@@ -43,10 +43,10 @@ Runtime Video Recorder (RVR) is a production-ready Unreal Engine plugin that ena
 | Platform | Status | Hardware Acceleration | Encoder |
 |----------|--------|----------------------|---------|
 | Windows (Win64) | ✅ Full Support | ✅ Yes (WMF) | H.264 |
-| macOS | ✅ Full Support | ✅ Yes (AVFoundation) | H.264 |
-| Linux | ✅ Full Support | ❌ Software | OpenH264 |
+| MacOS | ✅ Full Support | ✅ Yes (AVFoundation) | H.264 |
 | Android | ✅ Full Support | ✅ Yes (MediaCodec) | H.264 |
 | Oculus | ✅ Full Support | ✅ Yes | H.264 |
+| Linux | ✅ Full Support | ❌ Software | OpenH264 |
 
 ## Quick Links
 
@@ -70,7 +70,7 @@ Runtime Video Recorder (RVR) is a production-ready Unreal Engine plugin that ena
 Unlike 99% of alternatives, RVR **doesn't rely on ffmpeg** or any external executables. It uses native OS APIs for hardware-accelerated encoding:
 
 - **Windows:** Windows Media Foundation (WMF)
-- **macOS:** AVFoundation
+- **MacOS/iOS/tvOS:** AVFoundation
 - **Android/Oculus:** MediaCodec
 - **Linux:** OpenH264 (software encoding)
 
