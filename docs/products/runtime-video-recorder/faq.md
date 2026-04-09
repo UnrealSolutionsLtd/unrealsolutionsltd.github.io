@@ -4,7 +4,7 @@
 
 ### How do I get an API key?
 
-Purchase a license at **[unrealsolutions.com/licensing](/licensing)**. You'll receive your key via email.
+Purchase a license at **[unrealsolutions.com/licensing](https://unrealsolutions.com/licensing.html)**. You'll receive your key via email.
 
 ### For how long does an API key work?
 

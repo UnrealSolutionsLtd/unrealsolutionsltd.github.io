@@ -11,11 +11,11 @@
   'use strict';
 
   const NAV_ITEMS = [
-    { href: '/products/bugit/', label: 'BugIt', emoji: '🐛', isHighlight: true },
     { href: '/products/', label: 'Products' },
     { href: '/licensing.html', label: 'Licensing' },
     { href: '/docs/', label: 'Docs' },
-    { href: '/insights/', label: 'Insights' }
+    { href: '/insights/', label: 'Insights' },
+    { href: 'https://discord.com/invite/pBDSCBcdgv', label: 'Support', isExternal: true }
   ];
 
   function createNav(logoPath) {
@@ -30,14 +30,10 @@
     const navLinks = NAV_ITEMS.map(item => {
       const active = isActive(item.href);
       
-      if (item.isHighlight) {
-        // BugIt special styling
+      if (item.isExternal) {
         return `
-          <a href="${item.href}" class="text-yellow-400 hover:text-yellow-300 transition-colors text-sm font-medium flex items-center gap-1">
-            <span>${item.emoji}</span> ${item.label}
-          </a>`;
+          <a href="${item.href}" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors text-sm font-medium">${item.label}</a>`;
       } else {
-        // Regular nav items
         const colorClass = active ? 'text-white' : 'text-gray-400 hover:text-white';
         return `
           <a href="${item.href}" class="${colorClass} transition-colors text-sm font-medium">${item.label}</a>`;
@@ -70,8 +66,8 @@
       <div id="mobile-menu" class="hidden sm:hidden bg-gray-900/95 border-t border-gray-800">
         <div class="px-4 py-4 space-y-3">
           ${NAV_ITEMS.map(item => {
-            if (item.isHighlight) {
-              return `<a href="${item.href}" class="block text-yellow-400 hover:text-yellow-300 text-sm font-medium">${item.emoji} ${item.label}</a>`;
+            if (item.isExternal) {
+              return `<a href="${item.href}" target="_blank" rel="noopener noreferrer" class="block text-indigo-400 hover:text-indigo-300 text-sm font-medium">${item.label}</a>`;
             }
             return `<a href="${item.href}" class="block text-gray-400 hover:text-white text-sm font-medium">${item.label}</a>`;
           }).join('')}
@@ -111,15 +107,9 @@
       // ==========================================
       function createFooterLinks() {
         return NAV_ITEMS.map(item => {
-          if (item.isHighlight) {
-            return `
-              <a href="${item.href}" class="inline-flex items-center text-yellow-400 hover:text-yellow-300 transition-colors">
-                <span class="mr-1.5">${item.emoji}</span>
-                ${item.label}
-              </a>`;
-          }
+          const extra = item.isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
           return `
-            <a href="${item.href}" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors">
+            <a href="${item.href}"${extra} class="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors">
               ${item.label}
             </a>`;
         }).join('');

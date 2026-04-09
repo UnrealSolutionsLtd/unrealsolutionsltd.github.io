@@ -4,7 +4,7 @@ Purchase a license and start recording videos in your Unreal Engine projects tod
 
 ## Get Started
 
-<a href="/licensing" style="display: inline-flex; align-items: center; padding: 12px 24px; background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%); color: white; font-weight: 600; border-radius: 8px; text-decoration: none; margin: 1rem 0;">
+<a href="https://unrealsolutions.com/licensing.html" style="display: inline-flex; align-items: center; padding: 12px 24px; background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%); color: white; font-weight: 600; border-radius: 8px; text-decoration: none; margin: 1rem 0;">
   🛒 View Pricing & Buy
 </a>
 
@@ -87,7 +87,7 @@ After purchase, follow our [Installation Guide](/products/runtime-video-recorder
 
 ## Next Steps
 
-1. **[Purchase a license](/licensing)** from our main website
+1. **[Purchase a license](https://unrealsolutions.com/licensing.html)** from our website
 2. Follow the **[Installation Guide](/products/runtime-video-recorder/installation)**
 3. Complete the **[Quick Start Tutorial](/products/runtime-video-recorder/quick-start)**
 4. Join our **[Discord Community](https://discord.com/invite/pBDSCBcdgv)** for support

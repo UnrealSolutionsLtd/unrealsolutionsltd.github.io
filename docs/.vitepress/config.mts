@@ -21,13 +21,12 @@ export default defineConfig({
     logo: '/assets/logo.png',
     
     nav: [
-      { text: 'Home', link: '/' },
+      { text: 'Home', link: 'https://unrealsolutions.com/' },
       { text: 'Products', items: [
         { text: 'Runtime Video Recorder', link: '/products/runtime-video-recorder/' },
         { text: 'Vulkan Media Player', link: '/products/vulkan-media-player/' },
-        // Add more products here as they become available
       ]},
-      { text: 'Pricing', link: '/licensing' },
+      { text: 'Pricing', link: 'https://unrealsolutions.com/licensing.html' },
       { text: 'Support', link: 'https://discord.com/invite/pBDSCBcdgv' }
     ],
 

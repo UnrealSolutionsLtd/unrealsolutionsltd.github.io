@@ -12,7 +12,7 @@ This guide walks you through installing Runtime Video Recorder (RVR) and getting
 RVR requires an API key to operate. Purchase a license to receive yours:
 
 ::: tip Get Your API Key
-Purchase a license at **[unrealsolutions.com/licensing](/licensing)** — you'll receive your key via email.
+Purchase a license at **[unrealsolutions.com/licensing](https://unrealsolutions.com/licensing.html)** — you'll receive your key via email.
 :::
 
 ## Step 2 — Install the Plugin
