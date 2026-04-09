@@ -55,13 +55,20 @@ Look for **VK_KHR_video_decode_queue** and **VK_KHR_video_decode_h264** in the e
 
 ## Installation Methods
 
-### Method 1: Install from FAB Marketplace (Recommended)
+### Method 1: Clone from GitHub (Recommended)
 
-1. **Download the Plugin**
-   - Get access to full version of VulkanMediaPlayer [here](https://tally.so/r/1AW1oM) 
-   - Download Vulkan Media Player binaries
+1. **Clone the Repository**
+   ```bash
+   cd YourProject/Plugins
+   git clone https://github.com/UnrealSolutionsLtd/VulkanMediaPlayer.git
+   ```
 
-2. **Extract to Plugins Folder**
+2. **Or Download as ZIP**
+   - Go to the [GitHub repository](https://github.com/UnrealSolutionsLtd/VulkanMediaPlayer)
+   - Click **Code** → **Download ZIP**
+   - Extract to your project's Plugins folder
+
+3. **Expected Folder Structure**
    ```
    YourProject/
    └── Plugins/
@@ -187,8 +194,8 @@ Now that Vulkan Media Player is installed:
 If you encounter issues:
 
 - 💬 Join our [Discord](https://discord.com/invite/pBDSCBcdgv) for community support
-- 📧 Email support: business@unrealsolutions.com
-- 📚 Check the [FAB product page](https://www.fab.com/listings/b2fe4881-084b-4b6b-9142-f834ed7aab16) for updates
+- Email support: business@unrealsolutions.com
+- Check the [GitHub repository](https://github.com/UnrealSolutionsLtd/VulkanMediaPlayer) for updates and issues
 
 ---
 

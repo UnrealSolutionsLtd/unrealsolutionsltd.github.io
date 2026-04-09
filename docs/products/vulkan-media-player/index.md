@@ -1,8 +1,9 @@
 # Vulkan Media Player
 
 ![Version](https://img.shields.io/badge/version-1.0-blue.svg)
-![Status](https://img.shields.io/badge/status-experimental-orange.svg)
+![Status](https://img.shields.io/badge/status-open--source-brightgreen.svg)
 ![UE5](https://img.shields.io/badge/Unreal%20Engine-5.x-informational.svg)
+[![GitHub](https://img.shields.io/badge/GitHub-Source-black.svg?logo=github)](https://github.com/UnrealSolutionsLtd/VulkanMediaPlayer)
 
 **Hardware-accelerated video playback plugin for Unreal Engine using Vulkan Video**
 
@@ -80,14 +81,14 @@ Ready to integrate video playback into your Unreal Engine project? Follow these 
 
 ## Current Status
 
-::: warning Experimental Release
-Vulkan Media Player is currently in **experimental** status. While it's functional and ready for testing, some features may be under active development. We welcome feedback and bug reports through our [Discord community](https://discord.com/invite/pBDSCBcdgv).
+::: tip Open Source
+Vulkan Media Player is now **fully open-source**! The complete source code is available on [GitHub](https://github.com/UnrealSolutionsLtd/VulkanMediaPlayer). We welcome contributions, feedback, and bug reports through GitHub Issues or our [Discord community](https://discord.com/invite/pBDSCBcdgv).
 :::
 
 ## Community & Support
 
+- **GitHub:** [Source code & issues](https://github.com/UnrealSolutionsLtd/VulkanMediaPlayer)
 - **Discord:** [Join our community](https://discord.com/invite/pBDSCBcdgv) for support and discussions
-- **FAB Marketplace:** [Get the plugin](https://www.fab.com/listings/b2fe4881-084b-4b6b-9142-f834ed7aab16)
 - **Website:** [unrealsolutions.com](https://unrealsolutions.com)
 - **Creator:** Unreal Solutions Ltd
 
@@ -101,5 +102,5 @@ Get started with Vulkan Media Player:
 
 ---
 
-*2023-2025 Unreal Solutions Ltd*
+*2023-2026 Unreal Solutions Ltd*
 
