@@ -12,7 +12,7 @@ As long as you have a valid license.
 
 ### Where do I enter the API key?
 
-Go to **Edit → Project Settings → Plugins → Runtime Video Recorder** and paste it into the **DEMO API KEY** field. See the [Installation Guide](./installation#step-3-—-set-your-api-key) for details.
+Go to **Edit → Project Settings → Plugins → Runtime Video Recorder** and paste it into the **API KEY** field. See the [Installation Guide](./installation#step-3-—-set-your-api-key) for details.
 
 ## Subscription & Licensing
 

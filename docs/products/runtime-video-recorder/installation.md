@@ -7,9 +7,9 @@ This guide walks you through installing Runtime Video Recorder (RVR) and getting
 - **Unreal Engine:** 5.3+
 - **Platforms:** Windows, macOS, iOS, tvOS, Linux, Android, Oculus / Meta Quest
 
-## Step 1 — Request an API Key
+## Step 1 — Get Your API Key
 
-RVR requires an API key to operate. Request yours here:
+RVR requires an API key to operate. Purchase a license to receive yours:
 
 ::: tip Get Your API Key
 Purchase a license at **[unrealsolutions.com/licensing](/licensing)** — you'll receive your key via email.
