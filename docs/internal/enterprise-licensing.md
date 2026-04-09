@@ -162,7 +162,7 @@ Then: "RVR solves this for $15,000. That's less than 2 weeks of engineer time."
 
 ### "We don't need updates"
 
-"That's fine — the perpetual license works forever on current UE version. When UE 5.7 breaks the render hooks, you'll maintain the fork yourself. Most studios find $5K/year is cheaper than that maintenance."
+"That's fine - the perpetual license works forever on current UE version. When UE 5.7 breaks the render hooks, you'll maintain the fork yourself. Most studios find $5K/year is cheaper than that maintenance."
 
 ---
 
@@ -182,7 +182,7 @@ Then: "RVR solves this for $15,000. That's less than 2 weeks of engineer time."
 |-----|----------|
 | 10% discount | Yes, if annual prepay |
 | 20% discount | Only for multi-year commitment |
-| 30%+ discount | No — price reflects value |
+| 30%+ discount | No - price reflects value |
 | Free trial | 30-day eval license (watermarked) |
 | Payment terms | Net 30 for enterprise |
 

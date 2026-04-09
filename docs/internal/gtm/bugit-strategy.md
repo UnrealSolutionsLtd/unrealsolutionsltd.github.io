@@ -210,7 +210,7 @@ This document consolidates competitive analysis and go-to-market strategy for Bu
 
 ### Key Quote
 
-> "We only realized the scale of the issue when we saw hundreds of merged duplicate reports in BetaHub." — Bohuslav Kuchta, MADFINGER Games
+> "We only realized the scale of the issue when we saw hundreds of merged duplicate reports in BetaHub." - Bohuslav Kuchta, MADFINGER Games
 
 ### The "Headless Character" Incident
 
@@ -255,7 +255,7 @@ This document consolidates competitive analysis and go-to-market strategy for Bu
 
 ### Key Quote
 
-> "Power has been taken from the loud minority and given to a more proportionate amount of players." — Toby, Centro Interactive
+> "Power has been taken from the loud minority and given to a more proportionate amount of players." - Toby, Centro Interactive
 
 ### The "Quiet Majority" Insight
 

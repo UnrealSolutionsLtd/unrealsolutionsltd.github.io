@@ -7,15 +7,15 @@ This guide walks you through installing Runtime Video Recorder (RVR) and getting
 - **Unreal Engine:** 5.3+
 - **Platforms:** Windows, macOS, iOS, tvOS, Linux, Android, Oculus / Meta Quest
 
-## Step 1 — Get Your API Key
+## Step 1 - Get Your API Key
 
 RVR requires an API key to operate. Purchase a license to receive yours:
 
 ::: tip Get Your API Key
-Purchase a license at **[unrealsolutions.com/licensing](https://unrealsolutions.com/licensing.html)** — you'll receive your key via email.
+Purchase a license at **[unrealsolutions.com/licensing](https://unrealsolutions.com/licensing.html)** - you'll receive your key via email.
 :::
 
-## Step 2 — Install the Plugin
+## Step 2 - Install the Plugin
 
 Choose the method that matches your project type.
 
@@ -45,7 +45,7 @@ Place the plugin in your **Project** directory instead:
 If you previously had the plugin in the Engine directory, **remove** `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` before placing it in your project's `Plugins/` folder. Having copies in both locations causes conflicts.
 :::
 
-## Step 3 — Set Your API Key
+## Step 3 - Set Your API Key
 
 1. Open your project in the Unreal Editor
 2. Go to **Edit → Project Settings**
@@ -58,7 +58,7 @@ If you previously had the plugin in the Engine directory, **remove** `<ENGINE_DI
 Delete the Engine copy of the plugin at `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. The settings panel should now display the API key field correctly. Custom Engines require Perpetual license!
 :::
 
-## Step 4 — Quick Test
+## Step 4 - Quick Test
 
 The plugin ships with a demo level for quick verification:
 
@@ -66,7 +66,7 @@ The plugin ships with a demo level for quick verification:
 2. Enable **Show Plugin Content** (click the settings icon in Content Browser)
 3. Navigate to **Plugins → Runtime Video Recorder Content**
 4. Open **`Level_RuntimeVideoRecorder_UE53Plus`**
-5. Press **Play** — you should see the recording controls
+5. Press **Play** - you should see the recording controls
 
 ## Testing in Packaged Builds
 
@@ -148,9 +148,9 @@ PublicDependencyModuleNames.AddRange(new string[] {
 
 ## Next Steps
 
-- [Quick Start Guide](./quick-start) — Record your first video in under 5 minutes
-- [Project Settings](./project-settings) — Configure encoding quality, hardware acceleration, and more
-- [FAQ](./faq) — Common questions about licensing, platforms, and usage
+- [Quick Start Guide](./quick-start) - Record your first video in under 5 minutes
+- [Project Settings](./project-settings) - Configure encoding quality, hardware acceleration, and more
+- [FAQ](./faq) - Common questions about licensing, platforms, and usage
 
 ## Need Help?
 

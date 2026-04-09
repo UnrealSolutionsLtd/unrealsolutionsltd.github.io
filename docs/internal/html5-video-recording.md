@@ -4,7 +4,7 @@ How to capture gameplay video from browser-based games, and whether hardware acc
 
 ## The Short Answer
 
-**Yes, hardware-accelerated video recording is possible for HTML5 games** — but it depends on browser support and requires the newer WebCodecs API. The traditional MediaRecorder approach is software-only.
+**Yes, hardware-accelerated video recording is possible for HTML5 games** - but it depends on browser support and requires the newer WebCodecs API. The traditional MediaRecorder approach is software-only.
 
 ---
 
@@ -114,9 +114,9 @@ function captureFrame() {
 
 Hardware-accelerated encoding uses dedicated video encoding circuits (like NVIDIA NVENC, Intel QuickSync, AMD VCE) instead of the CPU. This results in:
 
-- **Lower CPU usage** — game performance less impacted
-- **Faster encoding** — can handle higher resolutions/framerates
-- **Better battery life** — especially important for mobile/laptop
+- **Lower CPU usage** - game performance less impacted
+- **Faster encoding** - can handle higher resolutions/framerates
+- **Better battery life** - especially important for mobile/laptop
 
 ### Browser Support Matrix
 
@@ -216,7 +216,7 @@ HTML5/browser recording will always have limitations compared to native/in-engin
 
 - **Yes**, hardware-accelerated video recording is possible for HTML5 games
 - **WebCodecs API** is required for hardware acceleration
-- **Browser support is limited** — Chrome/Edge only currently
+- **Browser support is limited** - Chrome/Edge only currently
 - **MediaRecorder** works everywhere but is CPU-bound
 - For **production mobile games**, native solutions like [RVR](https://unrealsolutions.com) still outperform browser-based recording
 

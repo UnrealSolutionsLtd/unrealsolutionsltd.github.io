@@ -109,7 +109,7 @@
         "name": "Can I record video in Unreal Engine without C++?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! Runtime Video Recorder provides full Blueprint support. All recording functionality—start, stop, record last N seconds, save asynchronously—can be controlled entirely through Blueprint nodes without writing any C++ code."
+          "text": "Yes! Runtime Video Recorder provides full Blueprint support. All recording functionality-start, stop, record last N seconds, save asynchronously-can be controlled entirely through Blueprint nodes without writing any C++ code."
         }
       }, {
         "@type": "Question",
@@ -123,7 +123,7 @@
         "name": "How do I set up record last N seconds and save asynchronously?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Start recording with LastSecondsToRecord set to your buffer duration (e.g. 30 or 60 seconds). When you want to save, use Encode Circular Buffer to Video Async — it encodes in the background with no frame hitch. Bind the On Completed pin to show a notification or run logic when the file is ready."
+          "text": "Start recording with LastSecondsToRecord set to your buffer duration (e.g. 30 or 60 seconds). When you want to save, use Encode Circular Buffer to Video Async - it encodes in the background with no frame hitch. Bind the On Completed pin to show a notification or run logic when the file is ready."
         }
       }]
     }
@@ -297,7 +297,7 @@
               </h1>
               <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
                 Implement professional video recording in your Unreal Engine project using only Blueprints. 
-                Start recording, instant replay, render target capture—all without writing a single line of C++.
+                Start recording, instant replay, render target capture-all without writing a single line of C++.
               </p>
               
               <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -376,7 +376,7 @@
                 <span class="blueprint-pin exec"></span>
                 <span>Save asynchronously</span>
               </div>
-              <p class="text-gray-300 text-sm">Encode Circular Buffer to Video Async — save buffered footage without a frame hitch. Bind On Completed when done.</p>
+              <p class="text-gray-300 text-sm">Encode Circular Buffer to Video Async - save buffered footage without a frame hitch. Bind On Completed when done.</p>
             </div>
 
             <div class="feature-card">
@@ -487,7 +487,7 @@
               <div class="code-example text-xs">
                 <span class="comment">// Start recording with circular buffer (e.g. 30s)</span><br>
                 <span class="keyword">BeginPlay</span> → <span class="function">Start Recording</span> (..., <span class="string">LastSecondsToRecord</span>: <span class="string">30</span>)<br><br>
-                <span class="comment">// Save when player presses button — async, no hitch</span><br>
+                <span class="comment">// Save when player presses button - async, no hitch</span><br>
                 <span class="keyword">Input</span> <span class="string">SaveReplay</span> → <span class="function">Encode Circular Buffer to Video Async</span><br>
                 &nbsp;&nbsp;→ <span class="function">On Completed</span> (e.g. show notification)
               </div>
@@ -556,7 +556,7 @@
           <div class="space-y-6">
             <div class="bg-gray-800/50 rounded-xl p-6">
               <h3 class="text-xl font-bold text-white mb-3">Can I record video in Unreal Engine without C++?</h3>
-              <p class="text-gray-300">Yes! Runtime Video Recorder provides full Blueprint support. All recording functionality—start, stop, record last N seconds, save asynchronously—can be controlled entirely through Blueprint nodes without writing any C++ code.</p>
+              <p class="text-gray-300">Yes! Runtime Video Recorder provides full Blueprint support. All recording functionality-start, stop, record last N seconds, save asynchronously-can be controlled entirely through Blueprint nodes without writing any C++ code.</p>
             </div>
             <div class="bg-gray-800/50 rounded-xl p-6">
               <h3 class="text-xl font-bold text-white mb-3">What Blueprint nodes are available for video recording?</h3>
@@ -564,7 +564,7 @@
             </div>
             <div class="bg-gray-800/50 rounded-xl p-6">
               <h3 class="text-xl font-bold text-white mb-3">How do I set up record last N seconds and save asynchronously?</h3>
-              <p class="text-gray-300">Start recording with LastSecondsToRecord set to your buffer duration (e.g. 30 or 60 seconds). When you want to save, use Encode Circular Buffer to Video Async — it encodes in the background with no frame hitch. Bind the On Completed pin to show a notification or run logic when the file is ready.</p>
+              <p class="text-gray-300">Start recording with LastSecondsToRecord set to your buffer duration (e.g. 30 or 60 seconds). When you want to save, use Encode Circular Buffer to Video Async - it encodes in the background with no frame hitch. Bind the On Completed pin to show a notification or run logic when the file is ready.</p>
             </div>
             <div class="bg-gray-800/50 rounded-xl p-6">
               <h3 class="text-xl font-bold text-white mb-3">Is Blueprint recording as performant as C++?</h3>

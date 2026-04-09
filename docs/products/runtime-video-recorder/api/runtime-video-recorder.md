@@ -441,7 +441,7 @@ void MakeScreenshot(const FString& OutFilename, bool bShowUI);
 
 ### EncodeCircularBufferToVideo
 
-Encodes circular buffer contents to video. **Synchronous** — may cause a 3–5s hitch for ~30s of footage. Use when you need encoding to finish before continuing (e.g. crash recovery or shutdown).
+Encodes circular buffer contents to video. **Synchronous** - may cause a 3–5s hitch for ~30s of footage. Use when you need encoding to finish before continuing (e.g. crash recovery or shutdown).
 
 ```cpp
 UFUNCTION(BlueprintCallable, Category = "RuntimeVideoRecorder | Circular Buffer")
@@ -452,13 +452,13 @@ bool EncodeCircularBufferToVideo(const FString& OutputBasePath);
 |-----------|------|--------------|
 | `OutputBasePath` | FString | Base path for the output file. `.mp4` is added if missing. Use `%auto%` for `ProjectDir/Saved/<datetime>.mp4`. |
 
-**Returns:** `bool` — `true` if encoding succeeded.
+**Returns:** `bool` - `true` if encoding succeeded.
 
 ---
 
 ### EncodeCircularBufferToVideoAsync
 
-Encodes buffered footage **asynchronously** — no frame hitch. Ideal for bug reports and instant replay. Uses a snapshot of the buffer; recording continues during encode. Must be called on the Game Thread.
+Encodes buffered footage **asynchronously** - no frame hitch. Ideal for bug reports and instant replay. Uses a snapshot of the buffer; recording continues during encode. Must be called on the Game Thread.
 
 ```cpp
 TFuture<bool> EncodeCircularBufferToVideoAsync(const FString& OutputBasePath);
@@ -468,7 +468,7 @@ TFuture<bool> EncodeCircularBufferToVideoAsync(const FString& OutputBasePath);
 |-----------|------|--------------|
 | `OutputBasePath` | FString | Base path for the output file. `.mp4` is added if missing. Use `%auto%` for `ProjectDir/Saved/<datetime>.mp4`. |
 
-**Returns:** `TFuture<bool>` — completes with `true` on success. Use `.Next()` to run code when encoding finishes.
+**Returns:** `TFuture<bool>` - completes with `true` on success. Use `.Next()` to run code when encoding finishes.
 
 #### C++ Example
 
@@ -479,7 +479,7 @@ Future.Next([](bool bSuccess) {
 });
 ```
 
-**Blueprint:** Use the **Encode Circular Buffer to Video Async** node (RuntimeVideoRecorder | Circular Buffer). Set **Output Base Path** and bind **On Completed** — execution continues from the completion pin when encoding finishes.
+**Blueprint:** Use the **Encode Circular Buffer to Video Async** node (RuntimeVideoRecorder | Circular Buffer). Set **Output Base Path** and bind **On Completed** - execution continues from the completion pin when encoding finishes.
 
 ---
 

@@ -12,7 +12,7 @@ As long as you have a valid license.
 
 ### Where do I enter the API key?
 
-Go to **Edit → Project Settings → Plugins → Runtime Video Recorder** and paste it into the **API KEY** field. See the [Installation Guide](./installation#step-3-—-set-your-api-key) for details.
+Go to **Edit → Project Settings → Plugins → Runtime Video Recorder** and paste it into the **API KEY** field. See the [Installation Guide](./installation#step-3---set-your-api-key) for details.
 
 ## Subscription & Licensing
 
@@ -28,7 +28,7 @@ Yes. Your application needs an active internet connection for license validation
 
 The standard Unreal Engine plugin license and Epic Games EULA apply. See the full [Licensing details](https://unrealsolutions.com/licensing.html).
 
-### I already bought the plugin — how do I use it now?
+### I already bought the plugin - how do I use it now?
 
 Please contact [business@unrealsolutions.com](mailto:business@unrealsolutions.com). You can continue using the version you purchased, but future engine upgrades and new features require an active license. Existing customers receive a discount.
 
@@ -64,11 +64,11 @@ You can also specify a custom output path. See the [Quick Start Guide](./quick-s
 
 ## Troubleshooting
 
-### It doesn't work — what do I do?
+### It doesn't work - what do I do?
 
-1. **Make sure your API key is set** — see [Installation Step 3](./installation#step-3-—-set-your-api-key)
-2. **Check the logs** — go to `<PROJECT_DIR>/Saved/Logs/` and look for errors
-3. **Join Discord** and share your log file — we'll help you debug it
+1. **Make sure your API key is set** - see [Installation Step 3](./installation#step-3---set-your-api-key)
+2. **Check the logs** - go to `<PROJECT_DIR>/Saved/Logs/` and look for errors
+3. **Join Discord** and share your log file - we'll help you debug it
 
 For a full list of common issues and fixes, see the [Troubleshooting](./troubleshooting) page.
 
