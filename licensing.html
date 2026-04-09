@@ -394,7 +394,7 @@
               </div>
             </div>
             
-            <a href="https://buy.stripe.com/9B6fZibbU3uHeah3sTdIA0g" id="sub-buy-link" class="btn-buy btn-secondary" data-license="subscription" onclick="trackEvent('buy_click', 'Subscription - ' + currentSubPeriod)">
+            <a href="https://buy.stripe.com/9B6fZibbU3uHeah3sTdIA0g" id="sub-buy-link" class="btn-buy btn-secondary" data-license="subscription" onclick="trackEvent('buy_click', 'Subscription - ' + currentSubPeriod); trackBuyClick('subscription', SUB_CONFIG[currentSubPeriod].price, currentSubPeriod)">
               Subscribe Now
             </a>
           </div>
@@ -416,7 +416,7 @@
               <div class="price-period">one-time purchase</div>
             </div>
             
-            <a href="https://buy.stripe.com/28E00keo69T54zHe7xdIA0d" class="btn-buy btn-primary" data-license="standard" onclick="trackEvent('buy_click', 'Standard')">
+            <a href="https://buy.stripe.com/28E00keo69T54zHe7xdIA0d" class="btn-buy btn-primary" data-license="standard" onclick="trackEvent('buy_click', 'Standard'); trackBuyClick('standard', '$299')">
               Buy License
             </a>
           </div>
@@ -434,7 +434,7 @@
               <div class="price-period">Only for business</div>
             </div>
             
-            <a href="mailto:business@unrealsolutions.com?subject=RVR%20Perpetual%20License%20Inquiry" class="btn-buy btn-outline" data-license="perpetual" onclick="trackEvent('buy_click', 'Perpetual - Request')">
+            <a href="mailto:business@unrealsolutions.com?subject=RVR%20Perpetual%20License%20Inquiry" class="btn-buy btn-outline" data-license="perpetual" onclick="trackEvent('buy_click', 'Perpetual - Request'); trackBuyClick('perpetual', 'custom', 'by-request')">
               Request Quote
             </a>
           </div>
@@ -662,7 +662,19 @@
         if (typeof gtag !== 'undefined') {
           gtag('event', action, {
             'event_category': 'Licensing',
-            'event_label': label
+            'event_label': label,
+            'page_name': 'pricing'
+          });
+        }
+      }
+
+      function trackBuyClick(license, price, period) {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'buy_license_click', {
+            'license_type': license,
+            'price': price,
+            'billing_period': period || 'one-time',
+            'page_name': 'pricing'
           });
         }
       }

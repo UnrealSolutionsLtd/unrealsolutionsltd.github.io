@@ -375,15 +375,15 @@
       // IMPROVED EVENT TRACKING FUNCTIONS
       // ============================================
       
-      // Track CTA download button clicks (FIXED: unique event name)
       function trackCtaClick(position, buttonText) {
         const utm = window.getRVRUtmData();
-        gtag('event', 'cta_download_click', {
+        gtag('event', 'buy_license_click', {
           'button_position': position,
           'button_text': buttonText,
           'page_path': window.location.pathname,
           'traffic_source': utm.utm_source,
-          'traffic_medium': utm.utm_medium
+          'traffic_medium': utm.utm_medium,
+          'page_name': 'landing'
         });
       }
       
