@@ -5,20 +5,20 @@
     <meta name="referrer" content="origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing & Licensing | Runtime Video Recorder for Unreal Engine</title>
-    <meta name="description" content="Subscribe to Runtime Video Recorder for Unreal Engine. Monthly and yearly plans available. Company licensing with source code access for studios that need more.">
+    <meta name="description" content="Buy Runtime Video Recorder for Unreal Engine. Standard license, subscription plans, and perpetual licensing available. Stripe and Alipay accepted.">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://unrealsolutions.com/licensing">
-    <meta property="og:title" content="RVR Pricing — Subscribe or Get a Company License">
-    <meta property="og:description" content="Monthly and yearly subscription plans for Runtime Video Recorder. Company licenses available for studios needing source code, custom SLAs, or dedicated support.">
+    <meta property="og:title" content="RVR Pricing — Standard, Subscription & Perpetual Licenses">
+    <meta property="og:description" content="Purchase Runtime Video Recorder. One-time standard purchase, flexible subscriptions, or perpetual source-code licenses for studios.">
     <meta property="og:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://unrealsolutions.com/licensing">
-    <meta name="twitter:title" content="RVR Pricing — Starter, Pro & Enterprise Options">
-    <meta name="twitter:description" content="Subscribe to record with RVR. Company licenses with source code access and dedicated support for larger studios.">
+    <meta name="twitter:title" content="RVR Pricing — Standard, Subscription & Perpetual">
+    <meta name="twitter:description" content="Buy RVR: one-time standard, subscription, or perpetual license with source code. Stripe & Alipay accepted.">
     <meta name="twitter:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
     
     <!-- Additional SEO -->
@@ -53,45 +53,59 @@
       "@type": "FAQPage",
       "mainEntity": [{
         "@type": "Question",
+        "name": "What is the Standard license?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Standard license is a one-time purchase that gives you the compiled RVR plugin for Unreal Engine. You get all features, all platforms, and offline recording. No source code is included. Similar to purchasing on the FAB marketplace."
+        }
+      }, {
+        "@type": "Question",
         "name": "How does the RVR subscription work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Subscribe to a monthly or yearly plan, connect your API key, and start recording. Your subscription stays active as long as you're subscribed. No per-recording fees."
+          "text": "Choose a monthly or yearly subscription plan and pay via Stripe. You'll receive an API key by email. Enter the key in your project settings and start recording. Your subscription must stay active to keep recording. Internet connection is required."
         }
       }, {
         "@type": "Question",
-        "name": "What is the difference between a subscription and a company license?",
+        "name": "What is the Perpetual license?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Subscriptions are self-serve and instant — subscribe and start recording. Company licenses are for studios that need source code access, offline recording, dedicated support, custom SLAs, or perpetual ownership."
+          "text": "The Perpetual license is a one-time purchase that includes full source code access, custom engine support, offline recording, and dedicated support. Pricing is by request only — contact us for a custom quote."
         }
       }, {
         "@type": "Question",
-        "name": "Can I upgrade from a subscription to a company license?",
+        "name": "What payment methods are accepted?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Contact us and we'll help you transition to a company license that fits your needs."
+          "text": "We accept all major credit and debit cards via Stripe. Chinese users can pay via Alipay, which is available directly through our Stripe checkout."
         }
       }, {
         "@type": "Question",
-        "name": "What's included in RVR integration support?",
+        "name": "How do I receive my API key after purchase?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We help you integrate RVR into your project and CI/CD pipeline. This includes setup guidance, troubleshooting, and best practices for your specific use case."
+          "text": "After payment, an API key is sent to your email. Enter the key in Unreal Engine under Project Settings → Plugins → Runtime Video Recorder, and you're ready to record."
         }
       }, {
         "@type": "Question",
-        "name": "Is the company license per-seat or per-company?",
+        "name": "Can I upgrade from Standard or Subscription to Perpetual?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Per-company. One license covers your entire team — no per-seat fees, no counting developers."
+          "text": "Yes. Contact us and we'll help you transition to a Perpetual license. We can credit your previous purchase toward the perpetual price."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is the license per-seat or per-company?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Company and Perpetual licenses are per-company — one license covers your entire team. Subscription and Standard licenses are per-seat/project as defined in the terms."
         }
       }, {
         "@type": "Question",
         "name": "What happens when a new Unreal Engine version releases?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Subscribers and annual license holders receive engine upgrades automatically. Perpetual license holders can purchase upgrade packages or handle upgrades themselves with source access."
+          "text": "Subscribers receive engine upgrades automatically. Standard license holders receive upgrades for the included update period. Perpetual license holders can purchase upgrade packages or handle upgrades themselves with source access."
         }
       }]
     }
@@ -123,147 +137,26 @@
     <link rel="shortcut icon" href="./assets/favicon/favicon.ico">
     <meta name="theme-color" content="#000000">
 
-    <!-- Stripe Pricing Table -->
-    <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     
     <style>
-      /* Tab toggle */
-      .tab-toggle {
-        background: rgba(31, 41, 55, 0.8);
-        border-radius: 9999px;
-        padding: 4px;
-        border: 1px solid rgba(75, 85, 99, 0.3);
-      }
-
-      .tab-toggle button {
-        padding: 0.6rem 2rem;
-        border-radius: 9999px;
-        font-weight: 500;
-        font-size: 0.95rem;
-        transition: all 0.25s ease;
-        cursor: pointer;
-        border: none;
-        background: transparent;
-        color: #9ca3af;
-      }
-
-      .tab-toggle button:hover:not(.active) {
-        color: white;
-      }
-
-      .tab-toggle button.active {
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-        color: white;
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-      }
-
-      /* Tab panels */
-      .tab-panel {
-        display: none;
-        animation: tabFadeIn 0.35s ease;
-      }
-
-      .tab-panel.active {
-        display: block;
-      }
-
-      @keyframes tabFadeIn {
-        from { opacity: 0; transform: translateY(8px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      /* Tier cards */
-      .tier-card {
+      /* Pricing cards */
+      .price-card {
         background: rgba(17, 24, 39, 0.8);
         border: 1px solid rgba(75, 85, 99, 0.3);
         border-radius: 1rem;
         transition: all 0.3s ease;
       }
       
-      .tier-card:hover {
+      .price-card:hover {
         border-color: rgba(99, 102, 241, 0.5);
         transform: translateY(-4px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
       }
       
-      .tier-card.featured {
+      .price-card.featured {
         border-color: rgba(99, 102, 241, 0.5);
         background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(17, 24, 39, 0.9) 100%);
-      }
-      
-      /* License type toggle */
-      .license-toggle {
-        background: rgba(31, 41, 55, 0.8);
-        border-radius: 9999px;
-        padding: 4px;
-      }
-      
-      .license-toggle button {
-        padding: 0.5rem 1.5rem;
-        border-radius: 9999px;
-        font-weight: 500;
-        transition: all 0.2s ease;
-        cursor: pointer;
-        border: none;
-        background: transparent;
-        color: #9ca3af;
-      }
-      
-      .license-toggle button.active {
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-        color: white;
-      }
-      
-      .license-toggle button:not(.active):hover {
-        color: white;
-      }
-
-      /* Tooltip */
-      .platform-tooltip {
-        position: relative;
-        cursor: help;
-      }
-      
-      .tooltip-icon {
-        margin-left: 4px;
-        color: #9ca3af;
-        font-size: 0.85em;
-      }
-      
-      .tooltip-content {
-        visibility: hidden;
-        opacity: 0;
-        position: absolute;
-        bottom: 125%;
-        left: 0;
-        background: #1f2937;
-        color: #e5e7eb;
-        padding: 12px 16px;
-        border-radius: 8px;
-        font-size: 0.85rem;
-        line-height: 1.5;
-        width: 280px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(75, 85, 99, 0.5);
-        z-index: 100;
-        transition: opacity 0.2s ease, visibility 0.2s ease;
-      }
-      
-      .tooltip-content::after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 20px;
-        border-width: 8px;
-        border-style: solid;
-        border-color: #1f2937 transparent transparent transparent;
-      }
-      
-      .platform-tooltip:hover .tooltip-content {
-        visibility: visible;
-        opacity: 1;
       }
 
       /* How it works */
@@ -299,9 +192,129 @@
         color: #fff;
       }
 
+      /* Connector arrows between steps */
+      .step-connector {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6366f1;
+      }
+
+      @media (max-width: 640px) {
+        .step-connector { transform: rotate(90deg); }
+      }
+
+      /* Buy button */
+      .btn-buy {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        border-radius: 0.75rem;
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+      }
+
+      .btn-secondary {
+        background: rgba(75, 85, 99, 0.5);
+        color: white;
+      }
+
+      .btn-secondary:hover {
+        background: rgba(75, 85, 99, 0.8);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: #a5b4fc;
+        border: 1px solid rgba(99, 102, 241, 0.4);
+      }
+
+      .btn-outline:hover {
+        background: rgba(99, 102, 241, 0.1);
+        border-color: rgba(99, 102, 241, 0.7);
+      }
+
+      /* Price display */
+      .price-amount {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1;
+        background: linear-gradient(135deg, #fff 0%, #e2e8f0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .price-period {
+        color: #9ca3af;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+      }
+
+      /* Payment badge */
+      .payment-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.75rem;
+        background: rgba(31, 41, 55, 0.8);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 9999px;
+        font-size: 0.8rem;
+        color: #9ca3af;
+      }
+
+      /* Subscription toggle */
+      .sub-toggle {
+        background: rgba(31, 41, 55, 0.8);
+        border-radius: 9999px;
+        padding: 3px;
+      }
+
+      .sub-toggle button {
+        padding: 0.4rem 1.25rem;
+        border-radius: 9999px;
+        font-weight: 500;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        color: #9ca3af;
+      }
+
+      .sub-toggle button.active {
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        color: white;
+      }
+
+      .sub-toggle button:not(.active):hover {
+        color: white;
+      }
+
+      /* Comparison section */
+      .compare-card {
+        background: rgba(17, 24, 39, 0.5);
+        border: 1px solid rgba(75, 85, 99, 0.2);
+        border-radius: 1rem;
+      }
+
       /* FAQ */
       details summary::-webkit-details-marker { display: none; }
       details summary { list-style: none; }
+
     </style>
     
     <!-- Google Analytics -->
@@ -320,378 +333,322 @@
       <script src="/assets/js/nav.js"></script>
 
       <!-- Hero -->
-      <div class="pt-8 sm:pt-32 pb-10 text-center">
+      <div class="pt-8 sm:pt-32 pb-6 text-center">
         <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6">
-          Pricing &amp; <span class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Licensing</span>
+          Pricing &amp; <span class="text-indigo-400">Licensing</span>
         </h1>
-        <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-          Subscribe and start recording, or get a company license for source code and dedicated support.
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-4">
+          Choose the license that fits your project. Pay once or subscribe — start recording in minutes.
         </p>
-
-        <!-- Tab Toggle -->
-        <div class="flex justify-center mb-12">
-          <div class="tab-toggle inline-flex">
-            <button id="tab-btn-subscribe" class="active" onclick="switchTab('subscribe')">Subscribe</button>
-            <button id="tab-btn-company" onclick="switchTab('company')">Company License</button>
-          </div>
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
+          <span class="payment-badge">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+            Stripe
+          </span>
+          <span class="payment-badge">
+            <span class="text-indigo-400 font-semibold text-sm">Alipay</span>
+            Available for Chinese users
+          </span>
         </div>
       </div>
 
       <!-- ============================================ -->
-      <!-- TAB 1: Subscribe -->
+      <!-- How it works -->
       <!-- ============================================ -->
-      <div id="panel-subscribe" class="tab-panel active max-w-5xl mx-auto pb-16">
-
-        <!-- How it works -->
-        <div class="how-it-works mb-12">
+      <div class="max-w-4xl mx-auto mb-16">
+        <h2 class="text-2xl font-bold text-white text-center mb-8">How It Works</h2>
+        <div class="how-it-works">
           <div class="step-card">
             <div class="step-number">1</div>
-            <h4 class="text-white font-semibold mb-1">Get Your API Key</h4>
-            <p class="text-gray-400 text-sm">Request a free key to set up the plugin in your project.</p>
+            <h4 class="text-white font-semibold mb-1">Purchase a License</h4>
+            <p class="text-gray-400 text-sm">Pick your plan and pay securely via Stripe or Alipay.</p>
           </div>
           <div class="step-card">
             <div class="step-number">2</div>
-            <h4 class="text-white font-semibold mb-1">Pick a Plan</h4>
-            <p class="text-gray-400 text-sm">Choose monthly or yearly below.</p>
+            <h4 class="text-white font-semibold mb-1">Receive Your API Key</h4>
+            <p class="text-gray-400 text-sm">An API key is sent to your email after purchase.</p>
           </div>
           <div class="step-card">
             <div class="step-number">3</div>
             <h4 class="text-white font-semibold mb-1">Start Recording</h4>
-            <p class="text-gray-400 text-sm">Activate and record in-game video right away.</p>
+            <p class="text-gray-400 text-sm">Enter the key in Project Settings and start recording.</p>
           </div>
         </div>
-
-        <!-- Stripe Pricing Table -->
-        <div class="mb-8">
-          <stripe-pricing-table pricing-table-id="prctbl_1TEyUuL8Ex2PyaLAONsn43Yf"
-            publishable-key="pk_live_51QtDztL8Ex2PyaLAmDN5BfqJGjKgsY3FxYwJ76i3z9Tv10jegLvAab0pKbCnPWtfpuLbVImZgkRFpPOKvvu9zlRk00ku23OdeJ">
-          </stripe-pricing-table>
-        </div>
-
-        <p class="text-center text-gray-500 text-sm">
-          Need an API key first? <a href="/download" class="text-indigo-400 hover:text-indigo-300 transition-colors font-medium">Request one here</a>
-        </p>
-
-        <!-- Subscription details -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-4xl mx-auto">
-          <div class="tier-card p-8">
-            <h4 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Included
-            </h4>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">All features &amp; all platforms</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Editor &amp; packaged builds (Development, Shipping)</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Engine version upgrades</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Community support (Discord)</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="tier-card p-8">
-            <h4 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-              <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg>
-              Restrictions
-            </h4>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                <span class="text-gray-300">Source / Custom engine <strong class="text-red-300">not supported</strong></span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                <span class="text-gray-300">No source code access</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                <span class="text-gray-300">No offline recording — requires internet</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                <span class="text-gray-300">No dedicated support or SLAs</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <p class="text-center text-gray-500 text-sm mt-8">
-          Need Source / Custom engine support, offline use, or source code? <button onclick="switchTab('company')" class="text-indigo-400 hover:text-indigo-300 transition-colors font-medium bg-transparent border-none cursor-pointer">See Company Licenses</button>
-        </p>
       </div>
 
       <!-- ============================================ -->
-      <!-- TAB 2: Company License -->
+      <!-- Pricing Cards -->
       <!-- ============================================ -->
-      <div id="panel-company" class="tab-panel max-w-6xl mx-auto pb-16">
-
-        <div class="text-center mb-12">
-          <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
-            Per-company licensing for studios that need dedicated support, source code access, or custom terms.
-          </p>
-
-          <!-- Annual / Perpetual Toggle -->
-          <div class="flex flex-col items-center">
-            <div class="license-toggle inline-flex mb-3">
-              <button id="btn-annual" class="active" onclick="showLicenseType('annual')">Annual</button>
-              <button id="btn-perpetual" onclick="showLicenseType('perpetual')">Perpetual</button>
-            </div>
-            <p class="text-gray-500 text-sm license-term-global">per company / year</p>
-          </div>
-        </div>
-
-        <!-- Tier Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <div class="max-w-6xl mx-auto mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           
-          <!-- Starter -->
-          <div class="tier-card p-8">
+          <!-- Standard License -->
+          <div class="price-card p-8 flex flex-col">
             <div class="mb-6">
-              <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-sm font-medium mb-4">Starter</span>
-              <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
-              <p class="text-gray-400 text-sm">Core recording with select platform support</p>
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">One-Time</span>
+              <h3 class="text-2xl font-bold text-white mb-2">Standard</h3>
+              <p class="text-gray-400 text-sm">All features, all platforms. Buy once.</p>
             </div>
             
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-start gap-3 source-code-feature hidden px-3 py-2 bg-green-500/20 border border-green-500/30 rounded-lg -mx-3">
-                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                <span class="text-white font-semibold">Full source code access</span>
-              </li>
-              <li class="flex items-start gap-3 source-code-feature hidden">
-                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Custom engine version support</span>
-              </li>
-              <li class="flex items-start gap-3 binaries-feature">
-                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Plugin binaries</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300 platform-tooltip">Select platforms included
-                  <span class="tooltip-icon">&#9432;</span>
-                  <span class="tooltip-content">Starter includes your choice of platforms (e.g., Windows + Mac). Additional platforms available at added cost. Contact us for multi-platform bundles.</span>
-                </span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Offline recording</span>
-              </li>
-              <li class="flex items-start gap-3 binaries-feature">
-                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Engine version upgrades</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Community support</span>
-              </li>
-            </ul>
+            <div class="mb-6 flex-1">
+              <div class="price-amount">$299</div>
+              <div class="price-period">one-time purchase</div>
+            </div>
             
-            <a href="#" class="block w-full text-center px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg transition-colors license-cta" data-tier="Starter">
-              Get Quote
+            <a href="https://buy.stripe.com/28E00keo69T54zHe7xdIA0d" class="btn-buy btn-secondary" data-license="standard" onclick="trackEvent('buy_click', 'Standard')">
+              Buy Now
             </a>
           </div>
           
-          <!-- Pro (Featured) -->
-          <div class="tier-card featured p-8 relative">
+          <!-- Subscription License (Featured) -->
+          <div class="price-card featured p-8 flex flex-col relative">
             <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span class="px-4 py-1 bg-indigo-500 text-white text-sm font-medium rounded-full">Most Popular</span>
+              <span class="px-4 py-1 bg-indigo-500 text-white text-sm font-medium rounded-full">Most Flexible</span>
             </div>
             
             <div class="mb-6">
-              <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">Pro</span>
-              <h3 class="text-2xl font-bold text-white mb-2">Pro</h3>
-              <p class="text-gray-400 text-sm">All platforms, priority support, integration help</p>
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">Subscription</span>
+              <h3 class="text-2xl font-bold text-white mb-2">Subscription</h3>
+              <p class="text-gray-400 text-sm">All features, all platforms, engine upgrades included. Cancel anytime.</p>
             </div>
             
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-start gap-3 source-code-feature hidden px-3 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-lg -mx-3">
-                <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                <span class="text-white font-semibold">Full source code access</span>
-              </li>
-              <li class="flex items-start gap-3 source-code-feature hidden">
-                <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Custom engine version support</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300"><strong class="text-indigo-300">All platforms included</strong> (Windows, Mac, Linux, iOS, Android, Meta Quest)</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Offline recording</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Integration support</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Priority email support</span>
-              </li>
-              <li class="flex items-start gap-3 source-code-feature hidden">
-                <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Consultation calls included</span>
-              </li>
-            </ul>
+            <div class="mb-4 flex-1">
+              <div id="sub-price-display">
+                <div class="price-amount" id="sub-price">$24.99</div>
+                <div class="price-period" id="sub-period">per month</div>
+              </div>
+            </div>
+
+            <div class="flex justify-center mb-6">
+              <div class="sub-toggle inline-flex">
+                <button id="btn-monthly" class="active" onclick="switchSubPeriod('monthly')">Monthly</button>
+                <button id="btn-yearly" onclick="switchSubPeriod('yearly')">Yearly</button>
+              </div>
+            </div>
             
-            <a href="#" class="block w-full text-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium rounded-lg transition-colors license-cta" data-tier="Pro">
-              Get Quote
+            <a href="https://buy.stripe.com/9B6fZibbU3uHeah3sTdIA0g" id="sub-buy-link" class="btn-buy btn-primary" data-license="subscription" onclick="trackEvent('buy_click', 'Subscription - ' + currentSubPeriod)">
+              Subscribe Now
             </a>
           </div>
           
-          <!-- Enterprise -->
-          <div class="tier-card p-8">
+          <!-- Perpetual License -->
+          <div class="price-card p-8 flex flex-col">
             <div class="mb-6">
-              <span class="inline-flex items-center px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-sm font-medium mb-4">Enterprise</span>
-              <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
-              <p class="text-gray-400 text-sm">Custom SLAs, dedicated support, bespoke features</p>
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">By Request</span>
+              <h3 class="text-2xl font-bold text-white mb-2">Perpetual</h3>
+              <p class="text-gray-400 text-sm">Full source code, custom engine support. Own it forever.</p>
             </div>
             
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-start gap-3 source-code-feature hidden px-3 py-2 bg-orange-500/20 border border-orange-500/30 rounded-lg -mx-3">
-                <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                <span class="text-white font-semibold">Full source code access</span>
-              </li>
-              <li class="flex items-start gap-3 source-code-feature hidden">
-                <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Custom engine version support</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Everything in Pro</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Dedicated support channel</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Custom SLA</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">On-call consulting</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span class="text-gray-300">Custom feature development</span>
-              </li>
-            </ul>
-            
-            <a href="#" class="block w-full text-center px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg transition-colors license-cta" data-tier="Enterprise">
-              Contact Sales
-            </a>
-          </div>
-        </div>
-
-        <!-- Annual vs Perpetual explainer -->
-        <div class="max-w-4xl mx-auto mb-16">
-          <h3 class="text-2xl font-bold text-white text-center mb-8">Annual vs Perpetual</h3>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="tier-card p-8">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
-                  <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                </div>
-                <h4 class="text-xl font-bold text-white">Annual</h4>
-              </div>
-              <p class="text-gray-400 mb-4">Lower upfront cost. Always current with the latest features and engine versions.</p>
-              <ul class="space-y-2 text-sm text-gray-400">
-                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Plugin binaries &amp; updates included</li>
-                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Engine upgrades at no extra cost</li>
-                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg> <span class="text-gray-500">No source code</span></li>
-              </ul>
+            <div class="mb-6 flex-1">
+              <div class="price-amount text-2xl" style="font-size: 1.75rem;">By request</div>
+              <div class="price-period">Only for business</div>
             </div>
             
-            <div class="tier-card p-8">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                  <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-                </div>
-                <h4 class="text-xl font-bold text-white">Perpetual</h4>
-              </div>
-              <p class="text-gray-400 mb-4">Own it forever. Full source code for customization and security audits.</p>
-              <ul class="space-y-2 text-sm text-gray-400">
-                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Full source code access</li>
-                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Modify &amp; customize freely</li>
-                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Consultation calls included</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Company CTA -->
-        <div class="max-w-3xl mx-auto text-center">
-          <div class="tier-card p-12">
-            <h3 class="text-2xl font-bold text-white mb-4">Not Sure Which License Fits?</h3>
-            <p class="text-gray-400 mb-8">Let's discuss your needs. We'll help you find the best option for your studio.</p>
-            <a 
-              href="mailto:business@unrealsolutions.com?subject=RVR%20Licensing%20Question"
-              class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-200"
-            >
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              Contact Us
+            <a href="mailto:business@unrealsolutions.com?subject=RVR%20Perpetual%20License%20Inquiry" class="btn-buy btn-outline" data-license="perpetual" onclick="trackEvent('buy_click', 'Perpetual - Request')">
+              Request Quote
             </a>
           </div>
         </div>
       </div>
 
       <!-- ============================================ -->
-      <!-- FAQ (shared, always visible) -->
+      <!-- License Comparison -->
+      <!-- ============================================ -->
+      <div class="max-w-5xl mx-auto mb-16">
+        <h2 id="compare" class="text-2xl font-bold text-white text-center mb-8">Compare Licenses</h2>
+        <div class="compare-card overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="border-b border-gray-800">
+                  <th class="px-6 py-4 text-gray-400 font-medium text-sm">Feature</th>
+                  <th class="px-6 py-4 text-white font-medium text-sm text-center">Standard</th>
+                  <th class="px-6 py-4 text-white font-medium text-sm text-center">Subscription</th>
+                  <th class="px-6 py-4 text-white font-medium text-sm text-center">Perpetual</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm">
+                <tr class="border-b border-gray-800/50">
+                  <td class="px-6 py-3 text-gray-300">All recording features</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                </tr>
+                <tr class="border-b border-gray-800/50">
+                  <td class="px-6 py-3 text-gray-300">All platforms</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                </tr>
+                <tr class="border-b border-gray-800/50">
+                  <td class="px-6 py-3 text-gray-300">Editor &amp; packaged builds</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                </tr>
+                <tr class="border-b border-gray-800/50">
+                  <td class="px-6 py-3 text-gray-300">Offline recording</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                  <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                </tr>
+                <tr class="border-b border-gray-800/50">
+                  <td class="px-6 py-3 text-gray-300">Source code access</td>
+                  <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
+                  <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                </tr>
+                <tr class="border-b border-gray-800/50">
+                  <td class="px-6 py-3 text-gray-300">Custom engine support</td>
+                  <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
+                  <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                </tr>
+                <tr class="border-b border-gray-800/50">
+                  <td class="px-6 py-3 text-gray-300">Engine upgrades</td>
+                  <td class="px-6 py-3 text-center text-gray-400 text-xs">Upgrade package</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003; Included</td>
+                  <td class="px-6 py-3 text-center text-gray-400 text-xs">Self-serve w/ source</td>
+                </tr>
+                <tr class="border-b border-gray-800/50">
+                  <td class="px-6 py-3 text-gray-300">Support</td>
+                  <td class="px-6 py-3 text-center text-gray-400 text-xs">Community</td>
+                  <td class="px-6 py-3 text-center text-gray-400 text-xs">Community</td>
+                  <td class="px-6 py-3 text-center text-gray-400 text-xs">Priority + Consultation</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-3 text-gray-300">Payment</td>
+                  <td class="px-6 py-3 text-center text-gray-400 text-xs">One-time</td>
+                  <td class="px-6 py-3 text-center text-gray-400 text-xs">Monthly / Yearly</td>
+                  <td class="px-6 py-3 text-center text-gray-400 text-xs">By request</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- Payment methods -->
+      <!-- ============================================ -->
+      <div class="max-w-3xl mx-auto mb-16 text-center">
+        <div class="compare-card p-8">
+          <h3 class="text-xl font-bold text-white mb-4">Accepted Payment Methods</h3>
+          <p class="text-gray-400 mb-6">All payments are processed securely through Stripe.</p>
+          <div class="flex flex-wrap justify-center gap-6">
+            <div class="flex flex-col items-center gap-2">
+              <div class="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center">
+                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+              </div>
+              <span class="text-gray-300 text-sm">Credit / Debit</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center">
+                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+              </div>
+              <span class="text-gray-300 text-sm">International Cards</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center">
+                <span class="text-indigo-400 text-lg font-bold">A</span>
+              </div>
+              <span class="text-gray-300 text-sm">Alipay <span class="text-gray-500">(China)</span></span>
+            </div>
+          </div>
+          <p class="text-gray-500 text-xs mt-6">
+            Alipay is available at checkout for users in China. All transactions are in USD.
+          </p>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- FAQ -->
       <!-- ============================================ -->
       <div class="max-w-3xl mx-auto pb-16">
         <h2 class="text-3xl font-bold text-white text-center mb-8">Frequently Asked Questions</h2>
         
         <div class="space-y-4">
-          <details class="tier-card p-6 cursor-pointer group">
+          <details class="price-card p-6 cursor-pointer group">
+            <summary class="flex items-center justify-between text-white font-medium">
+              What is the Standard license?
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-4 text-gray-400">The Standard license is a one-time purchase that gives you the compiled RVR plugin. You get all recording features, all platforms, and offline recording. No source code is included. Pay once, receive your API key, and start recording.</p>
+          </details>
+
+          <details class="price-card p-6 cursor-pointer group">
             <summary class="flex items-center justify-between text-white font-medium">
               How does the subscription work?
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="mt-4 text-gray-400">Subscribe to a monthly or yearly plan, connect your API key, and start recording. Your subscription stays active as long as you're subscribed. Cancel anytime.</p>
+            <p class="mt-4 text-gray-400">Choose monthly or yearly, pay via Stripe, and receive your API key by email. Enter the key in your project settings and start recording. Your subscription must remain active to keep recording — internet connection is required. Engine upgrades are included. Cancel anytime.</p>
           </details>
 
-          <details class="tier-card p-6 cursor-pointer group">
+          <details class="price-card p-6 cursor-pointer group">
             <summary class="flex items-center justify-between text-white font-medium">
-              What's the difference between a subscription and a company license?
+              What is the Perpetual license?
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="mt-4 text-gray-400">Subscriptions are self-serve and instant — subscribe and start recording. Company licenses are for studios that need source code access, offline recording, dedicated support, custom SLAs, or perpetual ownership.</p>
+            <p class="mt-4 text-gray-400">The Perpetual license is a one-time purchase with full source code, custom engine support, offline recording, and priority support with consultation calls. Pricing is by request only — contact us for a custom quote tailored to your studio's needs.</p>
           </details>
 
-          <details class="tier-card p-6 cursor-pointer group">
+          <details class="price-card p-6 cursor-pointer group">
             <summary class="flex items-center justify-between text-white font-medium">
-              Can I upgrade from a subscription to a company license?
+              What payment methods do you accept?
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="mt-4 text-gray-400">Yes. Contact us and we'll help you transition to a company license that fits your needs.</p>
+            <p class="mt-4 text-gray-400">We accept all major credit and debit cards via Stripe. Chinese users can pay with Alipay — it appears automatically at checkout. All transactions are processed in USD.</p>
           </details>
 
-          <details class="tier-card p-6 cursor-pointer group">
+          <details class="price-card p-6 cursor-pointer group">
             <summary class="flex items-center justify-between text-white font-medium">
-              Is the company license per-seat or per-company?
+              How do I receive my API key?
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="mt-4 text-gray-400">Per-company. One license covers your entire team — no per-seat fees, no counting developers.</p>
+            <p class="mt-4 text-gray-400">After payment is confirmed, an API key is sent to the email you used at checkout. Enter the key in Unreal Engine under Project Settings &rarr; Plugins &rarr; Runtime Video Recorder, and you're ready to record.</p>
           </details>
 
-          <details class="tier-card p-6 cursor-pointer group">
+          <details class="price-card p-6 cursor-pointer group">
+            <summary class="flex items-center justify-between text-white font-medium">
+              Can I upgrade from Standard or Subscription to Perpetual?
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-4 text-gray-400">Yes. Contact us and we'll help you transition. We can credit your previous purchase toward the perpetual license price.</p>
+          </details>
+
+          <details class="price-card p-6 cursor-pointer group">
             <summary class="flex items-center justify-between text-white font-medium">
               What happens when a new Unreal Engine version releases?
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="mt-4 text-gray-400">Subscribers and annual license holders receive engine upgrades automatically at no extra cost. Perpetual license holders can purchase upgrade packages or handle upgrades themselves with source access.</p>
+            <p class="mt-4 text-gray-400">Subscribers receive engine upgrades automatically at no extra cost. Standard license holders can purchase upgrade packages. Perpetual license holders handle upgrades themselves with their source code access.</p>
           </details>
+
+          <details class="price-card p-6 cursor-pointer group">
+            <summary class="flex items-center justify-between text-white font-medium">
+              Is the license per-seat or per-company?
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-4 text-gray-400">The Perpetual license is per-company — one license covers your entire team. Standard and Subscription licenses are per-seat/project as defined in the license terms.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- Not sure CTA -->
+      <!-- ============================================ -->
+      <div class="max-w-3xl mx-auto pb-16">
+        <div class="price-card p-12 text-center">
+          <h3 class="text-2xl font-bold text-white mb-4">Not Sure Which License Fits?</h3>
+          <p class="text-gray-400 mb-8">Let's discuss your needs. We'll help you find the best option for your project or studio.</p>
+          <a 
+            href="mailto:business@unrealsolutions.com?subject=RVR%20Licensing%20Question"
+            class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-200"
+            onclick="trackEvent('contact_click', 'Not Sure CTA')"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Contact Us
+          </a>
         </div>
       </div>
 
@@ -709,7 +666,7 @@
 
     <script>
       const EMAIL = 'business@unrealsolutions.com';
-      let currentLicenseType = 'Annual';
+      let currentSubPeriod = 'monthly';
 
       function trackEvent(action, label) {
         if (typeof gtag !== 'undefined') {
@@ -720,70 +677,36 @@
         }
       }
 
-      // --- Tab switching ---
-      function switchTab(tab) {
-        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-        document.querySelectorAll('.tab-toggle button').forEach(b => b.classList.remove('active'));
-
-        document.getElementById('panel-' + tab).classList.add('active');
-        document.getElementById('tab-btn-' + tab).classList.add('active');
-
-        trackEvent('switch_tab', tab);
-
-        // Update URL hash so direct links work
-        history.replaceState(null, '', tab === 'subscribe' ? '#subscribe' : '#company');
-      }
-
-      // --- Annual / Perpetual toggle ---
-      function updateCtaLinks(licenseType) {
-        currentLicenseType = licenseType;
-        document.querySelectorAll('.license-cta').forEach(cta => {
-          const tier = cta.dataset.tier;
-          const subject = encodeURIComponent('RVR License Inquiry - ' + tier + ' | ' + licenseType);
-          cta.href = 'mailto:' + EMAIL + '?subject=' + subject;
-        });
-      }
-
-      function showLicenseType(type) {
-        const btnAnnual = document.getElementById('btn-annual');
-        const btnPerpetual = document.getElementById('btn-perpetual');
-        const licenseTermGlobal = document.querySelector('.license-term-global');
-        const sourceCodeFeatures = document.querySelectorAll('.source-code-feature');
-        const binariesFeatures = document.querySelectorAll('.binaries-feature');
-
-        const licenseType = type === 'annual' ? 'Annual' : 'Perpetual';
-        trackEvent('toggle_license_type', licenseType);
-        updateCtaLinks(licenseType);
-
-        if (type === 'annual') {
-          btnAnnual.classList.add('active');
-          btnPerpetual.classList.remove('active');
-          licenseTermGlobal.textContent = 'per company / year';
-          sourceCodeFeatures.forEach(el => el.classList.add('hidden'));
-          binariesFeatures.forEach(el => el.classList.remove('hidden'));
-        } else {
-          btnPerpetual.classList.add('active');
-          btnAnnual.classList.remove('active');
-          licenseTermGlobal.textContent = 'per company / one-time';
-          sourceCodeFeatures.forEach(el => el.classList.remove('hidden'));
-          binariesFeatures.forEach(el => el.classList.add('hidden'));
+      const SUB_CONFIG = {
+        monthly: {
+          price: '$24.99',
+          period: 'per month',
+          link: 'https://buy.stripe.com/9B6fZibbU3uHeah3sTdIA0g'
+        },
+        yearly: {
+          price: '$200',
+          period: 'per year',
+          link: 'https://buy.stripe.com/6oU8wQeo6fdpd6d4wXdIA0f'
         }
+      };
+
+      function switchSubPeriod(period) {
+        currentSubPeriod = period;
+        const config = SUB_CONFIG[period];
+
+        document.getElementById('sub-price').textContent = config.price;
+        document.getElementById('sub-period').textContent = config.period;
+        document.getElementById('sub-buy-link').href = config.link;
+
+        document.getElementById('btn-monthly').classList.toggle('active', period === 'monthly');
+        document.getElementById('btn-yearly').classList.toggle('active', period === 'yearly');
+
+        trackEvent('toggle_sub_period', period);
       }
 
       // --- Init ---
       document.addEventListener('DOMContentLoaded', () => {
-        updateCtaLinks('Annual');
-
-        // Handle direct links via hash
-        if (window.location.hash === '#company') {
-          switchTab('company');
-        }
-
-        document.querySelectorAll('.license-cta').forEach(cta => {
-          cta.addEventListener('click', () => {
-            trackEvent('get_quote_click', cta.dataset.tier + ' | ' + currentLicenseType);
-          });
-        });
+        switchSubPeriod('monthly');
       });
     </script>
   </body>
