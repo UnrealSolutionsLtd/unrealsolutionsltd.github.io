@@ -359,7 +359,7 @@
       // ============================================
       // BUILD TALLY URL WITH UTM ATTRIBUTION
       // ============================================
-      function getTallyUrlWithAttribution(position, tallyId = 'mZDq7v') {
+      function getTallyUrlWithAttribution(position, tallyId = '2EPzlj') {
         const base = `https://tally.so/r/${tallyId}`;
         const utm = window.getRVRUtmData();
         const params = new URLSearchParams({
@@ -460,16 +460,14 @@
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a 
-                href="https://tally.so/r/mZDq7v?utm_source=website&utm_medium=cta_button&utm_campaign=rvr_download&utm_content=download_page"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/licensing"
                 data-cta-position="hero"
                 class="cta-download inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                 </svg>
-                Request API Key & Download
+                Get RVR
               </a>
               <a 
                 href="https://youtu.be/dmlnrD67Wx8"
@@ -582,16 +580,14 @@
           <!-- CTAs -->
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 mb-8">
             <a 
-              href="https://tally.so/r/mZDq7v?utm_source=website&utm_medium=cta_button&utm_campaign=rvr_download&utm_content=download_page"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/licensing"
               data-cta-position="middle"
               class="cta-download inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
               </svg>
-              Request API Key & Download
+              Get RVR
             </a>
               <a 
                 href="/docs/"
@@ -1087,16 +1083,14 @@
         <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Ready to capture every bug?</h2>
         <p class="text-gray-400 mb-6 max-w-xl mx-auto">Join Amazon Games and 50+ studios using RVR for game testing.</p>
         <a 
-          href="https://tally.so/r/mZDq7v?utm_source=website&utm_medium=cta_button&utm_campaign=rvr_download&utm_content=download_page"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/licensing"
           data-cta-position="bottom"
           class="cta-download inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 shadow-lg hover:shadow-xl"
         >
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
           </svg>
-          Request API Key & Download
+          Get RVR
         </a>
       </div>
 
@@ -1285,19 +1279,15 @@
             const position = button.getAttribute('data-cta-position') || 'unknown';
             const buttonText = button.textContent.trim();
             
-            // Determine which Tally form to use
-            let tallyId = 'mZDq7v'; // Default RVR form
-            if (button.href.includes('2EPzlj')) {
-              tallyId = '2EPzlj'; // BugIt form
-            }
+            let tallyId = '2EPzlj';
 
             // Track the click with position
             if (typeof trackCtaClick !== 'undefined') {
               trackCtaClick(position, buttonText);
             }
             
-            // Update href with UTM attribution
-            if (typeof getTallyUrlWithAttribution !== 'undefined') {
+            // Update href with UTM attribution (only for external Tally links)
+            if (typeof getTallyUrlWithAttribution !== 'undefined' && button.href.includes('tally.so')) {
               const newUrl = getTallyUrlWithAttribution(position, tallyId);
               button.href = newUrl;
             }

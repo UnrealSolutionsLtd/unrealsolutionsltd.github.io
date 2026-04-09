@@ -21,8 +21,9 @@ This document describes how traffic tracking works across the RVR marketing funn
 │                           │                                     │
 │                           ▼                                     │
 │              ┌────────────────────────┐                        │
-│              │      TALLY FORM        │                        │
-│              │  tally.so/r/mZDq7v     │                        │
+│              │    LICENSING PAGE      │                        │
+│              │  unrealsolutions.com   │                        │
+│              │      /licensing        │                        │
 │              │                        │                        │
 │              │  UTM params should be: │                        │
 │              │  ?utm_source=fab       │                        │
@@ -31,13 +32,13 @@ This document describes how traffic tracking works across the RVR marketing funn
 │              └────────────────────────┘                        │
 │                           │                                     │
 │                           ▼                                     │
-│                    API Key Delivered                            │
+│                    License Purchased                           │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 **Action Required:** Update FAB listing link to include UTM params:
 ```
-https://tally.so/r/mZDq7v?utm_source=fab&utm_medium=marketplace&utm_campaign=rvr_listing
+https://unrealsolutions.com/licensing?utm_source=fab&utm_medium=marketplace&utm_campaign=rvr_listing
 ```
 
 ### Secondary Flow: Website (20% of leads)
@@ -68,7 +69,8 @@ https://tally.so/r/mZDq7v?utm_source=fab&utm_medium=marketplace&utm_campaign=rvr
 │                          │                                      │
 │                          ▼                                      │
 │              ┌────────────────────────┐                        │
-│              │      TALLY FORM        │                        │
+│              │    LICENSING PAGE      │                        │
+│              │      /licensing        │                        │
 │              │                        │                        │
 │              │  Dynamic UTM params:   │                        │
 │              │  ?utm_source={source}  │                        │
@@ -182,11 +184,11 @@ Go to: **Admin → Data Streams → [Your Stream] → Enhanced Measurement**
 
 ---
 
-## Tally Form Attribution
+## Licensing Page Attribution
 
-### Current Form
+### Current Licensing Page
 ```
-https://tally.so/r/mZDq7v
+https://unrealsolutions.com/licensing
 ```
 
 ### UTM Parameters Passed to Tally
@@ -194,12 +196,12 @@ https://tally.so/r/mZDq7v
 When user clicks CTA on website, the URL is dynamically updated to:
 
 ```
-https://tally.so/r/mZDq7v?utm_source={source}&utm_medium={medium}&utm_campaign={campaign}&utm_content={position}
+https://unrealsolutions.com/licensing?utm_source={source}&utm_medium={medium}&utm_campaign={campaign}&utm_content={position}
 ```
 
 Example for Google organic visitor clicking hero CTA:
 ```
-https://tally.so/r/mZDq7v?utm_source=google&utm_medium=organic&utm_campaign=rvr_download&utm_content=hero
+https://unrealsolutions.com/licensing?utm_source=google&utm_medium=organic&utm_campaign=rvr_download&utm_content=hero
 ```
 
 ### Tally Source Attribution
@@ -357,10 +359,10 @@ README Link Click (GA4: source=github)
 Website Visit (GA4)
            │
            ▼
-Tally Form (utm_source=github visible in Tally)
+Licensing Page (utm_source=github visible in analytics)
            │
            ▼
-Lead Captured
+License Purchased
 ```
 
 ---

@@ -4,7 +4,7 @@
 
 ### How do I get an API key?
 
-Fill out the request form at **[tally.so/r/mZDq7v](https://tally.so/r/mZDq7v)**. You'll receive your key via email.
+Purchase a license at **[unrealsolutions.com/licensing](/licensing)**. You'll receive your key via email.
 
 ### For how long does an API key work?
 

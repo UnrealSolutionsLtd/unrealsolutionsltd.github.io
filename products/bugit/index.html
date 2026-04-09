@@ -198,14 +198,12 @@
             const position = button.getAttribute('data-cta-position') || 'unknown';
             const buttonText = button.textContent.trim();
             
-            // Determine which Tally form to use
-            let tallyId = '2EPzlj'; // Default BugIt form
-            if (button.href.includes('mZDq7v')) {
-              tallyId = 'mZDq7v'; // RVR form
-            }
+            let tallyId = '2EPzlj';
 
             trackCtaClick(position, buttonText);
-            button.href = getTallyUrlWithAttribution(position, tallyId);
+            if (button.href.includes('tally.so')) {
+              button.href = getTallyUrlWithAttribution(position, tallyId);
+            }
           });
         });
       });
@@ -744,13 +742,11 @@
                 Learn About RVR
               </a>
               <a 
-                href="https://tally.so/r/mZDq7v"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/licensing"
                 class="cta-download text-indigo-300 hover:text-indigo-200 underline text-sm"
                 data-cta-position="product_bugit_rvr_upsell"
               >
-                Request RVR API Key
+                Get RVR
               </a>
             </div>
           </div>
