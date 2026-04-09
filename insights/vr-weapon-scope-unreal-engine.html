@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Implement a Performant VR Weapon Scope in Unreal Engine | RVR Scope API</title>
+    <meta name="description" content="Build a real-time weapon scope for VR shooters in Unreal Engine using RVR's Scope API. Hardware-accelerated, tick-gated rendering at 512x512 with aggressive LOD, FXAA, and configurable render features. Full Blueprint and C++ guide.">
+    <meta name="keywords" content="VR weapon scope unreal engine, scope rendering UE5, VR sniper scope, render target scope, runtime video recorder scope, VR performance optimization, scene capture alternative, weapon optics unreal">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://unrealsolutions.com/insights/vr-weapon-scope-unreal-engine.html">
+    <meta property="og:title" content="How to Implement a Performant VR Weapon Scope in Unreal Engine">
+    <meta property="og:description" content="Build a real-time weapon scope for VR shooters using RVR's Scope API. Tick-gated rendering, aggressive LOD, and configurable render features.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
+    <meta property="article:published_time" content="2026-04-09">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Implement a Performant VR Weapon Scope in Unreal Engine">
+    <meta name="twitter:description" content="Build a real-time weapon scope for VR shooters using RVR's Scope API. Full Blueprint and C++ guide.">
+    
+    <link rel="canonical" href="https://unrealsolutions.com/insights/vr-weapon-scope-unreal-engine.html">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+      body {
+        font-family: 'Outfit', system-ui, sans-serif;
+        background: linear-gradient(to bottom, #0f0f0f 0%, #0a0a0a 100%);
+      }
+      .font-mono { font-family: 'JetBrains Mono', monospace; }
+      h2 { color: #a78bfa; }
+      pre { background: #1e293b; border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; line-height: 1.6; }
+      code { font-family: 'JetBrains Mono', monospace; }
+      .inline-code { background: #1e293b; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+      blockquote { border-left: 4px solid #a78bfa; background: rgba(167, 139, 250, 0.1); padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+    </style>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Implement a Performant VR Weapon Scope in Unreal Engine",
+      "description": "Build a real-time weapon scope for VR shooters using RVR's Scope API. Hardware-accelerated, tick-gated rendering with aggressive LOD and configurable features.",
+      "author": {"@type": "Organization", "name": "Unreal Solutions Ltd"},
+      "publisher": {"@type": "Organization", "name": "Unreal Solutions Ltd"},
+      "datePublished": "2026-04-09"
+    }
+    </script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="bg-gray-900 text-white">
+    <main class="container mx-auto px-4 sm:px-20 py-8">
+      <!-- Shared Navigation -->
+      <div id="site-nav" data-logo-path="../assets/logo.png"></div>
+      <script src="/assets/js/nav.js"></script>
+
+      <!-- Header -->
+      <div class="max-w-3xl mx-auto mb-12">
+        <div class="flex items-center gap-3 mb-4 text-sm">
+          <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full">VR Development</span>
+          <span class="text-gray-500">April 2026</span>
+        </div>
+        <h1 class="text-4xl font-bold mb-4">How to Implement a Performant VR Weapon Scope in Unreal Engine</h1>
+        <p class="text-xl text-gray-400">Using RVR's Scope API - tick-gated rendering, aggressive LOD, and zero SceneCaptureComponent2D overhead.</p>
+        <div class="flex items-center gap-4 text-sm text-gray-500 mt-4">
+          <span>10 min read</span>
+          <span>-</span>
+          <span>For VR Developers & Technical Artists</span>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <article class="max-w-3xl mx-auto space-y-12">
+        
+        <!-- The Problem -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">The Problem: Scopes Kill VR Frame Rates</h2>
+          <p class="text-gray-300 mb-4">
+            Every VR shooter needs weapon scopes. But the standard Unreal Engine approach - <code class="inline-code">SceneCaptureComponent2D</code> - renders 
+            the entire scene a second time every frame. In VR, where you already render two eyes at 90 Hz, that extra scene render 
+            can easily push you over budget and cause reprojection.
+          </p>
+          <p class="text-gray-300 mb-4">Common workarounds all have tradeoffs:</p>
+          <table class="w-full text-sm border border-gray-700 rounded-lg overflow-hidden">
+            <thead class="bg-gray-800">
+              <tr>
+                <th class="p-3 text-left">Approach</th>
+                <th class="p-3 text-left">Problem</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-300">
+              <tr class="border-t border-gray-700">
+                <td class="p-3">SceneCaptureComponent2D</td>
+                <td class="p-3">Full scene render every frame. 5-15ms GPU cost in VR.</td>
+              </tr>
+              <tr class="border-t border-gray-700">
+                <td class="p-3">Fake scope (zoomed overlay)</td>
+                <td class="p-3">Breaks immersion, no parallax, can't see around the scope.</td>
+              </tr>
+              <tr class="border-t border-gray-700">
+                <td class="p-3">SceneCapture with timer</td>
+                <td class="p-3">Manual tick management, no LOD control, still renders everything.</td>
+              </tr>
+              <tr class="border-t border-gray-700">
+                <td class="p-3">Stencil masking</td>
+                <td class="p-3">Complex setup, Z-fighting, no magnification.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- The Solution -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">The Solution: RVR Scope API</h2>
+          <p class="text-gray-300 mb-4">
+            RVR's Scope View is a purpose-built rendering pipeline for weapon optics. Instead of capturing the full scene at full quality every frame, 
+            it renders a lean, low-resolution view at a controlled frame rate with aggressive performance defaults.
+          </p>
+          <div class="bg-gray-800 rounded-lg p-6">
+            <h3 class="text-lg font-bold text-white mb-4">What makes it different from SceneCaptureComponent2D:</h3>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start gap-2">
+                <span class="text-green-400 mt-0.5">&#10003;</span>
+                <span><strong class="text-white">Tick-gated rendering</strong> - only renders at the capture FPS you set (default 20 Hz), not every game frame</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-400 mt-0.5">&#10003;</span>
+                <span><strong class="text-white">Aggressive LOD bias</strong> - at 512px width, objects use LODs as if 2.5x farther away</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-400 mt-0.5">&#10003;</span>
+                <span><strong class="text-white">Reduced far clip</strong> - culls distant geometry before vertex shading</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-400 mt-0.5">&#10003;</span>
+                <span><strong class="text-white">Stripped show flags</strong> - disables translucency, particles, foliage, motion blur, DoF, SSR, AO by default</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-400 mt-0.5">&#10003;</span>
+                <span><strong class="text-white">FXAA anti-aliasing</strong> - single-frame, no temporal dependency (TAA requires history buffers)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-400 mt-0.5">&#10003;</span>
+                <span><strong class="text-white">Screen percentage</strong> - default 50%, so a 512x512 target actually renders at 256x256 internally</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-400 mt-0.5">&#10003;</span>
+                <span><strong class="text-white">PF_B8G8R8A8 render target</strong> - 32bpp instead of PF_FloatRGBA (64bpp), halving memory bandwidth</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-400 mt-0.5">&#10003;</span>
+                <span><strong class="text-white">Warmup spreading</strong> - renders one warmup frame per tick to avoid a hitch on the first frame</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Blueprint Quick Start -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Quick Start: Blueprint</h2>
+          <p class="text-gray-300 mb-4">
+            The minimal setup is a single Blueprint node. Attach a <code class="inline-code">CameraComponent</code> to your weapon scope mesh, 
+            set a narrow FOV (10-20 degrees for magnification), then call <code class="inline-code">StartScopeView</code>.
+          </p>
+          <pre><code class="text-gray-300">// In your weapon Blueprint (e.g. BeginPlay or ADS event):
+
+1. Get RVR subsystem: Get Engine Subsystem -> Runtime Video Recorder
+2. Call StartScopeView:
+   - ScopeCamera: your scope CameraComponent (FOV = 12 for 6x magnification)
+   - Width: 512
+   - Height: 512
+   - CaptureFPS: 20
+   - ScreenPercentage: 50.0
+3. Take the returned Render Target
+4. Set it as a texture parameter on your scope lens material:
+   - Create Dynamic Material Instance (scope lens mesh)
+   - Set Texture Parameter Value ("ScopeTexture", returned RT)</code></pre>
+          <p class="text-gray-300 mt-4">
+            When the player exits ADS or holsters the weapon, call <code class="inline-code">StopScopeView</code> to release the render target and stop the extra renders.
+          </p>
+        </section>
+
+        <!-- C++ Implementation -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">C++ Implementation</h2>
+          <p class="text-gray-300 mb-4">Full C++ setup for a VR sniper rifle scope:</p>
+          <pre><code class="text-gray-300"><span style="color:#6b7280">// WeaponScope.h</span>
+UPROPERTY(VisibleAnywhere)
+UCameraComponent* ScopeCamera;
+
+UPROPERTY()
+UMaterialInstanceDynamic* ScopeLensMaterial;
+
+void ActivateScope();
+void DeactivateScope();
+
+<span style="color:#6b7280">// WeaponScope.cpp</span>
+void AWeaponScope::ActivateScope()
+{
+    auto* RVR = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;();
+    if (!RVR) return;
+
+    FRuntimeScopeRenderSettings RenderSettings;
+    RenderSettings.MaxScopeDistance = 80000.f;  <span style="color:#6b7280">// 800m for a sniper</span>
+    RenderSettings.bEnableDynamicShadows = true;
+    RenderSettings.bEnableFog = true;
+    RenderSettings.bEnableAtmosphere = true;
+    <span style="color:#6b7280">// Everything else defaults to OFF</span>
+
+    UTextureRenderTarget2D* ScopeRT = RVR->StartScopeView(
+        ScopeCamera,
+        512,    <span style="color:#6b7280">// Width</span>
+        512,    <span style="color:#6b7280">// Height</span>
+        20,     <span style="color:#6b7280">// CaptureFPS</span>
+        50.0f,  <span style="color:#6b7280">// ScreenPercentage</span>
+        FRuntimeSelectiveRenderingSettings(),
+        nullptr, <span style="color:#6b7280">// No custom post-process</span>
+        RenderSettings
+    );
+
+    if (ScopeRT && ScopeLensMaterial)
+    {
+        ScopeLensMaterial->SetTextureParameterValue(
+            TEXT("ScopeTexture"), ScopeRT);
+    }
+}
+
+void AWeaponScope::DeactivateScope()
+{
+    auto* RVR = GEngine->GetEngineSubsystem&lt;URuntimeVideoRecorder&gt;();
+    if (RVR) RVR->StopScopeView();
+}</code></pre>
+        </section>
+
+        <!-- API Reference -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">StartScopeView API Reference</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-700 rounded-lg overflow-hidden">
+              <thead class="bg-gray-800">
+                <tr>
+                  <th class="p-3 text-left">Parameter</th>
+                  <th class="p-3 text-left">Type</th>
+                  <th class="p-3 text-left">Default</th>
+                  <th class="p-3 text-left">Notes</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-300">
+                <tr class="border-t border-gray-700">
+                  <td class="p-3 font-mono text-purple-300">ScopeCamera</td>
+                  <td class="p-3">UCameraComponent*</td>
+                  <td class="p-3">required</td>
+                  <td class="p-3">Set a narrow FOV for magnification (e.g. 12 = ~6x zoom)</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3 font-mono text-purple-300">Width / Height</td>
+                  <td class="p-3">int32</td>
+                  <td class="p-3">512</td>
+                  <td class="p-3">Render target resolution. Lower = faster. 256 works for close-range optics.</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3 font-mono text-purple-300">CaptureFPS</td>
+                  <td class="p-3">int32</td>
+                  <td class="p-3">20</td>
+                  <td class="p-3">How often the scope renders. 20 Hz is visually smooth for a scope view.</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3 font-mono text-purple-300">ScreenPercentage</td>
+                  <td class="p-3">float</td>
+                  <td class="p-3">50.0</td>
+                  <td class="p-3">Internal render scale (5-100). At 50%, a 512 target renders at 256 internally.</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3 font-mono text-purple-300">SelectiveRendering</td>
+                  <td class="p-3">FRuntimeSelectiveRenderingSettings</td>
+                  <td class="p-3">empty</td>
+                  <td class="p-3">ShowOnlyActors / HiddenActors arrays for filtering what the scope sees.</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3 font-mono text-purple-300">CustomPostProcessMaterial</td>
+                  <td class="p-3">UMaterialInterface*</td>
+                  <td class="p-3">nullptr</td>
+                  <td class="p-3">Crosshair overlay, vignette, night vision, thermal - applied as post-process.</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3 font-mono text-purple-300">ScopeRenderSettings</td>
+                  <td class="p-3">FRuntimeScopeRenderSettings</td>
+                  <td class="p-3">see below</td>
+                  <td class="p-3">Fine-grained toggle for every rendering feature.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-gray-400 text-sm mt-4">Returns a <code class="inline-code">UTextureRenderTarget2D*</code> that you assign to your scope mesh material. Only one scope view can be active at a time; calling again stops the previous one.</p>
+        </section>
+
+        <!-- Render Settings -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">FRuntimeScopeRenderSettings - What's On and Off</h2>
+          <p class="text-gray-300 mb-4">Every feature defaults to OFF for maximum VR performance. Enable only what you need:</p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-700 rounded-lg overflow-hidden">
+              <thead class="bg-gray-800">
+                <tr>
+                  <th class="p-3 text-left">Feature</th>
+                  <th class="p-3 text-center">Default</th>
+                  <th class="p-3 text-left">When to Enable</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-300">
+                <tr class="border-t border-gray-700">
+                  <td class="p-3">MaxScopeDistance</td>
+                  <td class="p-3 text-center">50000 cm (500m)</td>
+                  <td class="p-3">Increase for sniper rifles, decrease for red-dot sights</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3">Dynamic Shadows</td>
+                  <td class="p-3 text-center text-green-400">ON</td>
+                  <td class="p-3">Critical for depth perception. Disable only on Quest 2.</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3">Contact Shadows</td>
+                  <td class="p-3 text-center text-red-400">OFF</td>
+                  <td class="p-3">Barely visible at scope resolution. Not worth the cost.</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3">Capsule Shadows</td>
+                  <td class="p-3 text-center text-red-400">OFF</td>
+                  <td class="p-3">Enable if characters look like they float.</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3">Translucency</td>
+                  <td class="p-3 text-center text-red-400">OFF</td>
+                  <td class="p-3">Enable if you need glass, smoke shells, or transparent surfaces.</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3">Particles</td>
+                  <td class="p-3 text-center text-red-400">OFF</td>
+                  <td class="p-3">Enable for muzzle flash and tracer visibility through scope.</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3">Foliage</td>
+                  <td class="p-3 text-center text-red-400">OFF</td>
+                  <td class="p-3">Extremely expensive at scope resolution. Rarely needed.</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3">Decals</td>
+                  <td class="p-3 text-center text-red-400">OFF</td>
+                  <td class="p-3">Enable for bullet-hole visibility.</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3">Fog / Atmosphere</td>
+                  <td class="p-3 text-center text-green-400">ON</td>
+                  <td class="p-3">Cheap and helps depth perception at distance.</td>
+                </tr>
+                <tr class="border-t border-gray-700">
+                  <td class="p-3">Bloom / DoF / Motion Blur / Lens Flares / Volumetric Fog / AO / SSR</td>
+                  <td class="p-3 text-center text-red-400">OFF</td>
+                  <td class="p-3">All post-process effects off. A scope is a rigid optic - no motion blur or DoF.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Performance -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Performance Under the Hood</h2>
+          <p class="text-gray-300 mb-4">Here's what the Scope API does behind the scenes to keep costs minimal:</p>
+          <div class="space-y-4">
+            <div class="bg-gray-800 rounded-lg p-5">
+              <h3 class="text-white font-bold mb-2">Tick-Gated Rendering</h3>
+              <p class="text-gray-300 text-sm">The scope only renders when the capture interval elapses. At 20 FPS, that's once every 50ms. Your game's 90 Hz VR loop runs uninterrupted for the other frames. SceneCaptureComponent2D renders every single frame.</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-5">
+              <h3 class="text-white font-bold mb-2">Aggressive LOD Bias</h3>
+              <p class="text-gray-300 text-sm">LOD distance factor is calculated as <code class="inline-code">1280 / Width</code>, clamped between 1.0 and 8.0. At 512px, that's 2.5x - objects pick LODs as if they were 2.5x farther away. This dramatically reduces polygon count without visible quality loss at scope resolution.</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-5">
+              <h3 class="text-white font-bold mb-2">Reduced Far Clip Plane</h3>
+              <p class="text-gray-300 text-sm"><code class="inline-code">MaxScopeDistance</code> (default 500m) rejects distant geometry before vertex shading even begins. The main camera still sees the full world, but the scope only processes what's within range.</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-5">
+              <h3 class="text-white font-bold mb-2">Manual Exposure</h3>
+              <p class="text-gray-300 text-sm">Auto-exposure is forced off. The scope uses manual exposure to prevent brightness flickering as you pan across different areas. This also skips the luminance compute pass.</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-5">
+              <h3 class="text-white font-bold mb-2">Warmup Frame Spreading</h3>
+              <p class="text-gray-300 text-sm">When the scope activates, warmup frames are spread across multiple ticks (one per tick) instead of rendering all at once. This prevents a frame spike when the player first aims down sights.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Custom Post-Process -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Custom Post-Process: Crosshair, Night Vision, Thermal</h2>
+          <p class="text-gray-300 mb-4">
+            Pass a <code class="inline-code">CustomPostProcessMaterial</code> to overlay a crosshair reticle, add a vignette, or build a full night-vision/thermal scope.
+            When a custom material is provided, the view mode switches to Unlit with FinalColorLDR capture, and your material receives the scene as input.
+          </p>
+          <pre><code class="text-gray-300"><span style="color:#6b7280">// Create a night-vision post-process material in your asset pipeline,</span>
+<span style="color:#6b7280">// then pass it to StartScopeView:</span>
+
+UMaterialInterface* NightVisionMat = LoadObject&lt;UMaterialInterface&gt;(
+    nullptr, TEXT("/Game/Materials/MI_NightVision"));
+
+RVR->StartScopeView(
+    ScopeCamera, 512, 512, 20, 50.0f,
+    FRuntimeSelectiveRenderingSettings(),
+    NightVisionMat,  <span style="color:#6b7280">// Applied as post-process</span>
+    FRuntimeScopeRenderSettings()
+);</code></pre>
+          <p class="text-gray-300 mt-4">
+            The material gets the full scope scene as a texture input. Use it to add green tint + noise for night vision, or remap colors for a thermal overlay.
+          </p>
+        </section>
+
+        <!-- Selective Rendering -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Selective Rendering: Hide or Show Specific Actors</h2>
+          <p class="text-gray-300 mb-4">
+            Use <code class="inline-code">FRuntimeSelectiveRenderingSettings</code> to control what the scope sees. This is useful for:
+          </p>
+          <ul class="space-y-2 text-gray-300 mb-4">
+            <li class="flex items-start gap-2">
+              <span class="text-purple-400">-</span>
+              <span>Hiding the player's own weapon mesh from the scope view</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-purple-400">-</span>
+              <span>Showing only tagged "enemy" actors for a wall-hack scope power-up</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-purple-400">-</span>
+              <span>Filtering out UI/HUD elements</span>
+            </li>
+          </ul>
+          <pre><code class="text-gray-300">FRuntimeSelectiveRenderingSettings Selective;
+Selective.HiddenActors.Add(PlayerWeaponActor);
+Selective.HiddenActors.Add(PlayerHandsActor);
+
+RVR->StartScopeView(
+    ScopeCamera, 512, 512, 20, 50.0f,
+    Selective,
+    nullptr,
+    FRuntimeScopeRenderSettings()
+);</code></pre>
+        </section>
+
+        <!-- Events -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Events and Delegates</h2>
+          <p class="text-gray-300 mb-4">
+            RVR broadcasts two delegates for scope lifecycle:
+          </p>
+          <div class="bg-gray-800 rounded-lg p-6">
+            <ul class="space-y-3 text-gray-300">
+              <li><code class="inline-code">OnScopeViewStarted</code> - fires when the scope render target is created and ready</li>
+              <li><code class="inline-code">OnScopeViewStopped</code> - fires when the scope is deactivated and the render target released</li>
+            </ul>
+          </div>
+          <p class="text-gray-300 mt-4">
+            Bind to these to show/hide a scope overlay widget, play an ADS animation, or switch the crosshair style.
+          </p>
+        </section>
+
+        <!-- Helper Methods -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Helper Methods</h2>
+          <div class="bg-gray-800 rounded-lg p-6">
+            <ul class="space-y-3 text-gray-300">
+              <li><code class="inline-code">IsScopeViewActive()</code> - returns true if a scope view is currently rendering</li>
+              <li><code class="inline-code">GetScopeViewRenderTarget()</code> - returns the active render target (or nullptr)</li>
+              <li><code class="inline-code">StopScopeView()</code> - stops rendering and releases the render target</li>
+            </ul>
+          </div>
+          <p class="text-gray-300 mt-4">
+            The scope is automatically stopped on EndPlay and Deinitialize, so you don't need to manually clean up when the level ends.
+          </p>
+        </section>
+
+        <!-- Tuning Guide -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Tuning Guide: Quest vs PCVR</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-gray-800 rounded-lg p-6">
+              <h3 class="text-white font-bold mb-3">Quest 2/3 (Mobile VR)</h3>
+              <ul class="space-y-2 text-gray-300 text-sm">
+                <li>- Resolution: 256x256</li>
+                <li>- CaptureFPS: 15</li>
+                <li>- ScreenPercentage: 30-40%</li>
+                <li>- Dynamic Shadows: OFF</li>
+                <li>- MaxScopeDistance: 30000 (300m)</li>
+                <li>- All post-process: OFF</li>
+              </ul>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-6">
+              <h3 class="text-white font-bold mb-3">PCVR (Index, Vive Pro)</h3>
+              <ul class="space-y-2 text-gray-300 text-sm">
+                <li>- Resolution: 512x512</li>
+                <li>- CaptureFPS: 30</li>
+                <li>- ScreenPercentage: 50-70%</li>
+                <li>- Dynamic Shadows: ON</li>
+                <li>- MaxScopeDistance: 80000 (800m)</li>
+                <li>- Fog + Atmosphere: ON</li>
+              </ul>
+            </div>
+          </div>
+          <blockquote class="text-gray-300 mt-4">
+            <strong class="text-white">Tip:</strong> Start with the defaults (512, 20 FPS, 50%) and profile with <code class="inline-code">stat gpu</code>. 
+            The scope render should cost under 1ms on PCVR and under 2ms on Quest 3.
+          </blockquote>
+        </section>
+
+        <!-- CTA -->
+        <section class="bg-purple-600 rounded-xl p-8 text-center">
+          <h2 class="text-2xl font-bold mb-2 text-white">Build VR Weapon Scopes with RVR</h2>
+          <p class="text-purple-100 mb-6">One API call. No SceneCaptureComponent2D overhead. Ships on Quest and PCVR.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/licensing" class="inline-block px-6 py-3 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-100">
+              Get RVR
+            </a>
+            <a href="/docs/products/runtime-video-recorder/quick-start.html" class="text-purple-100 hover:text-white underline">
+              Read the Docs
+            </a>
+          </div>
+        </section>
+
+      </article>
+
+      <!-- Footer -->
+      <footer class="max-w-3xl mx-auto mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+        &copy; Unreal Solutions Ltd. All Rights Reserved 2026
+      </footer>
+    </main>
+</body>
+</html>
