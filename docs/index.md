@@ -77,7 +77,7 @@ Hardware-accelerated video playback plugin leveraging Vulkan Video API for effic
 
 - 💬 Join our [Discord Community](https://discord.com/invite/pBDSCBcdgv) for support
 - 📧 Contact us at [business@unrealsolutions.com](mailto:business@unrealsolutions.com)
-- 🛒 [Request API Key & Download](/download) to get started
+- 🛒 [View Pricing & Buy](/licensing) to get started
 
 ### Trusted by Leading Companies
 

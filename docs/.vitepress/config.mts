@@ -27,7 +27,7 @@ export default defineConfig({
         { text: 'Vulkan Media Player', link: '/products/vulkan-media-player/' },
         // Add more products here as they become available
       ]},
-      { text: 'Download', link: '/download' },
+      { text: 'Pricing', link: '/licensing' },
       { text: 'Support', link: 'https://discord.com/invite/pBDSCBcdgv' }
     ],
 
