@@ -340,16 +340,6 @@
         <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-4">
           Choose the license that fits your project. Pay once or subscribe — start recording in minutes.
         </p>
-        <div class="flex flex-wrap justify-center gap-3 mb-10">
-          <span class="payment-badge">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
-            Stripe
-          </span>
-          <span class="payment-badge">
-            <span class="text-indigo-400 font-semibold text-sm">Alipay</span>
-            Available for Chinese users
-          </span>
-        </div>
       </div>
 
       <!-- ============================================ -->
@@ -382,30 +372,8 @@
       <div class="max-w-6xl mx-auto mb-16">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           
-          <!-- Standard License -->
+          <!-- Subscription License -->
           <div class="price-card p-8 flex flex-col">
-            <div class="mb-6">
-              <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">One-Time</span>
-              <h3 class="text-2xl font-bold text-white mb-2">Standard</h3>
-              <p class="text-gray-400 text-sm">All features, all platforms. Buy once.</p>
-            </div>
-            
-            <div class="mb-6 flex-1">
-              <div class="price-amount">$299</div>
-              <div class="price-period">one-time purchase</div>
-            </div>
-            
-            <a href="https://buy.stripe.com/28E00keo69T54zHe7xdIA0d" class="btn-buy btn-secondary" data-license="standard" onclick="trackEvent('buy_click', 'Standard')">
-              Buy Now
-            </a>
-          </div>
-          
-          <!-- Subscription License (Featured) -->
-          <div class="price-card featured p-8 flex flex-col relative">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span class="px-4 py-1 bg-indigo-500 text-white text-sm font-medium rounded-full">Most Flexible</span>
-            </div>
-            
             <div class="mb-6">
               <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">Subscription</span>
               <h3 class="text-2xl font-bold text-white mb-2">Subscription</h3>
@@ -426,8 +394,30 @@
               </div>
             </div>
             
-            <a href="https://buy.stripe.com/9B6fZibbU3uHeah3sTdIA0g" id="sub-buy-link" class="btn-buy btn-primary" data-license="subscription" onclick="trackEvent('buy_click', 'Subscription - ' + currentSubPeriod)">
+            <a href="https://buy.stripe.com/9B6fZibbU3uHeah3sTdIA0g" id="sub-buy-link" class="btn-buy btn-secondary" data-license="subscription" onclick="trackEvent('buy_click', 'Subscription - ' + currentSubPeriod)">
               Subscribe Now
+            </a>
+          </div>
+          
+          <!-- Standard License (Featured) -->
+          <div class="price-card featured p-8 flex flex-col relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="px-4 py-1 bg-indigo-500 text-white text-sm font-medium rounded-full">Best Value</span>
+            </div>
+            
+            <div class="mb-6">
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">One-Time</span>
+              <h3 class="text-2xl font-bold text-white mb-2">Standard</h3>
+              <p class="text-gray-400 text-sm">All features, all platforms.</p>
+            </div>
+            
+            <div class="mb-6 flex-1">
+              <div class="price-amount">$299</div>
+              <div class="price-period">one-time purchase</div>
+            </div>
+            
+            <a href="https://buy.stripe.com/28E00keo69T54zHe7xdIA0d" class="btn-buy btn-primary" data-license="standard" onclick="trackEvent('buy_click', 'Standard')">
+              Buy Now
             </a>
           </div>
           
@@ -436,7 +426,7 @@
             <div class="mb-6">
               <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">By Request</span>
               <h3 class="text-2xl font-bold text-white mb-2">Perpetual</h3>
-              <p class="text-gray-400 text-sm">Full source code, custom engine support. Own it forever.</p>
+              <p class="text-gray-400 text-sm">Full source code, custom engine support. <strong class="text-white">Own it forever</strong>.</p>
             </div>
             
             <div class="mb-6 flex-1">
@@ -475,7 +465,7 @@
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                 </tr>
                 <tr class="border-b border-gray-800/50">
-                  <td class="px-6 py-3 text-gray-300">All platforms</td>
+                  <td class="px-6 py-3 text-gray-300">All platforms (Windows, MacOS, iOS, tvOS,Meta Quest, Android, Linux</td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
                   <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
@@ -506,9 +496,9 @@
                 </tr>
                 <tr class="border-b border-gray-800/50">
                   <td class="px-6 py-3 text-gray-300">Engine upgrades</td>
-                  <td class="px-6 py-3 text-center text-gray-400 text-xs">Upgrade package</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003; Included</td>
-                  <td class="px-6 py-3 text-center text-gray-400 text-xs">Self-serve w/ source</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
+                  <td class="px-6 py-3 text-center text-gray-400 text-xs">&#10007</td>
                 </tr>
                 <tr class="border-b border-gray-800/50">
                   <td class="px-6 py-3 text-gray-300">Support</td>
