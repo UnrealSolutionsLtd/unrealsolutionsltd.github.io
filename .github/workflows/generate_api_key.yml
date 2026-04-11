@@ -7,15 +7,11 @@ on:
         description: "User Email"
         required: true
         type: string
-      use_case:
-        description: "Use Case"
-        required: true
-        type: string
       credits:
         description: "Recording credits for Supabase (credit-based licensing)"
         required: false
         type: integer
-        default: 3
+        default: 999
 
 permissions:
   contents: read
