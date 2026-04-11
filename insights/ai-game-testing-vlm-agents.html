@@ -120,7 +120,7 @@
         "name": "How do I capture video evidence when AI bots find bugs?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "AI testing platforms typically capture video footage during test runs. For in-engine recording that integrates with your existing pipeline, tools like Runtime Video Recorder (RVR) can capture gameplay during automated testing, providing video proof for every bug report regardless of the testing method used."
+          "text": "AI testing platforms typically capture video footage during test runs. For native video recording that integrates with your existing pipeline, tools like Runtime Video Recorder (RVR) can capture gameplay during automated testing, providing video proof for every bug report regardless of the testing method used."
         }
       }]
     }
@@ -498,7 +498,7 @@
             <p>
               <em>The video evidence piece is critical.</em> AI platforms capture footage during testing, but for mobile 
               devices this remains challenging. Studios will likely need complementary solutions like 
-              <a href="/" class="text-violet-400 hover:text-violet-300">in-engine recorders</a> that work natively on iOS/Android 
+              <a href="/" class="text-violet-400 hover:text-violet-300">native video recorders</a> that work on iOS/Android 
               to ensure complete coverage across all platforms.
             </p>
             
@@ -575,7 +575,7 @@
               <li><strong>Setup time:</strong> Despite "plug and play" claims, expect iteration to get useful results.</li>
               <li><strong>Review overhead:</strong> Someone still needs to triage AI-generated bug reports.</li>
               <li><strong>Platform coverage:</strong> Mobile and console testing often requires additional device farm integration.</li>
-              <li><strong>Video capture on mobile:</strong> Most AI platforms struggle to capture video evidence on actual devices. Tools like <a href="/" class="text-violet-400 hover:text-violet-300">RVR</a> that record in-engine become essential for mobile QA.</li>
+              <li><strong>Video capture on mobile:</strong> Most AI platforms struggle to capture video evidence on actual devices. Tools like <a href="/" class="text-violet-400 hover:text-violet-300">RVR</a> that record directly from the render pipeline become essential for mobile QA.</li>
               <li><strong>Cost at scale:</strong> Compute costs for running hundreds of instances add up.</li>
             </ul>
           </section>
@@ -632,7 +632,7 @@
             <p>
               <strong>Critical note:</strong> Whether bugs are found by AI or humans, you'll need video evidence 
               to reproduce and fix them. The studios seeing the best results combine AI testing with 
-              <a href="/" class="text-violet-400 hover:text-violet-300">in-engine video recording</a> 
+              <a href="/" class="text-violet-400 hover:text-violet-300">native video recording</a> 
               to ensure every bug report - automated or manual - comes with proof.
             </p>
           </section>
@@ -657,7 +657,7 @@
                 from video proof. "Cannot reproduce" disappears when developers can see exactly what happened.
               </p>
               <p class="text-gray-300 mb-0">
-                <strong>Runtime Video Recorder (RVR)</strong> provides in-engine video capture that works alongside 
+                <strong>Runtime Video Recorder (RVR)</strong> provides native video capture that works alongside 
                 AI testing solutions -  capturing footage during manual testing, automated pipelines, and play sessions. 
                 The only solution that works on mobile devices, where many AI testing platforms struggle with video capture.
               </p>
@@ -727,8 +727,8 @@
             <h3 class="text-xl font-bold text-white mb-3">Does AI testing work on mobile games?</h3>
             <p>
               Yes, but with caveats. VLM agents can test mobile games through device farms or emulators. However, 
-              capturing video evidence on actual devices remains challenging -  this is where in-engine recording 
-              solutions like RVR provide value, as it's the only recorder that works natively on iOS and Android.
+              capturing video evidence on actual devices remains challenging. RVR solves this as the only 
+              recorder that captures directly from the render pipeline on iOS and Android.
             </p>
             
             <h3 class="text-xl font-bold text-white mb-3">What about engine-specific testing?</h3>

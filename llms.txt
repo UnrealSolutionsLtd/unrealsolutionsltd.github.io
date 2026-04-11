@@ -4,7 +4,7 @@
 
 ## About
 
-Unreal Solutions Ltd develops Runtime Video Recorder (RVR), the only in-engine video recording plugin for Unreal Engine that works on every platform including mobile. Hardware-accelerated, zero dependencies. Trusted by Amazon Games and 50+ studios worldwide.
+Unreal Solutions Ltd develops Runtime Video Recorder (RVR), the only video recording plugin for Unreal Engine that works on every platform including mobile. Hardware-accelerated, zero dependencies. Trusted by Amazon Games and 50+ studios worldwide.
 
 ## What RVR Does
 
@@ -20,7 +20,7 @@ RVR records video directly inside Unreal Engine projects across all platforms:
 ## Use Cases
 
 - QA & Bug Reporting: Attach video evidence to every bug ticket
-- Mobile Recording: The only in-engine recorder for iOS and Android
+- Mobile Recording: The only native recorder for iOS and Android in Unreal Engine
 - CI/CD Pipelines: Automated video capture in headless test runs
 - Content Creation: Record gameplay, trailers, and marketing material
 - VR & Training: Capture VR sessions for review and documentation

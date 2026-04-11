@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unreal Engine Video Recording: Every Method Compared (2026)</title>
+    <meta name="description" content="Complete guide to video recording in Unreal Engine. Compare Movie Render Queue, Replay System, OBS, FFmpeg plugins, and native recording. Learn which approach works for shipping games, mobile, VR, and CI/CD.">
+    <meta name="keywords" content="unreal engine video recording, record video unreal engine, UE5 video capture, gameplay recording unreal, unreal engine screen capture, movie render queue recording, replay system unreal, video recording plugin unreal">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://unrealsolutions.com/insights/unreal-engine-video-recording.html">
+    <meta property="og:title" content="Unreal Engine Video Recording: Every Method Compared (2026)">
+    <meta property="og:description" content="Complete guide to video recording in Unreal Engine. Compare every approach from Movie Render Queue to native recording plugins.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-04-11">
+    <meta property="article:author" content="Unreal Solutions Ltd">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Unreal Engine Video Recording: Every Method Compared">
+    <meta name="twitter:description" content="Complete guide to recording video in Unreal Engine. Every method, every platform, real trade-offs.">
+    <meta name="twitter:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
+    
+    <meta name="author" content="Unreal Solutions Ltd">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unrealsolutions.com/insights/unreal-engine-video-recording.html">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+      body {
+        font-family: 'Outfit', system-ui, sans-serif;
+        background: linear-gradient(to bottom, #0f0f0f 0%, #0a0a0a 100%);
+      }
+      .font-mono { font-family: 'JetBrains Mono', monospace; }
+      
+      .article-content h2 { scroll-margin-top: 100px; }
+      
+      .method-card {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.8) 100%);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+      }
+      .method-card:hover {
+        border-color: rgba(99, 102, 241, 0.4);
+        transform: translateY(-2px);
+      }
+      
+      .comparison-table {
+        background: rgba(17, 24, 39, 0.8);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        overflow: hidden;
+      }
+      .comparison-table th { background: rgba(99, 102, 241, 0.2); }
+      
+      .toc-link { transition: all 0.2s ease; }
+      .toc-link:hover { color: #818cf8; padding-left: 0.5rem; }
+      
+      blockquote {
+        border-left: 4px solid #818cf8;
+        background: rgba(99, 102, 241, 0.1);
+        padding: 1rem 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 0 0.5rem 0.5rem 0;
+      }
+      
+      .verdict-card {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.15) 100%);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 1rem;
+        padding: 2rem;
+      }
+    </style>
+    
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Unreal Engine Video Recording: Every Method Compared",
+      "description": "Complete guide to video recording in Unreal Engine. Compare Movie Render Queue, Replay System, OBS, FFmpeg, and native recording plugins across platforms and use cases.",
+      "image": "https://unrealsolutions.com/assets/rvr_logo_social.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Unreal Solutions Ltd",
+        "url": "https://unrealsolutions.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Unreal Solutions Ltd",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://unrealsolutions.com/assets/logo.png"
+        }
+      },
+      "datePublished": "2026-04-11",
+      "dateModified": "2026-04-11",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://unrealsolutions.com/insights/unreal-engine-video-recording.html"
+      }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is the best way to record video in Unreal Engine?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on your use case. Movie Render Queue is best for offline cinematic renders. For recording gameplay in a shipped game on desktop, mobile, or VR, a native plugin like Runtime Video Recorder is the only option that works across all platforms with hardware-accelerated encoding and no external dependencies."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can you record video in Unreal Engine without FFmpeg?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Runtime Video Recorder uses native platform APIs (Windows Media Foundation, AVFoundation, MediaCodec) for encoding. No FFmpeg binaries, no codec packs, and no GPL licensing concerns for your shipped game."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How do you record gameplay video on mobile in Unreal Engine?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "External screen recorders and OBS do not work on mobile devices. You need a recorder that captures frames directly from the render pipeline. Runtime Video Recorder supports Android (via MediaCodec) and iOS (via AVFoundation) with hardware-accelerated encoding."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does recording video in Unreal Engine affect performance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the method. Movie Render Queue renders offline and is not real-time. External tools like OBS add 5-15% overhead by capturing at the OS level. RVR uses hardware encoders with 1-3% CPU overhead because it captures directly from the render pipeline."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can you record VR gameplay in Unreal Engine?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard screen capture tools cannot record the VR eye buffers. You need to capture from a render target or scene capture component inside the engine. Runtime Video Recorder supports this on Meta Quest and other VR platforms with render target recording."
+        }
+      }]
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://unrealsolutions.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Insights",
+        "item": "https://unrealsolutions.com/insights/"
+      }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Unreal Engine Video Recording",
+        "item": "https://unrealsolutions.com/insights/unreal-engine-video-recording.html"
+      }]
+    }
+    </script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-black min-h-screen">
+    <main class="container mx-auto px-4 sm:px-20">
+      <div class="relative pt-4 sm:pt-0">
+        <div id="site-nav" data-logo-path="../assets/logo.png"></div>
+        <script src="/assets/js/nav.js"></script>
+
+        <!-- Hero -->
+        <div class="sm:pt-28 pb-8 sm:py-12">
+          <div class="mx-auto max-w-5xl">
+            <nav class="mb-6 text-sm">
+              <ol class="flex items-center gap-2 text-gray-400">
+                <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                <li>/</li>
+                <li><a href="/insights/" class="hover:text-white transition-colors">Insights</a></li>
+                <li>/</li>
+                <li class="text-indigo-400">Unreal Engine Video Recording</li>
+              </ol>
+            </nav>
+
+            <div class="text-center mb-12">
+              <div class="flex items-center justify-center gap-3 mb-4">
+                <span class="inline-block px-4 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-sm font-medium">Technical Guide</span>
+                <span class="text-gray-500 text-sm">April 2026</span>
+              </div>
+              <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6 leading-tight">
+                Unreal Engine Video Recording<br>
+                <span class="text-indigo-400">Every Method Compared</span>
+              </h1>
+              <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                There are five ways to record video from Unreal Engine. Each works in a different context and fails in the others. This guide covers what actually works, where, and why.
+              </p>
+              <div class="flex items-center justify-center gap-6 text-sm text-gray-400">
+                <span class="flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  12 min read
+                </span>
+                <span class="flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                  </svg>
+                  For UE Developers &amp; Technical Directors
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="py-8">
+        <div class="mx-auto max-w-4xl">
+          <div class="bg-gray-800/50 rounded-xl p-6">
+            <h2 class="text-lg font-semibold text-white mb-4">In This Article</h2>
+            <div class="grid md:grid-cols-2 gap-2 text-sm">
+              <a href="#the-problem" class="toc-link text-gray-300">1. The Recording Problem in Unreal Engine</a>
+              <a href="#method-mrq" class="toc-link text-gray-300">2. Movie Render Queue</a>
+              <a href="#method-replay" class="toc-link text-gray-300">3. Replay System</a>
+              <a href="#method-external" class="toc-link text-gray-300">4. External Tools (OBS, ShadowPlay)</a>
+              <a href="#method-ffmpeg" class="toc-link text-gray-300">5. FFmpeg Wrappers</a>
+              <a href="#method-inengine" class="toc-link text-gray-300">6. Native Recording (RVR)</a>
+              <a href="#comparison" class="toc-link text-gray-300">7. Full Comparison Table</a>
+              <a href="#which-method" class="toc-link text-gray-300">8. Which Method for Your Use Case</a>
+              <a href="#faq" class="toc-link text-gray-300">9. FAQ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article Content -->
+      <article class="py-8 article-content">
+        <div class="mx-auto max-w-4xl prose prose-invert prose-lg">
+
+          <!-- Section 1: The Problem -->
+          <section id="the-problem" class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">1. The Recording Problem in Unreal Engine</h2>
+            <p class="text-gray-300 mb-4">
+              Unreal Engine does not ship with a built-in way to record gameplay video in a packaged game. The editor has Movie Render Queue and the Replay System, but neither produces an MP4 that works in a shipping title on all platforms.
+            </p>
+            <p class="text-gray-300 mb-4">
+              This matters because recording video at runtime is a requirement for a growing number of use cases: QA testing, instant replay features, bug reporting, content creation, VR training footage, and CI/CD pipelines. Each of these has different constraints around platform support, performance overhead, and whether the recording happens in the editor or in a packaged build.
+            </p>
+            <p class="text-gray-300 mb-6">
+              The approaches available today fall into five categories. Each solves part of the problem and ignores the rest.
+            </p>
+          </section>
+
+          <!-- Section 2: Movie Render Queue -->
+          <section id="method-mrq" class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">2. Movie Render Queue</h2>
+            <div class="method-card mb-6">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-medium">EDITOR ONLY</span>
+                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-medium">OFFLINE</span>
+              </div>
+              <p class="text-gray-300 mb-4">
+                Movie Render Queue (MRQ) is Epic's tool for rendering high-quality cinematic sequences. It renders frames at whatever rate it needs, which means it can produce output at higher quality than real-time but takes longer to complete. A 30-second sequence might take 10 minutes to render.
+              </p>
+              <h3 class="text-lg font-semibold text-white mb-3">Good for</h3>
+              <ul class="text-gray-300 text-sm space-y-1 mb-4">
+                <li>Cinematic trailers and marketing materials</li>
+                <li>Pre-rendered cutscenes</li>
+                <li>Architectural visualization walkthroughs</li>
+              </ul>
+              <h3 class="text-lg font-semibold text-white mb-3">Does not work for</h3>
+              <ul class="text-gray-300 text-sm space-y-1">
+                <li>Recording gameplay in a packaged game</li>
+                <li>Real-time capture (it is not real-time)</li>
+                <li>Mobile, VR, or console platforms</li>
+                <li>Anything outside the editor</li>
+              </ul>
+            </div>
+            <p class="text-gray-300">
+              If you need a polished cinematic rendered from a Sequencer track, MRQ is the right tool. If you need to record what a player is doing in your shipped game, it is not an option.
+            </p>
+          </section>
+
+          <!-- Section 3: Replay System -->
+          <section id="method-replay" class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">3. Replay System</h2>
+            <div class="method-card mb-6">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-medium">RUNTIME</span>
+                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-medium">NO VIDEO OUTPUT</span>
+              </div>
+              <p class="text-gray-300 mb-4">
+                Unreal's Replay System records network data and gameplay events, then replays them by re-simulating the game. It was built for kill cams and match replays in multiplayer games. It does not produce a video file.
+              </p>
+              <h3 class="text-lg font-semibold text-white mb-3">Good for</h3>
+              <ul class="text-gray-300 text-sm space-y-1 mb-4">
+                <li>Kill cams and match replay viewers in multiplayer games</li>
+                <li>Debugging network replication issues</li>
+                <li>Free-camera spectator replays</li>
+              </ul>
+              <h3 class="text-lg font-semibold text-white mb-3">Limitations</h3>
+              <ul class="text-gray-300 text-sm space-y-1">
+                <li>Output is a replay file, not an MP4. Players cannot share a video.</li>
+                <li>Requires the game to re-simulate the recorded data. Heavy on memory and CPU.</li>
+                <li>Non-replicated state (particles, audio, UI) may not replay accurately.</li>
+                <li>Complex to set up for non-multiplayer games.</li>
+              </ul>
+            </div>
+            <p class="text-gray-300">
+              The Replay System is useful if you want an in-game replay viewer. It is not a video recording solution. If your goal is to produce an MP4 file that a player can upload or a QA tester can attach to a bug report, you need something else.
+            </p>
+          </section>
+
+          <!-- Section 4: External Tools -->
+          <section id="method-external" class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">4. External Tools (OBS, ShadowPlay, Game Bar)</h2>
+            <div class="method-card mb-6">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-xs font-medium">DESKTOP ONLY</span>
+                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-medium">USER-INSTALLED</span>
+              </div>
+              <p class="text-gray-300 mb-4">
+                OBS Studio, NVIDIA ShadowPlay, and Windows Game Bar capture video at the OS or GPU driver level. The player or developer installs them separately and runs them alongside the game.
+              </p>
+              <h3 class="text-lg font-semibold text-white mb-3">Good for</h3>
+              <ul class="text-gray-300 text-sm space-y-1 mb-4">
+                <li>Developers recording footage during development on their own PC</li>
+                <li>Streamers and content creators who already have OBS configured</li>
+              </ul>
+              <h3 class="text-lg font-semibold text-white mb-3">Does not work for</h3>
+              <ul class="text-gray-300 text-sm space-y-1">
+                <li>Your players. You cannot ship OBS inside your game.</li>
+                <li>Mobile (Android, iOS). No external capture tools exist.</li>
+                <li>VR headsets. Screen capture does not reach the eye buffers.</li>
+                <li>CI/CD servers. OBS requires a display.</li>
+                <li>Programmatic control. You cannot call "start recording" from Blueprints.</li>
+              </ul>
+            </div>
+            <p class="text-gray-300">
+              External tools solve the problem for the developer sitting at a desk. They do not solve it for the shipped game, automated tests, or any non-desktop platform.
+            </p>
+          </section>
+
+          <!-- Section 5: FFmpeg Wrappers -->
+          <section id="method-ffmpeg" class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">5. FFmpeg Wrappers</h2>
+            <div class="method-card mb-6">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-medium">PLUGIN</span>
+                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-medium">EXTERNAL DEPENDENCY</span>
+              </div>
+              <p class="text-gray-300 mb-4">
+                Several Marketplace plugins wrap FFmpeg to encode video from within Unreal Engine. They pipe raw frames to an FFmpeg process which encodes and muxes them into a video file.
+              </p>
+              <h3 class="text-lg font-semibold text-white mb-3">Good for</h3>
+              <ul class="text-gray-300 text-sm space-y-1 mb-4">
+                <li>Desktop recording where you can bundle FFmpeg binaries</li>
+                <li>Projects that need specific codecs FFmpeg supports</li>
+              </ul>
+              <h3 class="text-lg font-semibold text-white mb-3">Trade-offs</h3>
+              <ul class="text-gray-300 text-sm space-y-1">
+                <li><strong>Licensing.</strong> FFmpeg is LGPL/GPL depending on configuration. Bundling it in a commercial game requires careful legal review.</li>
+                <li><strong>Binary distribution.</strong> You need to ship FFmpeg executables for each target platform. Console and mobile platforms complicate this.</li>
+                <li><strong>Software encoding.</strong> Most FFmpeg wrappers use CPU-based encoding (libx264), which competes with the game for CPU time. Hardware encoder access through FFmpeg requires additional platform-specific configuration.</li>
+                <li><strong>Crash safety.</strong> If the game crashes, the FFmpeg process may not finalize the file. Corrupted output is common.</li>
+                <li><strong>Mobile.</strong> Running a separate FFmpeg process on Android or iOS is impractical.</li>
+              </ul>
+            </div>
+            <p class="text-gray-300">
+              FFmpeg wrappers work on desktop if you accept the licensing complexity and CPU overhead. They struggle on mobile, break on crash, and add deployment friction.
+            </p>
+          </section>
+
+          <!-- Section 6: Native Recording -->
+          <section id="method-inengine" class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">6. Native Recording (Runtime Video Recorder)</h2>
+            <div class="method-card mb-6" style="border-color: rgba(16, 185, 129, 0.4);">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs font-medium">RUNTIME</span>
+                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs font-medium">ALL PLATFORMS</span>
+                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs font-medium">NO DEPENDENCIES</span>
+              </div>
+              <p class="text-gray-300 mb-4">
+                This approach captures frames directly from Unreal Engine's render pipeline and encodes them using the platform's native hardware encoder. No external process, no FFmpeg, no display required.
+              </p>
+              <p class="text-gray-300 mb-4">
+                <a href="/licensing" class="text-indigo-400 hover:text-indigo-300">Runtime Video Recorder (RVR)</a> is the implementation of this approach. It works by reading frames from the GPU backbuffer or a render target, feeding them to the platform's hardware encoder (Windows Media Foundation on Windows, AVFoundation on Mac/iOS, MediaCodec on Android), and writing the output to an MP4 file.
+              </p>
+              <h3 class="text-lg font-semibold text-white mb-3">What this means in practice</h3>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-gray-800/50 rounded-lg p-4">
+                  <h4 class="text-sm font-semibold text-emerald-400 mb-2">Hardware encoding</h4>
+                  <p class="text-gray-400 text-sm">The GPU's dedicated encoder chip does the work, not the CPU. 1-3% overhead instead of 15-30% with software encoding.</p>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-4">
+                  <h4 class="text-sm font-semibold text-emerald-400 mb-2">No external binaries</h4>
+                  <p class="text-gray-400 text-sm">Uses APIs already present on every OS. Nothing to bundle, no license to audit.</p>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-4">
+                  <h4 class="text-sm font-semibold text-emerald-400 mb-2">Cross-platform</h4>
+                  <p class="text-gray-400 text-sm">Same Blueprint and C++ API on Windows, Mac, Linux, Android, iOS, and Meta Quest.</p>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-4">
+                  <h4 class="text-sm font-semibold text-emerald-400 mb-2">Crash safe</h4>
+                  <p class="text-gray-400 text-sm">Continuous MP4 muxing means the file is valid even if the process terminates unexpectedly.</p>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-semibold text-white mb-4">Recording modes</h3>
+            <p class="text-gray-300 mb-4">RVR captures from multiple sources depending on what you need:</p>
+            <div class="space-y-3 mb-6">
+              <div class="flex items-start gap-3">
+                <span class="text-indigo-400 font-mono text-sm mt-1">Viewport</span>
+                <p class="text-gray-400 text-sm mb-0">Records what the player sees. Works for standard gameplay recording, instant replay, and QA testing.</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-indigo-400 font-mono text-sm mt-1">Render&nbsp;Target</span>
+                <p class="text-gray-400 text-sm mb-0">Records from a scene capture component or render target. Required for VR (where there is no single viewport) and useful for security camera mechanics, picture-in-picture, and multi-camera setups.</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-indigo-400 font-mono text-sm mt-1">Camera</span>
+                <p class="text-gray-400 text-sm mb-0">Records from a specific camera actor. Useful for cinematic replay angles and spectator views.</p>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-semibold text-white mb-4">Replay buffer (instant replay)</h3>
+            <p class="text-gray-300 mb-4">
+              RVR keeps a rolling buffer of the last N seconds of gameplay. When something worth saving happens, call <code class="text-indigo-400 bg-gray-800 px-2 py-0.5 rounded text-sm">SaveReplayBuffer()</code> and the buffer is written to disk as a complete MP4. No retroactive encoding, no rewinding. The video is ready immediately.
+            </p>
+            <p class="text-gray-300">
+              This is how instant replay features, highlight saves, and automated bug capture work. The game is always recording; you just choose when to keep the footage.
+            </p>
+          </section>
+
+          <!-- Section 7: Full Comparison Table -->
+          <section id="comparison" class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">7. Full Comparison</h2>
+            <div class="comparison-table mb-8 overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="text-left text-white">
+                    <th class="p-4">Feature</th>
+                    <th class="p-4">MRQ</th>
+                    <th class="p-4">Replay System</th>
+                    <th class="p-4">OBS / ShadowPlay</th>
+                    <th class="p-4">FFmpeg Plugin</th>
+                    <th class="p-4 text-emerald-400">RVR</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-300">
+                  <tr class="border-t border-gray-700">
+                    <td class="p-4 font-medium">Produces MP4</td>
+                    <td class="p-4 text-yellow-400">EXR/PNG</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                  </tr>
+                  <tr class="border-t border-gray-700">
+                    <td class="p-4 font-medium">Works in packaged game</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                    <td class="p-4 text-red-400">External</td>
+                    <td class="p-4 text-yellow-400">Desktop only</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                  </tr>
+                  <tr class="border-t border-gray-700">
+                    <td class="p-4 font-medium">Mobile (Android/iOS)</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-yellow-400">Replay only</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                  </tr>
+                  <tr class="border-t border-gray-700">
+                    <td class="p-4 font-medium">VR (Meta Quest)</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-yellow-400">Replay only</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                  </tr>
+                  <tr class="border-t border-gray-700">
+                    <td class="p-4 font-medium">Hardware encoding</td>
+                    <td class="p-4 text-gray-500">N/A</td>
+                    <td class="p-4 text-gray-500">N/A</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                    <td class="p-4 text-yellow-400">Rarely</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                  </tr>
+                  <tr class="border-t border-gray-700">
+                    <td class="p-4 font-medium">Performance overhead</td>
+                    <td class="p-4 text-gray-500">Offline</td>
+                    <td class="p-4 text-yellow-400">10-20%</td>
+                    <td class="p-4 text-yellow-400">5-15%</td>
+                    <td class="p-4 text-red-400">15-30%</td>
+                    <td class="p-4 text-emerald-400">1-3%</td>
+                  </tr>
+                  <tr class="border-t border-gray-700">
+                    <td class="p-4 font-medium">Blueprint API</td>
+                    <td class="p-4 text-yellow-400">Editor only</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-emerald-400">Varies</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                  </tr>
+                  <tr class="border-t border-gray-700">
+                    <td class="p-4 font-medium">Instant replay buffer</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                    <td class="p-4 text-emerald-400">ShadowPlay</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                  </tr>
+                  <tr class="border-t border-gray-700">
+                    <td class="p-4 font-medium">External dependencies</td>
+                    <td class="p-4 text-emerald-400">None</td>
+                    <td class="p-4 text-emerald-400">None</td>
+                    <td class="p-4 text-red-400">Separate app</td>
+                    <td class="p-4 text-red-400">FFmpeg binaries</td>
+                    <td class="p-4 text-emerald-400">None</td>
+                  </tr>
+                  <tr class="border-t border-gray-700">
+                    <td class="p-4 font-medium">Headless / CI-CD</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-yellow-400">Partial</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-yellow-400">Partial</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                  </tr>
+                  <tr class="border-t border-gray-700 bg-emerald-500/5">
+                    <td class="p-4 font-medium">Crash recovery</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-yellow-400">Partial</td>
+                    <td class="p-4 text-yellow-400">Partial</td>
+                    <td class="p-4 text-red-400">No</td>
+                    <td class="p-4 text-emerald-400">Yes</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Section 8: Which Method -->
+          <section id="which-method" class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">8. Which Method for Your Use Case</h2>
+            
+            <div class="space-y-4 mb-8">
+              <div class="method-card">
+                <h3 class="text-lg font-semibold text-white mb-2 mt-0">"I need a cinematic trailer from a Sequencer animation"</h3>
+                <p class="text-gray-400 mb-2">Use <strong class="text-blue-400">Movie Render Queue</strong>. It renders at maximum quality with full post-processing, motion blur, and path tracing. Real-time performance does not matter.</p>
+              </div>
+              
+              <div class="method-card">
+                <h3 class="text-lg font-semibold text-white mb-2 mt-0">"I need a kill cam or match replay viewer in my multiplayer game"</h3>
+                <p class="text-gray-400 mb-2">Use the <strong class="text-purple-400">Replay System</strong>. It records game state for re-simulation, which lets players scrub through time and change camera angles. If you also need a shareable video, combine it with RVR to encode the replay playback to MP4.</p>
+              </div>
+              
+              <div class="method-card">
+                <h3 class="text-lg font-semibold text-white mb-2 mt-0">"I'm a developer and I want to record my screen while testing"</h3>
+                <p class="text-gray-400 mb-2">Use <strong class="text-orange-400">OBS or ShadowPlay</strong>. They're free, well-documented, and work for personal desktop recording. They just don't help with anything you ship.</p>
+              </div>
+              
+              <div class="method-card" style="border-color: rgba(16, 185, 129, 0.4);">
+                <h3 class="text-lg font-semibold text-white mb-2 mt-0">"I need video recording in my shipped game"</h3>
+                <p class="text-gray-400 mb-2">Use <strong class="text-emerald-400">Runtime Video Recorder</strong>. It is the only option that produces MP4 files from inside a packaged Unreal Engine game across desktop, mobile, and VR platforms without external dependencies.</p>
+              </div>
+              
+              <div class="method-card" style="border-color: rgba(16, 185, 129, 0.4);">
+                <h3 class="text-lg font-semibold text-white mb-2 mt-0">"I need instant replay, highlight saves, or always-on QA recording"</h3>
+                <p class="text-gray-400 mb-2">Use <strong class="text-emerald-400">Runtime Video Recorder</strong> with the replay buffer enabled. It continuously records the last N seconds and writes to MP4 on demand. No re-simulation, no delay.</p>
+              </div>
+
+              <div class="method-card" style="border-color: rgba(16, 185, 129, 0.4);">
+                <h3 class="text-lg font-semibold text-white mb-2 mt-0">"I need video from automated tests in a CI/CD pipeline"</h3>
+                <p class="text-gray-400 mb-2">Use <strong class="text-emerald-400">Runtime Video Recorder</strong>. It runs headless, requires no display, and recovers video even if the test crashes. <a href="/insights/ci-cd-video-capture-unreal-engine.html" class="text-indigo-400 hover:text-indigo-300">See the CI/CD guide</a>.</p>
+              </div>
+            </div>
+
+            <div class="verdict-card">
+              <h3 class="text-xl font-semibold text-white mb-3 mt-0">Summary</h3>
+              <p class="text-gray-300 mb-4">
+                Movie Render Queue and the Replay System solve specific problems well. External tools work for developer desktops. But if you need actual video recording in Unreal Engine at runtime, across platforms, in a packaged game, there is one tool that does it.
+              </p>
+              <p class="text-gray-300 mb-0">
+                Runtime Video Recorder ships with no dependencies, uses hardware encoders on every platform, handles crash recovery, and provides a Blueprint and C++ API that works identically on Windows, Mac, Linux, iOS, Android, and Meta Quest. It is trusted by Amazon Games and 50+ studios.
+              </p>
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section id="faq" class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+              <div class="bg-gray-800/50 rounded-xl p-6">
+                <h3 class="text-xl font-bold text-white mb-3 mt-0">What is the best way to record video in Unreal Engine?</h3>
+                <p class="text-gray-300 mb-0">
+                  It depends on what you are building. For offline cinematics, use Movie Render Queue. For shipped games that need video recording at runtime on any platform, Runtime Video Recorder is the only solution that covers desktop, mobile, and VR with hardware encoding and no external dependencies.
+                </p>
+              </div>
+              
+              <div class="bg-gray-800/50 rounded-xl p-6">
+                <h3 class="text-xl font-bold text-white mb-3 mt-0">Can you record video in Unreal Engine without FFmpeg?</h3>
+                <p class="text-gray-300 mb-0">
+                  Yes. RVR uses native platform APIs for encoding: Windows Media Foundation, AVFoundation on Mac and iOS, and MediaCodec on Android. There are no FFmpeg binaries, no codec packs, and no GPL licensing concerns.
+                </p>
+              </div>
+              
+              <div class="bg-gray-800/50 rounded-xl p-6">
+                <h3 class="text-xl font-bold text-white mb-3 mt-0">How do you record gameplay video on mobile in Unreal Engine?</h3>
+                <p class="text-gray-300 mb-0">
+                  External screen recorders do not work for this purpose on mobile. You need a recorder that captures frames directly from the render pipeline and encodes them on the device. RVR does this on both Android and iOS with the same API you use on desktop.
+                </p>
+              </div>
+              
+              <div class="bg-gray-800/50 rounded-xl p-6">
+                <h3 class="text-xl font-bold text-white mb-3 mt-0">Does recording video in Unreal Engine affect performance?</h3>
+                <p class="text-gray-300 mb-0">
+                  The impact varies by method. Movie Render Queue is offline and not real-time. OBS adds 5-15% overhead. FFmpeg wrappers using software encoding add 15-30%. RVR uses hardware encoders on the GPU's dedicated encoding chip, resulting in 1-3% CPU overhead. The game's framerate is not affected in any meaningful way.
+                </p>
+              </div>
+              
+              <div class="bg-gray-800/50 rounded-xl p-6">
+                <h3 class="text-xl font-bold text-white mb-3 mt-0">Can you record VR gameplay in Unreal Engine?</h3>
+                <p class="text-gray-300 mb-0">
+                  Standard screen capture tools cannot access VR eye buffers. You need to capture from a render target or scene capture component inside the engine. RVR supports render target recording on Meta Quest and other VR platforms, which is the only way to get video from a VR headset without external hardware.
+                </p>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </article>
+
+      <!-- CTA -->
+      <div class="py-8 text-center">
+        <div class="mx-auto max-w-2xl mb-8">
+          <p class="text-gray-400 mb-6">Runtime Video Recorder works on every platform Unreal Engine supports. No FFmpeg. No external tools. One Blueprint node to start recording.</p>
+        </div>
+        <a href="/licensing" class="px-6 py-3 font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-500 transition-colors">Get Runtime Video Recorder</a>
+        <a href="/docs/" class="ml-4 text-gray-500 hover:text-gray-300">Documentation &rarr;</a>
+      </div>
+
+      <!-- Related Articles -->
+      <div class="py-12">
+        <div class="mx-auto max-w-6xl">
+          <h2 class="text-2xl font-bold text-white mb-8">Related</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <a href="/insights/ci-cd-video-capture-unreal-engine.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <span class="text-purple-400 text-xs font-medium">DEVOPS</span>
+              <h3 class="text-lg font-semibold text-white mb-2 mt-2">CI/CD Video Capture</h3>
+              <p class="text-gray-400 text-sm">Capture video from automated tests in headless pipelines.</p>
+            </a>
+            <a href="/insights/video-recording-game-testing-roi.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <span class="text-emerald-400 text-xs font-medium">BUSINESS</span>
+              <h3 class="text-lg font-semibold text-white mb-2 mt-2">ROI of Video Recording in Game Testing</h3>
+              <p class="text-gray-400 text-sm">Hard numbers on bug resolution time and QA productivity.</p>
+            </a>
+            <a href="/recorders.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
+              <span class="text-blue-400 text-xs font-medium">COMPARISON</span>
+              <h3 class="text-lg font-semibold text-white mb-2 mt-2">Compare Recording Solutions</h3>
+              <p class="text-gray-400 text-sm">RVR vs OBS, Movie Render Queue, and alternatives.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="py-8 border-t border-gray-800">
+        <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+          <a href="/docs/" class="text-indigo-400 hover:text-indigo-300 transition-colors">Documentation</a>
+          <a href="/recorders.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Compare Recorders</a>
+          <a href="mailto:business@unrealsolutions.com" class="text-indigo-400 hover:text-indigo-300 transition-colors">Contact</a>
+          <a href="/privacy.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Privacy Policy</a>
+        </div>
+        <div class="text-center text-gray-500 text-sm">
+          &copy; Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2026
+        </div>
+      </div>
+    </main>
+</body>
+</html>

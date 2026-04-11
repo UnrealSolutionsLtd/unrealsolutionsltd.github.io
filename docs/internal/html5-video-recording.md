@@ -199,9 +199,9 @@ async function createRecorder(canvas) {
 
 ## Limitations vs Native Recording
 
-HTML5/browser recording will always have limitations compared to native/in-engine recording:
+HTML5/browser recording will always have limitations compared to native platform recording:
 
-| Aspect | Browser Recording | Native/In-Engine |
+| Aspect | Browser Recording | Native Platform |
 |--------|------------------|------------------|
 | Hardware access | Limited (via WebCodecs) | Full GPU encoder access |
 | Codec support | WebM, limited H.264 | Any codec |

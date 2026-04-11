@@ -787,10 +787,10 @@
             <ul class="text-gray-300 mb-6 space-y-2">
               <li><strong>Mobile:</strong> Screen recording apps consume device resources, affect performance, and often can't capture at full quality. Device mirroring adds latency that makes timing-sensitive bugs unreproducible.</li>
               <li><strong>VR:</strong> Headset recordings need to capture what the player sees, not a flat screen. External capture solutions don't work in standalone VR devices.</li>
-              <li><strong>Console:</strong> Development kits have limited external recording options, and certification requirements often prohibit certain capture methods. In-engine solutions like BugIt (with console add-on) provide the only reliable capture method.</li>
+              <li><strong>Console:</strong> Development kits have limited external recording options, and certification requirements often prohibit certain capture methods. Native solutions like BugIt (with console add-on) provide the only reliable capture method.</li>
             </ul>
             <p class="text-gray-300">
-              In-engine video capture that runs within the Unreal Engine process is often the <em>only</em> viable option for these platforms.
+              Video capture that runs within the Unreal Engine process is often the <em>only</em> viable option for these platforms.
             </p>
           </section>
 
@@ -829,7 +829,7 @@
                 <li>Internal tooling only if you have specialized requirements that off-the-shelf tools can't meet</li>
               </ul>
               <p class="text-gray-300 mb-0">
-                Mobile, VR, and console projects at this scale require in-engine solutions like BugIt due to platform constraints - BetaHub doesn't support these platforms.
+                Mobile, VR, and console projects at this scale require native solutions like BugIt due to platform constraints - BetaHub doesn't support these platforms.
               </p>
             </div>
 
@@ -957,7 +957,7 @@
               <div class="bg-gray-800/50 rounded-xl p-6">
                 <h3 class="text-xl font-bold text-white mb-3 mt-0">Can I use external screen recorders like OBS for game QA?</h3>
                 <p class="text-gray-300 mb-0">
-                  External recorders work for desktop QA but have significant limitations: higher performance overhead (5-15%), no instant replay buffer, no automatic metadata capture, and they don't work on mobile, VR, or console platforms. In-engine recording solutions are generally more suitable for professional QA workflows.
+                  External recorders work for desktop QA but have significant limitations: higher performance overhead (5-15%), no instant replay buffer, no automatic metadata capture, and they don't work on mobile, VR, or console platforms. Native video recording solutions that capture from the render pipeline are generally more suitable for professional QA workflows.
                 </p>
               </div>
             </div>
@@ -985,7 +985,7 @@
             <a href="/insights/mobile-game-testing-video-evidence.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
               <span class="text-orange-400 text-xs font-medium">MOBILE QA</span>
               <h3 class="text-lg font-semibold text-white mb-2 mt-2">Mobile Game Testing Video Evidence</h3>
-              <p class="text-gray-400 text-sm">The missing piece in mobile QA workflows. iOS and Android in-engine recording.</p>
+              <p class="text-gray-400 text-sm">The missing piece in mobile QA workflows. iOS and Android native video recording.</p>
             </a>
             <a href="/insights/ci-cd-video-capture-unreal-engine.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-700/50 transition-colors">
               <span class="text-purple-400 text-xs font-medium">DEVOPS</span>
