@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="referrer" content="origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Cinematic Director Plugin for Unreal Engine | Smart Camera & Trailer Tools</title>
-    <meta name="description" content="AI-powered cinematic tools for Unreal Engine. Automated camera placement, smart shot composition, timeline automation, and real-time collaboration for game trailers and cinematics. The best cinematic director plugin for UE5.">
-    <meta name="keywords" content="AI camera placement tools unreal engine, automated shot composition plugins game cinematics, best cinematic director tools UE5, AI-assisted trailer creation game studios, smart camera rigging plugins unreal engine, automated cinematic editing tools games, AI storyboarding render workflow unreal, real-time collaboration tools game cinematics, cinematic timeline automation unreal engine, best plugins game trailer production">
+    <title>AI Cinematic Director for Unreal Engine | Event-Driven Multi-Camera Video from Sequencer, DIS, HLA & ROS2</title>
+    <meta name="description" content="Ingest Sequencer event tracks, DIS PDU, HLA RPR-FOM, or ROS2 messages and get director-quality multi-camera video with text overlays. Multi-hour coherent output for virtual production previz, defense M&S briefings, and robotics simulation.">
+    <meta name="keywords" content="AI cinematic director unreal engine, event-driven multi-camera video, DIS PDU simulation video, HLA RPR-FOM visualization, virtual production previz automation, sequencer event tracks, defense simulation briefing video, multi-hour coherent video output, text overlay simulation, multi-camera cut automation UE5">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://unrealsolutions.com/products/cinematic-director/">
-    <meta property="og:title" content="AI Cinematic Director Plugin for Unreal Engine | Smart Camera & Trailer Tools">
-    <meta property="og:description" content="AI-powered automated camera placement, shot composition, and cinematic timeline automation for Unreal Engine. Create professional game trailers with intelligent cinematography.">
+    <meta property="og:title" content="AI Cinematic Director | Event-Driven Multi-Camera Video for UE5">
+    <meta property="og:description" content="Ingest external event streams — Sequencer tracks, DIS, HLA, ROS2 — and produce multi-hour, multi-camera video with event-aligned text overlays. Built for virtual production and defense M&S.">
     <meta property="og:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -20,8 +20,8 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://unrealsolutions.com/products/cinematic-director/">
-    <meta name="twitter:title" content="AI Cinematic Director Plugin for Unreal Engine">
-    <meta name="twitter:description" content="Automated camera placement, smart shot composition, and AI-assisted trailer creation for UE5. The best cinematic director tools for game studios.">
+    <meta name="twitter:title" content="AI Cinematic Director | Event-Driven Multi-Camera Video">
+    <meta name="twitter:description" content="Ingest Sequencer event tracks, DIS, HLA, or ROS2 streams. Get director-quality multi-camera cuts with text overlays — coherent across multi-hour sessions.">
     <meta name="twitter:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
     
     <!-- Additional SEO -->
@@ -46,17 +46,17 @@
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "AI Cinematic Director Plugin",
+      "name": "AI Cinematic Director",
       "applicationCategory": "DeveloperApplication",
-      "applicationSubCategory": "Game Development Tools",
-      "operatingSystem": ["Windows", "MacOS", "Linux"],
+      "applicationSubCategory": "Simulation & Virtual Production Tools",
+      "operatingSystem": ["Windows", "Linux"],
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
+        "availability": "https://schema.org/PreOrder"
       },
-      "description": "AI-powered cinematic tools for Unreal Engine featuring automated camera placement, smart shot composition, timeline automation, and real-time collaboration for professional game trailers.",
+      "description": "AI cinematic director for Unreal Engine that ingests external event streams (Sequencer, DIS PDU, HLA RPR-FOM, ROS2) and produces multi-hour coherent multi-camera video output with event-aligned text overlays.",
       "url": "https://unrealsolutions.com/products/cinematic-director/",
       "author": {
         "@type": "Organization",
@@ -64,13 +64,15 @@
         "url": "https://unrealsolutions.com"
       },
       "featureList": [
-        "AI Camera Placement",
-        "Automated Shot Composition",
-        "Smart Camera Rigging",
-        "Cinematic Timeline Automation",
-        "Real-Time Collaboration",
-        "AI Storyboarding to Render",
-        "Game Trailer Production"
+        "External Event Stream Ingestion",
+        "Multi-Hour Coherent Video Output",
+        "Event-Aligned Text Overlays",
+        "Multi-Camera Cut Automation",
+        "DIS PDU Adapter",
+        "HLA RPR-FOM Adapter",
+        "ROS2 Message Adapter",
+        "Sequencer Event Track Ingestion",
+        "Protocol-Agnostic Event Layer"
       ]
     }
     </script>
@@ -82,38 +84,45 @@
       "@type": "FAQPage",
       "mainEntity": [{
         "@type": "Question",
-        "name": "What are the best AI camera placement tools for Unreal Engine?",
+        "name": "What event stream protocols does the AI Cinematic Director support?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The AI Cinematic Director Plugin provides intelligent camera placement that analyzes your scene composition, character positions, and lighting to suggest optimal camera angles. It uses machine learning trained on cinematic principles from film and game trailers to automate professional-quality shot composition."
+          "text": "The AI Cinematic Director uses a protocol-agnostic event ingestion layer with first-class adapters for UE Sequencer event tracks, DIS PDU (IEEE 1278), HLA RPR-FOM (IEEE 1516), CoT/TAK XML, ROS2 messages, and JSON-over-WebSocket. The architecture supports adding new protocol adapters as needed."
         }
       }, {
         "@type": "Question",
-        "name": "How does automated shot composition work for game cinematics?",
+        "name": "How does multi-hour coherent video output work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Automated shot composition analyzes the rule of thirds, leading lines, depth of field, and subject positioning to create visually compelling frames. The AI Cinematic Director evaluates each shot against professional cinematography standards and can automatically adjust camera position, focal length, and depth of field."
+          "text": "Unlike tools limited to short clips, the AI Cinematic Director maintains temporal coherence across multi-hour sessions. It tracks entity state, camera assignment, and editorial pacing over the full duration of a simulation or previz session, producing continuous multi-camera output suitable for two-hour briefing videos or extended previz reviews."
         }
       }, {
         "@type": "Question",
-        "name": "Can AI help with game trailer creation in Unreal Engine?",
+        "name": "What are event-aligned text overlays?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! AI-assisted trailer creation streamlines the entire workflow from storyboarding to final render. The plugin can suggest shot sequences, automate camera movements, synchronize cuts to audio beats, and generate multiple trailer variations for A/B testing - reducing trailer production time by up to 70%."
+          "text": "Event-aligned text overlays automatically annotate your video output with contextual information derived from the ingested event stream — entity callsigns, simulation timestamps, phase markers, engagement labels, or any metadata carried by the source protocol. Overlays stay in sync with the underlying events across the full session duration."
         }
       }, {
         "@type": "Question",
-        "name": "What is cinematic timeline automation in UE5?",
+        "name": "How does this differ from Epic's Camera Animation Toolset (CAT)?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Cinematic timeline automation uses AI to analyze your Sequencer tracks and automatically generate camera cuts, transitions, and timing. It can sync animations to audio, create smooth camera paths between keyframes, and suggest pacing improvements based on trailer genre and target audience."
+          "text": "Epic's CAT works within Sequencer for shot-level camera authoring. The AI Cinematic Director occupies a different niche: it ingests external event streams from outside Unreal, produces multi-hour coherent output (not individual shots), and generates event-aligned text overlays. These three capabilities — external ingestion, multi-hour coherence, and event-aligned overlays — are outside CAT's scope."
         }
       }, {
         "@type": "Question",
-        "name": "Does the plugin support real-time collaboration for cinematics?",
+        "name": "Can defense M&S teams use this with existing DIS or HLA simulations?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, the AI Cinematic Director includes real-time collaboration features allowing multiple team members to work on the same cinematic sequence. Directors can review AI suggestions while artists adjust shots, with live syncing and version control built in."
+          "text": "Yes. Pipe your DIS PDU or HLA RPR-FOM event stream directly into the AI Cinematic Director and receive a multi-camera briefing video with text overlays — ready for customer review. No manual reconstruction of simulation output required."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What Unreal Engine versions are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unreal Engine 5.4+. The AI Cinematic Director integrates with Sequencer and the Runtime Video Recorder for end-to-end event-to-video pipeline."
         }
       }]
     }
@@ -132,7 +141,7 @@
       }, {
         "@type": "ListItem",
         "position": 2,
-        "name": "AI Cinematic Director Plugin",
+        "name": "AI Cinematic Director",
         "item": "https://unrealsolutions.com/products/cinematic-director/"
       }]
     }
@@ -375,6 +384,38 @@
         right: -1px;
         border-width: 0 3px 3px 0;
       }
+
+      .protocol-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        background: rgba(245, 158, 11, 0.08);
+        border: 1px solid rgba(245, 158, 11, 0.25);
+        padding: 0.375rem 0.75rem;
+        border-radius: 0.5rem;
+        font-size: 0.8125rem;
+        font-family: 'Source Sans 3', sans-serif;
+        font-weight: 600;
+        color: #fbbf24;
+        letter-spacing: 0.025em;
+      }
+
+      .icp-card {
+        background: rgba(38, 38, 38, 0.5);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        padding: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .icp-card:hover {
+        border-color: rgba(245, 158, 11, 0.4);
+      }
+
+      .icp-card.primary {
+        border-color: rgba(245, 158, 11, 0.3);
+        background: linear-gradient(135deg, rgba(38, 38, 38, 0.7) 0%, rgba(245, 158, 11, 0.05) 100%);
+      }
     </style>
     
     <!-- Google Analytics -->
@@ -417,41 +458,37 @@
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500">DIRECTOR</span>
               </h1>
               
-              <p class="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-4 leading-relaxed">
-                Describe any shot. Get professional cinematics in seconds.
+              <p class="text-xl sm:text-2xl text-gray-300 max-w-4xl mx-auto mb-4 leading-relaxed">
+                Ingest external event streams. Get director-quality multi-camera video<br class="hidden sm:block"> with text overlays — coherent across multi-hour sessions.
               </p>
               
-              <!-- Value demo -->
-              <div class="max-w-xl mx-auto mb-8 bg-gray-900/60 border border-amber-500/30 rounded-xl p-4 text-left">
-                <div class="text-amber-400 text-sm font-mono mb-2">You type:</div>
-                <p class="text-white text-lg italic mb-3">"Dramatic close-up as my character lands the killing blow"</p>
-                <div class="flex items-center gap-2 text-gray-400 text-sm">
-                  <span class="text-green-400">✓</span> Camera positioned
-                  <span class="text-gray-600">•</span>
-                  <span class="text-green-400">✓</span> Shot composed
-                  <span class="text-gray-600">•</span>
-                  <span class="text-green-400">✓</span> Ready to render
+              <!-- Wedge differentiator -->
+              <div class="max-w-2xl mx-auto mb-8 bg-gray-900/60 border border-amber-500/30 rounded-xl p-5 text-left">
+                <div class="text-amber-400 text-sm font-mono mb-3">Three things Epic CAT does not do:</div>
+                <div class="grid sm:grid-cols-3 gap-3">
+                  <div class="flex items-start gap-2">
+                    <span class="text-amber-400 mt-0.5 shrink-0">1.</span>
+                    <span class="text-white text-sm">External event stream ingestion</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-amber-400 mt-0.5 shrink-0">2.</span>
+                    <span class="text-white text-sm">Multi-hour temporal coherence</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-amber-400 mt-0.5 shrink-0">3.</span>
+                    <span class="text-white text-sm">Event-aligned text overlays</span>
+                  </div>
                 </div>
               </div>
 
-              <!-- Use Case Pills -->
-              <div class="flex flex-wrap justify-center gap-3 mb-10">
-                <span class="use-case-pill">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/></svg>
-                  Game Trailers
-                </span>
-                <span class="use-case-pill">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A2 2 0 0011.172 3H8.828a2 2 0 00-1.414.586L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
-                  Cutscenes
-                </span>
-                <span class="use-case-pill">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/></svg>
-                  Marketing Videos
-                </span>
-                <span class="use-case-pill">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
-                  Storyboarding
-                </span>
+              <!-- Protocol badges -->
+              <div class="flex flex-wrap justify-center gap-2 mb-10">
+                <span class="protocol-badge">UE Sequencer</span>
+                <span class="protocol-badge">DIS PDU</span>
+                <span class="protocol-badge">HLA RPR-FOM</span>
+                <span class="protocol-badge">CoT / TAK XML</span>
+                <span class="protocol-badge">ROS2</span>
+                <span class="protocol-badge">JSON-over-WebSocket</span>
               </div>
               
               <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -473,40 +510,96 @@
       <!-- Film Decoration -->
       <div class="film-decoration my-8"></div>
 
+      <!-- ICP Messaging Section -->
+      <div class="py-16">
+        <div class="mx-auto max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="display-font text-4xl sm:text-5xl text-white mb-4">WHO THIS IS FOR</h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+              Purpose-built for teams that need cinematic output from event-driven simulations and previz sessions
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-6">
+            <!-- Primary ICP: VP Studios -->
+            <div class="icp-card primary lg:col-span-1">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="px-2.5 py-1 bg-amber-500/20 border border-amber-500/40 rounded text-xs font-bold text-amber-300">PRIMARY</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Virtual Production Studios</h3>
+              <p class="text-gray-300 mb-4 leading-relaxed">
+                Turn a four-hour previz prep into forty minutes. Ingest your Sequencer event tracks, get a director-quality multi-cam cut, iterate on the cut — not the camera placement.
+              </p>
+              <p class="text-amber-400/80 text-sm">
+                Previz/postvis supervisors at Unreal-native VP studios, 50–500 staff, currently using UE Sequencer manually.
+              </p>
+            </div>
+
+            <!-- Secondary ICP: Defense M&S -->
+            <div class="icp-card lg:col-span-1">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="px-2.5 py-1 bg-gray-500/20 border border-gray-500/40 rounded text-xs font-bold text-gray-300">SECONDARY</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Defense M&S Analysts</h3>
+              <p class="text-gray-300 mb-4 leading-relaxed">
+                Stop reconstructing your simulation output by hand. Pipe DIS or HLA straight in, get a two-hour briefing video with multi-camera angles and text overlays, ready for the customer review.
+              </p>
+              <p class="text-gray-500 text-sm">
+                Analyst groups (5–25) at primes with $500K–$3M annual tooling budgets.
+              </p>
+            </div>
+
+            <!-- Tertiary ICP: Robotics -->
+            <div class="icp-card lg:col-span-1 relative">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="px-2.5 py-1 bg-gray-700/40 border border-gray-600/40 rounded text-xs font-bold text-gray-400">FUTURE</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Robotics Simulation</h3>
+              <p class="text-gray-300 mb-4 leading-relaxed">
+                Replace RViz screen recordings with director-quality robot fleet videos, automatically, from your existing ROS2 event stream.
+              </p>
+              <p class="text-gray-500 text-sm">
+                Simulation engineering teams using Isaac Sim / ROS2 / Foxglove.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Problem/Solution Section -->
       <div class="py-16">
         <div class="mx-auto max-w-6xl">
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <!-- Problem -->
             <div class="bg-red-950/30 border border-red-900/30 rounded-2xl p-8">
-              <h2 class="display-font text-3xl text-white mb-6">THE CINEMATICS BOTTLENECK</h2>
+              <h2 class="display-font text-3xl text-white mb-6">THE EVENT-TO-VIDEO GAP</h2>
               <div class="space-y-4">
                 <div class="flex items-start gap-3">
                   <span class="text-red-400 text-xl mt-1">✗</span>
                   <div>
-                    <h3 class="font-semibold text-white">Manual Camera Setup Takes Forever</h3>
-                    <p class="text-gray-400 text-sm">Hours spent positioning cameras, adjusting focal lengths, and tweaking compositions for every shot.</p>
+                    <h3 class="font-semibold text-white">Manual Camera Placement for Every Session</h3>
+                    <p class="text-gray-400 text-sm">Previz supervisors spend hours manually positioning Sequencer cameras before each review — time spent on setup, not on the creative cut.</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
                   <span class="text-red-400 text-xl mt-1">✗</span>
                   <div>
-                    <h3 class="font-semibold text-white">Inconsistent Shot Quality</h3>
-                    <p class="text-gray-400 text-sm">Different team members create shots with varying quality. No standardized cinematography.</p>
+                    <h3 class="font-semibold text-white">Simulation Output Reconstructed by Hand</h3>
+                    <p class="text-gray-400 text-sm">Defense analysts manually reconstruct multi-hour simulation runs into briefing videos, re-creating camera angles and adding annotations frame by frame.</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
                   <span class="text-red-400 text-xl mt-1">✗</span>
                   <div>
-                    <h3 class="font-semibold text-white">Trailer Iterations Are Expensive</h3>
-                    <p class="text-gray-400 text-sm">Creating multiple trailer versions for A/B testing or different platforms is time-prohibitive.</p>
+                    <h3 class="font-semibold text-white">No Coherence Across Long Sessions</h3>
+                    <p class="text-gray-400 text-sm">Existing tools handle individual shots, not multi-hour runs. Stitching together a two-hour briefing means manual edits across dozens of clips.</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
                   <span class="text-red-400 text-xl mt-1">✗</span>
                   <div>
-                    <h3 class="font-semibold text-white">Storyboard-to-Render Gap</h3>
-                    <p class="text-gray-400 text-sm">Translating storyboards into Sequencer is a tedious manual process with lots of back-and-forth.</p>
+                    <h3 class="font-semibold text-white">Event Context Lost in the Video</h3>
+                    <p class="text-gray-400 text-sm">Entity callsigns, phase markers, and simulation metadata don't survive the journey from event stream to rendered video. Overlays are added in post, if at all.</p>
                   </div>
                 </div>
               </div>
@@ -514,34 +607,34 @@
             
             <!-- Solution -->
             <div class="bg-gradient-to-br from-amber-950/40 to-amber-900/20 border border-amber-500/30 rounded-2xl p-8">
-              <h2 class="display-font text-3xl text-white mb-6">AI-POWERED SOLUTION</h2>
+              <h2 class="display-font text-3xl text-white mb-6">AUTOMATED EVENT-TO-VIDEO</h2>
               <div class="space-y-4">
                 <div class="flex items-start gap-3">
                   <span class="text-amber-400 text-xl mt-1">✓</span>
                   <div>
-                    <h3 class="font-semibold text-white">Automated Camera Placement</h3>
-                    <p class="text-gray-300 text-sm">AI analyzes scene composition and suggests optimal camera positions in seconds.</p>
+                    <h3 class="font-semibold text-white">External Event Ingestion</h3>
+                    <p class="text-gray-300 text-sm">Protocol-agnostic layer with first-class adapters for Sequencer tracks, DIS PDU, HLA RPR-FOM, CoT/TAK XML, ROS2, and JSON-over-WebSocket.</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
                   <span class="text-amber-400 text-xl mt-1">✓</span>
                   <div>
-                    <h3 class="font-semibold text-white">Professional Shot Composition</h3>
-                    <p class="text-gray-300 text-sm">Every shot follows cinematic principles - rule of thirds, leading lines, depth of field.</p>
+                    <h3 class="font-semibold text-white">Multi-Camera Cut Automation</h3>
+                    <p class="text-gray-300 text-sm">AI assigns and switches cameras based on event semantics — engagement events, entity proximity, phase transitions — producing a director-quality multi-cam cut.</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
                   <span class="text-amber-400 text-xl mt-1">✓</span>
                   <div>
-                    <h3 class="font-semibold text-white">One-Click Trailer Variations</h3>
-                    <p class="text-gray-300 text-sm">Generate multiple trailer cuts automatically. Different lengths, pacing, and platforms.</p>
+                    <h3 class="font-semibold text-white">Multi-Hour Coherent Output</h3>
+                    <p class="text-gray-300 text-sm">Maintains temporal coherence across the full session duration — two-minute previz clips or two-hour briefing videos, same editorial consistency.</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
                   <span class="text-amber-400 text-xl mt-1">✓</span>
                   <div>
-                    <h3 class="font-semibold text-white">Storyboard → Sequencer Pipeline</h3>
-                    <p class="text-gray-300 text-sm">Import storyboards and get AI-generated camera setups in your Sequencer timeline.</p>
+                    <h3 class="font-semibold text-white">Event-Aligned Text Overlays</h3>
+                    <p class="text-gray-300 text-sm">Entity callsigns, simulation timestamps, phase markers, and metadata automatically rendered as overlays, always in sync with the source events.</p>
                   </div>
                 </div>
               </div>
@@ -550,50 +643,98 @@
         </div>
       </div>
 
-      <!-- Core Features Section -->
+      <!-- Core Architecture Section -->
       <div class="py-16">
         <div class="mx-auto max-w-6xl">
           <div class="text-center mb-16">
-            <h2 class="display-font text-4xl sm:text-5xl text-white mb-4">INTELLIGENT CINEMATOGRAPHY TOOLS</h2>
-            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-              Everything you need to create professional game cinematics with AI-assisted automation
+            <h2 class="display-font text-4xl sm:text-5xl text-white mb-4">PROTOCOL-AGNOSTIC EVENT LAYER</h2>
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+              One ingestion architecture, multiple protocol adapters. Bring your event stream, get cinematic video.
             </p>
           </div>
 
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Feature 1: AI Camera Placement -->
+            <!-- Feature 1: Event Ingestion -->
+            <div class="feature-card">
+              <div class="camera-icon">
+                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Event Stream Ingestion</h3>
+              <p class="text-gray-400 mb-4">Protocol-agnostic core with adapters that normalize events from any source into a unified timeline the director engine can reason about.</p>
+              <ul class="text-sm text-gray-500 space-y-1">
+                <li>• DIS PDU (IEEE 1278)</li>
+                <li>• HLA RPR-FOM (IEEE 1516)</li>
+                <li>• UE Sequencer event tracks</li>
+              </ul>
+            </div>
+
+            <!-- Feature 2: Multi-Camera Cuts -->
             <div class="feature-card">
               <div class="camera-icon">
                 <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
                 </svg>
               </div>
-              <h3 class="text-xl font-bold text-white mb-3">AI Camera Placement</h3>
-              <p class="text-gray-400 mb-4">Machine learning analyzes your scene - characters, environment, lighting - and suggests optimal camera positions for maximum visual impact.</p>
+              <h3 class="text-xl font-bold text-white mb-3">Multi-Camera Cut Engine</h3>
+              <p class="text-gray-400 mb-4">AI-driven camera assignment and switching based on event semantics. Engagement events trigger close-ups; phase transitions trigger wide establishes.</p>
               <ul class="text-sm text-gray-500 space-y-1">
-                <li>• Scene composition analysis</li>
-                <li>• Character focus detection</li>
-                <li>• Dynamic repositioning</li>
+                <li>• Event-driven camera switching</li>
+                <li>• Semantic shot selection</li>
+                <li>• Director-quality pacing</li>
               </ul>
             </div>
 
-            <!-- Feature 2: Smart Shot Composition -->
+            <!-- Feature 3: Multi-Hour Coherence -->
+            <div class="feature-card">
+              <div class="camera-icon">
+                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Multi-Hour Coherence</h3>
+              <p class="text-gray-400 mb-4">Maintains entity tracking, camera assignment, and editorial consistency across the full session duration — not just individual shots.</p>
+              <ul class="text-sm text-gray-500 space-y-1">
+                <li>• Persistent entity state tracking</li>
+                <li>• Session-long editorial pacing</li>
+                <li>• No manual clip stitching</li>
+              </ul>
+            </div>
+
+            <!-- Feature 4: Text Overlays -->
+            <div class="feature-card">
+              <div class="camera-icon">
+                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Event-Aligned Overlays</h3>
+              <p class="text-gray-400 mb-4">Automatically annotate output with entity callsigns, timestamps, phase markers, and protocol-specific metadata — always in sync with events.</p>
+              <ul class="text-sm text-gray-500 space-y-1">
+                <li>• Entity callsign labels</li>
+                <li>• Simulation time / phase markers</li>
+                <li>• Custom metadata fields</li>
+              </ul>
+            </div>
+
+            <!-- Feature 5: Sequencer Integration -->
             <div class="feature-card">
               <div class="camera-icon">
                 <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
                 </svg>
               </div>
-              <h3 class="text-xl font-bold text-white mb-3">Smart Shot Composition</h3>
-              <p class="text-gray-400 mb-4">Automatically apply professional cinematography rules. Rule of thirds, golden ratio, leading lines - all enforced by AI.</p>
+              <h3 class="text-xl font-bold text-white mb-3">Sequencer Integration</h3>
+              <p class="text-gray-400 mb-4">First-class UE Sequencer adapter. Ingest event tracks from your existing previz sessions and produce a finished multi-cam cut without manual camera work.</p>
               <ul class="text-sm text-gray-500 space-y-1">
-                <li>• Rule of thirds overlay</li>
-                <li>• Depth of field suggestions</li>
-                <li>• Focal length optimization</li>
+                <li>• Event track ingestion</li>
+                <li>• Automated camera Sequencer output</li>
+                <li>• RVR pipeline integration</li>
               </ul>
             </div>
 
-            <!-- Feature 3: Camera Rigging Automation -->
+            <!-- Feature 6: Protocol Adapters -->
             <div class="feature-card">
               <div class="camera-icon">
                 <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -601,60 +742,12 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                 </svg>
               </div>
-              <h3 class="text-xl font-bold text-white mb-3">Smart Camera Rigging</h3>
-              <p class="text-gray-400 mb-4">Generate complex camera rigs automatically. Crane shots, dolly moves, orbital cameras - all with smooth, professional motion.</p>
+              <h3 class="text-xl font-bold text-white mb-3">Extensible Adapters</h3>
+              <p class="text-gray-400 mb-4">Add new protocol adapters without touching the director engine. The architecture supports anything that emits timestamped events.</p>
               <ul class="text-sm text-gray-500 space-y-1">
-                <li>• Pre-built rig templates</li>
-                <li>• Smooth path generation</li>
-                <li>• Collision avoidance</li>
-              </ul>
-            </div>
-
-            <!-- Feature 4: Timeline Automation -->
-            <div class="feature-card">
-              <div class="camera-icon">
-                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-3">Timeline Automation</h3>
-              <p class="text-gray-400 mb-4">AI analyzes your Sequencer tracks and suggests cuts, transitions, and pacing. Sync to audio beats automatically.</p>
-              <ul class="text-sm text-gray-500 space-y-1">
-                <li>• Audio beat detection</li>
-                <li>• Automatic cut points</li>
-                <li>• Pacing optimization</li>
-              </ul>
-            </div>
-
-            <!-- Feature 5: AI Storyboarding -->
-            <div class="feature-card">
-              <div class="camera-icon">
-                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-3">Storyboard → Render</h3>
-              <p class="text-gray-400 mb-4">Import storyboard images or descriptions. AI generates corresponding camera setups and sequences in Sequencer.</p>
-              <ul class="text-sm text-gray-500 space-y-1">
-                <li>• Image-to-camera translation</li>
-                <li>• Text prompt support</li>
-                <li>• Sequence generation</li>
-              </ul>
-            </div>
-
-            <!-- Feature 6: Real-Time Collaboration -->
-            <div class="feature-card">
-              <div class="camera-icon">
-                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-3">Real-Time Collaboration</h3>
-              <p class="text-gray-400 mb-4">Multiple team members can work on cinematics simultaneously. Directors review while artists iterate.</p>
-              <ul class="text-sm text-gray-500 space-y-1">
-                <li>• Live session syncing</li>
-                <li>• Version control built-in</li>
-                <li>• Review & approval workflow</li>
+                <li>• CoT / TAK XML</li>
+                <li>• ROS2 messages</li>
+                <li>• JSON-over-WebSocket</li>
               </ul>
             </div>
           </div>
@@ -665,48 +758,40 @@
       <div class="py-16">
         <div class="mx-auto max-w-5xl">
           <div class="text-center mb-16">
-            <h2 class="display-font text-4xl sm:text-5xl text-white mb-4">FROM CONCEPT TO RENDER</h2>
-            <p class="text-gray-400 text-lg">AI-assisted trailer creation workflow</p>
+            <h2 class="display-font text-4xl sm:text-5xl text-white mb-4">FROM EVENT STREAM TO FINISHED VIDEO</h2>
+            <p class="text-gray-400 text-lg">Automated pipeline, iterate on the cut — not the camera work</p>
           </div>
           
           <div class="space-y-12">
             <div class="workflow-step" data-step="1">
-              <h3 class="text-2xl font-bold text-white mb-3">Import Your Assets</h3>
-              <p class="text-gray-400 mb-4">Load your game scenes, characters, and any storyboard references. The AI begins analyzing scene composition and key focal points.</p>
+              <h3 class="text-2xl font-bold text-white mb-3">Connect Your Event Source</h3>
+              <p class="text-gray-400 mb-4">Point the ingestion layer at your event stream — Sequencer event tracks from a previz session, a DIS/HLA federation, a ROS2 topic, or a WebSocket endpoint. The protocol adapter normalizes everything into the unified event timeline.</p>
               <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
-                <span class="text-amber-400">Supported:</span> Level sequences, character meshes, storyboard images, text descriptions
+                <span class="text-amber-400">Adapters:</span> UE Sequencer, DIS PDU, HLA RPR-FOM, CoT/TAK XML, ROS2, JSON-over-WebSocket
               </div>
             </div>
 
             <div class="workflow-step" data-step="2">
-              <h3 class="text-2xl font-bold text-white mb-3">AI Generates Camera Suggestions</h3>
-              <p class="text-gray-400 mb-4">Within seconds, receive multiple camera placement options for each scene. Each suggestion includes composition analysis and cinematography rationale.</p>
+              <h3 class="text-2xl font-bold text-white mb-3">AI Assigns Cameras & Builds the Cut</h3>
+              <p class="text-gray-400 mb-4">The director engine analyses the event semantics — entity movements, engagements, phase transitions — and assigns multi-camera coverage. It builds a coherent editorial cut across the full session duration, not just individual shots.</p>
               <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
-                <span class="text-amber-400">Output:</span> 5-10 camera positions per scene, ranked by composition score
+                <span class="text-amber-400">Output:</span> Multi-camera Sequencer timeline with cuts, transitions, and overlay tracks
               </div>
             </div>
 
             <div class="workflow-step" data-step="3">
-              <h3 class="text-2xl font-bold text-white mb-3">Refine & Customize</h3>
-              <p class="text-gray-400 mb-4">Accept suggestions or tweak them manually. AI learns from your preferences and improves future recommendations for your project style.</p>
+              <h3 class="text-2xl font-bold text-white mb-3">Review & Iterate on the Cut</h3>
+              <p class="text-gray-400 mb-4">Preview the generated multi-cam cut. Adjust pacing, swap camera angles, refine overlay content. The iteration loop is on editorial decisions, not on camera placement — the creative part, not the tedious part.</p>
               <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
-                <span class="text-amber-400">Tools:</span> One-click accept, drag-to-adjust, style preferences, save presets
+                <span class="text-amber-400">Tools:</span> In-Sequencer preview, cut point adjustment, overlay editor, pacing presets
               </div>
             </div>
 
             <div class="workflow-step" data-step="4">
-              <h3 class="text-2xl font-bold text-white mb-3">Timeline Assembly</h3>
-              <p class="text-gray-400 mb-4">AI assembles shots into Sequencer, suggests cut points synced to your audio track, and generates smooth camera transitions between shots.</p>
+              <h3 class="text-2xl font-bold text-white mb-3">Render & Deliver</h3>
+              <p class="text-gray-400 mb-4">Render via RVR or Movie Render Queue. The output is a finished multi-camera video with burned-in text overlays — ready for previz review, customer briefing, or stakeholder presentation.</p>
               <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
-                <span class="text-amber-400">Features:</span> Beat-synced cuts, transition effects, pacing templates (action, dramatic, emotional)
-              </div>
-            </div>
-
-            <div class="workflow-step" data-step="5">
-              <h3 class="text-2xl font-bold text-white mb-3">Export & Iterate</h3>
-              <p class="text-gray-400 mb-4">Render directly or export for post-production. Generate multiple variations for A/B testing with one click - different lengths, pacing, music sync.</p>
-              <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
-                <span class="text-amber-400">Exports:</span> Movie Render Queue integration, platform-specific presets (Steam, PlayStation, YouTube)
+                <span class="text-amber-400">Integration:</span> Runtime Video Recorder pipeline, Movie Render Queue, standard video formats
               </div>
             </div>
           </div>
@@ -717,60 +802,24 @@
       <div class="py-16">
         <div class="mx-auto max-w-6xl">
           <div class="viewfinder rounded-2xl p-8 sm:p-12 bg-gradient-to-br from-amber-950/30 to-gray-900/50 border border-amber-900/30">
-            <h2 class="display-font text-3xl sm:text-4xl text-white text-center mb-12">PRODUCTION EFFICIENCY GAINS</h2>
+            <h2 class="display-font text-3xl sm:text-4xl text-white text-center mb-12">WHAT CHANGES</h2>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               <div class="stats-card">
-                <div class="display-font text-5xl text-amber-400 mb-2">70%</div>
-                <p class="text-gray-400">Faster trailer production</p>
+                <div class="display-font text-5xl text-amber-400 mb-2">4h→40m</div>
+                <p class="text-gray-400">Previz prep time</p>
               </div>
               <div class="stats-card">
-                <div class="display-font text-5xl text-amber-400 mb-2">10x</div>
-                <p class="text-gray-400">More shot variations explored</p>
+                <div class="display-font text-5xl text-amber-400 mb-2">2hr+</div>
+                <p class="text-gray-400">Coherent session output</p>
               </div>
               <div class="stats-card">
-                <div class="display-font text-5xl text-amber-400 mb-2">5min</div>
-                <p class="text-gray-400">Storyboard to rough cut</p>
+                <div class="display-font text-5xl text-amber-400 mb-2">6</div>
+                <p class="text-gray-400">Protocol adapters at launch</p>
               </div>
               <div class="stats-card">
-                <div class="display-font text-5xl text-amber-400 mb-2">∞</div>
-                <p class="text-gray-400">Trailer variations on demand</p>
+                <div class="display-font text-5xl text-amber-400 mb-2">0</div>
+                <p class="text-gray-400">Manual camera setups</p>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Use Cases Section -->
-      <div class="py-16">
-        <div class="mx-auto max-w-6xl">
-          <div class="text-center mb-12">
-            <h2 class="display-font text-4xl sm:text-5xl text-white mb-4">BUILT FOR GAME STUDIOS</h2>
-            <p class="text-gray-400 text-lg">From indie teams to AAA productions</p>
-          </div>
-
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
-              <h3 class="text-xl font-bold text-white mb-3">🎬 Game Trailer Production</h3>
-              <p class="text-gray-400 mb-4">Create compelling game trailers faster than ever. AI suggests dramatic camera angles, action-packed cuts, and audio-synced edits.</p>
-              <p class="text-amber-400 text-sm">Perfect for: Marketing teams, publishers, indie developers</p>
-            </div>
-            
-            <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
-              <h3 class="text-xl font-bold text-white mb-3">🎭 In-Game Cutscenes</h3>
-              <p class="text-gray-400 mb-4">Build cinematic cutscenes that rival pre-rendered quality. AI ensures consistent shot composition across your entire game.</p>
-              <p class="text-amber-400 text-sm">Perfect for: Narrative designers, cinematic artists, level designers</p>
-            </div>
-            
-            <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
-              <h3 class="text-xl font-bold text-white mb-3">📱 Social Media Content</h3>
-              <p class="text-gray-400 mb-4">Generate platform-specific content variations. 15-second TikTok cuts, 30-second YouTube pre-rolls, 60-second trailers - all from one session.</p>
-              <p class="text-amber-400 text-sm">Perfect for: Community managers, social media teams, content creators</p>
-            </div>
-            
-            <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
-              <h3 class="text-xl font-bold text-white mb-3">🎓 Pre-Visualization</h3>
-              <p class="text-gray-400 mb-4">Quickly visualize cinematic ideas before committing resources. Present stakeholders with multiple approaches in a single meeting.</p>
-              <p class="text-amber-400 text-sm">Perfect for: Directors, producers, pre-vis teams</p>
             </div>
           </div>
         </div>
@@ -785,33 +834,33 @@
           
           <div class="space-y-4">
             <div class="faq-item p-6">
-              <h3 class="text-xl font-bold text-white mb-3">What are the best AI camera placement tools for Unreal Engine?</h3>
-              <p class="text-gray-400">The AI Cinematic Director Plugin provides intelligent camera placement that analyzes your scene composition, character positions, and lighting to suggest optimal camera angles. It uses machine learning trained on cinematic principles from film and game trailers to automate professional-quality shot composition.</p>
+              <h3 class="text-xl font-bold text-white mb-3">What event stream protocols are supported?</h3>
+              <p class="text-gray-400">The AI Cinematic Director uses a protocol-agnostic event ingestion layer with first-class adapters for UE Sequencer event tracks, DIS PDU (IEEE 1278), HLA RPR-FOM (IEEE 1516), CoT/TAK XML, ROS2 messages, and JSON-over-WebSocket. Adding new adapters is a well-defined extension point — anything that emits timestamped events can be connected.</p>
             </div>
             
             <div class="faq-item p-6">
-              <h3 class="text-xl font-bold text-white mb-3">How does automated shot composition work for game cinematics?</h3>
-              <p class="text-gray-400">Automated shot composition analyzes the rule of thirds, leading lines, depth of field, and subject positioning to create visually compelling frames. The AI Cinematic Director evaluates each shot against professional cinematography standards and can automatically adjust camera position, focal length, and depth of field.</p>
+              <h3 class="text-xl font-bold text-white mb-3">How does multi-hour coherent output work?</h3>
+              <p class="text-gray-400">Unlike tools that operate on individual shots, the AI Cinematic Director maintains entity state, camera assignment history, and editorial pacing across the full session duration. Whether your simulation runs for two minutes or two hours, the output maintains consistent camera coverage and editorial logic throughout.</p>
             </div>
             
             <div class="faq-item p-6">
-              <h3 class="text-xl font-bold text-white mb-3">Can AI help with game trailer creation in Unreal Engine?</h3>
-              <p class="text-gray-400">Yes! AI-assisted trailer creation streamlines the entire workflow from storyboarding to final render. The plugin can suggest shot sequences, automate camera movements, synchronize cuts to audio beats, and generate multiple trailer variations for A/B testing - reducing trailer production time by up to 70%.</p>
+              <h3 class="text-xl font-bold text-white mb-3">What are event-aligned text overlays?</h3>
+              <p class="text-gray-400">Text overlays automatically annotate video output with contextual information from the event stream — entity callsigns, simulation timestamps, phase markers, engagement labels, or any metadata carried by the source protocol. Overlays stay precisely synchronized with the underlying events across the full session.</p>
             </div>
-            
+
             <div class="faq-item p-6">
-              <h3 class="text-xl font-bold text-white mb-3">What is cinematic timeline automation in UE5?</h3>
-              <p class="text-gray-400">Cinematic timeline automation uses AI to analyze your Sequencer tracks and automatically generate camera cuts, transitions, and timing. It can sync animations to audio, create smooth camera paths between keyframes, and suggest pacing improvements based on trailer genre and target audience.</p>
+              <h3 class="text-xl font-bold text-white mb-3">How is this different from Epic's Camera Animation Toolset?</h3>
+              <p class="text-gray-400">Epic's CAT is an excellent tool for shot-level camera authoring inside Sequencer. The AI Cinematic Director solves a different problem: it ingests event streams from outside Unreal (DIS, HLA, ROS2, etc.), produces multi-hour coherent output across an entire session, and generates event-aligned text overlays. These three capabilities — external ingestion, multi-hour coherence, and event-aligned overlays — are outside CAT's design scope.</p>
             </div>
-            
+
             <div class="faq-item p-6">
-              <h3 class="text-xl font-bold text-white mb-3">Does the plugin support real-time collaboration for cinematics?</h3>
-              <p class="text-gray-400">Yes, the AI Cinematic Director includes real-time collaboration features allowing multiple team members to work on the same cinematic sequence. Directors can review AI suggestions while artists adjust shots, with live syncing and version control built in.</p>
+              <h3 class="text-xl font-bold text-white mb-3">Can defense M&S teams use this with existing DIS or HLA simulations?</h3>
+              <p class="text-gray-400">Yes. Connect your DIS PDU or HLA RPR-FOM federation to the ingestion layer and receive a multi-camera briefing video with entity labels, phase markers, and simulation timestamps burned in — ready for customer review without manual video reconstruction.</p>
             </div>
             
             <div class="faq-item p-6">
               <h3 class="text-xl font-bold text-white mb-3">What Unreal Engine versions are supported?</h3>
-              <p class="text-gray-400">Unreal Engine 5+ only. The AI Cinematic Director integrates directly with Sequencer and Movie Render Queue for seamless workflow integration.</p>
+              <p class="text-gray-400">Unreal Engine 5.4+. The AI Cinematic Director integrates directly with Sequencer for camera timeline output and pairs with the Runtime Video Recorder for the rendering pipeline.</p>
             </div>
           </div>
         </div>
@@ -821,9 +870,9 @@
       <div class="py-16">
         <div class="mx-auto max-w-4xl">
           <div class="viewfinder rounded-2xl p-8 sm:p-12 bg-gradient-to-r from-amber-600 to-orange-600 text-center">
-            <h2 class="display-font text-4xl sm:text-5xl text-black mb-4">TRANSFORM YOUR CINEMATICS WORKFLOW</h2>
+            <h2 class="display-font text-4xl sm:text-5xl text-black mb-4">ITERATE ON THE CUT, NOT THE CAMERAS</h2>
             <p class="text-amber-950 mb-8 text-lg max-w-2xl mx-auto">
-              Join studios using AI-powered tools to create professional game trailers and cinematics faster than ever before.
+              Early access for virtual production studios and defense M&S teams. Bring your event stream — we'll show you the multi-camera output.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a 
@@ -853,15 +902,15 @@
           <div class="grid md:grid-cols-3 gap-6">
             <a href="/" class="block bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
               <h3 class="text-lg font-semibold text-white mb-2">Runtime Video Recorder</h3>
-              <p class="text-gray-500 text-sm">Record your cinematics at runtime. Capture Sequencer playback with hardware acceleration.</p>
+              <p class="text-gray-500 text-sm">Hardware-accelerated rendering pipeline. Powers the video output stage of the AI Cinematic Director.</p>
             </a>
-            <a href="/use-cases/game-testing-video-recording.html" class="block bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
-              <h3 class="text-lg font-semibold text-white mb-2">Game Testing & QA</h3>
-              <p class="text-gray-500 text-sm">Capture gameplay for testing and bug reporting during development.</p>
+            <a href="/products/runtime-video-recorder/" class="block bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Sequencer Integration</h3>
+              <p class="text-gray-500 text-sm">Ingest event tracks from existing Sequencer sessions. First-class adapter for virtual production previz workflows.</p>
             </a>
-            <a href="/insights/" class="block bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
-              <h3 class="text-lg font-semibold text-white mb-2">Industry Insights</h3>
-              <p class="text-gray-500 text-sm">Expert analysis on game development trends and cinematic workflows.</p>
+            <a href="/docs/" class="block bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors">
+              <h3 class="text-lg font-semibold text-white mb-2">Documentation</h3>
+              <p class="text-gray-500 text-sm">Technical documentation for all Unreal Solutions products, including protocol adapter specifications.</p>
             </a>
           </div>
         </div>
@@ -887,4 +936,3 @@
     <div class="film-strip-top"></div>
 </body>
 </html>
-
