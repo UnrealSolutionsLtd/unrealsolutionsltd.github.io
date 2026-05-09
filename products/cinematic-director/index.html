@@ -173,7 +173,6 @@
         letter-spacing: 0.05em;
       }
       
-      /* Film strip decorative elements */
       .film-strip-top {
         background: repeating-linear-gradient(
           90deg,
@@ -294,38 +293,6 @@
         box-shadow: 0 8px 30px rgba(245, 158, 11, 0.4);
       }
       
-      .cta-secondary {
-        background: transparent;
-        color: var(--accent-gold);
-        border: 2px solid var(--accent-gold);
-        padding: 1rem 2rem;
-        border-radius: 0.75rem;
-        transition: all 0.3s ease;
-      }
-      
-      .cta-secondary:hover {
-        background: rgba(245, 158, 11, 0.1);
-      }
-      
-      .use-case-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: rgba(245, 158, 11, 0.1);
-        border: 1px solid rgba(245, 158, 11, 0.3);
-        padding: 0.5rem 1rem;
-        border-radius: 9999px;
-        font-size: 0.875rem;
-        color: #fbbf24;
-        transition: all 0.2s ease;
-      }
-      
-      .use-case-pill:hover {
-        background: rgba(245, 158, 11, 0.2);
-        border-color: rgba(245, 158, 11, 0.5);
-      }
-      
-      /* Animated film reel decoration */
       @keyframes filmRoll {
         from { background-position: 0 0; }
         to { background-position: 88px 0; }
@@ -357,7 +324,6 @@
         border-color: rgba(245, 158, 11, 0.3);
       }
       
-      /* Viewfinder corners decoration */
       .viewfinder {
         position: relative;
       }
@@ -384,38 +350,6 @@
         right: -1px;
         border-width: 0 3px 3px 0;
       }
-
-      .protocol-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.375rem;
-        background: rgba(245, 158, 11, 0.08);
-        border: 1px solid rgba(245, 158, 11, 0.25);
-        padding: 0.375rem 0.75rem;
-        border-radius: 0.5rem;
-        font-size: 0.8125rem;
-        font-family: 'Source Sans 3', sans-serif;
-        font-weight: 600;
-        color: #fbbf24;
-        letter-spacing: 0.025em;
-      }
-
-      .icp-card {
-        background: rgba(38, 38, 38, 0.5);
-        border: 1px solid rgba(75, 85, 99, 0.3);
-        border-radius: 1rem;
-        padding: 2rem;
-        transition: all 0.3s ease;
-      }
-
-      .icp-card:hover {
-        border-color: rgba(245, 158, 11, 0.4);
-      }
-
-      .icp-card.primary {
-        border-color: rgba(245, 158, 11, 0.3);
-        background: linear-gradient(135deg, rgba(38, 38, 38, 0.7) 0%, rgba(245, 158, 11, 0.05) 100%);
-      }
     </style>
     
     <!-- Google Analytics -->
@@ -438,10 +372,9 @@
         <div id="site-nav" data-logo-path="../../assets/logo.png"></div>
         <script src="/assets/js/nav.js"></script>
 
-        <!-- Hero Section -->
-        <div class="hero-glow sm:pt-28 pb-8 sm:py-16">
-          <div class="mx-auto max-w-6xl">
-            <!-- Breadcrumb -->
+        <!-- Hero -->
+        <div class="hero-glow pt-6 sm:pt-28 pb-8 sm:py-16">
+          <div class="mx-auto max-w-3xl">
             <nav class="mb-8 text-sm">
               <ol class="flex items-center gap-2 text-gray-500">
                 <li><a href="/" class="hover:text-amber-400 transition-colors">Home</a></li>
@@ -452,46 +385,17 @@
               </ol>
             </nav>
 
-            <div class="text-center mb-16">
+            <div class="text-center">
               <h1 class="display-font text-5xl sm:text-7xl lg:text-8xl tracking-wide text-white mb-6">
-                AI CINEMATIC<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500">DIRECTOR</span>
+                ITERATE ON THE CUT.<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500">NOT THE CAMERAS.</span>
               </h1>
               
-              <p class="text-xl sm:text-2xl text-gray-300 max-w-4xl mx-auto mb-4 leading-relaxed">
-                Ingest external event streams. Get director-quality multi-camera video<br class="hidden sm:block"> with text overlays — coherent across multi-hour sessions.
+              <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+                AI cinematic director for Unreal Engine. Connect your event stream — Sequencer, DIS, HLA, ROS2 — and get a director-quality multi-camera video with text overlays. Coherent across the full session, two minutes or two hours.
               </p>
               
-              <!-- Wedge differentiator -->
-              <div class="max-w-2xl mx-auto mb-8 bg-gray-900/60 border border-amber-500/30 rounded-xl p-5 text-left">
-                <div class="text-amber-400 text-sm font-mono mb-3">Three things Epic CAT does not do:</div>
-                <div class="grid sm:grid-cols-3 gap-3">
-                  <div class="flex items-start gap-2">
-                    <span class="text-amber-400 mt-0.5 shrink-0">1.</span>
-                    <span class="text-white text-sm">External event stream ingestion</span>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <span class="text-amber-400 mt-0.5 shrink-0">2.</span>
-                    <span class="text-white text-sm">Multi-hour temporal coherence</span>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <span class="text-amber-400 mt-0.5 shrink-0">3.</span>
-                    <span class="text-white text-sm">Event-aligned text overlays</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Protocol badges -->
-              <div class="flex flex-wrap justify-center gap-2 mb-10">
-                <span class="protocol-badge">UE Sequencer</span>
-                <span class="protocol-badge">DIS PDU</span>
-                <span class="protocol-badge">HLA RPR-FOM</span>
-                <span class="protocol-badge">CoT / TAK XML</span>
-                <span class="protocol-badge">ROS2</span>
-                <span class="protocol-badge">JSON-over-WebSocket</span>
-              </div>
-              
-              <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div class="mb-4">
                 <a 
                   href="mailto:business@unrealsolutions.com?subject=AI%20Cinematic%20Director%20-%20Early%20Access%20Request"
                   class="cta-primary inline-flex items-center text-lg"
@@ -502,6 +406,7 @@
                   Request Early Access
                 </a>
               </div>
+              <p class="text-sm text-gray-500">Built with virtual production previz teams. Used by defense M&amp;S analysts.</p>
             </div>
           </div>
         </div>
@@ -510,387 +415,139 @@
       <!-- Film Decoration -->
       <div class="film-decoration my-8"></div>
 
-      <!-- ICP Messaging Section -->
-      <div class="py-16">
-        <div class="mx-auto max-w-6xl">
-          <div class="text-center mb-12">
-            <h2 class="display-font text-4xl sm:text-5xl text-white mb-4">WHO THIS IS FOR</h2>
-            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-              Purpose-built for teams that need cinematic output from event-driven simulations and previz sessions
-            </p>
-          </div>
+      <!-- What it does -->
+      <div class="py-12">
+        <div class="mx-auto max-w-5xl">
+          <h2 class="display-font text-4xl sm:text-5xl text-white mb-10 text-center">WHAT IT DOES</h2>
 
-          <div class="grid lg:grid-cols-3 gap-6">
-            <!-- Primary ICP: VP Studios -->
-            <div class="icp-card primary lg:col-span-1">
-              <div class="flex items-center gap-2 mb-4">
-                <span class="px-2.5 py-1 bg-amber-500/20 border border-amber-500/40 rounded text-xs font-bold text-amber-300">PRIMARY</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-3">Virtual Production Studios</h3>
-              <p class="text-gray-300 mb-4 leading-relaxed">
-                Turn a four-hour previz prep into forty minutes. Ingest your Sequencer event tracks, get a director-quality multi-cam cut, iterate on the cut — not the camera placement.
-              </p>
-              <p class="text-amber-400/80 text-sm">
-                Previz/postvis supervisors at Unreal-native VP studios, 50–500 staff, currently using UE Sequencer manually.
-              </p>
-            </div>
-
-            <!-- Secondary ICP: Defense M&S -->
-            <div class="icp-card lg:col-span-1">
-              <div class="flex items-center gap-2 mb-4">
-                <span class="px-2.5 py-1 bg-gray-500/20 border border-gray-500/40 rounded text-xs font-bold text-gray-300">SECONDARY</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-3">Defense M&S Analysts</h3>
-              <p class="text-gray-300 mb-4 leading-relaxed">
-                Stop reconstructing your simulation output by hand. Pipe DIS or HLA straight in, get a two-hour briefing video with multi-camera angles and text overlays, ready for the customer review.
-              </p>
-              <p class="text-gray-500 text-sm">
-                Analyst groups (5–25) at primes with $500K–$3M annual tooling budgets.
-              </p>
-            </div>
-
-            <!-- Tertiary ICP: Robotics -->
-            <div class="icp-card lg:col-span-1 relative">
-              <div class="flex items-center gap-2 mb-4">
-                <span class="px-2.5 py-1 bg-gray-700/40 border border-gray-600/40 rounded text-xs font-bold text-gray-400">FUTURE</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-3">Robotics Simulation</h3>
-              <p class="text-gray-300 mb-4 leading-relaxed">
-                Replace RViz screen recordings with director-quality robot fleet videos, automatically, from your existing ROS2 event stream.
-              </p>
-              <p class="text-gray-500 text-sm">
-                Simulation engineering teams using Isaac Sim / ROS2 / Foxglove.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Problem/Solution Section -->
-      <div class="py-16">
-        <div class="mx-auto max-w-6xl">
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <!-- Problem -->
-            <div class="bg-red-950/30 border border-red-900/30 rounded-2xl p-8">
-              <h2 class="display-font text-3xl text-white mb-6">THE EVENT-TO-VIDEO GAP</h2>
-              <div class="space-y-4">
-                <div class="flex items-start gap-3">
-                  <span class="text-red-400 text-xl mt-1">✗</span>
-                  <div>
-                    <h3 class="font-semibold text-white">Manual Camera Placement for Every Session</h3>
-                    <p class="text-gray-400 text-sm">Previz supervisors spend hours manually positioning Sequencer cameras before each review — time spent on setup, not on the creative cut.</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <span class="text-red-400 text-xl mt-1">✗</span>
-                  <div>
-                    <h3 class="font-semibold text-white">Simulation Output Reconstructed by Hand</h3>
-                    <p class="text-gray-400 text-sm">Defense analysts manually reconstruct multi-hour simulation runs into briefing videos, re-creating camera angles and adding annotations frame by frame.</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <span class="text-red-400 text-xl mt-1">✗</span>
-                  <div>
-                    <h3 class="font-semibold text-white">No Coherence Across Long Sessions</h3>
-                    <p class="text-gray-400 text-sm">Existing tools handle individual shots, not multi-hour runs. Stitching together a two-hour briefing means manual edits across dozens of clips.</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <span class="text-red-400 text-xl mt-1">✗</span>
-                  <div>
-                    <h3 class="font-semibold text-white">Event Context Lost in the Video</h3>
-                    <p class="text-gray-400 text-sm">Entity callsigns, phase markers, and simulation metadata don't survive the journey from event stream to rendered video. Overlays are added in post, if at all.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Solution -->
-            <div class="bg-gradient-to-br from-amber-950/40 to-amber-900/20 border border-amber-500/30 rounded-2xl p-8">
-              <h2 class="display-font text-3xl text-white mb-6">AUTOMATED EVENT-TO-VIDEO</h2>
-              <div class="space-y-4">
-                <div class="flex items-start gap-3">
-                  <span class="text-amber-400 text-xl mt-1">✓</span>
-                  <div>
-                    <h3 class="font-semibold text-white">External Event Ingestion</h3>
-                    <p class="text-gray-300 text-sm">Protocol-agnostic layer with first-class adapters for Sequencer tracks, DIS PDU, HLA RPR-FOM, CoT/TAK XML, ROS2, and JSON-over-WebSocket.</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <span class="text-amber-400 text-xl mt-1">✓</span>
-                  <div>
-                    <h3 class="font-semibold text-white">Multi-Camera Cut Automation</h3>
-                    <p class="text-gray-300 text-sm">AI assigns and switches cameras based on event semantics — engagement events, entity proximity, phase transitions — producing a director-quality multi-cam cut.</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <span class="text-amber-400 text-xl mt-1">✓</span>
-                  <div>
-                    <h3 class="font-semibold text-white">Multi-Hour Coherent Output</h3>
-                    <p class="text-gray-300 text-sm">Maintains temporal coherence across the full session duration — two-minute previz clips or two-hour briefing videos, same editorial consistency.</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <span class="text-amber-400 text-xl mt-1">✓</span>
-                  <div>
-                    <h3 class="font-semibold text-white">Event-Aligned Text Overlays</h3>
-                    <p class="text-gray-300 text-sm">Entity callsigns, simulation timestamps, phase markers, and metadata automatically rendered as overlays, always in sync with the source events.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Core Architecture Section -->
-      <div class="py-16">
-        <div class="mx-auto max-w-6xl">
-          <div class="text-center mb-16">
-            <h2 class="display-font text-4xl sm:text-5xl text-white mb-4">PROTOCOL-AGNOSTIC EVENT LAYER</h2>
-            <p class="text-gray-400 text-lg max-w-3xl mx-auto">
-              One ingestion architecture, multiple protocol adapters. Bring your event stream, get cinematic video.
-            </p>
-          </div>
-
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Feature 1: Event Ingestion -->
+          <div class="grid md:grid-cols-3 gap-6">
             <div class="feature-card">
               <div class="camera-icon">
                 <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                 </svg>
               </div>
-              <h3 class="text-xl font-bold text-white mb-3">Event Stream Ingestion</h3>
-              <p class="text-gray-400 mb-4">Protocol-agnostic core with adapters that normalize events from any source into a unified timeline the director engine can reason about.</p>
-              <ul class="text-sm text-gray-500 space-y-1">
-                <li>• DIS PDU (IEEE 1278)</li>
-                <li>• HLA RPR-FOM (IEEE 1516)</li>
-                <li>• UE Sequencer event tracks</li>
-              </ul>
+              <h3 class="text-xl font-bold text-white mb-3">External event ingestion</h3>
+              <p class="text-gray-400">Connect any timestamped event source. Sequencer tracks, DIS PDU, HLA RPR-FOM, CoT/TAK, ROS2, JSON-over-WebSocket. One protocol-agnostic core.</p>
             </div>
 
-            <!-- Feature 2: Multi-Camera Cuts -->
-            <div class="feature-card">
-              <div class="camera-icon">
-                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-3">Multi-Camera Cut Engine</h3>
-              <p class="text-gray-400 mb-4">AI-driven camera assignment and switching based on event semantics. Engagement events trigger close-ups; phase transitions trigger wide establishes.</p>
-              <ul class="text-sm text-gray-500 space-y-1">
-                <li>• Event-driven camera switching</li>
-                <li>• Semantic shot selection</li>
-                <li>• Director-quality pacing</li>
-              </ul>
-            </div>
-
-            <!-- Feature 3: Multi-Hour Coherence -->
             <div class="feature-card">
               <div class="camera-icon">
                 <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               </div>
-              <h3 class="text-xl font-bold text-white mb-3">Multi-Hour Coherence</h3>
-              <p class="text-gray-400 mb-4">Maintains entity tracking, camera assignment, and editorial consistency across the full session duration — not just individual shots.</p>
-              <ul class="text-sm text-gray-500 space-y-1">
-                <li>• Persistent entity state tracking</li>
-                <li>• Session-long editorial pacing</li>
-                <li>• No manual clip stitching</li>
-              </ul>
+              <h3 class="text-xl font-bold text-white mb-3">Multi-hour coherent output</h3>
+              <p class="text-gray-400">Maintains entity tracking, camera assignment, and editorial pacing across the full session. Two minutes or two hours.</p>
             </div>
 
-            <!-- Feature 4: Text Overlays -->
             <div class="feature-card">
               <div class="camera-icon">
                 <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                 </svg>
               </div>
-              <h3 class="text-xl font-bold text-white mb-3">Event-Aligned Overlays</h3>
-              <p class="text-gray-400 mb-4">Automatically annotate output with entity callsigns, timestamps, phase markers, and protocol-specific metadata — always in sync with events.</p>
-              <ul class="text-sm text-gray-500 space-y-1">
-                <li>• Entity callsign labels</li>
-                <li>• Simulation time / phase markers</li>
-                <li>• Custom metadata fields</li>
-              </ul>
-            </div>
-
-            <!-- Feature 5: Sequencer Integration -->
-            <div class="feature-card">
-              <div class="camera-icon">
-                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-3">Sequencer Integration</h3>
-              <p class="text-gray-400 mb-4">First-class UE Sequencer adapter. Ingest event tracks from your existing previz sessions and produce a finished multi-cam cut without manual camera work.</p>
-              <ul class="text-sm text-gray-500 space-y-1">
-                <li>• Event track ingestion</li>
-                <li>• Automated camera Sequencer output</li>
-                <li>• RVR pipeline integration</li>
-              </ul>
-            </div>
-
-            <!-- Feature 6: Protocol Adapters -->
-            <div class="feature-card">
-              <div class="camera-icon">
-                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-3">Extensible Adapters</h3>
-              <p class="text-gray-400 mb-4">Add new protocol adapters without touching the director engine. The architecture supports anything that emits timestamped events.</p>
-              <ul class="text-sm text-gray-500 space-y-1">
-                <li>• CoT / TAK XML</li>
-                <li>• ROS2 messages</li>
-                <li>• JSON-over-WebSocket</li>
-              </ul>
+              <h3 class="text-xl font-bold text-white mb-3">Event-aligned text overlays</h3>
+              <p class="text-gray-400">Entity callsigns, timestamps, phase markers, and metadata burned into the video. Always synchronized with the source events.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Workflow Section -->
-      <div class="py-16">
-        <div class="mx-auto max-w-5xl">
-          <div class="text-center mb-16">
-            <h2 class="display-font text-4xl sm:text-5xl text-white mb-4">FROM EVENT STREAM TO FINISHED VIDEO</h2>
-            <p class="text-gray-400 text-lg">Automated pipeline, iterate on the cut — not the camera work</p>
-          </div>
+      <!-- Pipeline -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="display-font text-4xl sm:text-5xl text-white mb-10 text-center">HOW IT WORKS</h2>
           
-          <div class="space-y-12">
+          <div class="space-y-10">
             <div class="workflow-step" data-step="1">
-              <h3 class="text-2xl font-bold text-white mb-3">Connect Your Event Source</h3>
-              <p class="text-gray-400 mb-4">Point the ingestion layer at your event stream — Sequencer event tracks from a previz session, a DIS/HLA federation, a ROS2 topic, or a WebSocket endpoint. The protocol adapter normalizes everything into the unified event timeline.</p>
-              <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
-                <span class="text-amber-400">Adapters:</span> UE Sequencer, DIS PDU, HLA RPR-FOM, CoT/TAK XML, ROS2, JSON-over-WebSocket
-              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Connect</h3>
+              <p class="text-gray-400">Point at your event stream. Sequencer tracks, DIS/HLA federation, ROS2 topic, or WebSocket endpoint.</p>
+              <p class="text-amber-400/70 text-sm mt-2">Protocol adapter normalizes into a unified timeline.</p>
             </div>
 
             <div class="workflow-step" data-step="2">
-              <h3 class="text-2xl font-bold text-white mb-3">AI Assigns Cameras & Builds the Cut</h3>
-              <p class="text-gray-400 mb-4">The director engine analyses the event semantics — entity movements, engagements, phase transitions — and assigns multi-camera coverage. It builds a coherent editorial cut across the full session duration, not just individual shots.</p>
-              <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
-                <span class="text-amber-400">Output:</span> Multi-camera Sequencer timeline with cuts, transitions, and overlay tracks
-              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Direct</h3>
+              <p class="text-gray-400">AI assigns cameras and builds cuts from event semantics. Engagements, phase transitions, entity proximity.</p>
+              <p class="text-amber-400/70 text-sm mt-2">Output: multi-camera Sequencer timeline with overlay tracks.</p>
             </div>
 
             <div class="workflow-step" data-step="3">
-              <h3 class="text-2xl font-bold text-white mb-3">Review & Iterate on the Cut</h3>
-              <p class="text-gray-400 mb-4">Preview the generated multi-cam cut. Adjust pacing, swap camera angles, refine overlay content. The iteration loop is on editorial decisions, not on camera placement — the creative part, not the tedious part.</p>
-              <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
-                <span class="text-amber-400">Tools:</span> In-Sequencer preview, cut point adjustment, overlay editor, pacing presets
-              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Iterate</h3>
+              <p class="text-gray-400">Adjust pacing, swap angles, refine overlays. Edit the creative decisions, not the camera rigs.</p>
+              <p class="text-amber-400/70 text-sm mt-2">In-Sequencer preview with cut-point adjustment.</p>
             </div>
 
             <div class="workflow-step" data-step="4">
-              <h3 class="text-2xl font-bold text-white mb-3">Render & Deliver</h3>
-              <p class="text-gray-400 mb-4">Render via RVR or Movie Render Queue. The output is a finished multi-camera video with burned-in text overlays — ready for previz review, customer briefing, or stakeholder presentation.</p>
-              <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-4 text-sm text-gray-500">
-                <span class="text-amber-400">Integration:</span> Runtime Video Recorder pipeline, Movie Render Queue, standard video formats
-              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Render</h3>
+              <p class="text-gray-400">Export via RVR or Movie Render Queue. Finished video with burned-in overlays.</p>
+              <p class="text-amber-400/70 text-sm mt-2">Standard formats, ready for review or delivery.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Stats Section -->
-      <div class="py-16">
-        <div class="mx-auto max-w-6xl">
+      <!-- Stats -->
+      <div class="py-12">
+        <div class="mx-auto max-w-3xl">
           <div class="viewfinder rounded-2xl p-8 sm:p-12 bg-gradient-to-br from-amber-950/30 to-gray-900/50 border border-amber-900/30">
-            <h2 class="display-font text-3xl sm:text-4xl text-white text-center mb-12">WHAT CHANGES</h2>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid sm:grid-cols-2 gap-6">
               <div class="stats-card">
-                <div class="display-font text-5xl text-amber-400 mb-2">4h→40m</div>
+                <div class="display-font text-5xl text-amber-400 mb-2">4h&rarr;40m</div>
                 <p class="text-gray-400">Previz prep time</p>
               </div>
               <div class="stats-card">
                 <div class="display-font text-5xl text-amber-400 mb-2">2hr+</div>
                 <p class="text-gray-400">Coherent session output</p>
               </div>
-              <div class="stats-card">
-                <div class="display-font text-5xl text-amber-400 mb-2">6</div>
-                <p class="text-gray-400">Protocol adapters at launch</p>
-              </div>
-              <div class="stats-card">
-                <div class="display-font text-5xl text-amber-400 mb-2">0</div>
-                <p class="text-gray-400">Manual camera setups</p>
-              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- FAQ Section -->
-      <div class="py-16">
+      <!-- FAQ -->
+      <div class="py-12">
         <div class="mx-auto max-w-4xl">
-          <div class="text-center mb-12">
-            <h2 class="display-font text-4xl text-white mb-4">FREQUENTLY ASKED QUESTIONS</h2>
-          </div>
+          <h2 class="display-font text-4xl text-white mb-10 text-center">FAQ</h2>
           
           <div class="space-y-4">
             <div class="faq-item p-6">
-              <h3 class="text-xl font-bold text-white mb-3">What event stream protocols are supported?</h3>
-              <p class="text-gray-400">The AI Cinematic Director uses a protocol-agnostic event ingestion layer with first-class adapters for UE Sequencer event tracks, DIS PDU (IEEE 1278), HLA RPR-FOM (IEEE 1516), CoT/TAK XML, ROS2 messages, and JSON-over-WebSocket. Adding new adapters is a well-defined extension point — anything that emits timestamped events can be connected.</p>
-            </div>
-            
-            <div class="faq-item p-6">
-              <h3 class="text-xl font-bold text-white mb-3">How does multi-hour coherent output work?</h3>
-              <p class="text-gray-400">Unlike tools that operate on individual shots, the AI Cinematic Director maintains entity state, camera assignment history, and editorial pacing across the full session duration. Whether your simulation runs for two minutes or two hours, the output maintains consistent camera coverage and editorial logic throughout.</p>
-            </div>
-            
-            <div class="faq-item p-6">
-              <h3 class="text-xl font-bold text-white mb-3">What are event-aligned text overlays?</h3>
-              <p class="text-gray-400">Text overlays automatically annotate video output with contextual information from the event stream — entity callsigns, simulation timestamps, phase markers, engagement labels, or any metadata carried by the source protocol. Overlays stay precisely synchronized with the underlying events across the full session.</p>
+              <h3 class="text-lg font-bold text-white mb-2">How is this different from Epic's Camera Animation Toolset?</h3>
+              <p class="text-gray-400">CAT is shot-level camera authoring inside Sequencer. The AI Cinematic Director ingests event streams from outside Unreal, produces multi-hour coherent output across an entire session, and generates event-aligned text overlays. External ingestion, multi-hour coherence, and overlays are outside CAT's scope.</p>
             </div>
 
             <div class="faq-item p-6">
-              <h3 class="text-xl font-bold text-white mb-3">How is this different from Epic's Camera Animation Toolset?</h3>
-              <p class="text-gray-400">Epic's CAT is an excellent tool for shot-level camera authoring inside Sequencer. The AI Cinematic Director solves a different problem: it ingests event streams from outside Unreal (DIS, HLA, ROS2, etc.), produces multi-hour coherent output across an entire session, and generates event-aligned text overlays. These three capabilities — external ingestion, multi-hour coherence, and event-aligned overlays — are outside CAT's design scope.</p>
+              <h3 class="text-lg font-bold text-white mb-2">What event stream protocols are supported?</h3>
+              <p class="text-gray-400">UE Sequencer event tracks, DIS PDU (IEEE 1278), HLA RPR-FOM (IEEE 1516), CoT/TAK XML, ROS2 messages, and JSON-over-WebSocket. The ingestion layer is protocol-agnostic; new adapters are a defined extension point.</p>
             </div>
 
             <div class="faq-item p-6">
-              <h3 class="text-xl font-bold text-white mb-3">Can defense M&S teams use this with existing DIS or HLA simulations?</h3>
-              <p class="text-gray-400">Yes. Connect your DIS PDU or HLA RPR-FOM federation to the ingestion layer and receive a multi-camera briefing video with entity labels, phase markers, and simulation timestamps burned in — ready for customer review without manual video reconstruction.</p>
-            </div>
-            
-            <div class="faq-item p-6">
-              <h3 class="text-xl font-bold text-white mb-3">What Unreal Engine versions are supported?</h3>
-              <p class="text-gray-400">Unreal Engine 5.4+. The AI Cinematic Director integrates directly with Sequencer for camera timeline output and pairs with the Runtime Video Recorder for the rendering pipeline.</p>
+              <h3 class="text-lg font-bold text-white mb-2">What Unreal Engine versions are supported?</h3>
+              <p class="text-gray-400">Unreal Engine 5.4+. Integrates with Sequencer for camera timeline output and with the Runtime Video Recorder for the rendering pipeline.</p>
             </div>
           </div>
+
+          <p class="text-gray-500 text-sm text-center mt-8">
+            Defense M&amp;S, robotics simulation, or another event-driven workflow?
+            <a href="mailto:business@unrealsolutions.com" class="text-amber-400 hover:text-amber-300 transition-colors underline">Contact us</a> — we'll show you the multi-camera output from your event stream.
+          </p>
         </div>
       </div>
 
-      <!-- CTA Section -->
-      <div class="py-16">
+      <!-- CTA -->
+      <div class="py-12">
         <div class="mx-auto max-w-4xl">
           <div class="viewfinder rounded-2xl p-8 sm:p-12 bg-gradient-to-r from-amber-600 to-orange-600 text-center">
-            <h2 class="display-font text-4xl sm:text-5xl text-black mb-4">ITERATE ON THE CUT, NOT THE CAMERAS</h2>
-            <p class="text-amber-950 mb-8 text-lg max-w-2xl mx-auto">
-              Early access for virtual production studios and defense M&S teams. Bring your event stream — we'll show you the multi-camera output.
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a 
-                href="mailto:business@unrealsolutions.com?subject=AI%20Cinematic%20Director%20-%20Early%20Access%20Request"
-                class="inline-flex items-center px-8 py-4 text-lg font-bold text-amber-600 bg-black rounded-xl hover:bg-gray-900 transition-all duration-200 shadow-lg"
-              >
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-                Request Early Access
-              </a>
-              <a 
-                href="mailto:business@unrealsolutions.com"
-                class="text-black hover:text-amber-950 underline font-medium"
-              >
-                Contact for Enterprise Licensing
-              </a>
-            </div>
+            <h2 class="display-font text-4xl sm:text-5xl text-black mb-6">ITERATE ON THE CUT. NOT THE CAMERAS.</h2>
+            <a 
+              href="mailto:business@unrealsolutions.com?subject=AI%20Cinematic%20Director%20-%20Early%20Access%20Request"
+              class="inline-flex items-center px-8 py-4 text-lg font-bold text-amber-600 bg-black rounded-xl hover:bg-gray-900 transition-all duration-200 shadow-lg"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              Request Early Access
+            </a>
           </div>
         </div>
       </div>
@@ -927,7 +584,7 @@
           <a href="/privacy.html" class="text-amber-400 hover:text-amber-300 transition-colors">Privacy Policy</a>
         </div>
         <div class="text-center text-gray-600 text-sm">
-          © Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2025
+          &copy; Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2025
         </div>
       </div>
     </main>
