@@ -255,6 +255,28 @@
       
       
       
+      /* Code carousel */
+      .code-tab {
+        background: rgba(31, 41, 55, 0.5);
+        color: #9ca3af;
+        border: 1px solid transparent;
+      }
+      .code-tab:hover {
+        color: #e5e7eb;
+        background: rgba(31, 41, 55, 0.8);
+      }
+      .code-tab.active {
+        background: rgba(99, 102, 241, 0.2);
+        color: #a5b4fc;
+        border-color: rgba(99, 102, 241, 0.4);
+      }
+      .code-slide {
+        transition: opacity 0.3s ease;
+      }
+      .code-slide.hidden {
+        display: none;
+      }
+
       .customer-badge {
         display: inline-block;
         background: rgba(99, 102, 241, 0.15);
@@ -699,37 +721,191 @@
         </div>
       </div>
 
-      <!-- Integration snippet -->
-      <div class="py-12 border-t border-gray-800">
-        <div class="mx-auto max-w-3xl px-6 lg:px-8">
-          <div class="text-center mb-6">
-            <h2 class="text-2xl font-bold text-white mb-2">Three Lines to Start Recording</h2>
-            <p class="text-gray-400 text-sm">Blueprint or C++ - same clean API.</p>
+      <!-- Code Examples Carousel -->
+      <div class="py-16 border-t border-gray-800">
+        <div class="mx-auto max-w-4xl px-6 lg:px-8">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-white mb-2">See the API</h2>
+            <p class="text-gray-400">Real examples from the <a href="/docs/" class="text-indigo-400 hover:text-indigo-300">documentation</a>. Blueprint and C++.</p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="rounded-xl bg-gray-800/80 border border-gray-700/50 overflow-hidden">
-              <div class="flex items-center gap-2 px-4 py-2 bg-gray-900/50 border-b border-gray-700/50">
-                <span class="w-2 h-2 rounded-full bg-blue-400"></span>
-                <span class="text-xs text-gray-400 font-mono">C++</span>
+
+          <!-- Carousel nav -->
+          <div class="flex flex-wrap justify-center gap-2 mb-6" id="code-carousel-nav">
+            <button class="code-tab active px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200" data-slide="0">Quick Start</button>
+            <button class="code-tab px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200" data-slide="1">C++ Integration</button>
+            <button class="code-tab px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200" data-slide="2">Multi-Camera</button>
+            <button class="code-tab px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200" data-slide="3">Render Target</button>
+            <button class="code-tab px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200" data-slide="4">Events</button>
+          </div>
+
+          <!-- Slides -->
+          <div class="relative" id="code-carousel">
+            <!-- Slide 0: Quick Start Blueprint -->
+            <div class="code-slide" data-index="0">
+              <div class="rounded-xl bg-gray-800/80 border border-gray-700/50 overflow-hidden">
+                <div class="flex items-center justify-between px-4 py-2 bg-gray-900/50 border-b border-gray-700/50">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                    <span class="text-xs text-gray-400 font-mono">Blueprint — Quick Start</span>
+                  </div>
+                  <a href="/docs/products/runtime-video-recorder/quick-start" class="text-xs text-indigo-400 hover:text-indigo-300">View docs →</a>
+                </div>
+                <pre class="p-5 text-sm font-mono text-gray-300 overflow-x-auto leading-relaxed"><code><span class="text-gray-500">// Start Recording on F9</span>
+<span class="text-indigo-400">InputAction F9 Pressed</span>
+  → <span class="text-blue-400">Get Engine Subsystem</span> (<span class="text-yellow-300">RuntimeVideoRecorder</span>)
+  → <span class="text-green-400">Start Recording</span>
+      OutFilename: <span class="text-yellow-300">"%auto%"</span>
+      TargetFPS: <span class="text-yellow-300">60</span>
+      Width: <span class="text-yellow-300">1920</span>, Height: <span class="text-yellow-300">1080</span>
+
+<span class="text-gray-500">// Stop Recording on F10</span>
+<span class="text-indigo-400">InputAction F10 Pressed</span>
+  → <span class="text-blue-400">Get Engine Subsystem</span> (<span class="text-yellow-300">RuntimeVideoRecorder</span>)
+  → <span class="text-green-400">Stop Recording</span>
+  → <span class="text-green-400">Get Last Recording Filepath</span>
+  → <span class="text-gray-400">Print String</span></code></pre>
               </div>
-              <pre class="p-4 text-sm font-mono text-gray-300 overflow-x-auto"><code><span class="text-blue-400">Recorder</span> = <span class="text-yellow-300">CreateRecorder</span>();
-<span class="text-blue-400">Recorder</span>-><span class="text-yellow-300">StartRecording</span>();
-<span class="text-gray-500">// ... gameplay ...</span>
-<span class="text-blue-400">Recorder</span>-><span class="text-yellow-300">StopRecording</span>();</code></pre>
             </div>
-            <div class="rounded-xl bg-gray-800/80 border border-gray-700/50 overflow-hidden">
-              <div class="flex items-center gap-2 px-4 py-2 bg-gray-900/50 border-b border-gray-700/50">
-                <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
-                <span class="text-xs text-gray-400 font-mono">Blueprint</span>
+
+            <!-- Slide 1: C++ Quick Start -->
+            <div class="code-slide hidden" data-index="1">
+              <div class="rounded-xl bg-gray-800/80 border border-gray-700/50 overflow-hidden">
+                <div class="flex items-center justify-between px-4 py-2 bg-gray-900/50 border-b border-gray-700/50">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                    <span class="text-xs text-gray-400 font-mono">C++ — Player Controller</span>
+                  </div>
+                  <a href="/docs/products/runtime-video-recorder/quick-start" class="text-xs text-indigo-400 hover:text-indigo-300">View docs →</a>
+                </div>
+                <pre class="p-5 text-sm font-mono text-gray-300 overflow-x-auto leading-relaxed"><code><span class="text-gray-500">#include</span> <span class="text-yellow-300">"RuntimeVideoRecorder.h"</span>
+
+<span class="text-blue-400">void</span> AMyPlayerController::<span class="text-green-400">StartVideoRecording</span>()
+{
+    <span class="text-blue-400">URuntimeVideoRecorder</span>* Recorder =
+        GEngine-><span class="text-yellow-300">GetEngineSubsystem</span>&lt;<span class="text-blue-400">URuntimeVideoRecorder</span>&gt;();
+
+    <span class="text-blue-400">FRuntimeEncoderSettings</span> Settings;
+    Settings.VideoBitrate = <span class="text-yellow-300">20000000</span>;  <span class="text-gray-500">// 20 Mbps</span>
+    Settings.TargetQuality = <span class="text-yellow-300">75</span>;
+
+    Recorder-><span class="text-green-400">StartRecording</span>(
+        TEXT(<span class="text-yellow-300">"%auto%"</span>), <span class="text-yellow-300">60</span>, <span class="text-yellow-300">1920</span>, <span class="text-yellow-300">1080</span>,
+        Settings, <span class="text-yellow-300">true</span>, <span class="text-yellow-300">true</span>
+    );
+}
+
+<span class="text-blue-400">void</span> AMyPlayerController::<span class="text-green-400">StopVideoRecording</span>()
+{
+    <span class="text-blue-400">auto</span>* Recorder = GEngine-><span class="text-yellow-300">GetEngineSubsystem</span>&lt;<span class="text-blue-400">URuntimeVideoRecorder</span>&gt;();
+    Recorder-><span class="text-green-400">StopRecording_NativeAPI</span>();
+
+    FString Path = Recorder-><span class="text-green-400">GetLastRecordingFilepath</span>();
+}</code></pre>
               </div>
-              <pre class="p-4 text-sm font-mono text-gray-300 overflow-x-auto"><code><span class="text-indigo-400">Create Recorder</span> → <span class="text-yellow-300">Start Recording</span>
-<span class="text-gray-500">// ... gameplay ...</span>
-<span class="text-yellow-300">Stop Recording</span> → <span class="text-green-400">MP4 saved</span></code></pre>
+            </div>
+
+            <!-- Slide 2: Multi-Camera -->
+            <div class="code-slide hidden" data-index="2">
+              <div class="rounded-xl bg-gray-800/80 border border-gray-700/50 overflow-hidden">
+                <div class="flex items-center justify-between px-4 py-2 bg-gray-900/50 border-b border-gray-700/50">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                    <span class="text-xs text-gray-400 font-mono">C++ — Multi-Camera Grid</span>
+                  </div>
+                  <a href="/docs/products/runtime-video-recorder/how-to/multi-camera" class="text-xs text-indigo-400 hover:text-indigo-300">View docs →</a>
+                </div>
+                <pre class="p-5 text-sm font-mono text-gray-300 overflow-x-auto leading-relaxed"><code><span class="text-blue-400">TArray</span>&lt;<span class="text-blue-400">UCameraComponent</span>*&gt; Cameras;
+Cameras.Add(FrontCamera);
+Cameras.Add(RearCamera);
+Cameras.Add(LeftCamera);
+Cameras.Add(RightCamera);
+
+<span class="text-blue-400">FRuntimeEncoderSettings</span> Settings;
+Settings.VideoBitrate = <span class="text-yellow-300">20000000</span>;
+
+Recorder-><span class="text-green-400">StartRecordingMultipleCameras</span>(
+    Cameras,
+    TEXT(<span class="text-yellow-300">"E:/Replays/multicam.mp4"</span>),
+    <span class="text-yellow-300">30</span>,           <span class="text-gray-500">// 30 FPS</span>
+    <span class="text-yellow-300">1920</span>, <span class="text-yellow-300">1080</span>,   <span class="text-gray-500">// each camera 960x540</span>
+    Settings,
+    <span class="text-yellow-300">true</span>          <span class="text-gray-500">// enable audio</span>
+);</code></pre>
+              </div>
+            </div>
+
+            <!-- Slide 3: Render Target -->
+            <div class="code-slide hidden" data-index="3">
+              <div class="rounded-xl bg-gray-800/80 border border-gray-700/50 overflow-hidden">
+                <div class="flex items-center justify-between px-4 py-2 bg-gray-900/50 border-b border-gray-700/50">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                    <span class="text-xs text-gray-400 font-mono">C++ — Render Target (Minimap / Security Cam)</span>
+                  </div>
+                  <a href="/docs/products/runtime-video-recorder/how-to/minimap-replay" class="text-xs text-indigo-400 hover:text-indigo-300">View docs →</a>
+                </div>
+                <pre class="p-5 text-sm font-mono text-gray-300 overflow-x-auto leading-relaxed"><code><span class="text-gray-500">// Record from any UTextureRenderTarget2D</span>
+<span class="text-blue-400">UTextureRenderTarget2D</span>* MinimapRT = SceneCapture->TextureTarget;
+
+<span class="text-blue-400">FRuntimeEncoderSettings</span> Settings;
+Settings.VideoBitrate = <span class="text-yellow-300">10000000</span>;
+
+Recorder-><span class="text-green-400">StartRecordingRenderTarget</span>(
+    MinimapRT,
+    TEXT(<span class="text-yellow-300">"E:/Replays/minimap.mp4"</span>),
+    <span class="text-yellow-300">30</span>,           <span class="text-gray-500">// 30 FPS</span>
+    <span class="text-yellow-300">512</span>, <span class="text-yellow-300">512</span>,     <span class="text-gray-500">// match RT size</span>
+    Settings,
+    <span class="text-yellow-300">false</span>         <span class="text-gray-500">// no audio for minimap</span>
+);</code></pre>
+              </div>
+            </div>
+
+            <!-- Slide 4: Events -->
+            <div class="code-slide hidden" data-index="4">
+              <div class="rounded-xl bg-gray-800/80 border border-gray-700/50 overflow-hidden">
+                <div class="flex items-center justify-between px-4 py-2 bg-gray-900/50 border-b border-gray-700/50">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                    <span class="text-xs text-gray-400 font-mono">C++ — Recording Events / Delegates</span>
+                  </div>
+                  <a href="/docs/products/runtime-video-recorder/api/events" class="text-xs text-indigo-400 hover:text-indigo-300">View docs →</a>
+                </div>
+                <pre class="p-5 text-sm font-mono text-gray-300 overflow-x-auto leading-relaxed"><code><span class="text-blue-400">void</span> AMyActor::<span class="text-green-400">BeginPlay</span>()
+{
+    Super::BeginPlay();
+
+    <span class="text-blue-400">URuntimeVideoRecorder</span>* Recorder =
+        GEngine-><span class="text-yellow-300">GetEngineSubsystem</span>&lt;<span class="text-blue-400">URuntimeVideoRecorder</span>&gt;();
+
+    Recorder->OnRecordingStarted.<span class="text-green-400">AddDynamic</span>(
+        <span class="text-yellow-300">this</span>, &amp;AMyActor::HandleRecordingStarted);
+    Recorder->OnRecordingFinished.<span class="text-green-400">AddDynamic</span>(
+        <span class="text-yellow-300">this</span>, &amp;AMyActor::HandleRecordingFinished);
+}
+
+<span class="text-blue-400">void</span> AMyActor::<span class="text-green-400">HandleRecordingStarted</span>()
+{
+    RecordingIndicator-><span class="text-yellow-300">SetVisibility</span>(ESlateVisibility::Visible);
+}
+
+<span class="text-blue-400">void</span> AMyActor::<span class="text-green-400">HandleRecordingFinished</span>()
+{
+    FString Path = Recorder-><span class="text-green-400">GetLastRecordingFilepath</span>();
+    <span class="text-gray-500">// Upload, notify player, etc.</span>
+}</code></pre>
+              </div>
             </div>
           </div>
-          <p class="text-center text-gray-500 text-sm mt-4">
-            <a href="/docs/" class="text-indigo-400 hover:text-indigo-300">Full API reference in the docs →</a>
-          </p>
+
+          <!-- Carousel dots -->
+          <div class="flex justify-center gap-2 mt-4">
+            <button class="code-dot w-2 h-2 rounded-full bg-indigo-400 transition-all duration-200" data-slide="0"></button>
+            <button class="code-dot w-2 h-2 rounded-full bg-gray-600 transition-all duration-200" data-slide="1"></button>
+            <button class="code-dot w-2 h-2 rounded-full bg-gray-600 transition-all duration-200" data-slide="2"></button>
+            <button class="code-dot w-2 h-2 rounded-full bg-gray-600 transition-all duration-200" data-slide="3"></button>
+            <button class="code-dot w-2 h-2 rounded-full bg-gray-600 transition-all duration-200" data-slide="4"></button>
+          </div>
         </div>
       </div>
 
@@ -1172,6 +1348,49 @@
     <!-- Add this script before closing body tag -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        // Code examples carousel
+        (function() {
+          const tabs = document.querySelectorAll('.code-tab');
+          const dots = document.querySelectorAll('.code-dot');
+          const slides = document.querySelectorAll('.code-slide');
+          let current = 0;
+          let autoTimer;
+
+          function showSlide(idx) {
+            slides.forEach(s => s.classList.add('hidden'));
+            tabs.forEach(t => t.classList.remove('active'));
+            dots.forEach(d => { d.classList.remove('bg-indigo-400'); d.classList.add('bg-gray-600'); });
+
+            slides[idx].classList.remove('hidden');
+            tabs[idx].classList.add('active');
+            dots[idx].classList.remove('bg-gray-600');
+            dots[idx].classList.add('bg-indigo-400');
+            current = idx;
+          }
+
+          function nextSlide() {
+            showSlide((current + 1) % slides.length);
+          }
+
+          function startAuto() {
+            autoTimer = setInterval(nextSlide, 5000);
+          }
+
+          function resetAuto() {
+            clearInterval(autoTimer);
+            startAuto();
+          }
+
+          tabs.forEach(tab => {
+            tab.addEventListener('click', () => { showSlide(+tab.dataset.slide); resetAuto(); });
+          });
+          dots.forEach(dot => {
+            dot.addEventListener('click', () => { showSlide(+dot.dataset.slide); resetAuto(); });
+          });
+
+          if (slides.length) startAuto();
+        })();
+
         // Logo click handler - scroll to top
         const logo = document.getElementById('logo');
         if (logo) {
