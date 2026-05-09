@@ -459,7 +459,7 @@
               <span class="text-xl sm:text-2xl lg:text-3xl text-gray-300">On Every Platform, Built Into Your Game</span>
             </h1>
             <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
-              The only video recording plugin for Unreal Engine that works on desktop, mobile, and VR. Trusted by Amazon Games and 50+ studios.
+              The only video recording plugin for Unreal Engine that works on desktop, mobile, and VR. Hardware-accelerated with <span class="text-white font-semibold">1-3% CPU overhead</span>. Trusted by Amazon Games and 50+ studios.
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -485,7 +485,253 @@
                 Watch Demo
               </a>
             </div>
+            <p class="text-gray-500 text-sm text-center mt-2">or <a href="/licensing" class="text-indigo-400 hover:text-indigo-300">from $24.99/mo</a> subscription</p>
+
+            <!-- Social proof strip above the fold -->
+            <div class="flex flex-col items-center mt-8">
+              <p class="text-gray-500 text-sm mb-4 tracking-wide uppercase">Trusted by</p>
+              <div class="flex flex-wrap justify-center items-center gap-6">
+                <div class="flex items-center justify-center px-4 py-2 rounded-lg" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                  <img src="./assets/customer-logos/amazon_games.png" alt="Amazon Games" title="Amazon Games" class="h-10 w-auto max-w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center px-4 py-2 rounded-lg" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                  <img src="./assets/customer-logos/meta.png" alt="Meta Research" title="Meta Research" class="h-8 w-auto max-w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center px-4 py-2 rounded-lg" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                  <img src="./assets/customer-logos/rico.png" alt="Rico" title="Rico" class="h-8 w-auto max-w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center px-4 py-2 rounded-lg" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                  <img src="./assets/customer-logos/unlit.png" alt="Unlit Studio" title="Unlit Studio" class="h-8 w-auto max-w-full object-contain">
+                </div>
+                <span class="text-gray-500 text-sm">and 50+ studios</span>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Why Game Studios Choose RVR Section -->
+      <div id="why-rvr" class="py-16 border-t border-gray-800">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">Why Studios Choose RVR</h2>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+              The technical requirements that make RVR the only choice for professional video recording in Unreal Engine.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Feature 1: Zero Dependencies -->
+            <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/50">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">Zero External Dependencies</h3>
+              <p class="text-gray-400 text-sm">No ffmpeg, no codecs to install, no external processes. Ships with your game - works out of the box on every platform.</p>
+            </div>
+
+            <!-- Feature 2: Mobile Support -->
+            <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/50">
+              <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">The Only Mobile Solution</h3>
+              <p class="text-gray-400 text-sm">Record on iOS and Android devices natively. No other Unreal plugin supports mobile video recording. Period.</p>
+            </div>
+
+            <!-- Feature 3: Headless Recording -->
+            <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/50">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">Headless & CI/CD Ready</h3>
+              <p class="text-gray-400 text-sm">Run in automated pipelines without a display. Perfect for cloud testing farms, Jenkins, GitHub Actions, and build servers.</p>
+            </div>
+
+            <!-- Feature 4: Minimal Performance Impact -->
+            <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/50">
+              <div class="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">1-3% CPU Overhead</h3>
+              <p class="text-gray-400 text-sm">Hardware-accelerated encoding. Record at 60fps without affecting game performance - test the real experience, not a degraded one.</p>
+            </div>
+
+            <!-- Feature 5: Instant Replay Buffer -->
+            <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/50">
+              <div class="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">Instant Replay for Bugs</h3>
+              <p class="text-gray-400 text-sm">Continuously buffer the last 30-60 seconds. When a bug occurs, save the replay - never miss capturing the reproduction steps.</p>
+            </div>
+
+            <!-- Feature 6: Standard Output -->
+            <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/50">
+              <div class="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">MP4/H.264 Output</h3>
+              <p class="text-gray-400 text-sm">Standard formats that play anywhere. Upload to Jira, Slack, Google Drive - no conversion needed, instant sharing with your team.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Integration snippet -->
+      <div class="py-12 border-t border-gray-800">
+        <div class="mx-auto max-w-3xl px-6 lg:px-8">
+          <div class="text-center mb-6">
+            <h2 class="text-2xl font-bold text-white mb-2">Three Lines to Start Recording</h2>
+            <p class="text-gray-400 text-sm">Blueprint or C++ - same clean API.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="rounded-xl bg-gray-800/80 border border-gray-700/50 overflow-hidden">
+              <div class="flex items-center gap-2 px-4 py-2 bg-gray-900/50 border-b border-gray-700/50">
+                <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                <span class="text-xs text-gray-400 font-mono">C++</span>
+              </div>
+              <pre class="p-4 text-sm font-mono text-gray-300 overflow-x-auto"><code><span class="text-blue-400">Recorder</span> = <span class="text-yellow-300">CreateRecorder</span>();
+<span class="text-blue-400">Recorder</span>-><span class="text-yellow-300">StartRecording</span>();
+<span class="text-gray-500">// ... gameplay ...</span>
+<span class="text-blue-400">Recorder</span>-><span class="text-yellow-300">StopRecording</span>();</code></pre>
+            </div>
+            <div class="rounded-xl bg-gray-800/80 border border-gray-700/50 overflow-hidden">
+              <div class="flex items-center gap-2 px-4 py-2 bg-gray-900/50 border-b border-gray-700/50">
+                <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                <span class="text-xs text-gray-400 font-mono">Blueprint</span>
+              </div>
+              <pre class="p-4 text-sm font-mono text-gray-300 overflow-x-auto"><code><span class="text-indigo-400">Create Recorder</span> → <span class="text-yellow-300">Start Recording</span>
+<span class="text-gray-500">// ... gameplay ...</span>
+<span class="text-yellow-300">Stop Recording</span> → <span class="text-green-400">MP4 saved</span></code></pre>
+            </div>
+          </div>
+          <p class="text-center text-gray-500 text-sm mt-4">
+            <a href="/docs/" class="text-indigo-400 hover:text-indigo-300">Full API reference in the docs →</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Pricing Section -->
+      <div id="pricing" class="py-16 border-t border-gray-800">
+        <div class="mx-auto max-w-6xl px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">Pricing</h2>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto">All plans include every platform, every feature, and engine upgrades.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <!-- Subscription -->
+            <div class="rounded-2xl bg-gray-800/50 border border-gray-700/50 p-8 flex flex-col hover:border-indigo-500/30 transition-all duration-200">
+              <div class="mb-6">
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">Subscription</span>
+                <h3 class="text-2xl font-bold text-white mb-2">Subscription</h3>
+                <p class="text-gray-400 text-sm">For hobbyists and evaluators. Cancel anytime.</p>
+              </div>
+              <div class="mb-2 flex-1">
+                <div class="text-4xl font-extrabold text-white">$24.99</div>
+                <div class="text-gray-400 text-sm mt-1">per month &middot; or $200/year</div>
+              </div>
+              <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  All platforms &amp; features
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Engine upgrades included
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                  Requires API key &amp; internet
+                </li>
+              </ul>
+              <a href="https://buy.stripe.com/9B6fZibbU3uHeah3sTdIA0g" class="block w-full text-center px-6 py-3 font-semibold rounded-xl bg-gray-700 text-white hover:bg-gray-600 transition-all duration-200">
+                Subscribe Now
+              </a>
+            </div>
+
+            <!-- Standard (Featured) -->
+            <div class="rounded-2xl border border-indigo-500/50 p-8 flex flex-col relative" style="background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(17,24,39,0.9) 100%);">
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span class="px-4 py-1 bg-indigo-500 text-white text-sm font-medium rounded-full">Best Value</span>
+              </div>
+              <div class="mb-6">
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">One-Time</span>
+                <h3 class="text-2xl font-bold text-white mb-2">Standard</h3>
+                <p class="text-gray-400 text-sm">For indie developers and studios. No API key required.</p>
+              </div>
+              <div class="mb-2 flex-1">
+                <div class="text-4xl font-extrabold text-white">$299</div>
+                <div class="text-gray-400 text-sm mt-1">one-time purchase</div>
+              </div>
+              <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  All platforms &amp; features
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Offline recording — no API key
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Engine upgrades included
+                </li>
+              </ul>
+              <a href="https://buy.stripe.com/28E00keo69T54zHe7xdIA0d" data-cta-position="pricing" class="cta-download block w-full text-center px-6 py-3 font-semibold rounded-xl text-white transition-all duration-200 shadow-lg hover:shadow-xl" style="background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);">
+                Buy License
+              </a>
+            </div>
+
+            <!-- Perpetual -->
+            <div class="rounded-2xl bg-gray-800/50 border border-gray-700/50 p-8 flex flex-col hover:border-indigo-500/30 transition-all duration-200">
+              <div class="mb-6">
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">By Request</span>
+                <h3 class="text-2xl font-bold text-white mb-2">Perpetual</h3>
+                <p class="text-gray-400 text-sm">For studios and enterprises. Full source code. Own it forever.</p>
+              </div>
+              <div class="mb-2 flex-1">
+                <div class="text-4xl font-extrabold text-white">Custom</div>
+                <div class="text-gray-400 text-sm mt-1">by request only</div>
+              </div>
+              <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Everything in Standard
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Full source code access
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Custom engine support
+                </li>
+              </ul>
+              <a href="https://tally.so/r/mZDq7v" class="block w-full text-center px-6 py-3 font-semibold rounded-xl text-indigo-400 border border-indigo-500/40 hover:bg-indigo-500/10 hover:border-indigo-500/70 transition-all duration-200">
+                Request License
+              </a>
+            </div>
+          </div>
+
+          <p class="text-center text-gray-500 text-sm">
+            All payments via Stripe. <a href="/licensing#compare" class="text-indigo-400 hover:text-indigo-300">Compare all license features →</a>
+          </p>
+        </div>
+      </div>
 
           <!-- Use Case Hero: 3-Column Layout -->
           <div class="use-case-hero mx-auto max-w-7xl mb-12">
@@ -604,7 +850,7 @@
               </a>
           </div>
           <p class="text-gray-300 text-base text-center mt-4 mb-2">
-            <span class="font-semibold">All major Unreal Engine versions supported</span>
+            <span class="font-semibold">UE 5.3 - UE 5.8 supported</span>
           </p>
           <!-- Platform Icons -->
           <div class="flex flex-wrap justify-center items-center gap-6 mt-4">
@@ -658,90 +904,6 @@
               <span class="text-xs text-gray-400 mt-1">tvOS</span>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- BugIt Showcase Section (hidden) -->
-
-      <!-- Why Game Studios Choose RVR Section -->
-      <div id="why-rvr" class="py-16 border-t border-gray-800">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">Why Studios Choose RVR</h2>
-            <p class="text-lg text-gray-400 max-w-2xl mx-auto">
-              The technical requirements that make RVR the only choice for professional video recording in Unreal Engine.
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <!-- Feature 1: Zero Dependencies -->
-            <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/50">
-              <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-white mb-2">Zero External Dependencies</h3>
-              <p class="text-gray-400 text-sm">No ffmpeg, no codecs to install, no external processes. Ships with your game - works out of the box on every platform.</p>
-            </div>
-
-            <!-- Feature 2: Mobile Support -->
-            <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/50">
-              <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-white mb-2">The Only Mobile Solution</h3>
-              <p class="text-gray-400 text-sm">Record on iOS and Android devices natively. No other Unreal plugin supports mobile video recording. Period.</p>
-            </div>
-
-            <!-- Feature 3: Headless Recording -->
-            <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/50">
-              <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-white mb-2">Headless & CI/CD Ready</h3>
-              <p class="text-gray-400 text-sm">Run in automated pipelines without a display. Perfect for cloud testing farms, Jenkins, GitHub Actions, and build servers.</p>
-            </div>
-
-            <!-- Feature 4: Minimal Performance Impact -->
-            <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/50">
-              <div class="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-white mb-2">1-3% CPU Overhead</h3>
-              <p class="text-gray-400 text-sm">Hardware-accelerated encoding. Record at 60fps without affecting game performance - test the real experience, not a degraded one.</p>
-            </div>
-
-            <!-- Feature 5: Instant Replay Buffer -->
-            <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/50">
-              <div class="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-white mb-2">Instant Replay for Bugs</h3>
-              <p class="text-gray-400 text-sm">Continuously buffer the last 30-60 seconds. When a bug occurs, save the replay - never miss capturing the reproduction steps.</p>
-            </div>
-
-            <!-- Feature 6: Standard Output -->
-            <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/50">
-              <div class="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-white mb-2">MP4/H.264 Output</h3>
-              <p class="text-gray-400 text-sm">Standard formats that play anywhere. Upload to Jira, Slack, Google Drive - no conversion needed, instant sharing with your team.</p>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!-- All Use Cases Section -->
       <div id="expanded-use-cases" class="py-16 border-t border-gray-800">
@@ -753,7 +915,7 @@
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <!-- 1. Instant Replay & Highlights - Most popular gaming feature -->
             <div class="use-case-card category-content">
               <div class="flex flex-col h-full">
@@ -822,91 +984,19 @@
               </div>
             </div>
 
-            <!-- 5. Drone Simulation - Enterprise -->
-            <div class="use-case-card category-production">
-              <div class="flex flex-col h-full">
-                <div class="mb-4 rounded-lg overflow-hidden" style="aspect-ratio: 4/3;">
-                  <img src="./assets/use-cases/drone-simulation.png" alt="Drone Simulation" title="Drone Simulation Recording" class="w-full h-full object-cover">
-                </div>
-                <h3 class="text-xl font-semibold text-white mb-2">Drone Simulation</h3>
-                <p class="text-gray-300 text-sm mb-4 flex-grow">Capture flight data and visual recordings from drone simulations. Perfect for training and analysis.</p>
-                <a href="/use-cases/cross-platform-recording.html" class="text-orange-400 hover:text-orange-300 text-sm font-medium inline-flex items-center">
-                  Learn More
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
+          </div>
 
-            <!-- 6. Dataset Creation - ML/AI Enterprise -->
-            <div class="use-case-card category-production">
-              <div class="flex flex-col h-full">
-                <div class="mb-4 rounded-lg overflow-hidden" style="aspect-ratio: 4/3;">
-                  <img src="./assets/use-cases/dataset-creation.png" alt="Dataset Creation" title="Dataset Creation for ML/AI Training" class="w-full h-full object-cover">
-                </div>
-                <h3 class="text-xl font-semibold text-white mb-2">Dataset Creation</h3>
-                <p class="text-gray-300 text-sm mb-4 flex-grow">Generate ML/AI training data from your Unreal Engine simulations. Automate dataset collection at scale.</p>
-                <a href="/use-cases/game-testing-video-recording.html" class="text-teal-400 hover:text-teal-300 text-sm font-medium inline-flex items-center">
-                  Learn More
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <!-- 7. Pixel Streaming Capture - Niche -->
-            <div class="use-case-card category-production">
-              <div class="flex flex-col h-full">
-                <div class="mb-4 rounded-lg overflow-hidden" style="aspect-ratio: 4/3;">
-                  <img src="./assets/use-cases/pixel-streaming.png" alt="Pixel Streaming Capture" title="Pixel Streaming Capture" class="w-full h-full object-cover">
-                </div>
-                <h3 class="text-xl font-semibold text-white mb-2">Pixel Streaming Capture</h3>
-                <p class="text-gray-300 text-sm mb-4 flex-grow">Record user interactions in cloud-based applications. Capture the video feed when players interact with your pixel streaming app.</p>
-                <a href="/use-cases/pixel-streaming-recording.html" class="text-orange-400 hover:text-orange-300 text-sm font-medium inline-flex items-center">
-                  Learn More
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
+          <div class="text-center mt-8">
+            <a href="/use-cases/" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-medium transition-colors duration-200">
+              See all use cases - drone simulation, dataset creation, pixel streaming &amp; more
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
 
-      <!-- Customer Logos Section -->
-      <div class="py-16 sm:py-20 border-t border-gray-800">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 class="text-center text-2xl sm:text-3xl font-bold text-white mb-4">
-            Trusted by Leading Game Studios
-          </h2>
-          <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-            From AAA studios to indie teams - dozens of game developers rely on RVR for their testing pipelines.
-          </p>
-          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
-            <div class="flex items-center justify-center p-5 rounded-xl" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-              <img src="./assets/customer-logos/amazon_games.png" alt="Amazon Games" title="Amazon Games" class="h-16 w-auto max-w-full object-contain">
-            </div>
-            <div class="flex items-center justify-center p-5 rounded-xl" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-              <img src="./assets/customer-logos/meta.png" alt="Meta Research" title="Meta Research" class="h-12 w-auto max-w-full object-contain">
-            </div>
-            <div class="flex items-center justify-center p-5 rounded-xl" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-              <img src="./assets/customer-logos/rico.png" alt="Rico" title="Rico" class="h-12 w-auto max-w-full object-contain">
-            </div>
-            <div class="flex items-center justify-center p-5 rounded-xl" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-              <img src="./assets/customer-logos/unlit.png" alt="Unlit Studio" title="Unlit Studio" class="h-12 w-auto max-w-full object-contain">
-            </div>
-            <div class="flex items-center justify-center p-5 rounded-xl" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-              <img src="./assets/customer-logos/kara.png" alt="Kara.tech" title="Kara.tech" class="h-12 w-auto max-w-full object-contain">
-            </div>
-            <div class="flex items-center justify-center p-5 rounded-xl" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-              <img src="./assets/customer-logos/arovertech.png" alt="Arovertech" title="Arovertech" class="h-12 w-auto max-w-full object-contain">
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!-- How Studios Use RVR Section -->
       <div class="py-16 border-t border-gray-800">
@@ -943,6 +1033,35 @@
               </ul>
             </div>
 
+            <!-- 50+ Studios composite -->
+            <div class="rounded-2xl bg-gradient-to-br from-indigo-500/10 to-blue-500/5 border border-indigo-500/20 p-8">
+              <div class="flex items-center gap-4 mb-6">
+                <div class="h-10 w-10 bg-indigo-500/20 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-white">50+ Studios Worldwide</h3>
+                  <p class="text-indigo-400 text-sm">Indie to Enterprise</p>
+                </div>
+              </div>
+              <p class="text-gray-300 mb-4">From solo indie developers to enterprise simulation teams, studios choose RVR because it ships with their game - no external dependencies, no runtime configuration, no platform exceptions.</p>
+              <ul class="space-y-2 text-sm text-gray-400">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Game QA, VR training, content creation
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Defense &amp; simulation recording
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  ML dataset generation at scale
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -1007,19 +1126,12 @@
         </div>
       </div>
 
-      <!-- Bottom CTA -->
+      <!-- Final CTA -->
       <div class="text-center py-12 mb-8 border-t border-gray-800">
         <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Ready to start recording?</h2>
         <p class="text-gray-400 mb-6 max-w-xl mx-auto">Join Amazon Games and 50+ studios using RVR in production.</p>
-        <a 
-          href="/licensing"
-          data-cta-position="bottom"
-          class="cta-download inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 shadow-lg hover:shadow-xl"
-        >
-          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/>
-          </svg>
-          Buy License
+        <a href="#pricing" class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 shadow-lg hover:shadow-xl">
+          See Pricing
         </a>
       </div>
 
