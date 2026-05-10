@@ -302,7 +302,6 @@ All Tally links across the site now include UTM tracking:
 | cross-platform-recording.html | `usecase_cross_platform` |
 | blueprint-video-capture.html | `usecase_blueprint` |
 | **Insights (Blog)** | |
-| in-game-bug-reporting-tools-unreal-engine.html | `insight_bug_reporting` |
 | video-recording-game-testing-roi.html | `insight_testing_roi` |
 | virtual-production-workflow-guide.html | `insight_virtual_production` |
 | ci-cd-video-capture-unreal-engine.html | `insight_cicd` |
@@ -313,7 +312,6 @@ All Tally links across the site now include UTM tracking:
 | game-engine-trends-2026.html | `insight_engine_trends` |
 | insights/index.html | `insights_index` |
 | **Other Pages** | |
-| products/bugit/index.html | `product_bugit` |
 | download.html | `download_page` |
 | recorders.html | `recorders_comparison` |
 | docs/download.md | `docs_download` |
@@ -322,20 +320,6 @@ All Tally links across the site now include UTM tracking:
 ---
 
 ## External Repository Tracking (GitHub)
-
-### BugIt Repository
-The BugIt GitHub repo README links back to unrealsolutions.com with UTM tracking:
-
-```markdown
-**Powered by [RVR](https://unrealsolutions.com/?utm_source=github&utm_medium=readme&utm_campaign=bugit&utm_content=powered_by_rvr)**
-```
-
-| Parameter | Value |
-|-----------|-------|
-| utm_source | `github` |
-| utm_medium | `readme` |
-| utm_campaign | `bugit` |
-| utm_content | `powered_by_rvr` |
 
 ### GitHub Traffic Analytics
 

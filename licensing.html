@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="referrer" content="origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing & Licensing | Runtime Video Recorder for Unreal Engine</title>
-    <meta name="description" content="Buy Runtime Video Recorder for Unreal Engine. Standard license, subscription plans, and perpetual licensing available. Stripe and Alipay accepted.">
+    <title>Licensing FAQ | Runtime Video Recorder for Unreal Engine</title>
+    <meta name="description" content="Frequently asked questions about licensing Runtime Video Recorder for Unreal Engine: license types, platforms, API keys, engine upgrades, refunds, and more.">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://unrealsolutions.com/licensing">
-    <meta property="og:title" content="RVR Pricing - Standard, Subscription & Perpetual Licenses">
-    <meta property="og:description" content="Purchase Runtime Video Recorder. One-time standard purchase, flexible subscriptions, or perpetual source-code licenses for studios.">
+    <meta property="og:title" content="RVR Licensing FAQ - Runtime Video Recorder">
+    <meta property="og:description" content="Answers to common questions about Runtime Video Recorder licensing: license types, supported platforms, API keys, engine upgrades, and refunds.">
     <meta property="og:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://unrealsolutions.com/licensing">
-    <meta name="twitter:title" content="RVR Pricing - Standard, Subscription & Perpetual">
-    <meta name="twitter:description" content="Buy RVR: one-time standard, subscription, or perpetual license with source code. Stripe & Alipay accepted.">
+    <meta name="twitter:title" content="RVR Licensing FAQ">
+    <meta name="twitter:description" content="Answers to common questions about Runtime Video Recorder licensing for Unreal Engine.">
     <meta name="twitter:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
     
     <!-- Additional SEO -->
@@ -40,7 +40,7 @@
       }, {
         "@type": "ListItem",
         "position": 2,
-        "name": "Pricing",
+        "name": "Licensing FAQ",
         "item": "https://unrealsolutions.com/licensing"
       }]
     }
@@ -63,7 +63,7 @@
         "name": "How does the RVR subscription work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Choose a monthly or yearly subscription plan and pay via Stripe. You'll receive an API key by email. Enter the key in your project settings and start recording. Your subscription must stay active to keep recording. Internet connection is required."
+          "text": "Subscribe and complete checkout. You'll receive an API key by email. Enter the key in your project settings and start recording. Your subscription must stay active to keep recording. Internet connection is required."
         }
       }, {
         "@type": "Question",
@@ -78,13 +78,6 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "RVR supports Windows, MacOS, Linux, iOS, tvOS, Android, and Meta Quest. All platforms are included with every license type - no per-platform fees."
-        }
-      }, {
-        "@type": "Question",
-        "name": "What payment methods are accepted?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We accept all major credit and debit cards via Stripe. Chinese users can pay via Alipay, which is available directly through our Stripe checkout."
         }
       }, {
         "@type": "Question",
@@ -125,25 +118,6 @@
     }
     </script>
     
-    <!-- Product Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Runtime Video Recorder (RVR)",
-      "description": "High-performance video recording plugin for Unreal Engine. Hardware acceleration, multi-platform support, zero performance impact.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Unreal Solutions"
-      },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      }
-    }
-    </script>
-    
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
@@ -154,220 +128,22 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     
     <style>
-      /* Pricing cards */
+      /* FAQ accordion card (reused by <details> items) */
       .price-card {
         background: rgba(17, 24, 39, 0.8);
         border: 1px solid rgba(75, 85, 99, 0.3);
         border-radius: 1rem;
         transition: all 0.3s ease;
       }
-      
+
       .price-card:hover {
         border-color: rgba(99, 102, 241, 0.5);
         transform: translateY(-4px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
       }
-      
-      .price-card.featured {
-        border-color: rgba(99, 102, 241, 0.5);
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(17, 24, 39, 0.9) 100%);
-      }
 
-      /* How it works */
-      .how-it-works {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-      }
-
-      @media (max-width: 640px) {
-        .how-it-works { grid-template-columns: 1fr; }
-      }
-
-      .step-card {
-        text-align: center;
-        padding: 1.5rem 1rem;
-        border-radius: 1rem;
-        background: rgba(17, 24, 39, 0.5);
-        border: 1px solid rgba(75, 85, 99, 0.2);
-      }
-
-      .step-number {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 2.25rem;
-        height: 2.25rem;
-        border-radius: 50%;
-        font-size: 0.85rem;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-        background: linear-gradient(135deg, #2563eb, #4f46e5);
-        color: #fff;
-      }
-
-      /* Connector arrows between steps */
-      .step-connector {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #6366f1;
-      }
-
-      @media (max-width: 640px) {
-        .step-connector { transform: rotate(90deg); }
-      }
-
-      /* Buy button */
-      .btn-buy {
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 0.75rem 1.5rem;
-        font-weight: 600;
-        border-radius: 0.75rem;
-        transition: all 0.2s ease;
-        text-decoration: none;
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-        color: white;
-      }
-
-      .btn-primary:hover {
-        background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
-        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
-      }
-
-      .btn-secondary {
-        background: rgba(75, 85, 99, 0.5);
-        color: white;
-      }
-
-      .btn-secondary:hover {
-        background: rgba(75, 85, 99, 0.8);
-      }
-
-      .btn-outline {
-        background: transparent;
-        color: #a5b4fc;
-        border: 1px solid rgba(99, 102, 241, 0.4);
-      }
-
-      .btn-outline:hover {
-        background: rgba(99, 102, 241, 0.1);
-        border-color: rgba(99, 102, 241, 0.7);
-      }
-
-      /* Price display */
-      .price-amount {
-        font-size: 2.5rem;
-        font-weight: 800;
-        line-height: 1;
-        background: linear-gradient(135deg, #fff 0%, #e2e8f0 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .price-period {
-        color: #9ca3af;
-        font-size: 0.875rem;
-        margin-top: 0.25rem;
-      }
-
-      /* Payment badge */
-      .payment-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.35rem 0.75rem;
-        background: rgba(31, 41, 55, 0.8);
-        border: 1px solid rgba(75, 85, 99, 0.3);
-        border-radius: 9999px;
-        font-size: 0.8rem;
-        color: #9ca3af;
-      }
-
-      /* Subscription toggle */
-      .sub-toggle {
-        background: rgba(31, 41, 55, 0.8);
-        border-radius: 9999px;
-        padding: 3px;
-      }
-
-      .sub-toggle button {
-        padding: 0.4rem 1.25rem;
-        border-radius: 9999px;
-        font-weight: 500;
-        font-size: 0.85rem;
-        transition: all 0.2s ease;
-        cursor: pointer;
-        border: none;
-        background: transparent;
-        color: #9ca3af;
-      }
-
-      .sub-toggle button.active {
-        background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-        color: white;
-      }
-
-      .sub-toggle button:not(.active):hover {
-        color: white;
-      }
-
-      /* Comparison section */
-      .compare-card {
-        background: rgba(17, 24, 39, 0.5);
-        border: 1px solid rgba(75, 85, 99, 0.2);
-        border-radius: 1rem;
-      }
-
-      /* Hover bubble */
-      .hover-bubble {
-        position: relative;
-        cursor: help;
-        border-bottom: 1px dotted rgba(156, 163, 175, 0.5);
-      }
-
-      .hover-bubble .bubble {
-        visibility: hidden;
-        opacity: 0;
-        position: absolute;
-        bottom: calc(100% + 8px);
-        left: 0;
-        background: rgba(17, 24, 39, 0.95);
-        border: 1px solid rgba(99, 102, 241, 0.4);
-        border-radius: 0.75rem;
-        padding: 0.75rem 1rem;
-        white-space: nowrap;
-        font-size: 0.8rem;
-        color: #d1d5db;
-        transition: opacity 0.2s ease, visibility 0.2s ease;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-        z-index: 10;
-      }
-
-      .hover-bubble .bubble::after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 1.5rem;
-        border: 6px solid transparent;
-        border-top-color: rgba(99, 102, 241, 0.4);
-      }
-
-      .hover-bubble:hover .bubble {
-        visibility: visible;
-        opacity: 1;
-      }
-
-      /* FAQ */
       details summary::-webkit-details-marker { display: none; }
       details summary { list-style: none; }
-
     </style>
     
     <!-- Google Analytics -->
@@ -393,207 +169,6 @@
       </div>
 
       <!-- ============================================ -->
-      <!-- How it works -->
-      <!-- ============================================ -->
-      <div class="max-w-4xl mx-auto mb-16">
-        <h2 class="text-2xl font-bold text-white text-center mb-8">How It Works</h2>
-        <div class="how-it-works">
-          <div class="step-card">
-            <div class="step-number">1</div>
-            <h4 class="text-white font-semibold mb-1">Purchase a License</h4>
-            <p class="text-gray-400 text-sm">Pick your plan and pay securely via Stripe or Alipay.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-number">2</div>
-            <h4 class="text-white font-semibold mb-1">Download &amp; Install</h4>
-            <p class="text-gray-400 text-sm">Get the plugin files after purchase. Subscription users also receive an API key by email.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-number">3</div>
-            <h4 class="text-white font-semibold mb-1">Start Recording</h4>
-            <p class="text-gray-400 text-sm">Drop the plugin into your project and start recording. No API key needed for Standard &amp; Perpetual.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ============================================ -->
-      <!-- Pricing Cards -->
-      <!-- ============================================ -->
-      <div class="max-w-6xl mx-auto mb-16">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          <!-- Subscription License -->
-          <div class="price-card p-8 flex flex-col">
-            <div class="mb-6">
-              <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">Subscription</span>
-              <h3 class="text-2xl font-bold text-white mb-2">Subscription</h3>
-              <p class="text-gray-400 text-sm">For hobbyists and evaluators. Access to all features. Cancel anytime.</p>
-            </div>
-            
-            <div class="mb-4 flex-1">
-              <div id="sub-price-display">
-                <div class="price-amount" id="sub-price">$24.99</div>
-                <div class="price-period" id="sub-period">per month</div>
-              </div>
-            </div>
-
-            <div class="flex justify-center mb-6">
-              <div class="sub-toggle inline-flex">
-                <button id="btn-monthly" class="active" onclick="switchSubPeriod('monthly')">Monthly</button>
-                <button id="btn-yearly" onclick="switchSubPeriod('yearly')">Yearly</button>
-              </div>
-            </div>
-            
-            <a href="https://buy.stripe.com/9B6fZibbU3uHeah3sTdIA0g" id="sub-buy-link" class="btn-buy btn-secondary" data-license="subscription" onclick="trackEvent('buy_click', 'Subscription - ' + currentSubPeriod); trackBuyClick('subscription', SUB_CONFIG[currentSubPeriod].price, currentSubPeriod)">
-              Subscribe Now
-            </a>
-          </div>
-          
-          <!-- Standard License (Featured) -->
-          <div class="price-card featured p-8 flex flex-col relative">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span class="px-4 py-1 bg-indigo-500 text-white text-sm font-medium rounded-full">Best Value</span>
-            </div>
-            
-            <div class="mb-6">
-              <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">One-Time</span>
-              <h3 class="text-2xl font-bold text-white mb-2">Standard</h3>
-              <p class="text-gray-400 text-sm">For indie developers and studios. All features, all platforms. No API key required.</p>
-            </div>
-            
-            <div class="mb-6 flex-1">
-              <div class="price-amount">$299</div>
-              <div class="price-period">one-time purchase</div>
-            </div>
-            
-            <a href="https://buy.stripe.com/28E00keo69T54zHe7xdIA0d" class="btn-buy btn-primary" data-license="standard" onclick="trackEvent('buy_click', 'Standard'); trackBuyClick('standard', '$299')">
-              Buy License
-            </a>
-          </div>
-          
-          <!-- Perpetual License -->
-          <div class="price-card p-8 flex flex-col">
-            <div class="mb-6">
-              <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">By Request</span>
-              <h3 class="text-2xl font-bold text-white mb-2">Perpetual</h3>
-              <p class="text-gray-400 text-sm">For studios and enterprises. Full source code, custom engine support. <strong class="text-white">Own it forever</strong>.</p>
-            </div>
-            
-            <div class="mb-6 flex-1">
-              <div class="price-amount text-2xl" style="font-size: 1.75rem;">Only for companies</div>
-              <div class="price-period"></div>
-            </div>
-            
-            <a href="https://tally.so/r/mZDq7v" class="btn-buy btn-outline" data-license="perpetual" onclick="trackEvent('buy_click', 'Perpetual - Request'); trackBuyClick('perpetual', 'custom', 'by-request')">
-              Request License
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ============================================ -->
-      <!-- License Comparison -->
-      <!-- ============================================ -->
-      <div class="max-w-5xl mx-auto mb-16">
-        <h2 id="compare" class="text-2xl font-bold text-white text-center mb-8">Compare Licenses</h2>
-        <div class="compare-card overflow-hidden">
-          <div class="overflow-x-auto">
-            <table class="w-full text-left">
-              <thead>
-                <tr class="border-b border-gray-800">
-                  <th class="px-6 py-4 text-gray-400 font-medium text-sm">Feature</th>
-                  <th class="px-6 py-4 text-white font-medium text-sm text-center">Subscription</th>
-                  <th class="px-6 py-4 text-white font-medium text-sm text-center">Standard</th>
-                  <th class="px-6 py-4 text-white font-medium text-sm text-center">Perpetual</th>
-                </tr>
-              </thead>
-              <tbody class="text-sm">
-                <tr class="border-b border-gray-800/50">
-                  <td class="px-6 py-3 text-gray-300">
-                    <span class="hover-bubble">All platforms
-                      <span class="bubble">Windows &middot; MacOS &middot; Linux &middot; iOS &middot; tvOS &middot; Android &middot; Meta Quest</span>
-                    </span>
-                  </td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                </tr>
-                <tr class="border-b border-gray-800/50">
-                  <td class="px-6 py-3 text-gray-300">Engine upgrades</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                </tr>
-                <tr>
-                  <td class="px-6 py-3 text-gray-300">Support</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                </tr>
-                <tr class="border-b border-gray-800/50">
-                  <td class="px-6 py-3 text-gray-300">Offline recording</td>
-                  <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                </tr>
-                <tr class="border-b border-gray-800/50">
-                  <td class="px-6 py-3 text-gray-300">Works without API key</td>
-                  <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                </tr>
-                <tr class="border-b border-gray-800/50">
-                  <td class="px-6 py-3 text-gray-300">Source code access</td>
-                  <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
-                  <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                </tr>
-                <tr class="border-b border-gray-800/50">
-                  <td class="px-6 py-3 text-gray-300">Custom engine support</td>
-                  <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
-                  <td class="px-6 py-3 text-center text-red-400">&#10007;</td>
-                  <td class="px-6 py-3 text-center text-green-400">&#10003;</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- ============================================ -->
-      <!-- Payment methods -->
-      <!-- ============================================ -->
-      <div class="max-w-3xl mx-auto mb-16 text-center">
-        <div class="compare-card p-8">
-          <h3 class="text-xl font-bold text-white mb-4">Accepted Payment Methods</h3>
-          <p class="text-gray-400 mb-6">All payments are processed securely through Stripe.</p>
-          <div class="flex flex-wrap justify-center gap-6">
-            <div class="flex flex-col items-center gap-2">
-              <div class="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center">
-                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
-              </div>
-              <span class="text-gray-300 text-sm">Credit / Debit</span>
-            </div>
-            <div class="flex flex-col items-center gap-2">
-              <div class="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center">
-                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-              </div>
-              <span class="text-gray-300 text-sm">International Cards</span>
-            </div>
-            <div class="flex flex-col items-center gap-2">
-              <div class="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center">
-                <span class="text-indigo-400 text-lg font-bold">A</span>
-              </div>
-              <span class="text-gray-300 text-sm">Alipay <span class="text-gray-500">(China)</span></span>
-            </div>
-          </div>
-          <p class="text-gray-500 text-xs mt-6">
-            Alipay is available at checkout for users in China. All transactions are in USD.
-          </p>
-        </div>
-      </div>
-
-      <!-- ============================================ -->
       <!-- FAQ -->
       <!-- ============================================ -->
       <div class="max-w-3xl mx-auto pb-16">
@@ -613,7 +188,7 @@
               How does the subscription work?
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="mt-4 text-gray-400">Choose monthly or yearly, pay via Stripe, and receive your API key by email. Enter the key in your project settings and start recording. Your subscription must remain active to keep recording - internet connection is required. Engine upgrades are included. Cancel anytime.</p>
+            <p class="mt-4 text-gray-400">Subscribe and complete checkout to receive your API key by email. Enter the key in your project settings and start recording. Your subscription must remain active to keep recording - internet connection is required. Engine upgrades are included. Cancel anytime.</p>
           </details>
 
           <details class="price-card p-6 cursor-pointer group">
@@ -621,7 +196,7 @@
               What is the Perpetual license?
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="mt-4 text-gray-400">The Perpetual license is a one-time purchase with full source code, custom engine support, offline recording, and priority support with consultation calls. Pricing is by request only - contact us for a custom quote tailored to your studio's needs.</p>
+            <p class="mt-4 text-gray-400">The Perpetual license is a one-time purchase with full source code, custom engine support, offline recording, and priority support with consultation calls. Pricing is by request only - <a href="mailto:business@unrealsolutions.com?subject=Perpetual%20License%20Quote%20Request" class="text-indigo-400 hover:text-indigo-300 underline">contact us</a> for a custom quote tailored to your studio's needs.</p>
           </details>
 
           <details class="price-card p-6 cursor-pointer group">
@@ -630,14 +205,6 @@
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
             <p class="mt-4 text-gray-400">RVR supports Windows, MacOS, Linux, iOS, tvOS, Android, and Meta Quest. All platforms are included with every license type - no per-platform fees.</p>
-          </details>
-
-          <details class="price-card p-6 cursor-pointer group">
-            <summary class="flex items-center justify-between text-white font-medium">
-              What payment methods do you accept?
-              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </summary>
-            <p class="mt-4 text-gray-400">We accept all major credit and debit cards via Stripe. Chinese users can pay with Alipay - it appears automatically at checkout. All transactions are processed in USD.</p>
           </details>
 
           <details class="price-card p-6 cursor-pointer group">
@@ -653,7 +220,7 @@
               Can I upgrade from Standard or Subscription to Perpetual?
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="mt-4 text-gray-400">Yes. Contact us and we'll help you transition. We can credit your previous purchase toward the perpetual license price.</p>
+            <p class="mt-4 text-gray-400">Yes. <a href="mailto:business@unrealsolutions.com?subject=License%20Upgrade%20to%20Perpetual" class="text-indigo-400 hover:text-indigo-300 underline">Contact us</a> and we'll help you transition. We can credit your previous purchase toward the perpetual license price.</p>
           </details>
 
           <details class="price-card p-6 cursor-pointer group">
@@ -677,26 +244,8 @@
               Do you offer refunds?
               <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="mt-4 text-gray-400">Yes. We offer a full refund within 3 days of purchase - no questions asked. Contact us at business@unrealsolutions.com to request a refund.</p>
+            <p class="mt-4 text-gray-400">Yes. We offer a full refund within 3 days of purchase - no questions asked. Contact us at <a href="mailto:business@unrealsolutions.com?subject=Refund%20Request" class="text-indigo-400 hover:text-indigo-300 underline">business@unrealsolutions.com</a> to request a refund.</p>
           </details>
-        </div>
-      </div>
-
-      <!-- ============================================ -->
-      <!-- Not sure CTA -->
-      <!-- ============================================ -->
-      <div class="max-w-3xl mx-auto pb-16">
-        <div class="price-card p-12 text-center">
-          <h3 class="text-2xl font-bold text-white mb-4">Not Sure Which License Fits?</h3>
-          <p class="text-gray-400 mb-8">Let's discuss your needs. We'll help you find the best option for your project or studio.</p>
-          <a 
-            href="mailto:business@unrealsolutions.com?subject=RVR%20Licensing%20Question"
-            class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-xl transition-all duration-200"
-            onclick="trackEvent('contact_click', 'Not Sure CTA')"
-          >
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            Contact Us
-          </a>
         </div>
       </div>
 
@@ -711,63 +260,5 @@
         &copy; Unreal Solutions Ltd. All Rights Reserved 2026
       </div>
     </main>
-
-    <script>
-      const EMAIL = 'business@unrealsolutions.com';
-      let currentSubPeriod = 'monthly';
-
-      function trackEvent(action, label) {
-        if (typeof gtag !== 'undefined') {
-          gtag('event', action, {
-            'event_category': 'Licensing',
-            'event_label': label,
-            'page_name': 'pricing'
-          });
-        }
-      }
-
-      function trackBuyClick(license, price, period) {
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'buy_license_click', {
-            'license_type': license,
-            'price': price,
-            'billing_period': period || 'one-time',
-            'page_name': 'pricing'
-          });
-        }
-      }
-
-      const SUB_CONFIG = {
-        monthly: {
-          price: '$24.99',
-          period: 'per month',
-          link: 'https://buy.stripe.com/9B6fZibbU3uHeah3sTdIA0g'
-        },
-        yearly: {
-          price: '$200',
-          period: 'per year',
-          link: 'https://buy.stripe.com/6oU8wQeo6fdpd6d4wXdIA0f'
-        }
-      };
-
-      function switchSubPeriod(period) {
-        currentSubPeriod = period;
-        const config = SUB_CONFIG[period];
-
-        document.getElementById('sub-price').textContent = config.price;
-        document.getElementById('sub-period').textContent = config.period;
-        document.getElementById('sub-buy-link').href = config.link;
-
-        document.getElementById('btn-monthly').classList.toggle('active', period === 'monthly');
-        document.getElementById('btn-yearly').classList.toggle('active', period === 'yearly');
-
-        trackEvent('toggle_sub_period', period);
-      }
-
-      // --- Init ---
-      document.addEventListener('DOMContentLoaded', () => {
-        switchSubPeriod('monthly');
-      });
-    </script>
   </body>
 </html>

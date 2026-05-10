@@ -43,13 +43,13 @@ In the video, call out that most developers think you need a massive server farm
 
 ## 🔗 Description & Social Sharing (UTM Examples)
 
-When sharing this video or the BugIt link in the description, use these UTM tags to track which source works best:
+When sharing this video, use these UTM tags to track which source works best:
 
 **YouTube Description Link:**
-`https://unrealsolutions.com/products/bugit/?utm_source=youtube&utm_medium=video&utm_campaign=gauntlet_tutorial&utm_content=description_link`
+`https://unrealsolutions.com/?utm_source=youtube&utm_medium=video&utm_campaign=gauntlet_tutorial&utm_content=description_link`
 
 **LinkedIn/Twitter Share:**
-`https://unrealsolutions.com/products/bugit/?utm_source=linkedin&utm_medium=social&utm_campaign=gauntlet_tutorial`
+`https://unrealsolutions.com/?utm_source=linkedin&utm_medium=social&utm_campaign=gauntlet_tutorial`
 
 ---
 
@@ -57,4 +57,4 @@ When sharing this video or the BugIt link in the description, use these UTM tags
 1. **The Gap:** Gauntlet gives you logs and "Success/Fail," but it doesn't show you *why* a character clipped through a floor.
 2. **The Integration:** Show the Blueprint/C++ code to trigger RVR's `StartRecording` when a Gauntlet test starts.
 3. **Headless Performance:** Demonstrate that it works on build servers without a GPU attached (using hardware-accelerated encoding).
-4. **The Result:** Open the **BugIt Dashboard** to show the video synced with the logs that Gauntlet generated.
+4. **The Result:** Play the recorded video alongside the Gauntlet logs to show how the failure timeline correlates with the captured footage.

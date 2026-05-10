@@ -244,7 +244,6 @@ Companies with Unreal Engine as **primary/exclusive engine** and live service op
 | Epic/Fab partnership | +15-20% awareness | HIGH | Not active |
 | Amazon/Meta case studies | +10-15% conversion | HIGH | Logos exist, no case studies |
 | GDC/Unreal Fest presence | +8-12% pipeline | MEDIUM | Unknown |
-| BugIt integration bundle | +20% ACV uplift | MEDIUM | In development |
 | Enterprise sales hire | 2-3x velocity | HIGH | Solo founder |
 | SOC2 compliance | Required for Tier 1 | HIGH | Unknown |
 
@@ -344,7 +343,6 @@ Companies with Unreal Engine as **primary/exclusive engine** and live service op
 
 - [ ] Hire enterprise sales rep
 - [ ] Attend Unreal Fest
-- [ ] Launch BugIt + RVR bundle
 - [ ] Begin SOC2 compliance process
 
 ### Long-term (2026-2027)

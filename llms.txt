@@ -29,11 +29,9 @@ RVR records video directly inside Unreal Engine projects across all platforms:
 ## Licensing
 
 Three license tiers available at https://unrealsolutions.com/licensing.html:
-- **Subscription**: $24.99/month or $200/year - plugin binaries, engine upgrades included, cancel anytime
+- **Subscription**: $24.99/month - plugin binaries, engine upgrades included, cancel anytime
 - **Standard**: $299 one-time - all features, all platforms, lifetime ownership
-- **Perpetual**: By request - full source code, custom engine support, offline recording, dedicated support
-
-All payments via Stripe (credit/debit cards, Alipay for Chinese users).
+- **Perpetual**: Free trial available, license priced on request - full source code, custom engine support, offline recording, dedicated support
 
 ## Documentation
 
