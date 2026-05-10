@@ -1,20 +1,12 @@
 # Frequently Asked Questions
 
-## API Key
-
-### How do I get an API key?
-
-Purchase a license at **[unrealsolutions.com/licensing](https://unrealsolutions.com/licensing.html)**. You'll receive your key via email.
-
-### For how long does an API key work?
-
-As long as you have a valid license.
-
-### Where do I enter the API key?
-
-Go to **Edit → Project Settings → Plugins → Runtime Video Recorder** and paste it into the **API KEY** field. See the [Installation Guide](./installation#step-3---set-your-api-key) for details.
-
 ## Subscription & Licensing
+
+### Do I need an API key?
+
+**Only if you're on the Subscription tier.** **Standard** and **Perpetual** licenses do not use an API key — install the plugin and you're done.
+
+For Subscription users, the API key is emailed automatically after checkout. See the [Installation Guide](./installation#subscription-only-api-key-setup) for where to paste it. For the full license comparison, see the [licensing page](https://unrealsolutions.com/licensing.html).
 
 ### Does the Subscription include all features and all platforms?
 
@@ -66,7 +58,7 @@ You can also specify a custom output path. See the [Quick Start Guide](./quick-s
 
 ### It doesn't work - what do I do?
 
-1. **Make sure your API key is set** - see [Installation Step 3](./installation#step-3---set-your-api-key)
+1. **Subscription users only** — make sure your API key is set and the Subscription is active. See the [Installation Guide](./installation#subscription-only-api-key-setup).
 2. **Check the logs** - go to `<PROJECT_DIR>/Saved/Logs/` and look for errors
 3. **Join Discord** and share your log file - we'll help you debug it
 
