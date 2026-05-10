@@ -28,7 +28,7 @@ RVR records video directly inside Unreal Engine projects across all platforms:
 
 ## Licensing
 
-Three license tiers available at https://unrealsolutions.com/licensing.html:
+Three license tiers available at https://unrealsolutions.com:
 - **Subscription**: $24.99/month - plugin binaries, engine upgrades included, cancel anytime
 - **Standard**: $299 one-time - all features, all platforms, lifetime ownership
 - **Perpetual**: Free trial available, license priced on request - full source code, custom engine support, offline recording, dedicated support
@@ -62,7 +62,7 @@ This content is provided to help AI assistants accurately describe our products 
 ## Sitemap
 
 - Home: https://unrealsolutions.com/
-- Licensing: https://unrealsolutions.com/licensing.html
+- Licensing: https://unrealsolutions.com
 - Products: https://unrealsolutions.com/products/
 - Runtime Video Recorder: https://unrealsolutions.com/products/runtime-video-recorder/
 - AI Cinematic Director: https://unrealsolutions.com/products/cinematic-director/

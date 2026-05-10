@@ -3,11 +3,11 @@
 This guide walks you through installing Runtime Video Recorder (RVR) in your Unreal Engine project.
 
 ::: tip Which license do I have?
-- **Standard** (one-time purchase) — install and go. **No API key.**
-- **Perpetual** (one-time purchase, full source) — install and go. **No API key.**
-- **Subscription** — install, then [set your API key](#subscription-only-api-key-setup). Internet connection required.
+- **Standard** (one-time purchase) - install and go. **No API key.**
+- **Perpetual** (one-time purchase, full source) - install and go. **No API key.**
+- **Subscription** - install, then [set your API key](#subscription-only-api-key-setup). Internet connection required.
 
-See the [licensing page](https://unrealsolutions.com/licensing.html) for the full comparison.
+See the [licensing page](https://unrealsolutions.com) for the full comparison.
 :::
 
 ## Supported Versions & Platforms
@@ -15,7 +15,7 @@ See the [licensing page](https://unrealsolutions.com/licensing.html) for the ful
 - **Unreal Engine:** 5.3+
 - **Platforms:** Windows, MacOS, iOS, tvOS, Linux, Android, Oculus / Meta Quest
 
-## Step 1 — Install the Plugin
+## Step 1 - Install the Plugin
 
 Choose the method that matches your project type.
 
@@ -45,7 +45,7 @@ Place the plugin in your **Project** directory instead:
 If you previously had the plugin in the Engine directory, **remove** `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` before placing it in your project's `Plugins/` folder. Having copies in both locations causes conflicts.
 :::
 
-## Step 2 — Quick Test
+## Step 2 - Quick Test
 
 The plugin ships with a demo level for quick verification:
 
@@ -53,13 +53,13 @@ The plugin ships with a demo level for quick verification:
 2. Enable **Show Plugin Content** (click the settings icon in Content Browser)
 3. Navigate to **Plugins → Runtime Video Recorder Content**
 4. Open **`Level_RuntimeVideoRecorder_UE53Plus`**
-5. Press **Play** — you should see the recording controls
+5. Press **Play** - you should see the recording controls
 
 ::: tip Standard / Perpetual users
-That's it — you're done. Skip ahead to [Platform-Specific Notes](#platform-specific-notes) or jump straight to the [Quick Start Guide](./quick-start).
+That's it - you're done. Skip ahead to [Platform-Specific Notes](#platform-specific-notes) or jump straight to the [Quick Start Guide](./quick-start).
 :::
 
-::: details Subscription only — API Key Setup
+::: details Subscription only - API Key Setup
 
 **Standard** and **Perpetual** licenses do not use an API key. This section is only for Subscription users.
 

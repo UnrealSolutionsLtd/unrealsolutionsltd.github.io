@@ -26,7 +26,7 @@ export default defineConfig({
         { text: 'Runtime Video Recorder', link: '/products/runtime-video-recorder/' },
         { text: 'Vulkan Media Player', link: '/products/vulkan-media-player/' },
       ]},
-      { text: 'Licensing', link: 'https://unrealsolutions.com/licensing.html' },
+      { text: 'Licensing', link: 'https://unrealsolutions.com' },
       { text: 'Support', link: 'https://discord.com/invite/pBDSCBcdgv' }
     ],
 

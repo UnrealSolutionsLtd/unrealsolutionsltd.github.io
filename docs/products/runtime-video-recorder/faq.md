@@ -4,9 +4,9 @@
 
 ### Do I need an API key?
 
-**Only if you're on the Subscription tier.** **Standard** and **Perpetual** licenses do not use an API key — install the plugin and you're done.
+**Only if you're on the Subscription tier.** **Standard** and **Perpetual** licenses do not use an API key - install the plugin and you're done.
 
-For Subscription users, the API key is emailed automatically after checkout. See the [Installation Guide](./installation#subscription-only-api-key-setup) for where to paste it. For the full license comparison, see the [licensing page](https://unrealsolutions.com/licensing.html).
+For Subscription users, the API key is emailed automatically after checkout. See the [Installation Guide](./installation#subscription-only-api-key-setup) for where to paste it. For the full license comparison, see the [licensing page](https://unrealsolutions.com).
 
 ### Does the Subscription include all features and all platforms?
 
@@ -18,7 +18,7 @@ Yes. Your application needs an active internet connection for license validation
 
 ### What license does the plugin use?
 
-The standard Unreal Engine plugin license and Epic Games EULA apply. See the full [Licensing details](https://unrealsolutions.com/licensing.html).
+The standard Unreal Engine plugin license and Epic Games EULA apply. See the full [Licensing details](https://unrealsolutions.com).
 
 ### I already bought the plugin - how do I use it now?
 
@@ -58,7 +58,7 @@ You can also specify a custom output path. See the [Quick Start Guide](./quick-s
 
 ### It doesn't work - what do I do?
 
-1. **Subscription users only** — make sure your API key is set and the Subscription is active. See the [Installation Guide](./installation#subscription-only-api-key-setup).
+1. **Subscription users only** - make sure your API key is set and the Subscription is active. See the [Installation Guide](./installation#subscription-only-api-key-setup).
 2. **Check the logs** - go to `<PROJECT_DIR>/Saved/Logs/` and look for errors
 3. **Join Discord** and share your log file - we'll help you debug it
 
