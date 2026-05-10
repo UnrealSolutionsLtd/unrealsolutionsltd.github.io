@@ -152,7 +152,7 @@
         "name": "Does recording video in Unreal Engine affect performance?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "It depends on the method. Movie Render Queue renders offline and is not real-time. External tools like OBS add 5-15% overhead by capturing at the OS level. RVR uses hardware encoders with 1-3% CPU overhead because it captures directly from the render pipeline."
+          "text": "It depends on the method. Movie Render Queue renders offline and is not real-time. External tools like OBS add 5-15% overhead by capturing at the OS level. RVR uses hardware encoders with near-zero overhead because it captures directly from the render pipeline."
         }
       }, {
         "@type": "Question",
@@ -424,7 +424,7 @@
               <div class="grid md:grid-cols-2 gap-4">
                 <div class="bg-gray-800/50 rounded-lg p-4">
                   <h4 class="text-sm font-semibold text-emerald-400 mb-2">Hardware encoding</h4>
-                  <p class="text-gray-400 text-sm">The GPU's dedicated encoder chip does the work, not the CPU. 1-3% overhead instead of 15-30% with software encoding.</p>
+                  <p class="text-gray-400 text-sm">The GPU's dedicated encoder chip does the work, not the CPU. Near-zero overhead instead of 15-30% with software encoding.</p>
                 </div>
                 <div class="bg-gray-800/50 rounded-lg p-4">
                   <h4 class="text-sm font-semibold text-emerald-400 mb-2">No external binaries</h4>
@@ -529,7 +529,7 @@
                     <td class="p-4 text-yellow-400">10-20%</td>
                     <td class="p-4 text-yellow-400">5-15%</td>
                     <td class="p-4 text-red-400">15-30%</td>
-                    <td class="p-4 text-emerald-400">1-3%</td>
+                    <td class="p-4 text-emerald-400">&lt;1%</td>
                   </tr>
                   <tr class="border-t border-gray-700">
                     <td class="p-4 font-medium">Blueprint API</td>
@@ -651,7 +651,7 @@
               <div class="bg-gray-800/50 rounded-xl p-6">
                 <h3 class="text-xl font-bold text-white mb-3 mt-0">Does recording video in Unreal Engine affect performance?</h3>
                 <p class="text-gray-300 mb-0">
-                  The impact varies by method. Movie Render Queue is offline and not real-time. OBS adds 5-15% overhead. FFmpeg wrappers using software encoding add 15-30%. RVR uses hardware encoders on the GPU's dedicated encoding chip, resulting in 1-3% CPU overhead. The game's framerate is not affected in any meaningful way.
+                  The impact varies by method. Movie Render Queue is offline and not real-time. OBS adds 5-15% overhead. FFmpeg wrappers using software encoding add 15-30%. RVR uses hardware encoders on the GPU's dedicated encoding chip, resulting in near-zero overhead. The game's framerate is not affected in any meaningful way.
                 </p>
               </div>
               

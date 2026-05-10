@@ -140,7 +140,7 @@ Companies with Unreal Engine as **primary/exclusive engine** and live service op
 
 | Competitor | Price | Platforms | Performance | Enterprise |
 |------------|-------|-----------|-------------|------------|
-| **RVR** | $30 / Enterprise | 5 | Excellent (1-3% CPU) | Growing |
+| **RVR** | $30 / Enterprise | 5 | Excellent (near-zero overhead) | Growing |
 | FrameCapture | $35 | 1 (Windows) | Good | No |
 | MSC Recorder | $35 | 1 (Windows) | Good | No |
 | OBS Integration | Free | 2 | Poor (5-15% CPU) | No |
@@ -165,7 +165,7 @@ Companies with Unreal Engine as **primary/exclusive engine** and live service op
 | ✅ Runs headless/CI/CD | ✅ Embeds in game (not external) |
 | ✅ Works on all GPUs | ✅ Game event triggers |
 | ✅ Programmatic control | ✅ Multi-platform |
-| ✅ Internal camera access | ✅ 1-3% CPU vs 5-15% |
+| ✅ Internal camera access | ✅ Near-zero overhead vs 5-15% |
 
 **One-liner:** "ShadowPlay is for gamers. RVR is for QA teams that need mobile, automation, and proof."
 

@@ -30,7 +30,7 @@
 ## 💡 The Hook (Contrast with Pixel Streaming)
 In the video, call out that most developers think you need a massive server farm and **Pixel Streaming** just to get video out of a headless automated test. 
 - **The "LOL" Factor:** Pixel Streaming requires WebRTC, signalling servers, and high bandwidth.
-- **The RVR Way:** Native, hardware-accelerated encoding directly to MP4 on the local disk (or CI/CD artifact storage). 1-3% overhead vs. the massive overhead of streaming.
+- **The RVR Way:** Native, hardware-accelerated encoding directly to MP4 on the local disk (or CI/CD artifact storage). Near-zero overhead vs. the massive overhead of streaming.
 
 ---
 
