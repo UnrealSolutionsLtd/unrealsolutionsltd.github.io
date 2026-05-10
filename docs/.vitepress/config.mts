@@ -41,7 +41,8 @@ export default defineConfig({
             { text: 'Quick Start', link: '/products/runtime-video-recorder/quick-start' },
             { text: 'Project Settings', link: '/products/runtime-video-recorder/project-settings' },
             { text: 'Troubleshooting', link: '/products/runtime-video-recorder/troubleshooting' },
-            { text: 'FAQ', link: '/products/runtime-video-recorder/faq' }
+            { text: 'FAQ', link: '/products/runtime-video-recorder/faq' },
+            { text: 'Licensing', link: 'https://unrealsolutions.com' }
           ]
         },
         {
