@@ -158,7 +158,3 @@ To add or update documentation:
 - Email: [business@unrealsolutions.com](mailto:business@unrealsolutions.com)
 - Website: [unrealsolutions.com](https://unrealsolutions.com)
 
-## 📄 License
-
-© 2025 Unreal Solutions Ltd. All rights reserved.
-

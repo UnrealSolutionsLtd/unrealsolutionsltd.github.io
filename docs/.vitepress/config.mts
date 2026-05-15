@@ -102,7 +102,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: '© 2025 Unreal Solutions Ltd. Registered in England and Wales No. 14451923'
+      copyright: '© 2022-2026 Unreal Solutions Ltd. Registered in England and Wales No. 14451923'
     },
 
     search: {
