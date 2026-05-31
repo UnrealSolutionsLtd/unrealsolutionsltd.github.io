@@ -27,12 +27,28 @@ A practical guide to verifying the events we wired up and reading the funnel.
 
 ## Step 1 — Confirm events are firing (≈2 min)
 
-1. Open your site with `?debug_mode=1` on the end, e.g. `https://unrealsolutions.com/?debug_mode=1`
-2. In GA4: **Admin (gear, bottom-left) → DebugView**.
-3. On the site, scroll to the pricing section and click a Buy button / a CTA.
-4. In DebugView you should see the events stream in: `view_item`, `begin_checkout`, `generate_lead`, etc. Click an event to see its parameters (`value`, `lead_type`…).
+1. Open the live site in an **Incognito window** (or hard-refresh with **Ctrl+Shift+R**) — this avoids your browser serving a cached *old* page, which is the #1 reason events look missing.
+2. In GA4: **Reports → Realtime** (no debug setup needed).
+3. On the site, scroll to the pricing section, then click a Buy button / a CTA.
+   - The Buy button redirecting to **Stripe is correct** — that *is* `begin_checkout`. The event is sent (via `sendBeacon`) the instant you click, before the redirect, so it still records. You're not charged unless you finish payment; just close the Stripe tab.
+4. Back in Realtime, watch **"Event count by event name"** — within ~30–60s you'll see `view_item`, `begin_checkout`, `generate_lead`, etc.
 
-> If nothing shows, hard-refresh the page (Ctrl+Shift+R) so the browser drops any cached scripts.
+**Optional — watch events fire in the browser console** (no navigation needed). On the live page: **F12 → Console**, paste:
+
+```js
+(() => {
+  const orig = window.gtag;
+  window.gtag = function () {
+    if (arguments[0] === 'event') console.log('🔥 event →', arguments[1], arguments[2]);
+    return orig && orig.apply(this, arguments);
+  };
+  console.log('funnel-analytics loaded?', window.__usFunnelLoaded === true);
+})();
+```
+
+Then **scroll to pricing** → you'll see `🔥 event → view_item`. (To keep the Buy-click log from being wiped by the Stripe redirect, tick **"Preserve log"** in the Console settings.)
+
+> Prefer **DebugView**? It does *not* work via a URL parameter on this site (that's a Tag-Manager-only trick). Install the **"Google Analytics Debugger"** Chrome extension, toggle it **on**, reload — then **Admin → DebugView** populates.
 
 ---
 
