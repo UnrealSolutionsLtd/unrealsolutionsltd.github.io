@@ -82,9 +82,9 @@
     var el = document.createElement('div');
     el.className = 'us-content-cta us-content-cta--vlm';
     el.innerHTML =
-      '<span class="us-cta-badge">New · Private Beta</span>' +
-      '<div class="us-cta-text"><strong>VLM testing agents for your game.</strong> ' +
-      'Vision-language agents that play your build, catch bugs, and file video evidence — ' +
+      '<span class="us-cta-badge">Meet Vera · Private Beta</span>' +
+      '<div class="us-cta-text"><strong>Vera — your AI playtester.</strong> ' +
+      'A vision agent that plays your build, catches bugs, and files video evidence — ' +
       'at a fraction of the cost of Gemini or Claude.</div>' +
       '<a class="us-cta-btn" href="https://tally.so/r/' + VLM_WAITLIST_TALLY + '" target="_blank" rel="noopener" ' +
       'data-funnel-event="generate_lead" data-lead-type="vlm_waitlist" data-cta-location="insights_banner">' +
