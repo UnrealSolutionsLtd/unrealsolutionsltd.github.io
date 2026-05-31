@@ -19,6 +19,11 @@
   // VLM-agents waitlist — Tally form (https://tally.so/r/KYkvRk)
   var VLM_WAITLIST_TALLY = 'KYkvRk';
 
+  // Hero demo video (rendered by /remotion). Leave empty until rendered — when
+  // empty, no video is shown so nothing breaks. After `npm run render`, set:
+  VERA_DEMO_VIDEO  = '/assets/vera-demo.mp4'
+  VERA_DEMO_POSTER = '/assets/vera-demo-poster.jpg'
+
   var RVR_DEST = '/recorders.html';
 
   // Pages where the VLM-agents waitlist is the relevant offer (topical match).
@@ -75,7 +80,21 @@
 .us-cta-btn:hover { background: #4338ca; transform: translateY(-1px); }
 .us-content-cta--vlm .us-cta-btn:hover { background: #047857; }
 @media (max-width: 640px) { .us-content-cta { margin: 12px; } .us-cta-btn { width: 100%; justify-content: center; } }
-@media print { .us-content-cta { display: none; } }
+
+.us-vera-demo {
+  position: relative; max-width: 880px; margin: 0 auto 14px;
+  border-radius: 16px; overflow: hidden; line-height: 0;
+  border: 1px solid rgba(16,185,129,.35);
+  box-shadow: 0 16px 48px rgba(0,0,0,.45); background: #0a0e14;
+}
+.us-vera-demo__video { display: block; width: 100%; height: auto; }
+.us-vera-demo__tag {
+  position: absolute; top: 12px; left: 12px; z-index: 2; line-height: 1.2;
+  font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: #cbd5e1; background: rgba(10,14,20,.7); border: 1px solid rgba(148,163,184,.3);
+  padding: 4px 9px; border-radius: 999px;
+}
+@media print { .us-content-cta, .us-vera-demo { display: none; } }
 `;
 
   function buildVlm() {
@@ -113,22 +132,40 @@
     document.head.appendChild(style);
     var cta = isVlmPage() ? buildVlm() : buildRvr();
 
-    // Drop it at the TOP of the readable content (above the breadcrumb/title),
-    // but inside the nav-cleared zone so it never hides behind the fixed nav.
+    // Pick the insertion point: TOP of the readable content (above the
+    // breadcrumb/title), inside the nav-cleared zone so it never hides behind
+    // the fixed nav. Fall back to above the <article> body, then top of <main>.
+    var parent, before;
     var anchor = topAnchor();
     if (anchor && anchor.parentNode) {
-      anchor.parentNode.insertBefore(cta, anchor);
-      return;
-    }
-    // Fallbacks: above the <article> body, else top of <main> with nav clearance.
-    var article = document.querySelector('main article') || document.querySelector('article');
-    if (article && article.parentNode) {
-      article.parentNode.insertBefore(cta, article);
+      parent = anchor.parentNode; before = anchor;
     } else {
-      var host = document.querySelector('main') || document.body;
-      cta.style.marginTop = '88px';
-      host.insertBefore(cta, host.firstChild);
+      var article = document.querySelector('main article') || document.querySelector('article');
+      if (article && article.parentNode) {
+        parent = article.parentNode; before = article;
+      } else {
+        parent = document.querySelector('main') || document.body;
+        before = parent.firstChild;
+        cta.style.marginTop = '88px';
+      }
     }
+    parent.insertBefore(cta, before);
+
+    // Hero demo video, directly under the banner (Vera/AI pages, once rendered).
+    var demo = isVlmPage() ? buildDemo() : null;
+    if (demo) parent.insertBefore(demo, cta.nextSibling);
+  }
+
+  function buildDemo() {
+    if (!VERA_DEMO_VIDEO) return null;
+    var wrap = document.createElement('div');
+    wrap.className = 'us-vera-demo';
+    var poster = VERA_DEMO_POSTER ? ' poster="' + VERA_DEMO_POSTER + '"' : '';
+    wrap.innerHTML =
+      '<span class="us-vera-demo__tag">Concept preview</span>' +
+      '<video class="us-vera-demo__video" autoplay muted loop playsinline preload="metadata"' + poster + '>' +
+      '<source src="' + VERA_DEMO_VIDEO + '" type="video/mp4"></video>';
+    return wrap;
   }
 
   // Top of the readable content: the breadcrumb <nav> (not the site nav),

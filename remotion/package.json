@@ -1,0 +1,21 @@
+{
+  "name": "vera-demo",
+  "version": "1.0.0",
+  "description": "Remotion concept demo for Vera (AI playtester). Renders to ../assets/vera-demo.mp4",
+  "private": true,
+  "scripts": {
+    "dev": "remotion studio",
+    "render": "remotion render VeraDemo ../assets/vera-demo.mp4 --codec=h264",
+    "poster": "remotion still VeraDemo ../assets/vera-demo-poster.jpg --frame=210"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "typescript": "^5.4.0"
+  }
+}
