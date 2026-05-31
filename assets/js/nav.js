@@ -122,6 +122,22 @@
         footerNav.innerHTML = createFooterLinks();
       }
 
+      // ==========================================
+      // BOOTSTRAP SHARED SITE SCRIPTS
+      // Loaded everywhere nav.js is, so the funnel + content CTAs roll out
+      // site-wide without editing every page. Each target script self-guards
+      // against double-execution, so pages that include it directly are fine.
+      // ==========================================
+      function loadSharedScript(src) {
+        if (document.querySelector('script[src="' + src + '"]')) return;
+        var s = document.createElement('script');
+        s.src = src;
+        s.defer = true;
+        document.head.appendChild(s);
+      }
+      loadSharedScript('/assets/js/funnel-analytics.js');
+      loadSharedScript('/assets/js/content-cta.js');
+
       // Initialize when DOM is ready
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {

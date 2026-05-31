@@ -68,11 +68,28 @@
     }, attribution()));
   }
 
+  // Generic handler for any element declaring data-funnel-event (e.g. injected CTAs).
+  function fireDataFunnel(eventName, el) {
+    var params = merge({ cta_location: el.getAttribute('data-cta-location') || 'content' }, attribution());
+    var leadType = el.getAttribute('data-lead-type');
+    if (leadType) params.lead_type = leadType;
+    var promo = el.getAttribute('data-promotion');
+    if (promo) params.promotion_name = promo;
+    if (eventName === 'generate_lead' || eventName === 'begin_checkout' || eventName === 'purchase') {
+      params.currency = CURRENCY;
+      params.value = parseFloat(el.getAttribute('data-value')) || 0;
+    }
+    ga('event', eventName, params);
+  }
+
   // Single capture-phase listener handles every current and future link.
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+
+    var dataEvent = a.getAttribute('data-funnel-event');
+    if (dataEvent) { fireDataFunnel(dataEvent, a); return; }
 
     for (var i = 0; i < CHECKOUTS.length; i++) {
       if (href.indexOf(CHECKOUTS[i].match) > -1) { fireBeginCheckout(CHECKOUTS[i], a); return; }
