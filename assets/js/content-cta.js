@@ -112,8 +112,17 @@
     style.textContent = STYLE;
     document.head.appendChild(style);
     var cta = isVlmPage() ? buildVlm() : buildRvr();
-    var host = document.querySelector('main') || document.querySelector('article') || document.body;
-    host.insertBefore(cta, host.firstChild);
+    // Place it INSIDE the readable content — just above the <article> body.
+    // (Inserting at the very top of <main> tucks it behind the fixed/blurred
+    // nav bar, where it renders as a faint empty box.)
+    var article = document.querySelector('main article') || document.querySelector('article');
+    if (article && article.parentNode) {
+      article.parentNode.insertBefore(cta, article);
+    } else {
+      var host = document.querySelector('main') || document.body;
+      cta.style.marginTop = '88px'; // clear the fixed nav if we must place at the top
+      host.insertBefore(cta, host.firstChild);
+    }
   }
 
   if (document.readyState === 'loading') {
