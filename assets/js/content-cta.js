@@ -16,11 +16,8 @@
   if (window.__usContentCtaLoaded) return;
   window.__usContentCtaLoaded = true;
 
-  // ===========================================================================
-  // TODO: create the Tally waitlist form and paste its id here, then this goes live.
-  //       e.g. 'wAb1Cd'  ->  https://tally.so/r/wAb1Cd
-  var VLM_WAITLIST_TALLY = 'REPLACE_ME';
-  // ===========================================================================
+  // VLM-agents waitlist — Tally form (https://tally.so/r/KYkvRk)
+  var VLM_WAITLIST_TALLY = 'KYkvRk';
 
   var RVR_DEST = '/recorders.html';
 

@@ -382,36 +382,10 @@
       })();
 
       // ============================================
-      // BUILD TALLY URL WITH UTM ATTRIBUTION
+      // EVENT TRACKING FUNCTIONS
+      // (buy/checkout + outbound are handled by funnel-analytics.js / GA4)
       // ============================================
-      function getTallyUrlWithAttribution(position, tallyId = '2EPzlj') {
-        const base = `https://tally.so/r/${tallyId}`;
-        const utm = window.getRVRUtmData();
-        const params = new URLSearchParams({
-          utm_source: utm.utm_source === 'direct' ? 'website' : utm.utm_source,
-          utm_medium: utm.utm_medium === 'none' ? 'cta_button' : utm.utm_medium,
-          utm_campaign: utm.utm_campaign === 'none' ? 'rvr_download' : utm.utm_campaign,
-          utm_content: position || 'unknown'
-        });
-        return base + '?' + params.toString();
-      }
 
-      // ============================================
-      // IMPROVED EVENT TRACKING FUNCTIONS
-      // ============================================
-      
-      function trackCtaClick(position, buttonText) {
-        const utm = window.getRVRUtmData();
-        gtag('event', 'buy_license_click', {
-          'button_position': position,
-          'button_text': buttonText,
-          'page_path': window.location.pathname,
-          'traffic_source': utm.utm_source,
-          'traffic_medium': utm.utm_medium,
-          'page_name': 'landing'
-        });
-      }
-      
       // Track documentation clicks
       function trackDocsClick(linkText, linkUrl) {
         gtag('event', 'docs_navigation', {
@@ -426,15 +400,6 @@
         gtag('event', 'usecase_engagement', {
           'usecase_title': useCaseTitle,
           'action_type': action,
-          'page_path': window.location.pathname
-        });
-      }
-      
-      // Track outbound links (FIXED: unique event name)
-      function trackOutboundClick(linkUrl, linkText) {
-        gtag('event', 'outbound_link_click', {
-          'link_url': linkUrl,
-          'link_text': linkText,
           'page_path': window.location.pathname
         });
       }
@@ -1460,30 +1425,6 @@ Recorder-><span class="text-green-400">StartRecordingRenderTarget</span>(
         drawConnectionLines();
 
         // ============================================
-        // CTA BUTTON TRACKING (with position & attribution)
-        // ============================================
-        const ctaButtons = document.querySelectorAll('.cta-download');
-        ctaButtons.forEach(button => {
-          button.addEventListener('click', (e) => {
-            const position = button.getAttribute('data-cta-position') || 'unknown';
-            const buttonText = button.textContent.trim();
-            
-            let tallyId = '2EPzlj';
-
-            // Track the click with position
-            if (typeof trackCtaClick !== 'undefined') {
-              trackCtaClick(position, buttonText);
-            }
-            
-            // Update href with UTM attribution (only for external Tally links)
-            if (typeof getTallyUrlWithAttribution !== 'undefined' && button.href.includes('tally.so')) {
-              const newUrl = getTallyUrlWithAttribution(position, tallyId);
-              button.href = newUrl;
-            }
-          });
-        });
-
-        // ============================================
         // USE CASE CARDS TRACKING
         // ============================================
         const useCaseCards = document.querySelectorAll('.use-case-card');
@@ -1599,18 +1540,6 @@ Recorder-><span class="text-green-400">StartRecordingRenderTarget</span>(
             }
           });
         }, 5000);
-
-        // ============================================
-        // OUTBOUND LINK TRACKING (unique event name)
-        // Excludes CTA buttons (tracked separately)
-        // ============================================
-        document.querySelectorAll('a[target="_blank"]:not(.cta-download)').forEach(link => {
-          link.addEventListener('click', () => {
-            if (typeof trackOutboundClick !== 'undefined') {
-              trackOutboundClick(link.href, link.textContent.trim());
-            }
-          });
-        });
 
         // ============================================
         // DEBUG: Log UTM data on page load (remove in production)
