@@ -112,17 +112,33 @@
     style.textContent = STYLE;
     document.head.appendChild(style);
     var cta = isVlmPage() ? buildVlm() : buildRvr();
-    // Place it INSIDE the readable content — just above the <article> body.
-    // (Inserting at the very top of <main> tucks it behind the fixed/blurred
-    // nav bar, where it renders as a faint empty box.)
+
+    // Drop it at the TOP of the readable content (above the breadcrumb/title),
+    // but inside the nav-cleared zone so it never hides behind the fixed nav.
+    var anchor = topAnchor();
+    if (anchor && anchor.parentNode) {
+      anchor.parentNode.insertBefore(cta, anchor);
+      return;
+    }
+    // Fallbacks: above the <article> body, else top of <main> with nav clearance.
     var article = document.querySelector('main article') || document.querySelector('article');
     if (article && article.parentNode) {
       article.parentNode.insertBefore(cta, article);
     } else {
       var host = document.querySelector('main') || document.body;
-      cta.style.marginTop = '88px'; // clear the fixed nav if we must place at the top
+      cta.style.marginTop = '88px';
       host.insertBefore(cta, host.firstChild);
     }
+  }
+
+  // Top of the readable content: the breadcrumb <nav> (not the site nav),
+  // falling back to the page <h1>.
+  function topAnchor() {
+    var navs = document.querySelectorAll('main nav');
+    for (var i = 0; i < navs.length; i++) {
+      if (!(navs[i].closest && navs[i].closest('#site-nav'))) return navs[i];
+    }
+    return document.querySelector('main h1') || null;
   }
 
   if (document.readyState === 'loading') {
