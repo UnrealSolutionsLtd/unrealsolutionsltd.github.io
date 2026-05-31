@@ -21,8 +21,8 @@
 
   // Hero demo video (rendered by /remotion). Leave empty until rendered — when
   // empty, no video is shown so nothing breaks. After `npm run render`, set:
-  VERA_DEMO_VIDEO  = '/assets/vera-demo.mp4'
-  VERA_DEMO_POSTER = '/assets/vera-demo-poster.jpg'
+  var VERA_DEMO_VIDEO = '/assets/vera-demo.mp4';
+  var VERA_DEMO_POSTER = '/assets/vera-demo-poster.jpg';
 
   var RVR_DEST = '/recorders.html';
 
