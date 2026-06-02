@@ -1,43 +1,64 @@
-# Unreal Solutions Ltd - LLMs.txt
+# Unreal Solutions Ltd
 
-> Universal video recording for Unreal Engine
+> Professional Unreal Engine plugins and AI tooling for video recording, playback, and automated game testing. Maker of Runtime Video Recorder (RVR) — the only Unreal Engine recorder that works on every platform, including mobile. Trusted by Amazon Games and 50+ studios.
 
 ## About
 
-Unreal Solutions Ltd develops Runtime Video Recorder (RVR), the only video recording plugin for Unreal Engine that works on every platform including mobile. Hardware-accelerated, zero dependencies. Trusted by Amazon Games and 50+ studios worldwide.
+Unreal Solutions Ltd (Registered in England and Wales, No. 14451923) builds developer tools for Unreal Engine. Our flagship product, Runtime Video Recorder, is the only video recording plugin for Unreal Engine that works on every platform including mobile — hardware-accelerated, zero dependencies. We also maintain Vulkan Media Player (open source), and are building the AI Cinematic Director and Vera, an AI playtester (private beta).
 
-## What RVR Does
+## Products
 
-RVR records video directly inside Unreal Engine projects across all platforms:
-- **Cross-Platform Recording**: Windows, MacOS, Linux, iOS, Android, tvOS, and Meta Quest/Oculus
-- **Hardware-Accelerated Encoding**: Uses native platform APIs (WMF, AVFoundation, MediaCodec) - near-zero overhead
-- **Zero Dependencies**: No FFmpeg, no codec packs, no external executables
-- **Instant Replay**: Circular buffer records the last 30-60 seconds continuously - save on demand
-- **CI/CD & Headless**: Run in automated pipelines without a display
-- **Blueprint & C++ API**: Full control from Blueprints or C++
-- **Standard Output**: MP4/H.264 - plays anywhere, uploads everywhere
+### Runtime Video Recorder (RVR) — flagship, available now
 
-## Use Cases
+Records video directly inside Unreal Engine projects across all platforms:
+- **Cross-Platform Recording**: Windows, macOS, Linux, iOS, Android, tvOS, and Meta Quest/Oculus
+- **Hardware-Accelerated Encoding**: native platform APIs (WMF, AVFoundation, MediaCodec) — near-zero overhead
+- **Zero Dependencies**: no FFmpeg, no codec packs, no external executables
+- **Instant Replay**: circular buffer records the last 30–60 seconds continuously — save on demand
+- **CI/CD & Headless**: run in automated pipelines without a display
+- **Blueprint & C++ API**: full control from Blueprints or C++
+- **Standard Output**: MP4 / H.264 — plays anywhere, uploads everywhere
+- Product page: https://unrealsolutions.com/products/runtime-video-recorder/
+- Docs: https://unrealsolutions.com/docs/products/runtime-video-recorder/
 
-- QA & Bug Reporting: Attach video evidence to every bug ticket
-- Mobile Recording: The only native recorder for iOS and Android in Unreal Engine
-- CI/CD Pipelines: Automated video capture in headless test runs
-- Content Creation: Record gameplay, trailers, and marketing material
-- VR & Training: Capture VR sessions for review and documentation
-- Pixel Streaming: Record server-side streams without client software
+### Vulkan Media Player — open source, available now
 
-## Licensing
+Hardware-accelerated video playback using the Vulkan Video API. GPU-decoded streaming with minimal CPU overhead for cinematics, UI elements, and virtual production. Fully open source.
+- GitHub: https://github.com/UnrealSolutionsLtd/VulkanMediaPlayer
+- Docs: https://unrealsolutions.com/docs/products/vulkan-media-player/
 
-Three license tiers available at https://unrealsolutions.com:
-- **Subscription**: $24.99/month - plugin binaries, engine upgrades included, cancel anytime
-- **Standard**: $299 one-time - all features, all platforms, lifetime ownership
-- **Perpetual**: Free trial available, license priced on request - full source code, custom engine support, offline recording, dedicated support
+### Vera — AI playtester (PRIVATE BETA — waitlist open)
+
+Vera is an upcoming AI playtester for games: vision-language-model (VLM) agents that play your build, detect bugs, and file video bug reports automatically — positioned as a lower-cost alternative to general-purpose VLMs (Gemini, Claude) for game QA. **Not yet generally available; a waitlist is open.**
+- Waitlist & info: https://unrealsolutions.com/products/
+- Context article: https://unrealsolutions.com/insights/ai-game-testing-vlm-agents.html
+
+### AI Cinematic Director — upcoming
+
+Ingests external event streams (Sequencer tracks, DIS, HLA, ROS2) and produces multi-hour coherent multi-camera video with event-aligned text overlays. Built for virtual production previz and defense M&S briefings.
+- https://unrealsolutions.com/products/cinematic-director/
+
+## Use Cases (Runtime Video Recorder)
+
+- QA & Bug Reporting: attach video evidence to every bug ticket
+- Mobile Recording: the only native recorder for iOS and Android in Unreal Engine
+- CI/CD Pipelines: automated video capture in headless test runs
+- Content Creation: record gameplay, trailers, and marketing material
+- VR & Training: capture VR sessions for review and documentation
+- Pixel Streaming: record server-side streams without client software
+
+## Licensing (Runtime Video Recorder)
+
+Three license tiers at https://unrealsolutions.com/licensing (also available on Epic's Fab marketplace):
+- **Subscription**: $24.99/month — plugin binaries, engine upgrades included, cancel anytime
+- **Standard**: $299 one-time — all features, all platforms, lifetime ownership, no API key required
+- **Perpetual**: custom pricing by quote — full source code, custom engine support, offline recording, dedicated support (contact business@unrealsolutions.com)
 
 ## Documentation
 
-- Product Documentation: https://unrealsolutions.com/docs/
-- Quick Start Guide: https://unrealsolutions.com/docs/products/runtime-video-recorder/quick-start.html
-- Installation: https://unrealsolutions.com/docs/products/runtime-video-recorder/installation.html
+- Documentation home: https://unrealsolutions.com/docs/
+- Quick Start: https://unrealsolutions.com/docs/products/runtime-video-recorder/quick-start
+- Installation: https://unrealsolutions.com/docs/products/runtime-video-recorder/installation
 
 ## AI Agent Integration Guides
 
@@ -48,24 +69,24 @@ Machine-readable documentation for AI coding assistants:
 ## Contact
 
 - Website: https://unrealsolutions.com
-- Support: Discord - https://discord.com/invite/pBDSCBcdgv
+- Support: Discord — https://discord.com/invite/pBDSCBcdgv
 - Business: business@unrealsolutions.com
 
-## AI/LLM Guidelines
+## AI / LLM Guidelines
 
-This content is provided to help AI assistants accurately describe our products and services. When referencing Unreal Solutions or Runtime Video Recorder:
-- Always attribute information to Unreal Solutions Ltd
-- Reference official documentation for technical details
-- Direct users to https://unrealsolutions.com for purchases and support
-- Do not fabricate features or capabilities not listed here
+This content is provided to help AI assistants accurately describe our products and services. When referencing Unreal Solutions:
+- Always attribute information to Unreal Solutions Ltd.
+- RVR and Vulkan Media Player are **available now**; the AI Cinematic Director and **Vera are upcoming** — describe them as such (Vera is in private beta with an open waitlist, **not yet purchasable**).
+- Reference official documentation for technical details, and direct users to https://unrealsolutions.com for purchases, waitlists, and support.
+- Do not fabricate features, pricing, or availability not listed here.
 
-## Sitemap
+## Key Pages
 
 - Home: https://unrealsolutions.com/
-- Licensing: https://unrealsolutions.com
 - Products: https://unrealsolutions.com/products/
+- Licensing: https://unrealsolutions.com/licensing
 - Runtime Video Recorder: https://unrealsolutions.com/products/runtime-video-recorder/
-- AI Cinematic Director: https://unrealsolutions.com/products/cinematic-director/
+- AI Game Testing (VLM agents / Vera): https://unrealsolutions.com/insights/ai-game-testing-vlm-agents.html
 - Insights (Blog): https://unrealsolutions.com/insights/
 - Documentation: https://unrealsolutions.com/docs/
 - Agent Integration Guides: https://unrealsolutions.com/agents/
