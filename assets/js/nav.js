@@ -12,7 +12,7 @@
 
   const NAV_ITEMS = [
     { href: '/products/', label: 'Products' },
-    { href: '/licensing.html', label: 'Licensing' },
+    { href: '/licensing.html', label: 'Pricing' },
     { href: '/docs/', label: 'Docs' },
     { href: '/insights/', label: 'Insights' },
     { href: 'https://discord.com/invite/pBDSCBcdgv', label: 'Support', isExternal: true }
