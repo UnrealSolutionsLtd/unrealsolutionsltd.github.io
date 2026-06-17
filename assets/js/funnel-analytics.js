@@ -25,8 +25,7 @@
     { match: '28E00keo69T54zHe7xdIA0d', item_id: 'rvr_standard',     item_name: 'RVR Standard License', price: 299,   plan: 'one_time' },
     { match: '9B6fZibbU3uHeah3sTdIA0g', item_id: 'rvr_subscription', item_name: 'RVR Subscription',     price: 24.99, plan: 'subscription' }
   ];
-  var LEAD_TALLY  = 'tally.so/r/mZDq7v';                 // Perpetual "Contact Us"
-  var LEAD_MAILTO = 'mailto:business@unrealsolutions.com'; // sales/quote email
+  var LEAD_MAILTO = 'mailto:business@unrealsolutions.com'; // sales/quote email (incl. Perpetual)
   var CURRENCY = 'USD';
   // -------------------------------------------------------------------------
 
@@ -94,7 +93,6 @@
     for (var i = 0; i < CHECKOUTS.length; i++) {
       if (href.indexOf(CHECKOUTS[i].match) > -1) { fireBeginCheckout(CHECKOUTS[i], a); return; }
     }
-    if (href.indexOf(LEAD_TALLY) > -1) { fireLead('perpetual_quote', a); return; }
     if (href.toLowerCase().indexOf(LEAD_MAILTO) === 0) { fireLead('sales_email', a); return; }
     if (href.indexOf('youtu.be') > -1 || href.indexOf('youtube.com/watch') > -1) {
       ga('event', 'select_content', merge({ content_type: 'video', item_id: 'demo_video' }, attribution()));
