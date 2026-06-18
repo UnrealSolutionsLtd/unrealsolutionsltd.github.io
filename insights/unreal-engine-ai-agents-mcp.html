@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agents Are Coming to Unreal Engine: What MCP Means for Game Studios | Insights</title>
+    <meta name="description" content="Epic is exposing Unreal Engine to AI agents through an MCP server. Here is what that changes for how games get built and tested, plus how studios should prepare.">
+    <meta name="keywords" content="unreal engine mcp, unreal engine ai agents, mcp server unreal engine, claude code unreal engine, ai game development unreal, ue6 ai agents, llm unreal engine, ai agent game testing">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://unrealsolutions.com/insights/unreal-engine-ai-agents-mcp.html">
+    <meta property="og:title" content="AI Agents Are Coming to Unreal Engine: What MCP Means for Game Studios">
+    <meta property="og:description" content="Epic is exposing Unreal Engine to AI agents via an MCP server. What it changes for building and testing games, and how to prepare.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://unrealsolutions.com/insights/unreal-engine-ai-agents-mcp.html">
+    <meta name="twitter:title" content="AI Agents Are Coming to Unreal Engine: What MCP Means for Studios">
+    <meta name="twitter:description" content="Epic is exposing Unreal Engine to AI agents via an MCP server. What it changes for building and testing games.">
+    <meta name="twitter:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
+
+    <!-- Additional SEO -->
+    <meta name="author" content="Unreal Solutions Ltd">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unrealsolutions.com/insights/unreal-engine-ai-agents-mcp.html">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+
+    <style>
+      body {
+        font-family: 'Outfit', system-ui, sans-serif;
+        background: linear-gradient(to bottom, #0f0f0f 0%, #0a0a0a 100%);
+      }
+      .font-mono { font-family: 'JetBrains Mono', monospace; }
+      .stat-card {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.8) 100%);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        text-align: center;
+      }
+      .highlight-box {
+        background: rgba(99, 102, 241, 0.10);
+        border: 1px solid rgba(99, 102, 241, 0.30);
+        border-radius: 0.75rem;
+        padding: 1.5rem 1.75rem;
+      }
+      .article-content h2 {
+        color: white; font-size: 1.75rem; font-weight: 700;
+        margin-top: 3rem; margin-bottom: 1rem; padding-top: 1rem;
+        border-top: 1px solid rgba(75, 85, 99, 0.3);
+      }
+      .article-content h3 { color: #e2e8f0; font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; }
+      .article-content p { color: #cbd5e1; line-height: 1.8; margin-bottom: 1.25rem; }
+      .article-content ul, .article-content ol { color: #cbd5e1; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+      .article-content li { margin-bottom: 0.5rem; line-height: 1.7; }
+      .article-content strong { color: #fff; }
+    </style>
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "AI Agents Are Coming to Unreal Engine: What MCP Means for Game Studios",
+      "description": "Epic is exposing Unreal Engine to AI agents through an MCP server. What it changes for building and testing games, and how studios should prepare.",
+      "author": { "@type": "Organization", "name": "Unreal Solutions Ltd", "url": "https://unrealsolutions.com" },
+      "publisher": { "@type": "Organization", "name": "Unreal Solutions Ltd", "url": "https://unrealsolutions.com" },
+      "datePublished": "2026-06-08",
+      "dateModified": "2026-06-08",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://unrealsolutions.com/insights/unreal-engine-ai-agents-mcp.html" }
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is an MCP server in Unreal Engine?",
+        "acceptedAnswer": { "@type": "Answer", "text": "An MCP (Model Context Protocol) server is a layer that exposes Unreal Engine systems as tools an AI model can call. Instead of clicking through the editor, a model like Claude Code sends structured requests through the MCP server to work with Blueprints, UI, materials, PCG, VFX, and more. Studios can extend it with their own tools and skills." }
+      }, {
+        "@type": "Question",
+        "name": "Will AI agents replace Unreal Engine developers?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Agents are good at the buildable, repetitive parts: scaffolding Blueprints, wiring UI, setting up materials, and refactoring. Humans still own creative direction, judgment, game feel, and deciding whether the running result is actually correct. The realistic outcome is developers directing agents, not being replaced by them." }
+      }, {
+        "@type": "Question",
+        "name": "How do you verify what an AI agent built in Unreal Engine?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Text APIs tell you an agent changed something, but not whether the running game looks and plays right. The practical answer is to record the result on the real target platforms and review the footage, either by a human or by a vision based agent. Tools like Runtime Video Recorder capture gameplay during automated runs so every change has video proof." }
+      }, {
+        "@type": "Question",
+        "name": "What is a VLM testing agent?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A vision language model (VLM) testing agent watches the running game the way a player would, understands what is on screen, and interacts with the build to find bugs. Unlike scripted automation, it can spot visual glitches, stuck states, and broken flows, then file video evidence of what went wrong." }
+      }, {
+        "@type": "Question",
+        "name": "Do I need special tools to record AI driven test runs?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You need a recorder that runs inside the engine, works headless and in CI, and supports every platform you ship on, including mobile and VR. Runtime Video Recorder (RVR) captures hardware accelerated MP4 video during automated runs with no external dependencies, which makes it a natural verification layer for agent driven workflows." }
+      }]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://unrealsolutions.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://unrealsolutions.com/insights/" },
+        { "@type": "ListItem", "position": 3, "name": "AI Agents in Unreal Engine (MCP)", "item": "https://unrealsolutions.com/insights/unreal-engine-ai-agents-mcp.html" }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-black min-h-screen text-white">
+    <main class="container mx-auto px-4 sm:px-20">
+      <!-- Navigation -->
+      <div class="relative pt-4 sm:pt-0">
+        <div id="site-nav" data-logo-path="../assets/logo.png"></div>
+        <script src="/assets/js/nav.js"></script>
+
+        <!-- Hero -->
+        <div class="sm:pt-28 pb-8 sm:py-12">
+          <div class="mx-auto max-w-5xl">
+            <!-- Breadcrumb -->
+            <nav class="mb-6 text-sm">
+              <ol class="flex items-center gap-2 text-gray-400">
+                <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                <li>/</li>
+                <li><a href="/insights/" class="hover:text-white transition-colors">Insights</a></li>
+                <li>/</li>
+                <li class="text-violet-400">AI Agents in Unreal Engine</li>
+              </ol>
+            </nav>
+
+            <div class="text-center mb-12">
+              <div class="flex items-center justify-center gap-3 mb-4">
+                <span class="inline-block px-4 py-1 bg-violet-500/20 text-violet-400 rounded-full text-sm font-medium">Industry Shift</span>
+                <span class="text-gray-500 text-sm">June 2026</span>
+              </div>
+              <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6 leading-tight">
+                AI Agents Are Coming to Unreal Engine<br>
+                <span class="text-violet-400">What MCP Means for Game Studios</span>
+              </h1>
+              <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                Epic is exposing Unreal Engine to AI agents through an MCP server. Here is what that changes for how games get built and tested, and how studios should prepare.
+              </p>
+
+              <div class="flex items-center justify-center gap-6 text-sm text-gray-400">
+                <span class="flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  9 min read
+                </span>
+                <span class="flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                  For studio leads and technical directors
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key points -->
+      <div class="py-8">
+        <div class="mx-auto max-w-6xl">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="stat-card">
+              <div class="text-3xl font-bold text-violet-400 mb-1">MCP</div>
+              <div class="text-gray-400 text-sm">The new AI interface to Unreal</div>
+            </div>
+            <div class="stat-card">
+              <div class="text-3xl font-bold text-violet-400 mb-1">6+</div>
+              <div class="text-gray-400 text-sm">Engine systems agents can drive</div>
+            </div>
+            <div class="stat-card">
+              <div class="text-3xl font-bold text-violet-400 mb-1">Humans</div>
+              <div class="text-gray-400 text-sm">Still own direction and intent</div>
+            </div>
+            <div class="stat-card">
+              <div class="text-3xl font-bold text-violet-400 mb-1">Verify</div>
+              <div class="text-gray-400 text-sm">The gap agents leave behind</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="py-8">
+        <div class="mx-auto max-w-4xl">
+          <div class="bg-gray-800/50 rounded-xl p-6">
+            <h2 class="text-lg font-semibold text-white mb-4">In This Article</h2>
+            <div class="grid md:grid-cols-2 gap-2 text-sm">
+              <a href="#mcp-shift" class="toc-link text-gray-300 hover:text-violet-400">1. What Just Changed</a>
+              <a href="#how-it-works" class="toc-link text-gray-300 hover:text-violet-400">2. How It Works</a>
+              <a href="#what-agents-do" class="toc-link text-gray-300 hover:text-violet-400">3. What Agents Can Do</a>
+              <a href="#verification-gap" class="toc-link text-gray-300 hover:text-violet-400">4. The Verification Gap</a>
+              <a href="#qa-shift" class="toc-link text-gray-300 hover:text-violet-400">5. The QA Shift</a>
+              <a href="#prepare" class="toc-link text-gray-300 hover:text-violet-400">6. What Studios Should Do Now</a>
+              <a href="#faq" class="toc-link text-gray-300 hover:text-violet-400">7. FAQ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article -->
+      <article class="py-8 article-content">
+        <div class="mx-auto max-w-4xl prose prose-invert prose-lg">
+
+          <section class="mb-12">
+            <div class="highlight-box">
+              <h2 class="text-2xl font-bold text-white mb-4 mt-0" style="border: none; padding-top: 0;">The short version</h2>
+              <p class="text-gray-300 mb-4">
+                Epic has shown a direction where AI models such as Claude Code talk to Unreal Engine through an MCP server. That server exposes engine systems as tools the model can call, and studios can plug in their own tools, examples, and skills on top.
+              </p>
+              <p class="text-gray-300 mb-0">
+                <strong class="text-white">The key insight for studios:</strong> in this model a tool is only useful if an agent can call it, and if it does something the engine and the model cannot do on their own. Recording, verification, and real playtesting all sit squarely in that gap.
+              </p>
+            </div>
+          </section>
+
+          <section id="mcp-shift" class="mb-4">
+            <h2>What Just Changed</h2>
+            <p>
+              For most of Unreal Engine's history, the way you change a project has been a human clicking through the editor or writing C++ and Blueprints by hand. Epic is now putting a new door in front of the engine: an MCP server.
+            </p>
+            <p>
+              MCP, the Model Context Protocol, is a standard way for AI models to call external tools. By placing an MCP server in front of Unreal, Epic lets a model issue structured requests to the engine instead of a person operating the UI. The systems on the table are the ones studios use every day: Blueprints, UI, VFX, PCG, materials, and more.
+            </p>
+            <p>
+              The part worth circling is the extension point. The architecture is not a closed Epic feature. It explicitly lets a studio add its own primitives, examples, and skills, which an agent can then use. That turns the engine into a platform that third parties can teach.
+            </p>
+          </section>
+
+          <section id="how-it-works" class="mb-4">
+            <h2>How It Works</h2>
+            <p>The loop is simple to describe and powerful in practice:</p>
+            <ul>
+              <li><strong>Developer.</strong> Provides creative direction and intent. This is the part that stays human.</li>
+              <li><strong>Model.</strong> An agent such as Claude Code or Codex plans the work and decides which tools to call.</li>
+              <li><strong>MCP server.</strong> Exposes Unreal's systems as LLM friendly APIs and runs the requested actions.</li>
+              <li><strong>Engine systems.</strong> Blueprints, UI, VFX, PCG, materials, and your studio's own extensions carry out the work and report back.</li>
+            </ul>
+            <p>
+              The result is a feedback loop. The developer states what they want, the model breaks it into tool calls, the engine executes, and the output flows back so the model can adjust. Your studio's extensions sit right alongside Epic's, which means the agent can reach for your tooling as readily as it reaches for Blueprints.
+            </p>
+          </section>
+
+          <section id="what-agents-do" class="mb-4">
+            <h2>What Agents Can Do</h2>
+            <p>
+              The buildable surface of a project is where agents shine first. With the engine exposed as tools, an agent can scaffold Blueprints, wire up UI, configure materials, drive PCG, set up systems, and refactor existing graphs. Anything that is mechanical, well specified, and visible in the project structure is fair game.
+            </p>
+            <p>
+              This compresses the slow middle of a lot of tasks. Prototyping a mechanic, standing up a test level, or roughing in a UI flow can move from hours to minutes when an agent handles the wiring and a developer steers. For small teams in particular, that is a real shift in how much one person can ship.
+            </p>
+          </section>
+
+          <section id="verification-gap" class="mb-4">
+            <h2>The Verification Gap</h2>
+            <p>
+              Here is the catch that does not show up on the architecture diagram. An agent can change your project, but it cannot reliably tell whether the running game looks and behaves the way it should. A tool call can report that a Blueprint compiled. It cannot report that the character now clips through a wall, that a particle effect dropped your frame rate, or that the menu animates correctly on a phone but not on a headset.
+            </p>
+            <p>
+              In other words, agents are good at producing changes and poor at judging the running result. That judgment lives in pixels and motion, not in API responses. So every agent action needs a way for a human, or another agent, to review what actually happened on screen.
+            </p>
+            <blockquote class="border-l-4 border-violet-500 bg-violet-500/10 pl-4 pr-4 py-3 rounded-r-lg text-gray-200">
+              If an agent builds it, you still have to see it. The cheapest way to see it at scale is to record the running game on the real target platforms and review the footage.
+            </blockquote>
+            <p>
+              This is why recording stops being a nice to have in an agent driven pipeline and becomes infrastructure. When changes land faster than any team can manually click through, video of the before and after, captured automatically on every platform you ship on, is what keeps humans in control.
+            </p>
+          </section>
+
+          <section id="qa-shift" class="mb-4">
+            <h2>The QA Shift</h2>
+            <p>
+              Building is only half of it. The same agent paradigm is moving into testing. Instead of scripted checks, vision language agents watch the running game the way a player would, understand what is on screen, and interact with the build to surface bugs. They catch the things scripts miss: visual glitches, stuck states, broken progression, and flows that simply feel wrong.
+            </p>
+            <p>
+              This is the direction we are building toward with <strong>Vera</strong>, our AI playtester. Vera is a vision agent that plays your build, finds bugs, and files video evidence automatically, at a fraction of the cost of running a general purpose model on raw footage. It is in private beta with an open waitlist.
+            </p>
+            <p>
+              Recording is the common substrate underneath all of this. Whether a human reviews the build, an agent reviews it, or both, the artifact they reason over is video. A pipeline that records everything by default is one that can hand work to agents without losing the ability to check it.
+            </p>
+          </section>
+
+          <section id="prepare" class="mb-4">
+            <h2>What Studios Should Do Now</h2>
+            <p>This is still an emerging direction, not a finished product, so the right posture is to prepare cheaply rather than bet the studio on a roadmap. A few practical moves:</p>
+            <ul>
+              <li><strong>Make your codebase agent friendly.</strong> Clean, documented, predictable APIs are easier for a model to call correctly. The same hygiene that helps new hires helps agents.</li>
+              <li><strong>Write examples and skills.</strong> The extension point rewards teams that package their conventions as reusable primitives an agent can follow.</li>
+              <li><strong>Keep humans on intent and judgment.</strong> Let agents handle wiring and grunt work. Reserve direction, feel, and the final yes or no for people.</li>
+              <li><strong>Instrument verification.</strong> Record what agents touch, on every platform, so you can trust the output instead of hoping it is right. This is exactly where a runtime recorder earns its place.</li>
+              <li><strong>Pilot one workflow.</strong> Pick a single repetitive task, put an agent on it, measure the time saved and the errors caught, then expand.</li>
+            </ul>
+            <p>
+              The studios that win the next few years will not be the ones with the flashiest editor plugins. They will be the ones whose tools an agent can call, and whose pipeline can verify what those agents produce.
+            </p>
+          </section>
+
+          <!-- FAQ -->
+          <section id="faq" class="mb-4">
+            <h2>Frequently Asked Questions</h2>
+
+            <h3>What is an MCP server in Unreal Engine?</h3>
+            <p>An MCP server is a layer that exposes Unreal Engine systems as tools an AI model can call. Instead of clicking through the editor, a model like Claude Code sends structured requests through the MCP server to work with Blueprints, UI, materials, PCG, VFX, and more. Studios can extend it with their own tools and skills.</p>
+
+            <h3>Will AI agents replace Unreal Engine developers?</h3>
+            <p>No. Agents are good at the buildable, repetitive parts: scaffolding Blueprints, wiring UI, setting up materials, and refactoring. Humans still own creative direction, judgment, game feel, and deciding whether the running result is actually correct. The realistic outcome is developers directing agents, not being replaced by them.</p>
+
+            <h3>How do you verify what an AI agent built in Unreal Engine?</h3>
+            <p>Text APIs tell you an agent changed something, but not whether the running game looks and plays right. The practical answer is to record the result on the real target platforms and review the footage, either by a human or by a vision based agent. Tools like Runtime Video Recorder capture gameplay during automated runs so every change has video proof.</p>
+
+            <h3>What is a VLM testing agent?</h3>
+            <p>A vision language model (VLM) testing agent watches the running game the way a player would, understands what is on screen, and interacts with the build to find bugs. Unlike scripted automation, it can spot visual glitches, stuck states, and broken flows, then file video evidence of what went wrong.</p>
+
+            <h3>Do I need special tools to record AI driven test runs?</h3>
+            <p>You need a recorder that runs inside the engine, works headless and in CI, and supports every platform you ship on, including mobile and VR. Runtime Video Recorder captures hardware accelerated MP4 video during automated runs with no external dependencies, which makes it a natural verification layer for agent driven workflows.</p>
+          </section>
+
+        </div>
+      </article>
+
+      <!-- CTA -->
+      <div class="py-8 flex flex-wrap items-center justify-center gap-3 text-sm">
+        <a href="/recorders.html" class="px-5 py-2.5 font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-500 transition-colors">See Runtime Video Recorder</a>
+        <a href="mailto:business@unrealsolutions.com?subject=AI%20agents%20%2B%20Unreal%20Engine" class="px-5 py-2.5 font-medium text-white bg-emerald-600 rounded-lg hover:bg-emerald-500 transition-colors">Talk to us</a>
+        <a href="/docs/" class="text-gray-500 hover:text-gray-300">Docs &rarr;</a>
+      </div>
+
+      <!-- Related Articles -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="text-2xl font-bold text-white mb-6">Related Insights</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <a href="/insights/ai-game-testing-vlm-agents.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-800/70 transition-colors">
+              <span class="text-violet-400 text-sm font-medium">Predictions</span>
+              <h3 class="text-lg font-bold text-white mt-2 mb-2">The Future of Game Testing: AI Bots by 2027</h3>
+              <p class="text-gray-400 text-sm">How vision language agents will play games like humans and find bugs at scale.</p>
+            </a>
+            <a href="/insights/game-engine-trends-2026.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-800/70 transition-colors">
+              <span class="text-blue-400 text-sm font-medium">Industry Analysis</span>
+              <h3 class="text-lg font-bold text-white mt-2 mb-2">Why AAA Studios Are Moving to Unreal Engine</h3>
+              <p class="text-gray-400 text-sm">The industry shift reshaping game development and the tooling around it.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="py-8 border-t border-gray-800">
+        <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+          <a href="/docs/" class="text-indigo-400 hover:text-indigo-300 transition-colors">Documentation</a>
+          <a href="/insights/" class="text-indigo-400 hover:text-indigo-300 transition-colors">More Insights</a>
+          <a href="mailto:business@unrealsolutions.com" class="text-indigo-400 hover:text-indigo-300 transition-colors">Contact</a>
+          <a href="/privacy.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Privacy Policy</a>
+        </div>
+        <div class="text-center text-gray-500 text-sm">
+          &copy; Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2026
+        </div>
+      </div>
+    </main>
+</body>
+</html>

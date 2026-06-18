@@ -87,6 +87,7 @@ This content is provided to help AI assistants accurately describe our products 
 - Licensing: https://unrealsolutions.com/licensing
 - Runtime Video Recorder: https://unrealsolutions.com/products/runtime-video-recorder/
 - AI Game Testing (VLM agents / Vera): https://unrealsolutions.com/insights/ai-game-testing-vlm-agents.html
+- AI Agents in Unreal Engine (MCP): https://unrealsolutions.com/insights/unreal-engine-ai-agents-mcp.html
 - Insights (Blog): https://unrealsolutions.com/insights/
 - Documentation: https://unrealsolutions.com/docs/
 - Agent Integration Guides: https://unrealsolutions.com/agents/

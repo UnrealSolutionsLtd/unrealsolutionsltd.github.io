@@ -32,7 +32,8 @@
     'mobile-game-testing-video-evidence',
     'ios-gameplay-recording-qa',
     'automated-visual-proof-gauntlet-video-integration',
-    'ci-cd-video-capture-unreal-engine'
+    'ci-cd-video-capture-unreal-engine',
+    'unreal-engine-ai-agents-mcp'
   ];
 
   function ga() {

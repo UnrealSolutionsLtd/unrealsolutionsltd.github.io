@@ -27,7 +27,15 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
+  <!-- New insight: AI agents + MCP in Unreal Engine -->
+  <url>
+    <loc>https://unrealsolutions.com/insights/unreal-engine-ai-agents-mcp.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- SEO Landing Pages (Use Cases) -->
   <url>
     <loc>https://unrealsolutions.com/use-cases/game-testing-video-recording.html</loc>
