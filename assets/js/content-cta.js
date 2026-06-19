@@ -28,7 +28,6 @@
 
   // Pages where the VLM-agents waitlist is the relevant offer (topical match).
   var VLM_PAGES = [
-    'ai-game-testing-vlm-agents',
     'mobile-game-testing-video-evidence',
     'ios-gameplay-recording-qa',
     'automated-visual-proof-gauntlet-video-integration',

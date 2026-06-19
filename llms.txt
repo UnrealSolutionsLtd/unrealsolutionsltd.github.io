@@ -31,7 +31,7 @@ Hardware-accelerated video playback using the Vulkan Video API. GPU-decoded stre
 
 Vera is an upcoming AI playtester for games: vision-language-model (VLM) agents that play your build, detect bugs, and file video bug reports automatically — positioned as a lower-cost alternative to general-purpose VLMs (Gemini, Claude) for game QA. **Not yet generally available; a waitlist is open.**
 - Waitlist & info: https://unrealsolutions.com/products/
-- Context article: https://unrealsolutions.com/insights/ai-game-testing-vlm-agents.html
+- Context article: https://unrealsolutions.com/insights/unreal-engine-ai-agents-mcp.html
 
 ### AI Cinematic Director — upcoming
 
@@ -86,7 +86,6 @@ This content is provided to help AI assistants accurately describe our products 
 - Products: https://unrealsolutions.com/products/
 - Licensing: https://unrealsolutions.com/licensing
 - Runtime Video Recorder: https://unrealsolutions.com/products/runtime-video-recorder/
-- AI Game Testing (VLM agents / Vera): https://unrealsolutions.com/insights/ai-game-testing-vlm-agents.html
 - AI Agents in Unreal Engine (MCP): https://unrealsolutions.com/insights/unreal-engine-ai-agents-mcp.html
 - Insights (Blog): https://unrealsolutions.com/insights/
 - Documentation: https://unrealsolutions.com/docs/
