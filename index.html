@@ -525,36 +525,7 @@
             <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-3">Pricing</h2>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <!-- Subscription -->
-            <div class="rounded-2xl bg-gray-800/50 border border-gray-700/50 p-8 flex flex-col hover:border-indigo-500/30 transition-all duration-200">
-              <div class="mb-6">
-                <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">Subscription</span>
-                <h3 class="text-2xl font-bold text-white mb-2">Subscription</h3>
-                <p class="text-gray-400 text-sm">For indie devs. Cancel anytime.</p>
-              </div>
-              <div class="mb-2 flex-1">
-                <div class="text-4xl font-extrabold text-white">$24.99</div>
-                <div class="text-gray-400 text-sm mt-1">per month</div>
-              </div>
-              <ul class="space-y-2 text-sm text-gray-400 mb-6">
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  All platforms &amp; features
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  Engine upgrades included
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                  Requires API key &amp; internet
-                </li>
-              </ul>
-              <a href="https://buy.stripe.com/9B6fZibbU3uHeah3sTdIA0g" class="block w-full text-center px-6 py-3 font-semibold rounded-xl bg-gray-700 text-white hover:bg-gray-600 transition-all duration-200">
-                Subscribe Now
-              </a>
-            </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
 
             <!-- Standard (Featured) -->
             <div class="rounded-2xl border border-indigo-500/50 p-8 flex flex-col relative" style="background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(17,24,39,0.9) 100%);">
@@ -617,6 +588,39 @@
               <a href="mailto:business@unrealsolutions.com?subject=Perpetual%20License%20Quote" data-funnel-event="generate_lead" data-lead-type="perpetual_quote" data-cta-location="pricing_perpetual" class="block w-full text-center px-6 py-3 font-semibold rounded-xl text-indigo-400 border border-indigo-500/40 hover:bg-indigo-500/10 hover:border-indigo-500/70 transition-all duration-200">
                 Contact Us
               </a>
+            </div>
+          </div>
+
+          <!-- Two ways to get RVR (Fab vs direct) -->
+          <div class="max-w-3xl mx-auto mb-10">
+            <h3 class="text-2xl font-bold text-white text-center mb-2">FAB vs Direct</h3>
+            <div class="overflow-x-auto rounded-2xl border border-gray-700/50">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="bg-gray-800/60 text-gray-300">
+                    <th class="text-left font-semibold p-4"></th>
+                    <th class="font-semibold p-4">On Fab</th>
+                    <th class="font-semibold p-4 text-indigo-300">Direct (here)</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-300">
+                  <tr class="border-t border-gray-700/40">
+                    <td class="p-4 text-gray-400">Try before you buy</td>
+                    <td class="p-4 text-center">Demo<br><span class="text-gray-500 text-xs">Windows, viewport only</span></td>
+                    <td class="p-4 text-center text-green-400">Full free trial<br><span class="text-gray-500 text-xs">all platforms</span></td>
+                  </tr>
+                  <tr class="border-t border-gray-700/40">
+                    <td class="p-4 text-gray-400">Perpetual license (one-time)</td>
+                    <td class="p-4 text-center text-green-400">&#10003;</td>
+                    <td class="p-4 text-center text-green-400">&#10003;</td>
+                  </tr>
+                  <tr class="border-t border-gray-700/40">
+                    <td class="p-4 text-gray-400">Custom engine &amp; dedicated support</td>
+                    <td class="p-4 text-center text-gray-600">&mdash;</td>
+                    <td class="p-4 text-center text-green-400">&#10003;</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
 
