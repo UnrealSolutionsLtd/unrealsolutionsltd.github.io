@@ -49,9 +49,9 @@ Ingests external event streams (Sequencer tracks, DIS, HLA, ROS2) and produces m
 
 ## Licensing (Runtime Video Recorder)
 
-Three license tiers at https://unrealsolutions.com/licensing (also available on Epic's Fab marketplace):
-- **Subscription**: $24.99/month — plugin binaries, engine upgrades included, cancel anytime
-- **Standard**: $299 one-time — all features, all platforms, lifetime ownership, no API key required
+Three license tiers at https://unrealsolutions.com/licensing (also available on Epic's Fab marketplace), plus a free trial (100 recording credits, all platforms, no credit card):
+- **Subscription**: $24.99/month — plugin binaries, engine upgrades included, cancel anytime. Requires an API key and internet; does **not** include redistribution.
+- **Standard**: $299 one-time — all features, all platforms, lifetime ownership, no API key required, **includes redistribution** (ship RVR inside your commercial game).
 - **Perpetual**: custom pricing by quote — full source code, custom engine support, offline recording, dedicated support (contact business@unrealsolutions.com)
 
 ## Documentation
