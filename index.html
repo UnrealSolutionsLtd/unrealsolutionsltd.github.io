@@ -525,110 +525,139 @@
             <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-3">Pricing</h2>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <!-- Subscription -->
-            <div class="rounded-2xl bg-gray-800/50 border border-gray-700/50 p-8 flex flex-col hover:border-indigo-500/30 transition-all duration-200">
-              <div class="mb-6">
-                <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">Subscription</span>
-                <h3 class="text-2xl font-bold text-white mb-2">Subscription</h3>
-                <p class="text-gray-400 text-sm">For indie devs. Cancel anytime.</p>
+          <!-- Which license do I need? (decision guide) -->
+          <div class="max-w-5xl mx-auto mb-12">
+            <!-- start node -->
+            <div class="flex flex-col items-center">
+              <div class="px-5 py-2 rounded-full bg-indigo-500/15 border border-indigo-500/40 text-indigo-300 text-sm font-semibold">
+                What do you need?
               </div>
-              <div class="mb-2 flex-1">
-                <div class="text-4xl font-extrabold text-white">$24.99</div>
-                <div class="text-gray-400 text-sm mt-1">per month</div>
-              </div>
-              <ul class="space-y-2 text-sm text-gray-400 mb-6">
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  All platforms &amp; features
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  Engine upgrades included
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                  Requires API key &amp; internet
-                </li>
-              </ul>
-              <a href="https://buy.stripe.com/9B6fZibbU3uHeah3sTdIA0g" class="block w-full text-center px-6 py-3 font-semibold rounded-xl bg-gray-700 text-white hover:bg-gray-600 transition-all duration-200">
-                Subscribe Now
-              </a>
+              <div class="w-px h-5 bg-gray-700"></div>
             </div>
+            <div class="hidden md:block h-px bg-gray-700 w-2/3 mx-auto"></div>
 
-            <!-- Standard (Featured) -->
-            <div class="rounded-2xl border border-indigo-500/50 p-8 flex flex-col relative" style="background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(17,24,39,0.9) 100%);">
-              <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span class="px-4 py-1 bg-indigo-500 text-white text-sm font-medium rounded-full">Best Value</span>
+            <div class="grid md:grid-cols-3 gap-6">
+              <!-- Lane 1: Standard -->
+              <div class="flex flex-col">
+                <div class="hidden md:block w-px h-5 bg-gray-700 mx-auto"></div>
+                <div class="rounded-2xl border border-indigo-500/50 bg-indigo-500/5 p-6 flex flex-col h-full">
+                  <p class="text-gray-300 text-sm italic mb-2">&ldquo;I want to use RVR in my project, and ship it inside my game.&rdquo;</p>
+                  
+                  <div class="rounded-2xl border border-indigo-500/50 p-8 flex flex-col relative" style="background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(17,24,39,0.9) 100%);">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <span class="px-4 py-1 bg-indigo-500 text-white text-sm font-medium rounded-full">Best Value</span>
+                    </div>
+                    <div class="mb-6">
+                      <h3 class="text-2xl font-bold text-white mb-2">Standard</h3>
+                      <p class="text-gray-400 text-sm">For studios and solo devs shipping commercial games.</p>
+                    </div>
+                    <div class="mb-2 flex-1">
+                      <div class="text-4xl font-extrabold text-white">$299</div>
+                      <div class="text-gray-400 text-sm mt-1">one-time purchase</div>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                      <li class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span><strong class="text-gray-200">Ship RVR inside your game</strong></span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span><strong class="text-gray-200">Unlimited developers</strong></span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Never expires, engine upgrades included
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        All platforms &amp; features
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        No API key required
+                      </li>
+                    </ul>
+                    <a href="https://buy.stripe.com/28E00keo69T54zHe7xdIA0d" data-cta-position="pricing" class="cta-download block w-full text-center px-6 py-3 font-semibold rounded-xl text-white transition-all duration-200 shadow-lg hover:shadow-xl" style="background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);">
+                      Buy License
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div class="mb-6">
-                <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">One-Time</span>
-                <h3 class="text-2xl font-bold text-white mb-2">Standard</h3>
-                <p class="text-gray-400 text-sm">For studios and solo devs shipping commercial games.</p>
-              </div>
-              <div class="mb-2 flex-1">
-                <div class="text-4xl font-extrabold text-white">$299</div>
-                <div class="text-gray-400 text-sm mt-1">one-time purchase</div>
-              </div>
-              <ul class="space-y-2 text-sm text-gray-400 mb-6">
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  <span><strong class="text-gray-200">Ship RVR inside your game</strong></span>
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  <span><strong class="text-gray-200">Unlimited developers</strong></span>
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  Never expires, engine upgrades included
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  All platforms &amp; features
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  No API key required
-                </li>
-              </ul>
-              <a href="https://buy.stripe.com/28E00keo69T54zHe7xdIA0d" data-cta-position="pricing" class="cta-download block w-full text-center px-6 py-3 font-semibold rounded-xl text-white transition-all duration-200 shadow-lg hover:shadow-xl" style="background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);">
-                Buy License
-              </a>
-            </div>
 
-            <!-- Perpetual -->
-            <div class="rounded-2xl bg-gray-800/50 border border-gray-700/50 p-8 flex flex-col hover:border-indigo-500/30 transition-all duration-200">
-              <div class="mb-6">
-                <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">Custom</span>
-                <h3 class="text-2xl font-bold text-white mb-2">Perpetual</h3>
-                <p class="text-gray-400 text-sm">Adds full source code and custom engine builds. For enterprises.</p>
+              <!-- Lane 2: Subscription -->
+              <div class="flex flex-col">
+                <div class="hidden md:block w-px h-5 bg-gray-700 mx-auto"></div>
+                <div class="rounded-2xl border border-gray-700/50 bg-gray-800/40 p-6 flex flex-col h-full">
+                  <p class="text-gray-300 text-sm italic mb-2">&ldquo;I&rsquo;d rather pay monthly than $299 up front.&rdquo;</p>
+                  <div class="rounded-2xl bg-gray-800/50 border border-gray-700/50 p-8 flex flex-col hover:border-indigo-500/30 transition-all duration-200">
+                  <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-white mb-2">Subscription</h3>
+                    <p class="text-gray-400 text-sm">For indie devs. Cancel anytime.</p>
+                  </div>
+                  <div class="mb-2 flex-1">
+                    <div class="text-4xl font-extrabold text-white">$24.99</div>
+                    <div class="text-gray-400 text-sm mt-1">per month</div>
+                  </div>
+                  <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                    <li class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      All platforms &amp; features
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      Engine upgrades included
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                      Requires API key &amp; internet
+                    </li>
+                  </ul>
+                  <a href="https://buy.stripe.com/9B6fZibbU3uHeah3sTdIA0g" class="block w-full text-center px-6 py-3 font-semibold rounded-xl bg-gray-700 text-white hover:bg-gray-600 transition-all duration-200">
+                    Subscribe Now
+                  </a>
+                </div>
               </div>
-              <div class="mb-2 flex-1">
-                <div class="text-4xl font-extrabold text-white">Custom</div>
-                <div class="text-gray-400 text-sm mt-1">tailored to your needs</div>
               </div>
-              <ul class="space-y-2 text-sm text-gray-400 mb-6">
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  Everything in the Standard license
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  <span><strong class="text-gray-200">Full C++ source code</strong></span>
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  Custom engine &amp; platform support
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  Dedicated support &amp; custom terms
-                </li>
-              </ul>
-              <a href="mailto:business@unrealsolutions.com?subject=Perpetual%20License%20Quote" data-funnel-event="generate_lead" data-lead-type="perpetual_quote" data-cta-location="pricing_perpetual" class="block w-full text-center px-6 py-3 font-semibold rounded-xl text-indigo-400 border border-indigo-500/40 hover:bg-indigo-500/10 hover:border-indigo-500/70 transition-all duration-200">
-                Contact Us
-              </a>
+
+              <!-- Lane 3: Perpetual -->
+              <div class="flex flex-col">
+                <div class="hidden md:block w-px h-5 bg-gray-700 mx-auto"></div>
+                <div class="rounded-2xl border border-gray-700/50 bg-gray-800/40 p-6 flex flex-col h-full">
+                  <p class="text-gray-300 text-sm italic mb-2">&ldquo;I need the C++ source code or a custom engine build.&rdquo;</p>
+                  <div class="rounded-2xl bg-gray-800/50 border border-gray-700/50 p-8 flex flex-col hover:border-indigo-500/30 transition-all duration-200">
+                    <div class="mb-6">
+                      <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">Custom</span>
+                      <h3 class="text-2xl font-bold text-white mb-2">Perpetual</h3>
+                      <p class="text-gray-400 text-sm">Adds full source code and custom engine builds. For enterprises.</p>
+                    </div>
+                    <div class="mb-2 flex-1">
+                      <div class="text-4xl font-extrabold text-white">Custom</div>
+                      <div class="text-gray-400 text-sm mt-1">tailored to your needs</div>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                      <li class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Everything in the Standard license
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span><strong class="text-gray-200">Full C++ source code</strong></span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Custom engine &amp; platform support
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Dedicated support &amp; custom terms
+                      </li>
+                    </ul>
+                    <a href="mailto:business@unrealsolutions.com?subject=Perpetual%20License%20Quote" data-funnel-event="generate_lead" data-lead-type="perpetual_quote" data-cta-location="pricing_perpetual" class="block w-full text-center px-6 py-3 font-semibold rounded-xl text-indigo-400 border border-indigo-500/40 hover:bg-indigo-500/10 hover:border-indigo-500/70 transition-all duration-200">
+                      Contact Us
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
