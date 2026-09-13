@@ -130,14 +130,6 @@
     <priority>0.9</priority>
   </url>
   
-  <!-- AI Cinematic Director -->
-  <url>
-    <loc>https://unrealsolutions.com/products/cinematic-director/</loc>
-    <lastmod>2024-12-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
   <!-- Comparison & Info Pages -->
   <url>
     <loc>https://unrealsolutions.com/recorders</loc>
