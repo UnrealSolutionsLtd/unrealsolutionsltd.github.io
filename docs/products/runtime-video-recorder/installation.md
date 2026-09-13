@@ -12,7 +12,7 @@ See the [licensing page](https://unrealsolutions.com) for the full comparison.
 
 ## Supported Versions & Platforms
 
-- **Unreal Engine:** 5.3+
+- **Unreal Engine:** 5.4 - 5.8
 - **Platforms:** Windows, MacOS, iOS, tvOS, Linux, Android, Oculus / Meta Quest
 
 ## Step 1 - Install the Plugin
@@ -154,7 +154,7 @@ PublicDependencyModuleNames.AddRange(new string[] {
 | Plugin doesn't appear in Plugins list | Verify the folder is in the correct location and contains the `.uplugin` file. Regenerate project files. |
 | API KEY field is missing *(Subscription only)* | Delete `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. Custom Engines require Perpetual license! |
 | Recording fails on Subscription with auth error | Verify your API key is set (see above), the Subscription is active, and the machine has internet connectivity. |
-| Compilation errors | Ensure UE 5.3+. Delete `Intermediate` and `Binaries` folders, then regenerate project files. |
+| Compilation errors | Ensure UE 5.4-5.8. Delete `Intermediate` and `Binaries` folders, then regenerate project files. |
 | Module not found error | Add `"RuntimeVideoRecorder"` to your `.Build.cs` (see above). |
 | Android build fails | Verify Unreal Engine Android environment |
 

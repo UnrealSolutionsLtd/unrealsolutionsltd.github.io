@@ -16,10 +16,9 @@ A practical guide to verifying the events we wired up and reading the funnel.
 | Engage | `view_promotion` | A content-page CTA is shown | `promotion_name` |
 | Intent | `begin_checkout` | Any Stripe buy button clicked | `value`, `currency`, `items[]` |
 | Intent | `select_promotion` | "See Runtime Video Recorder" CTA clicked | `promotion_name: rvr_from_content` |
-| **Lead** | `generate_lead` | Perpetual/Tally, `business@` email, **or VLM waitlist** | `lead_type` (see below) |
+| **Lead** | `generate_lead` | Perpetual/Tally or `business@` email | `lead_type` (see below) |
 
 **`generate_lead` → `lead_type` tells you which lead it is:**
-- `vlm_waitlist` → the VLM agents fake-door (the demand test)
 - `perpetual_quote` → Perpetual "Contact Us"
 - `sales_email` → any `business@unrealsolutions.com` link
 
@@ -79,16 +78,6 @@ By default these events are **not** conversions, so they won't show in funnels/c
 
 ---
 
-## Step 4 — Read the VLM waitlist smoke test
-
-This is the demand test for the fake "VLM Testing Agents" product (live on the 5 AI insights pages + the `/products` page).
-
-1. GA4: **Explore → Free-form**.
-2. **Rows:** add dimension **Event name**, and the custom parameter **`lead_type`** *(see note below)*.
-3. **Values:** **Event count** and **Total users**.
-4. Filter: **Event name** `exactly matches` `generate_lead`.
-5. Read the row where `lead_type = vlm_waitlist` → that's your waitlist click-through. Compare against page views of the AI pages to get a signup-intent rate.
-
 > **Note — register `lead_type` once:** custom text params need a dimension before they show in reports.
 > **Admin → Custom definitions → Create custom dimension** → Dimension name `lead_type`, Scope `Event`, Event parameter `lead_type`. (Also worth adding: `promotion_name`, `plan_type`.) Data populates going forward.
 
@@ -111,4 +100,4 @@ The very old fragmented names (`buy_click`, `cta_download_click`, `get_quote_cli
 
 1. **Reports → Realtime** → scroll to "Event count by Event name" → confirm `view_item` / `begin_checkout` / `generate_lead` appear as people use the site.
 2. **Reports → Engagement → Events** → watch `begin_checkout` and `generate_lead` counts trend over time.
-3. Once a week: open the **Funnel exploration** (Step 3) and the **VLM smoke test** (Step 4).
+3. Once a week: open the **Funnel exploration** (Step 3).
