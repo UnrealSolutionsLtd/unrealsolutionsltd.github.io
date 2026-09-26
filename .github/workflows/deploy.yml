@@ -64,6 +64,7 @@ jobs:
           cp -r insights deploy/ || true
           cp -r use-cases deploy/ || true
           cp -r agents deploy/ || true
+          cp -r music-video deploy/ || true
           cp -r .well-known deploy/ || true
           cp favicon.ico deploy/ || true
           cp apple-app-site-association deploy/ || true

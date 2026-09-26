@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="referrer" content="origin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Museme — Professional music videos from one London session</title>
+  <meta name="description" content="Museme films you dancing across London with a RED cinema camera, then our AI edit turns that single session into a finished, colour-graded music video in minutes.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Museme — A pro music video from one session">
+  <meta property="og:description" content="One recording session in London. Shot on RED. Delivered as a finished, colour-graded music video.">
+  <meta property="og:image" content="./assets/social-card.png">
+  <meta property="og:url" content="https://unrealsolutions.com/music-video/">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Museme — A pro music video from one session">
+  <meta name="twitter:description" content="One recording session in London. Shot on RED. Delivered as a finished music video.">
+  <meta name="twitter:image" content="./assets/social-card.png">
+
+  <meta name="theme-color" content="#07070a">
+  <link rel="canonical" href="https://unrealsolutions.com/music-video/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,line-clamp"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#07070a',
+            coal: '#0d0d12',
+            ember: { DEFAULT: '#ff4d3d', 400: '#ff6b5c', 600: '#e63528' },
+            gold: '#f5c451'
+          },
+          fontFamily: {
+            display: ['"Bebas Neue"', 'Impact', 'sans-serif'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Museme",
+    "serviceType": "AI-assisted music video production",
+    "areaServed": "London, United Kingdom",
+    "description": "One RED-camera recording session in London, transformed by AI into a finished, colour-graded music video.",
+    "provider": { "@type": "Organization", "name": "Museme" }
+  }
+  </script>
+
+  <style>
+    ::selection { background: #ff4d3d; color: #07070a; }
+    body { background-color: #07070a; }
+    .grain::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      pointer-events: none;
+      opacity: .05;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .vignette { background: radial-gradient(120% 90% at 50% 0%, rgba(255,77,61,.16) 0%, rgba(7,7,10,0) 55%), radial-gradient(90% 70% at 80% 100%, rgba(245,196,81,.10) 0%, rgba(7,7,10,0) 60%); }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.is-in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+    .marquee { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .marquee { animation: none; } }
+    .nav-scrolled { background: rgba(7,7,10,.82); backdrop-filter: blur(14px); border-color: rgba(255,255,255,.08); }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform .25s ease; }
+    input, select, textarea { color-scheme: dark; }
+  </style>
+</head>
+
+<body class="grain bg-ink text-white/90 font-sans antialiased overflow-x-hidden">
+
+  <header id="nav" class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-colors duration-300">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <a href="#top" class="flex items-center gap-3">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-ember text-ink shadow-[0_0_24px_rgba(255,77,61,.55)]">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+        <span class="font-display text-3xl tracking-[0.18em] text-white">MUSEME</span>
+      </a>
+      <nav class="hidden items-center gap-8 text-sm font-medium text-white/60 md:flex">
+        <a href="#how" class="transition-colors hover:text-white">How it works</a>
+        <a href="#work" class="transition-colors hover:text-white">Work</a>
+        <a href="#pricing" class="transition-colors hover:text-white">Pricing</a>
+        <a href="#faq" class="transition-colors hover:text-white">FAQ</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="#book" class="hidden rounded-full bg-ember px-5 py-2.5 text-sm font-semibold text-ink transition hover:bg-ember-400 sm:inline-flex">Book a session</a>
+        <button id="menu-btn" class="md:hidden rounded-md p-2 text-white/70 hover:text-white" aria-label="Open menu" aria-expanded="false">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="menu" class="hidden border-t border-white/10 bg-ink/95 px-6 py-4 md:hidden">
+      <a href="#how" class="block py-2 text-sm text-white/70 hover:text-white">How it works</a>
+      <a href="#work" class="block py-2 text-sm text-white/70 hover:text-white">Work</a>
+      <a href="#pricing" class="block py-2 text-sm text-white/70 hover:text-white">Pricing</a>
+      <a href="#faq" class="block py-2 text-sm text-white/70 hover:text-white">FAQ</a>
+      <a href="#book" class="mt-2 block rounded-full bg-ember px-5 py-2.5 text-center text-sm font-semibold text-ink">Book a session</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="relative flex min-h-screen items-center overflow-hidden">
+      <div class="absolute inset-0 vignette"></div>
+      <div id="hero-media" class="absolute inset-0 -z-10 bg-cover bg-center opacity-30" style="background-image:radial-gradient(60% 60% at 30% 30%, #2a1512 0%, transparent 60%), radial-gradient(50% 50% at 75% 65%, #1a1a22 0%, transparent 60%), linear-gradient(180deg,#07070a 0%,#0b0b12 100%);"></div>
+      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent"></div>
+
+      <div class="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-6 pt-32 pb-24 lg:grid-cols-[1.15fr_.85fr] lg:px-8">
+        <div>
+          <p class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-white/70">
+            <span class="h-1.5 w-1.5 rounded-full bg-ember"></span> London · Shot on RED · AI-edited
+          </p>
+          <h1 class="font-display text-6xl leading-[0.9] tracking-wide text-white sm:text-7xl lg:text-8xl">
+            A pro music video.<br><span class="text-ember">One session.</span>
+          </h1>
+          <p class="mt-7 max-w-xl text-lg leading-relaxed text-white/65">
+            We film you dancing across London with a RED cinema camera. Our AI edit turns that single session into a finished, beat-synced, colour-graded music video — ready to drop in minutes, not months.
+          </p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href="#book" class="inline-flex items-center justify-center gap-2 rounded-full bg-ember px-7 py-4 text-base font-semibold text-ink shadow-[0_12px_40px_rgba(255,77,61,.35)] transition hover:-translate-y-0.5 hover:bg-ember-400">
+              Book a session
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="#work" class="inline-flex items-center justify-center gap-3 rounded-full border border-white/20 px-7 py-4 text-base font-medium text-white/85 transition hover:border-white/50 hover:bg-white/5">
+              <svg class="h-4 w-4 text-ember" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              Watch a film
+            </a>
+          </div>
+          <p class="mt-5 text-sm text-white/40">No crew of twenty. No six-week edit. Just press play.</p>
+        </div>
+
+        <div class="relative">
+          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-coal shadow-2xl">
+            <div class="aspect-[4/5] bg-cover bg-center" style="background-image:linear-gradient(160deg,#ff4d3d 0%,#7a1f18 45%,#120a0a 100%);"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <span class="flex h-20 w-20 items-center justify-center rounded-full border border-white/40 bg-black/30 backdrop-blur-sm">
+                <svg class="ml-1 h-8 w-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </div>
+            <div class="absolute inset-x-0 bottom-0 p-6">
+              <p class="font-display text-3xl tracking-wide text-white">Neon Soho</p>
+              <p class="text-xs uppercase tracking-[0.2em] text-white/60">Artist — Drill · 2026</p>
+            </div>
+          </div>
+          <div class="absolute -top-5 -left-5 hidden rounded-2xl border border-white/10 bg-ink/90 px-5 py-4 backdrop-blur sm:block">
+            <p class="font-display text-3xl text-gold">4K</p>
+            <p class="text-xs uppercase tracking-widest text-white/50">RED capture</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strip -->
+    <section class="border-y border-white/10 bg-coal/60 py-5">
+      <div class="overflow-hidden">
+        <div class="marquee gap-12 pr-12 text-sm uppercase tracking-[0.28em] text-white/45">
+          <span>Shot on RED</span><span class="text-ember">✳</span>
+          <span>One recording session</span><span class="text-ember">✳</span>
+          <span>Beat-synced AI edit</span><span class="text-ember">✳</span>
+          <span>Cinematic colour grade</span><span class="text-ember">✳</span>
+          <span>London locations</span><span class="text-ember">✳</span>
+          <span>Shot on RED</span><span class="text-ember">✳</span>
+          <span>One recording session</span><span class="text-ember">✳</span>
+          <span>Beat-synced AI edit</span><span class="text-ember">✳</span>
+          <span>Cinematic colour grade</span><span class="text-ember">✳</span>
+          <span>London locations</span><span class="text-ember">✳</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="scroll-mt-24 py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="reveal max-w-2xl">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-ember">How it works</p>
+          <h2 class="font-display text-5xl tracking-wide text-white sm:text-6xl">From dancing to dropping in three steps</h2>
+          <p class="mt-5 text-lg text-white/60">One session on camera. One AI-assisted pipeline. A finished video you can release the same week.</p>
+        </div>
+
+        <div class="mt-16 grid gap-6 md:grid-cols-3">
+          <div class="reveal group rounded-3xl border border-white/10 bg-coal p-8 transition hover:border-ember/50">
+            <span class="font-display text-6xl text-white/15 transition group-hover:text-ember/40">01</span>
+            <h3 class="mt-4 text-xl font-semibold text-white">Book your session</h3>
+            <p class="mt-3 text-white/60">Pick a package and a date. Tell us the track. We scout a London location that fits the mood — rooftops, neon streets, tunnels, studios.</p>
+          </div>
+          <div class="reveal group rounded-3xl border border-white/10 bg-coal p-8 transition hover:border-ember/50">
+            <span class="font-display text-6xl text-white/15 transition group-hover:text-ember/40">02</span>
+            <h3 class="mt-4 text-xl font-semibold text-white">Dance. We shoot on RED.</h3>
+            <p class="mt-3 text-white/60">One session, cinema-grade footage. Bring your track and a couple of looks; a director handles framing, movement and coverage.</p>
+          </div>
+          <div class="reveal group rounded-3xl border border-white/10 bg-coal p-8 transition hover:border-ember/50">
+            <span class="font-display text-6xl text-white/15 transition group-hover:text-ember/40">03</span>
+            <h3 class="mt-4 text-xl font-semibold text-white">AI edits. You release.</h3>
+            <p class="mt-3 text-white/60">Our AI cuts to the beat, builds the narrative, applies a film look and delivers a colour-graded 4K master plus vertical cutdowns.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why -->
+    <section class="border-y border-white/10 bg-coal/40 py-24">
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2 lg:px-8">
+        <div class="reveal">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-ember">Why it looks premium</p>
+          <h2 class="font-display text-5xl tracking-wide text-white sm:text-6xl">RED footage, AI speed, human taste</h2>
+          <p class="mt-5 text-lg text-white/60">Most AI video tools start from a text prompt. We start from real cinema footage — then let the AI do the heavy lifting of the edit.</p>
+          <ul class="mt-10 space-y-5">
+            <li class="flex gap-4">
+              <span class="mt-1 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-ember/15 text-ember">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div><p class="font-semibold text-white">Shot on a RED cinema camera</p><p class="text-white/55">Genuine depth, dynamic range and texture — the look money usually buys.</p></div>
+            </li>
+            <li class="flex gap-4">
+              <span class="mt-1 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-ember/15 text-ember">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div><p class="font-semibold text-white">Beat-synced AI editing</p><p class="text-white/55">Every cut lands on the track. Multiple edit directions from the same footage.</p></div>
+            </li>
+            <li class="flex gap-4">
+              <span class="mt-1 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-ember/15 text-ember">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div><p class="font-semibold text-white">4K master + social cutdowns</p><p class="text-white/55">Delivered ready for YouTube, TikTok, Reels and Shorts.</p></div>
+            </li>
+            <li class="flex gap-4">
+              <span class="mt-1 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-ember/15 text-ember">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div><p class="font-semibold text-white">You own the footage</p><p class="text-white/55">Full rights to your master and raw footage. Release it anywhere.</p></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reveal grid grid-cols-2 gap-4">
+          <div class="col-span-2 overflow-hidden rounded-3xl border border-white/10">
+            <div class="aspect-video bg-cover bg-center" style="background-image:linear-gradient(120deg,#ff4d3d 0%,#4b120d 55%,#0b0b12 100%);"></div>
+          </div>
+          <div class="overflow-hidden rounded-3xl border border-white/10">
+            <div class="aspect-square bg-cover bg-center" style="background-image:linear-gradient(150deg,#f5c451 0%,#5a3d12 60%,#0b0b12 100%);"></div>
+          </div>
+          <div class="overflow-hidden rounded-3xl border border-white/10">
+            <div class="aspect-square bg-cover bg-center" style="background-image:linear-gradient(150deg,#2a2a3a 0%,#12121a 60%,#07070a 100%);"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="scroll-mt-24 py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="reveal flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-ember">The work</p>
+            <h2 class="font-display text-5xl tracking-wide text-white sm:text-6xl">Films made from one session</h2>
+          </div>
+          <a href="#book" class="text-sm font-medium text-white/70 underline-offset-4 hover:text-white hover:underline">Make yours →</a>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <a href="#book" class="reveal group relative col-span-1 overflow-hidden rounded-3xl border border-white/10 md:col-span-2 lg:col-span-2">
+            <div class="aspect-[16/9] bg-cover bg-center transition duration-500 group-hover:scale-[1.03]" style="background-image:linear-gradient(130deg,#ff4d3d 0%,#6d1a14 45%,#0b0b12 100%);"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="flex h-16 w-16 items-center justify-center rounded-full border border-white/40 bg-black/30 backdrop-blur-sm transition group-hover:scale-110">
+                <svg class="ml-1 h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </div>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-6">
+              <p class="font-display text-3xl tracking-wide text-white">Southbank Nights</p>
+              <p class="text-xs uppercase tracking-[0.2em] text-white/60">Featured film · 2 min</p>
+            </div>
+          </a>
+          <a href="#book" class="reveal group relative overflow-hidden rounded-3xl border border-white/10">
+            <div class="aspect-[4/5] bg-cover bg-center transition duration-500 group-hover:scale-[1.03]" style="background-image:linear-gradient(150deg,#f5c451 0%,#5a3d12 60%,#0b0b12 100%);"></div>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-6">
+              <p class="font-display text-2xl tracking-wide text-white">Golden Hour</p>
+              <p class="text-xs uppercase tracking-[0.2em] text-white/60">R&B · 90 sec</p>
+            </div>
+          </a>
+          <a href="#book" class="reveal group relative overflow-hidden rounded-3xl border border-white/10">
+            <div class="aspect-[4/5] bg-cover bg-center transition duration-500 group-hover:scale-[1.03]" style="background-image:linear-gradient(150deg,#2a2a3a 0%,#12121a 60%,#07070a 100%);"></div>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-6">
+              <p class="font-display text-2xl tracking-wide text-white">Concrete</p>
+              <p class="text-xs uppercase tracking-[0.2em] text-white/60">UK Rap · 2 min</p>
+            </div>
+          </a>
+          <a href="#book" class="reveal group relative overflow-hidden rounded-3xl border border-white/10 md:col-span-2">
+            <div class="aspect-[16/9] bg-cover bg-center transition duration-500 group-hover:scale-[1.03]" style="background-image:linear-gradient(120deg,#7a1f18 0%,#ff4d3d 60%,#f5c451 100%);"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="flex h-16 w-16 items-center justify-center rounded-full border border-white/40 bg-black/30 backdrop-blur-sm transition group-hover:scale-110">
+                <svg class="ml-1 h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </div>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-6">
+              <p class="font-display text-3xl tracking-wide text-white">Midnight Tube</p>
+              <p class="text-xs uppercase tracking-[0.2em] text-white/60">Featured film · 3 min</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="scroll-mt-24 border-y border-white/10 bg-coal/40 py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-ember">Packages</p>
+          <h2 class="font-display text-5xl tracking-wide text-white sm:text-6xl">Simple, one-session pricing</h2>
+          <p class="mt-5 text-lg text-white/60">Every package includes a London session, RED capture, the AI edit and a colour-graded 4K master.</p>
+        </div>
+
+        <div class="mt-16 grid gap-6 lg:grid-cols-3">
+          <div class="reveal flex flex-col rounded-3xl border border-white/10 bg-ink p-8">
+            <h3 class="text-lg font-semibold text-white">Single</h3>
+            <p class="mt-2 text-sm text-white/55">One track, one location, one standout video.</p>
+            <p class="mt-6 font-display text-6xl text-white">£495</p>
+            <p class="text-sm text-white/50">one-off</p>
+            <ul class="mt-8 flex-1 space-y-3 text-sm text-white/65">
+              <li class="flex gap-3"><span class="text-ember">✓</span> 1 London location · up to 2 hours</li>
+              <li class="flex gap-3"><span class="text-ember">✓</span> RED-camera session with director</li>
+              <li class="flex gap-3"><span class="text-ember">✓</span> Beat-synced AI edit · 4K master</li>
+              <li class="flex gap-3"><span class="text-ember">✓</span> 1 vertical social cutdown</li>
+              <li class="flex gap-3"><span class="text-ember">✓</span> 1 round of revisions</li>
+            </ul>
+            <a href="#book" data-package="Single" class="mt-8 inline-flex justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/50 hover:bg-white/5">Choose Single</a>
+          </div>
+
+          <div class="reveal relative flex flex-col rounded-3xl border border-ember/60 bg-gradient-to-b from-ember/10 to-ink p-8 shadow-[0_20px_60px_rgba(255,77,61,.18)]">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-ember px-4 py-1 text-xs font-semibold uppercase tracking-wider text-ink">Most booked</span>
+            <h3 class="text-lg font-semibold text-white">The Look</h3>
+            <p class="mt-2 text-sm text-white/55">Two locations, two edits — a full release package.</p>
+            <p class="mt-6 font-display text-6xl text-white">£895</p>
+            <p class="text-sm text-white/50">one-off</p>
+            <ul class="mt-8 flex-1 space-y-3 text-sm text-white/70">
+              <li class="flex gap-3"><span class="text-ember">✓</span> 2 London locations · up to 4 hours</li>
+              <li class="flex gap-3"><span class="text-ember">✓</span> Everything in Single</li>
+              <li class="flex gap-3"><span class="text-ember">✓</span> 2 AI edit directions</li>
+              <li class="flex gap-3"><span class="text-ember">✓</span> Full film grade &amp; finishing</li>
+              <li class="flex gap-3"><span class="text-ember">✓</span> 3 vertical cutdowns</li>
+              <li class="flex gap-3"><span class="text-ember">✓</span> 2 rounds of revisions</li>
+            </ul>
+            <a href="#book" data-package="The Look" class="mt-8 inline-flex justify-center rounded-full bg-ember px-6 py-3 text-sm font-semibold text-ink transition hover:bg-ember-400">Choose The Look</a>
+          </div>
+
+          <div class="reveal flex flex-col rounded-3xl border border-white/10 bg-ink p-8">
+            <h3 class="text-lg font-semibold text-white">Label</h3>
+            <p class="mt-2 text-sm text-white/55">Rosters, multi-track campaigns and priority turnaround.</p>
+            <p class="mt-6 font-display text-6xl text-white">Custom</p>
+            <p class="text-sm text-white/50">by quote</p>
+            <ul class="mt-8 flex-1 space-y-3 text-sm text-white/65">
+              <li class="flex gap-3"><span class="text-ember">✓</span> Multiple artists / tracks</li>
+              <li class="flex gap-3"><span class="text-ember">✓</span> Multi-camera &amp; larger crews</li>
+              <li class="flex gap-3"><span class="text-ember">✓</span> Priority turnaround</li>
+              <li class="flex gap-3"><span class="text-ember">✓</span> Brand kit &amp; motion titles</li>
+              <li class="flex gap-3"><span class="text-ember">✓</span> Dedicated producer</li>
+            </ul>
+            <a href="#book" data-package="Label" class="mt-8 inline-flex justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/50 hover:bg-white/5">Talk to us</a>
+          </div>
+        </div>
+        <p class="reveal mt-8 text-center text-xs text-white/40">Prices shown are examples — confirm current rates on your booking call. Travel outside central London may add a small fee.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="scroll-mt-24 py-24">
+      <div class="mx-auto max-w-3xl px-6 lg:px-8">
+        <div class="reveal text-center">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-ember">FAQ</p>
+          <h2 class="font-display text-5xl tracking-wide text-white sm:text-6xl">Good to know</h2>
+        </div>
+
+        <div class="mt-12 space-y-4">
+          <details class="reveal group rounded-2xl border border-white/10 bg-coal p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-medium text-white">
+              How long does a session take?
+              <span class="faq-icon flex h-6 w-6 flex-none items-center justify-center rounded-full border border-white/20 text-white/70">+</span>
+            </summary>
+            <p class="mt-4 text-white/60">Most sessions run two to four hours depending on the package. One focused session is enough — that is the whole point.</p>
+          </details>
+          <details class="reveal group rounded-2xl border border-white/10 bg-coal p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-medium text-white">
+              What do I need to bring?
+              <span class="faq-icon flex h-6 w-6 flex-none items-center justify-center rounded-full border border-white/20 text-white/70">+</span>
+            </summary>
+            <p class="mt-4 text-white/60">Your finished track (or a rough mix), one or two outfits, and yourself. We handle camera, lighting, direction and post.</p>
+          </details>
+          <details class="reveal group rounded-2xl border border-white/10 bg-coal p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-medium text-white">
+              Do I need dance experience?
+              <span class="faq-icon flex h-6 w-6 flex-none items-center justify-center rounded-full border border-white/20 text-white/70">+</span>
+            </summary>
+            <p class="mt-4 text-white/60">Not at all. A director guides your movement on the day, and the edit is built around the strongest moments.</p>
+          </details>
+          <details class="reveal group rounded-2xl border border-white/10 bg-coal p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-medium text-white">
+              Where in London do you film?
+              <span class="faq-icon flex h-6 w-6 flex-none items-center justify-center rounded-full border border-white/20 text-white/70">+</span>
+            </summary>
+            <p class="mt-4 text-white/60">Anywhere that fits the track — rooftops, neon streets, tunnels, estates, studios and landmarks. We help you choose.</p>
+          </details>
+          <details class="reveal group rounded-2xl border border-white/10 bg-coal p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-medium text-white">
+              How fast is the turnaround?
+              <span class="faq-icon flex h-6 w-6 flex-none items-center justify-center rounded-full border border-white/20 text-white/70">+</span>
+            </summary>
+            <p class="mt-4 text-white/60">A first cut typically lands within 48 hours of the session, with final delivery shortly after revisions.</p>
+          </details>
+          <details class="reveal group rounded-2xl border border-white/10 bg-coal p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-medium text-white">
+              Who owns the video?
+              <span class="faq-icon flex h-6 w-6 flex-none items-center justify-center rounded-full border border-white/20 text-white/70">+</span>
+            </summary>
+            <p class="mt-4 text-white/60">You do. You get full rights to the finished master and the raw footage, and you can release it wherever you like.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section id="book" class="scroll-mt-24 border-t border-white/10 bg-coal/50 py-24">
+      <div class="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-2 lg:px-8">
+        <div class="reveal">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-ember">Book a session</p>
+          <h2 class="font-display text-5xl tracking-wide text-white sm:text-6xl">Let's shoot your video</h2>
+          <p class="mt-5 text-lg text-white/60">Tell us about the track and we'll come back within 24 hours with a date, a location idea and a quote.</p>
+
+          <div class="mt-10 space-y-6 text-sm">
+            <div class="flex items-center gap-4">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-ember/15 text-ember">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </span>
+              <p class="text-white/70">Reply within 24 hours, seven days a week</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-ember/15 text-ember">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </span>
+              <p class="text-white/70">Sessions across Greater London</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-ember/15 text-ember">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </span>
+              <p class="text-white/70"><a id="contact-email" href="mailto:business@unrealsolutions.com" class="text-ember hover:text-ember-400">business@unrealsolutions.com</a></p>
+            </div>
+          </div>
+
+          <div class="mt-10 overflow-hidden rounded-3xl border border-white/10">
+            <div class="aspect-video bg-cover bg-center" style="background-image:linear-gradient(135deg,#ff4d3d 0%,#5a140f 50%,#0b0b12 100%);"></div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <form id="booking-form" class="rounded-3xl border border-white/10 bg-ink p-8" novalidate>
+            <div class="grid gap-5 sm:grid-cols-2">
+              <label class="block sm:col-span-1">
+                <span class="mb-2 block text-sm font-medium text-white/80">Artist / band name</span>
+                <input name="artist" type="text" required class="w-full rounded-xl border-white/10 bg-white/5 text-white placeholder-white/30 focus:border-ember focus:ring-ember" placeholder="Your name">
+              </label>
+              <label class="block sm:col-span-1">
+                <span class="mb-2 block text-sm font-medium text-white/80">Email</span>
+                <input name="email" type="email" required class="w-full rounded-xl border-white/10 bg-white/5 text-white placeholder-white/30 focus:border-ember focus:ring-ember" placeholder="you@email.com">
+              </label>
+              <label class="block sm:col-span-1">
+                <span class="mb-2 block text-sm font-medium text-white/80">Package</span>
+                <select id="package" name="package" class="w-full rounded-xl border-white/10 bg-white/5 text-white focus:border-ember focus:ring-ember">
+                  <option>Single</option>
+                  <option>The Look</option>
+                  <option>Label</option>
+                  <option>Not sure yet</option>
+                </select>
+              </label>
+              <label class="block sm:col-span-1">
+                <span class="mb-2 block text-sm font-medium text-white/80">Preferred date</span>
+                <input name="date" type="date" class="w-full rounded-xl border-white/10 bg-white/5 text-white focus:border-ember focus:ring-ember">
+              </label>
+              <label class="block sm:col-span-2">
+                <span class="mb-2 block text-sm font-medium text-white/80">Track / project</span>
+                <input name="track" type="text" class="w-full rounded-xl border-white/10 bg-white/5 text-white placeholder-white/30 focus:border-ember focus:ring-ember" placeholder="Song title, genre, a link to listen">
+              </label>
+              <label class="block sm:col-span-2">
+                <span class="mb-2 block text-sm font-medium text-white/80">Location idea (optional)</span>
+                <input name="location" type="text" class="w-full rounded-xl border-white/10 bg-white/5 text-white placeholder-white/30 focus:border-ember focus:ring-ember" placeholder="Rooftop, neon street, tunnel…">
+              </label>
+              <label class="block sm:col-span-2">
+                <span class="mb-2 block text-sm font-medium text-white/80">Anything else?</span>
+                <textarea name="notes" rows="4" class="w-full rounded-xl border-white/10 bg-white/5 text-white placeholder-white/30 focus:border-ember focus:ring-ember" placeholder="References, mood, deadlines…"></textarea>
+              </label>
+            </div>
+            <button type="submit" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-ember px-7 py-4 text-base font-semibold text-ink shadow-[0_12px_40px_rgba(255,77,61,.35)] transition hover:-translate-y-0.5 hover:bg-ember-400">
+              Request my session
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+            <p id="form-note" class="mt-4 text-center text-xs text-white/40">We'll only use your details to arrange your session.</p>
+            <p id="form-success" class="mt-4 hidden rounded-xl border border-ember/40 bg-ember/10 px-4 py-3 text-center text-sm text-white"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 py-14">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
+        <div>
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-ember text-ink">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+            <span class="font-display text-2xl tracking-[0.18em] text-white">MUSEME</span>
+          </div>
+          <p class="mt-3 max-w-sm text-sm text-white/45">Professional music videos from a single recording session. London, shot on RED, edited with AI.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-6 text-sm text-white/55">
+          <a href="#how" class="hover:text-white">How it works</a>
+          <a href="#pricing" class="hover:text-white">Pricing</a>
+          <a href="#faq" class="hover:text-white">FAQ</a>
+          <a href="#book" class="hover:text-white">Book</a>
+        </div>
+      </div>
+      <p class="mt-10 text-xs text-white/35">© <span id="year"></span> Museme. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const MUSEME = {
+      bookingEndpoint: '',
+      contactEmail: 'business@unrealsolutions.com',
+      tallyBookingId: '',
+      heroVideo: ''
+    };
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('nav-scrolled', window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', () => {
+      const open = menu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+
+    const reveal = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); reveal.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => reveal.observe(el));
+
+    document.querySelectorAll('[data-package]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const select = document.getElementById('package');
+        if (select) select.value = btn.getAttribute('data-package');
+      });
+    });
+
+    const emailLink = document.getElementById('contact-email');
+    if (emailLink) emailLink.href = 'mailto:' + MUSEME.contactEmail;
+
+    if (MUSEME.heroVideo) {
+      const video = document.createElement('video');
+      video.src = MUSEME.heroVideo;
+      video.autoplay = true; video.muted = true; video.loop = true; video.playsInline = true;
+      video.className = 'h-full w-full object-cover';
+      const holder = document.getElementById('hero-media');
+      holder.innerHTML = '';
+      holder.appendChild(video);
+      holder.style.backgroundImage = 'none';
+      holder.style.opacity = '0.35';
+    }
+
+    const form = document.getElementById('booking-form');
+    const success = document.getElementById('form-success');
+    const note = document.getElementById('form-note');
+
+    function showSuccess(msg) {
+      success.textContent = msg;
+      success.classList.remove('hidden');
+      form.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
+      note.classList.add('hidden');
+    }
+
+    function fulfill(data) {
+      if (MUSEME.tallyBookingId && window.Tally && window.Tally.openPopup) {
+        window.Tally.openPopup(MUSEME.tallyBookingId, { layout: 'modal', width: 500, hideTitle: true, overlay: true });
+        showSuccess('Thanks — finish your booking in the window that just opened.');
+        return;
+      }
+      if (MUSEME.bookingEndpoint) {
+        fetch(MUSEME.bookingEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(() => showSuccess('Thanks, ' + (data.artist || 'there') + " — we'll be in touch within 24 hours."))
+          .catch(() => mailtoFallback(data));
+        return;
+      }
+      mailtoFallback(data);
+    }
+
+    function mailtoFallback(data) {
+      const body = Object.entries(data).map(([k, v]) => k + ': ' + v).join('\n');
+      const url = 'mailto:' + MUSEME.contactEmail +
+        '?subject=' + encodeURIComponent('Music video session request — ' + (data.artist || 'new enquiry')) +
+        '&body=' + encodeURIComponent(body);
+      window.location.href = url;
+      showSuccess('Thanks, ' + (data.artist || 'there') + " — your email app is opening. We'll be in touch within 24 hours.");
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      fulfill(Object.fromEntries(new FormData(form).entries()));
+    });
+  </script>
+</body>
+</html>
