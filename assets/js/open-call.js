@@ -16,7 +16,7 @@
   window.__usOpenCallLoaded = true;
 
   var FORMS = {
-    start: { tally: '', leadType: 'sketch_request', subject: 'AI sketch of my world' }
+    start: { tally: '', leadType: 'sketch_request', subject: 'A sketch of my world' }
   };
   var EMAIL = 'business@unrealsolutions.com';
 
