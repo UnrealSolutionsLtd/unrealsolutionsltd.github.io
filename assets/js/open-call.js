@@ -1,13 +1,17 @@
 /**
- * "Start now" form for the homepage (artist harness).
- * Any [data-open-form="start"] element opens the matching Tally
- * form as a popup, forwards attribution as Tally hidden fields, and fires GA4:
- *   form_open      when the popup opens
- *   generate_lead  on submit (lead_type: harness_start)
+ * "Start now" on the homepage.
+ * Any [data-open-form="start"] element opens the hosted Tally form in a new tab.
+ * We link to the hosted page instead of an embedded popup: the popup breaks with
+ * ad/privacy blockers, the hosted page doesn't.
  *
- * Paste the Tally form IDs below once the forms exist (tally.so/r/<ID>).
- * Until then the buttons fall back to an email to business@unrealsolutions.com.
- * Add hidden fields source, medium, campaign, originPage to each Tally form.
+ * Attribution goes to Tally as URL params, which fill the form's hidden fields
+ * (add hidden fields source, medium, campaign, originPage to the form).
+ *
+ * GA4:
+ *   form_open      when the button is clicked
+ *   generate_lead  when Tally sends the person back here after submitting
+ *                  (Tally form settings > "Redirect on completion" to
+ *                   https://unrealsolutions.com/?lead=harness_start)
  */
 
 (function () {
@@ -16,9 +20,8 @@
   window.__usOpenCallLoaded = true;
 
   var FORMS = {
-    start: { tally: 'EqzAdq', leadType: 'harness_start', subject: 'Start with Unreal Solutions' }
+    start: { tally: 'EqzAdq', leadType: 'harness_start' }
   };
-  var EMAIL = 'business@unrealsolutions.com';
 
   function ga() {
     if (typeof window.gtag === 'function') return window.gtag.apply(null, arguments);
@@ -29,56 +32,49 @@
     catch (e) { return {}; }
   }
 
-  function loadTally(cb) {
-    if (window.Tally) return cb();
-    var src = 'https://tally.so/widgets/embed.js';
-    var existing = document.querySelector('script[src="' + src + '"]');
-    if (existing) { existing.addEventListener('load', cb); existing.addEventListener('error', cb); return; }
-    var s = document.createElement('script');
-    s.src = src; s.async = true; s.onload = cb; s.onerror = cb;
-    document.body.appendChild(s);
-  }
-
-  function open(type, el) {
-    var form = FORMS[type];
-    if (!form) return;
+  function formUrl(form) {
     var u = attribution();
-    var where = (el && el.getAttribute('data-cta-location')) || 'home';
-    var base = { form_type: type, cta_location: where, traffic_source: u.utm_source, traffic_medium: u.utm_medium };
-
-    if (!form.tally) {
-      ga('event', 'form_open', Object.assign({ method: 'email_fallback' }, base));
-      window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(form.subject);
-      return;
-    }
-    loadTally(function () {
-      if (!window.Tally || typeof window.Tally.openPopup !== 'function') {
-        ga('event', 'form_open', Object.assign({ method: 'fallback' }, base));
-        window.open('https://tally.so/r/' + form.tally, '_blank', 'noopener');
-        return;
-      }
-      window.Tally.openPopup(form.tally, {
-        layout: 'modal', width: 560, hideTitle: true, overlay: true,
-        hiddenFields: {
-          source: u.utm_source || 'website',
-          medium: u.utm_medium || '',
-          campaign: u.utm_campaign || '',
-          originPage: location.pathname
-        },
-        onOpen: function () { ga('event', 'form_open', Object.assign({ method: 'tally' }, base)); },
-        onSubmit: function () {
-          ga('event', 'generate_lead', Object.assign({ lead_type: form.leadType, value: 0, currency: 'USD' }, base));
-        }
-      });
+    var q = new URLSearchParams({
+      source: u.utm_source || 'website',
+      medium: u.utm_medium || '',
+      campaign: u.utm_campaign || '',
+      originPage: location.pathname
     });
+    return 'https://tally.so/r/' + form.tally + '?' + q.toString();
   }
 
   document.addEventListener('click', function (e) {
     var t = e.target && e.target.closest ? e.target.closest('[data-open-form]') : null;
     if (!t) return;
+    var form = FORMS[t.getAttribute('data-open-form')];
+    if (!form) return;
     e.preventDefault();
-    open(t.getAttribute('data-open-form'), t);
+    var u = attribution();
+    ga('event', 'form_open', {
+      method: 'tally_page', form_type: t.getAttribute('data-open-form'),
+      cta_location: t.getAttribute('data-cta-location') || 'home',
+      traffic_source: u.utm_source, traffic_medium: u.utm_medium
+    });
+    var url = formUrl(form);
+    var win = window.open(url, '_blank', 'noopener');
+    if (!win) window.location.href = url; // new tab blocked: open it here instead
   });
 
-  window.usOpenForm = open;
+  // Back from Tally after submitting: count the lead once, then tidy the URL.
+  try {
+    var params = new URLSearchParams(location.search);
+    var lead = params.get('lead');
+    var match = null;
+    for (var k in FORMS) if (FORMS[k].leadType === lead) match = FORMS[k];
+    if (match) {
+      var u = attribution();
+      ga('event', 'generate_lead', {
+        lead_type: match.leadType, value: 0, currency: 'USD',
+        traffic_source: u.utm_source, traffic_medium: u.utm_medium
+      });
+      params.delete('lead');
+      var rest = params.toString();
+      history.replaceState(null, '', location.pathname + (rest ? '?' + rest : '') + location.hash);
+    }
+  } catch (e) { /* ignore */ }
 })();
