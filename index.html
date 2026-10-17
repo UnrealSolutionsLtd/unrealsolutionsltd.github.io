@@ -151,8 +151,22 @@
       @keyframes turn { to { transform: rotate(360deg); } }
       .label { font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; font-weight: 700; fill: #1B1B1F; }
       .display { font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif; font-weight: 800; fill: #1B1B1F; }
+      .ex-tabs { scroll-snap-type: x mandatory; scroll-padding-inline: 1.25rem; scrollbar-width: none; }
+      .ex-tabs::-webkit-scrollbar { display: none; }
+      .ex-tab { flex: none; scroll-snap-align: start; display: inline-flex; align-items: center; gap: .6rem; padding: .4rem .9rem .4rem .4rem; border: 2px solid #1B1B1F;
+                border-radius: 999px; background: #fff; font-weight: 700; transition: transform .12s ease, box-shadow .12s ease; }
+      .ex-tab img { width: 3.5rem; height: 2rem; object-fit: cover; border-radius: 999px; border: 1.5px solid #1B1B1F; }
+      .ex-tab span { font-weight: 500; opacity: .7; }
+      .ex-tab:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 #1B1B1F; }
+      .ex-tab[aria-selected="true"] { background: #F4B942; box-shadow: 4px 4px 0 #1B1B1F; }
+      .ex-tab:focus-visible { outline: 3px solid #2A9D8F; outline-offset: 3px; }
+      .ex-card { margin: 0; background: #fff; border: 2px solid #1B1B1F; border-radius: 1rem; box-shadow: 6px 6px 0 #1B1B1F; overflow: hidden; }
+      .ex-card img, .ex-card video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: #FFF8EC; }
+      .ex-card figcaption { padding: .55rem .9rem; font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif; font-weight: 800; border-top: 2px solid #1B1B1F; }
+      .ex-card--video { box-shadow: 6px 6px 0 #E4572E; }
+      .ex-arrow { justify-self: center; font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif; font-weight: 800; font-size: 2.25rem; line-height: 1; }
       @media (prefers-reduced-motion: reduce) {
-        .btn { transition: none; }
+        .btn, .ex-tab { transition: none; }
         .flow line, .flow-in, .ring { animation: none; }
       }
     </style>
@@ -344,7 +358,37 @@
           </figure>
         </section>
 
-        <ul class="mx-auto mt-8 grid max-w-4xl gap-4 text-left sm:grid-cols-3">
+        <!-- Real examples: sketch, style, video -->
+        <section id="examples" class="mt-16 text-left" aria-labelledby="examples-title">
+          <h2 id="examples-title" class="text-center font-display text-3xl sm:text-4xl font-extrabold">Five sketches, five styles.</h2>
+
+          <div class="ex-tabs mt-8 -mx-5 flex gap-3 overflow-x-auto px-5 pb-3 md:mx-0 md:flex-wrap md:justify-center md:overflow-visible md:px-0" role="tablist" aria-label="Examples">
+            <button type="button" role="tab" class="ex-tab" data-ex="whale" aria-selected="true"><img src="/assets/examples/whale/thumb.jpg" alt="" width="64" height="36">Whale<span>Watercolour</span></button>
+            <button type="button" role="tab" class="ex-tab" data-ex="robot" aria-selected="false"><img src="/assets/examples/robot/thumb.jpg" alt="" width="64" height="36">Robot<span>Clay</span></button>
+            <button type="button" role="tab" class="ex-tab" data-ex="snail" aria-selected="false"><img src="/assets/examples/snail/thumb.jpg" alt="" width="64" height="36">Snail<span>Paper craft</span></button>
+            <button type="button" role="tab" class="ex-tab" data-ex="fox" aria-selected="false"><img src="/assets/examples/fox/thumb.jpg" alt="" width="64" height="36">Fox<span>80s anime</span></button>
+            <button type="button" role="tab" class="ex-tab" data-ex="lighthouse" aria-selected="false"><img src="/assets/examples/lighthouse/thumb.jpg" alt="" width="64" height="36">Lighthouse<span>Risograph</span></button>
+          </div>
+
+          <div class="mt-8 grid items-center gap-4 md:grid-cols-[1fr_auto_1fr_auto_1.35fr]" role="tabpanel">
+            <figure class="ex-card">
+              <img id="ex-sketch" src="/assets/examples/whale/sketch.jpg" alt="Pencil sketch" width="1280" height="720" loading="lazy">
+              <figcaption>Sketch</figcaption>
+            </figure>
+            <span class="ex-arrow" aria-hidden="true">+</span>
+            <figure class="ex-card">
+              <img id="ex-style" src="/assets/examples/whale/style.jpg" alt="Style" width="1280" height="720" loading="lazy">
+              <figcaption>Style</figcaption>
+            </figure>
+            <span class="ex-arrow" aria-hidden="true">=</span>
+            <figure class="ex-card ex-card--video">
+              <video id="ex-video" muted loop playsinline preload="none" width="1280" height="720" aria-label="Video"></video>
+              <figcaption>Video</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <ul class="mx-auto mt-16 grid max-w-4xl gap-4 text-left sm:grid-cols-3">
           <li class="rounded-2xl border-2 border-ink bg-white p-5">
             <p class="font-display text-xl font-bold">Sketch to video.</p>
             <p class="mt-1 leading-relaxed">Your rough sketches become video in the style you pick.</p>
@@ -373,5 +417,6 @@
 
     <script src="/assets/js/funnel-analytics.js" defer></script>
     <script src="/assets/js/open-call.js?v=3" defer></script>
+    <script src="/assets/js/examples.js?v=1" defer></script>
   </body>
 </html>
