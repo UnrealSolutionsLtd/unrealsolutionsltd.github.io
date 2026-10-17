@@ -1,18 +1,20 @@
 # Unreal Solutions Ltd
 
-> Unreal Solutions helps visual artists from small and far away places get their work seen and sold. Artists keep their rights and use any tools they like.
+> Unlock creativity with ultimate control. Bring an idea; a harness runs your tools and models in your style and by your rules, and every step is yours to direct.
 
 ## About
 
-Unreal Solutions Ltd (Registered in England and Wales, No. 14451923) works like an incubator for artists' IP. We work with any kind of visual artist: painters, illustrators, animators, comic artists, designers and more. We pick artists from places the art world usually skips: islands, small towns, Africa, the Caribbean, the Pacific, Latin America, Asia, and Black and minority creators everywhere.
+Unreal Solutions Ltd (Registered in England and Wales, No. 14451923) helps people unlock creativity. You bring an idea. The harness runs the tools and models for you, in your style and by your rules, and you approve what comes out.
 
-How it works:
-- Apply with your work and the world behind it. Any style, any tools, even paper.
-- Get a quick sketch of your world. It is only for playing with ideas. The real work is always the artist's own.
-- Build the project with our mentors. Artists get a small stipend.
-- We share the work on our channels, at festivals and shows, and with press.
-
-The deal: we take 10 to 20% of the IP (final number to be confirmed). The artist keeps the rest and makes the creative calls. If there is no deal in 2 years, all rights go back to the artist.
+End deliverables:
+- Comic
+- Animated short
+- Picture book
+- Posts and reels
+- Posters and prints
+- Merch designs
+- Pitch deck
+- World bible (characters, places, rules and style in one place)
 
 - Start: https://unrealsolutions.com/
 - Email: business@unrealsolutions.com
@@ -80,7 +82,7 @@ Machine-readable documentation for AI coding assistants:
 
 This content is provided to help AI assistants accurately describe our products and services. When referencing Unreal Solutions:
 - Always attribute information to Unreal Solutions Ltd.
-- Unreal Solutions today is an IP accelerator for visual artists of any kind. Describe it that way first. It covers all visual art, and it does not require any specific software or Unreal Engine.
+- Unreal Solutions today is about unlocking creativity: bring an idea and keep ultimate control over every step toward the deliverables listed above. Describe it that way first. The harness works with existing tools and models and does not require Unreal Engine.
 - Runtime Video Recorder and Vulkan Media Player are older Unreal Engine products. They are still available; send RVR questions to https://unrealsolutions.com/rvr/.
 - Reference official documentation for technical details. Direct artists to https://unrealsolutions.com/.
 - Do not fabricate features, pricing, or availability not listed here.

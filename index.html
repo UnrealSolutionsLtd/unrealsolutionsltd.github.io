@@ -15,17 +15,17 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unreal Solutions | Make your art. We'll help the world see it.</title>
-    <meta name="description" content="We work with visual artists from small and far away places. We share your work with people. You keep your rights.">
+    <title>Unreal Solutions | Unlock creativity</title>
+    <meta name="description" content="Ultimate control over your idea. Make a comic, an animated short, a picture book, posts and reels, posters and prints, merch designs, a pitch deck and a world bible.">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://unrealsolutions.com/">
-    <meta property="og:title" content="Make your art. We'll help the world see it.">
-    <meta property="og:description" content="We share your art with people. You keep your rights.">
+    <meta property="og:title" content="Unlock creativity">
+    <meta property="og:description" content="Ultimate control over your idea. Make a comic, an animated short, a picture book, posts and reels, posters and prints, merch designs, a pitch deck and a world bible.">
     <meta property="og:image" content="https://unrealsolutions.com/assets/logo.png">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Make your art. We'll help the world see it.">
-    <meta name="twitter:description" content="We share your art with people. You keep your rights.">
+    <meta name="twitter:title" content="Unlock creativity">
+    <meta name="twitter:description" content="Ultimate control over your idea. Make a comic, an animated short, a picture book, posts and reels, posters and prints, merch designs, a pitch deck and a world bible.">
 
     <meta name="author" content="Unreal Solutions Ltd">
     <meta name="robots" content="index, follow">
@@ -72,7 +72,19 @@
       "url": "https://unrealsolutions.com/",
       "logo": "https://unrealsolutions.com/assets/logo.png",
       "email": "business@unrealsolutions.com",
-      "description": "Unreal Solutions works with visual artists from small and far away places: painters, illustrators, animators, comic artists, designers and more. We share their work with people. Artists keep their rights and use any tools they like."
+      "description": "Unreal Solutions helps people unlock creativity. Bring an idea; a harness runs your tools and models in your style and by your rules. You keep ultimate control over every step."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Unreal Solutions harness",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web",
+      "url": "https://unrealsolutions.com/",
+      "description": "Unlock creativity. Ultimate control over your idea. Make a comic, an animated short, a picture book, posts and reels, posters and prints, merch designs, a pitch deck and a world bible. The harness runs your tools and models in your style and by your rules.",
+      "publisher": { "@type": "Organization", "name": "Unreal Solutions Ltd" }
     }
     </script>
     <script type="application/ld+json">
@@ -127,16 +139,22 @@
     </script>
 
     <style>
-      html { scroll-behavior: smooth; }
       body { background: #FFF8EC; color: #1B1B1F; }
       .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; font-weight: 700;
              border: 2px solid #1B1B1F; border-radius: 999px; padding: .85rem 1.5rem; transition: transform .12s ease, box-shadow .12s ease; }
       .btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 #1B1B1F; }
       .btn:focus-visible, a:focus-visible { outline: 3px solid #2A9D8F; outline-offset: 3px; }
-      .squiggle { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 5 Q5 0 10 5 T20 5 T30 5 T40 5' fill='none' stroke='%23E4572E' stroke-width='3'/%3E%3C/svg%3E");
-                  background-repeat: repeat-x; background-position: 0 100%; background-size: 28px 8px; padding-bottom: .35rem; }
-      .card { background: #fff; border: 2px solid #1B1B1F; border-radius: 1.25rem; box-shadow: 6px 6px 0 #1B1B1F; }
-      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+      .flow line { stroke-dasharray: 2 12; stroke-linecap: round; animation: flow 1.1s linear infinite; }
+      .flow-in { stroke-dasharray: 12 10; animation: flow 1s linear infinite; }
+      .ring { transform-box: fill-box; transform-origin: center; animation: turn 60s linear infinite; }
+      @keyframes flow { to { stroke-dashoffset: -28; } }
+      @keyframes turn { to { transform: rotate(360deg); } }
+      .label { font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; font-weight: 700; fill: #1B1B1F; }
+      .display { font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif; font-weight: 800; fill: #1B1B1F; }
+      @media (prefers-reduced-motion: reduce) {
+        .btn { transition: none; }
+        .flow line, .flow-in, .ring { animation: none; }
+      }
     </style>
   </head>
 
@@ -154,167 +172,174 @@
         <img src="/assets/logo.png" alt="Unreal Solutions" class="h-10 w-10 rounded-xl border-2 border-ink">
         <span class="font-display font-extrabold text-lg">Unreal Solutions</span>
       </a>
-      <nav class="hidden md:flex items-center gap-7 font-medium">
-        <a href="#sketch" class="hover:text-tomato">Your sketch</a>
-        <a href="#how" class="hover:text-tomato">How it works</a>
-        <a href="#who" class="hover:text-tomato">Who it's for</a>
-      </nav>
       <button type="button" class="btn bg-tomato text-white !py-2.5 !px-5" data-open-form="start" data-cta-location="header">Start now</button>
     </header>
 
+    <!-- Shared art -->
+    <svg width="0" height="0" class="absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="i-comic" viewBox="0 0 64 64">
+          <rect x="6" y="4" width="52" height="56" rx="5" fill="#fff" stroke="#1B1B1F" stroke-width="3.5"/>
+          <rect x="11" y="9" width="20" height="21" rx="2" fill="#8ECAE6" stroke="#1B1B1F" stroke-width="2.5"/>
+          <rect x="34" y="9" width="19" height="21" rx="2" fill="#F4B942" stroke="#1B1B1F" stroke-width="2.5"/>
+          <rect x="11" y="33" width="42" height="22" rx="2" fill="#2A9D8F" stroke="#1B1B1F" stroke-width="2.5"/>
+          <ellipse cx="26" cy="41" rx="9" ry="5" fill="#fff" stroke="#1B1B1F" stroke-width="2"/>
+          <path d="M22 45 l-2 5 l6 -4" fill="#fff" stroke="#1B1B1F" stroke-width="2" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="i-video" viewBox="0 0 64 64">
+          <rect x="4" y="12" width="56" height="40" rx="6" fill="#1B1B1F"/>
+          <g fill="#FFF8EC">
+            <rect x="9" y="15" width="6" height="4" rx="1"/><rect x="21" y="15" width="6" height="4" rx="1"/><rect x="33" y="15" width="6" height="4" rx="1"/><rect x="45" y="15" width="6" height="4" rx="1"/>
+            <rect x="9" y="45" width="6" height="4" rx="1"/><rect x="21" y="45" width="6" height="4" rx="1"/><rect x="33" y="45" width="6" height="4" rx="1"/><rect x="45" y="45" width="6" height="4" rx="1"/>
+          </g>
+          <rect x="9" y="22" width="46" height="20" rx="3" fill="#E4572E"/>
+          <path d="M28 26 l10 6 l-10 6z" fill="#FFF8EC"/>
+        </symbol>
+        <symbol id="i-book" viewBox="0 0 64 64">
+          <path d="M32 16 q-12 -8 -28 -4 v40 q16 -4 28 4z" fill="#FFF8EC" stroke="#1B1B1F" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M32 16 q12 -8 28 -4 v40 q-16 -4 -28 4z" fill="#2A9D8F" stroke="#1B1B1F" stroke-width="3.5" stroke-linejoin="round"/>
+          <circle cx="18" cy="26" r="5" fill="#F4B942" stroke="#1B1B1F" stroke-width="2.5"/>
+          <path d="M9 42 q8 -10 18 -4" fill="none" stroke="#1B1B1F" stroke-width="2.5" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="i-post" viewBox="0 0 64 64">
+          <rect x="17" y="3" width="30" height="58" rx="7" fill="#FFF8EC" stroke="#1B1B1F" stroke-width="3.5"/>
+          <rect x="22" y="11" width="20" height="26" rx="3" fill="#8ECAE6" stroke="#1B1B1F" stroke-width="2.5"/>
+          <path d="M29 19 l7 5 l-7 5z" fill="#1B1B1F"/>
+          <path d="M32 53 l-6 -6 a3.6 3.6 0 0 1 6 -4 a3.6 3.6 0 0 1 6 4z" fill="#E4572E" stroke="#1B1B1F" stroke-width="2" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="i-poster" viewBox="0 0 64 64">
+          <rect x="8" y="4" width="48" height="56" rx="3" fill="#F4B942" stroke="#1B1B1F" stroke-width="3.5"/>
+          <rect x="14" y="10" width="36" height="34" fill="#8ECAE6" stroke="#1B1B1F" stroke-width="2.5"/>
+          <circle cx="40" cy="20" r="5" fill="#fff" stroke="#1B1B1F" stroke-width="2.5"/>
+          <path d="M14 44 l12 -14 l10 10 l6 -6 l8 10z" fill="#2A9D8F" stroke="#1B1B1F" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M18 51 h28" stroke="#1B1B1F" stroke-width="3" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="i-shirt" viewBox="0 0 64 64">
+          <path d="M22 6 l-16 9 l6 13 l8 -4 v34 h24 v-34 l8 4 l6 -13 l-16 -9 q-4 6 -10 6 q-6 0 -10 -6z" fill="#E4572E" stroke="#1B1B1F" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M32 26 l3 6 l6.5 1 l-4.7 4.5 l1.1 6.5 l-5.9 -3.1 l-5.9 3.1 l1.1 -6.5 l-4.7 -4.5 l6.5 -1z" fill="#F4B942" stroke="#1B1B1F" stroke-width="2" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="i-deck" viewBox="0 0 64 64">
+          <rect x="5" y="6" width="54" height="36" rx="4" fill="#fff" stroke="#1B1B1F" stroke-width="3.5"/>
+          <rect x="13" y="26" width="8" height="10" fill="#2A9D8F" stroke="#1B1B1F" stroke-width="2"/>
+          <rect x="28" y="20" width="8" height="16" fill="#F4B942" stroke="#1B1B1F" stroke-width="2"/>
+          <rect x="43" y="13" width="8" height="23" fill="#E4572E" stroke="#1B1B1F" stroke-width="2"/>
+          <path d="M32 42 v8 M20 60 l12 -10 l12 10" fill="none" stroke="#1B1B1F" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="i-bible" viewBox="0 0 64 64">
+          <rect x="10" y="4" width="44" height="56" rx="5" fill="#2A9D8F" stroke="#1B1B1F" stroke-width="3.5"/>
+          <path d="M18 4 v56" stroke="#1B1B1F" stroke-width="3"/>
+          <rect x="24" y="14" width="24" height="22" rx="3" fill="#FFF8EC" stroke="#1B1B1F" stroke-width="2.5"/>
+          <circle cx="41" cy="21" r="3.5" fill="#F4B942" stroke="#1B1B1F" stroke-width="1.8"/>
+          <path d="M27 33 q5 -9 11 -7 q5 2 8 7z" fill="#2A9D8F" stroke="#1B1B1F" stroke-width="1.8" stroke-linejoin="round"/>
+        </symbol>
+        <g id="sketch" fill="none" stroke="#8A8A8A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5">
+          <circle cx="58" cy="-30" r="18"/>
+          <path d="M-62 30 q34 -50 66 -44 q36 6 58 44z"/>
+          <path d="M2 -14 q-3 -24 3 -40 M5 -54 q-20 -5 -32 8 M5 -54 q18 -10 32 4 M5 -54 q10 -14 26 -12"/>
+          <path d="M-74 42 q16 -8 32 0 t32 0 t32 0 t32 0 t32 0"/>
+        </g>
+        <g id="key">
+          <path d="M18 -7 h78 v14 h-9 v15 h-11 v-15 h-9 v10 h-11 v-10 h-38z" fill="#fff" stroke="#1B1B1F" stroke-width="4.5" stroke-linejoin="round"/>
+          <circle cx="0" cy="0" r="26" fill="#fff" stroke="#1B1B1F" stroke-width="4.5"/>
+          <circle cx="0" cy="0" r="9" fill="#E4572E" stroke="#1B1B1F" stroke-width="3.5"/>
+        </g>
+        <marker id="arrow-ink" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+          <path d="M0 0 L10 5 L0 10z" fill="#1B1B1F"/>
+        </marker>
+        <path id="ring-d" d="M640,360 m-150,0 a150,150 0 1,1 300,0 a150,150 0 1,1 -300,0"/>
+        <path id="ring-m" d="M240,268 m-116,0 a116,116 0 1,1 232,0 a116,116 0 1,1 -232,0"/>
+      </defs>
+    </svg>
+
     <main>
-      <!-- Hero -->
-      <section class="mx-auto max-w-6xl px-5 pt-8 pb-16 md:pt-14 md:pb-24 grid gap-12 md:grid-cols-2 md:items-center">
-        <div>
-          <h1 class="font-display text-5xl sm:text-6xl font-extrabold leading-[1.02] tracking-tight">
-            Make your art. We'll help the world <span class="squiggle">see it.</span>
-          </h1>
-          <p class="mt-6 text-lg leading-relaxed max-w-xl">
-            We work with visual artists from small and far away places.
-            We share your work with people.
-            You keep your rights. We only earn if you earn.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-4">
-            <button type="button" class="btn bg-tomato text-white text-lg" data-open-form="start" data-cta-location="hero">Start now</button>
-          </div>
-        </div>
+      <h1 class="sr-only">Unlock creativity</h1>
 
-        <!-- Hero art: a film frame with an island world -->
-        <figure class="relative">
-          <svg viewBox="0 0 520 400" class="w-full h-auto" role="img" aria-label="A drawing of a small island world">
-            <rect x="6" y="6" width="508" height="388" rx="28" fill="#1B1B1F"/>
-            <g fill="#FFF8EC">
-              <rect x="34" y="18" width="22" height="14" rx="3"/><rect x="94" y="18" width="22" height="14" rx="3"/><rect x="154" y="18" width="22" height="14" rx="3"/>
-              <rect x="214" y="18" width="22" height="14" rx="3"/><rect x="274" y="18" width="22" height="14" rx="3"/><rect x="334" y="18" width="22" height="14" rx="3"/>
-              <rect x="394" y="18" width="22" height="14" rx="3"/><rect x="454" y="18" width="22" height="14" rx="3"/>
-              <rect x="34" y="368" width="22" height="14" rx="3"/><rect x="94" y="368" width="22" height="14" rx="3"/><rect x="154" y="368" width="22" height="14" rx="3"/>
-              <rect x="214" y="368" width="22" height="14" rx="3"/><rect x="274" y="368" width="22" height="14" rx="3"/><rect x="334" y="368" width="22" height="14" rx="3"/>
-              <rect x="394" y="368" width="22" height="14" rx="3"/><rect x="454" y="368" width="22" height="14" rx="3"/>
-            </g>
-            <clipPath id="frame"><rect x="26" y="44" width="468" height="312" rx="16"/></clipPath>
-            <g clip-path="url(#frame)">
-              <rect x="26" y="44" width="468" height="312" fill="#8ECAE6"/>
-              <circle cx="400" cy="120" r="46" fill="#F4B942" stroke="#1B1B1F" stroke-width="4"/>
-              <path d="M70 120 q16 -22 40 -8 q14 -18 34 -2 q20 2 14 20 h-90 q-14 -2 2 -10z" fill="#fff" stroke="#1B1B1F" stroke-width="4" stroke-linejoin="round"/>
-              <path d="M120 280 q70 -110 150 -96 q80 14 120 96z" fill="#2A9D8F" stroke="#1B1B1F" stroke-width="4" stroke-linejoin="round"/>
-              <path d="M262 190 q-6 -50 6 -86" fill="none" stroke="#1B1B1F" stroke-width="6" stroke-linecap="round"/>
-              <path d="M268 106 q-40 -10 -62 16 M268 106 q36 -18 64 6 M268 106 q-10 -30 -40 -36 M268 106 q20 -30 52 -26" fill="none" stroke="#1B1B1F" stroke-width="5" stroke-linecap="round"/>
-              <g transform="translate(196 196)">
-                <ellipse cx="0" cy="34" rx="20" ry="24" fill="#E4572E" stroke="#1B1B1F" stroke-width="4"/>
-                <circle cx="0" cy="0" r="20" fill="#FFF8EC" stroke="#1B1B1F" stroke-width="4"/>
-                <circle cx="-7" cy="-2" r="3" fill="#1B1B1F"/><circle cx="7" cy="-2" r="3" fill="#1B1B1F"/>
-                <path d="M-6 8 q6 6 12 0" fill="none" stroke="#1B1B1F" stroke-width="3" stroke-linecap="round"/>
-                <path d="M18 26 q16 -10 18 -30" fill="none" stroke="#1B1B1F" stroke-width="4" stroke-linecap="round"/>
-              </g>
-              <path d="M26 290 q30 -14 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 V360 H26z" fill="#2B6CB0" stroke="#1B1B1F" stroke-width="4"/>
-              <path d="M26 318 q30 -14 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#FFF8EC" stroke-width="3" opacity=".7"/>
-            </g>
-          </svg>
-          <figcaption class="absolute -bottom-4 right-4 rotate-2 rounded-xl border-2 border-ink bg-white px-4 py-2 text-sm font-bold shadow-card">Your world goes here.</figcaption>
-        </figure>
-      </section>
+      <!-- The picture (desktop) -->
+      <figure class="hidden md:block mx-auto max-w-6xl px-5 pt-2">
+        <svg viewBox="0 0 1200 730" class="w-full h-auto" role="img"
+             aria-label="Unlock creativity. Your idea goes into the harness, which runs your tools and models while you keep ultimate control. You can make a comic, an animated short, a picture book, posts and reels, posters and prints, merch designs, a pitch deck and a world bible.">
+          <!-- Deliverables flowing out -->
+          <g class="flow" stroke="#1B1B1F" stroke-width="3" fill="none">
+            <line x1="640" y1="360" x2="500" y2="80"/>
+            <line x1="640" y1="360" x2="730" y2="70"/>
+            <line x1="640" y1="360" x2="940" y2="140"/>
+            <line x1="640" y1="360" x2="1080" y2="310"/>
+            <line x1="640" y1="360" x2="1040" y2="510"/>
+            <line x1="640" y1="360" x2="840" y2="640"/>
+            <line x1="640" y1="360" x2="640" y2="665"/>
+            <line x1="640" y1="360" x2="440" y2="640"/>
+          </g>
+          <g class="label" font-size="17" text-anchor="middle">
+            <g transform="translate(420 25)"><rect x="4" y="4" width="160" height="110" rx="18" fill="#1B1B1F"/><rect width="160" height="110" rx="18" fill="#fff" stroke="#1B1B1F" stroke-width="3"/><use href="#i-comic" x="50" y="10" width="60" height="60"/><text x="80" y="94">Comic</text></g>
+            <g transform="translate(650 15)"><rect x="4" y="4" width="160" height="110" rx="18" fill="#1B1B1F"/><rect width="160" height="110" rx="18" fill="#fff" stroke="#1B1B1F" stroke-width="3"/><use href="#i-video" x="50" y="10" width="60" height="60"/><text x="80" y="94">Animated short</text></g>
+            <g transform="translate(860 85)"><rect x="4" y="4" width="160" height="110" rx="18" fill="#1B1B1F"/><rect width="160" height="110" rx="18" fill="#fff" stroke="#1B1B1F" stroke-width="3"/><use href="#i-book" x="50" y="10" width="60" height="60"/><text x="80" y="94">Picture book</text></g>
+            <g transform="translate(1000 255)"><rect x="4" y="4" width="160" height="110" rx="18" fill="#1B1B1F"/><rect width="160" height="110" rx="18" fill="#fff" stroke="#1B1B1F" stroke-width="3"/><use href="#i-post" x="50" y="10" width="60" height="60"/><text x="80" y="94">Posts and reels</text></g>
+            <g transform="translate(960 455)"><rect x="4" y="4" width="160" height="110" rx="18" fill="#1B1B1F"/><rect width="160" height="110" rx="18" fill="#fff" stroke="#1B1B1F" stroke-width="3"/><use href="#i-poster" x="50" y="10" width="60" height="60"/><text x="80" y="94">Posters and prints</text></g>
+            <g transform="translate(760 585)"><rect x="4" y="4" width="160" height="110" rx="18" fill="#1B1B1F"/><rect width="160" height="110" rx="18" fill="#fff" stroke="#1B1B1F" stroke-width="3"/><use href="#i-shirt" x="50" y="10" width="60" height="60"/><text x="80" y="94">Merch designs</text></g>
+            <g transform="translate(560 610)"><rect x="4" y="4" width="160" height="110" rx="18" fill="#1B1B1F"/><rect width="160" height="110" rx="18" fill="#fff" stroke="#1B1B1F" stroke-width="3"/><use href="#i-deck" x="50" y="10" width="60" height="60"/><text x="80" y="94">Pitch deck</text></g>
+            <g transform="translate(360 585)"><rect x="4" y="4" width="160" height="110" rx="18" fill="#1B1B1F"/><rect width="160" height="110" rx="18" fill="#fff" stroke="#1B1B1F" stroke-width="3"/><use href="#i-bible" x="50" y="10" width="60" height="60"/><text x="80" y="94">World bible</text></g>
+          </g>
 
-      <!-- Sketch of your world (main CTA) -->
-      <section id="sketch" class="border-y-2 border-ink bg-white scroll-mt-6">
-        <div class="mx-auto max-w-6xl px-5 py-16 md:py-24 grid gap-12 md:grid-cols-2 md:items-center">
-          <figure class="order-2 md:order-1">
-            <svg viewBox="0 0 560 260" class="w-full h-auto" role="img" aria-label="A rough pencil drawing of an island turns into a coloured sketch">
-              <!-- Your drawing -->
-              <rect x="4" y="20" width="230" height="200" rx="18" fill="#FFF8EC" stroke="#1B1B1F" stroke-width="4"/>
-              <g fill="none" stroke="#8A8A8A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5">
-                <circle cx="180" cy="72" r="24"/>
-                <path d="M40 180 q40 -62 84 -54 q46 8 70 54z"/>
-                <path d="M118 128 q-4 -30 4 -52 M122 76 q-24 -6 -38 10 M122 76 q22 -12 40 4 M122 76 q12 -18 32 -16"/>
-                <path d="M12 196 q22 -10 44 0 t44 0 t44 0 t44 0 t44 0"/>
-              </g>
-              <!-- Arrow + sparkle -->
-              <path d="M252 120 h44" stroke="#1B1B1F" stroke-width="5" stroke-linecap="round"/>
-              <path d="M286 106 l16 14 l-16 14" fill="none" stroke="#1B1B1F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M274 80 l5 -14 l5 14 l14 5 l-14 5 l-5 14 l-5 -14 l-14 -5z" fill="#F4B942" stroke="#1B1B1F" stroke-width="3" stroke-linejoin="round"/>
-              <!-- Our sketch -->
-              <rect x="326" y="20" width="230" height="200" rx="18" fill="#1B1B1F"/>
-              <clipPath id="sk"><rect x="338" y="32" width="206" height="176" rx="10"/></clipPath>
-              <g clip-path="url(#sk)">
-                <rect x="338" y="32" width="206" height="176" fill="#8ECAE6"/>
-                <circle cx="502" cy="72" r="24" fill="#F4B942" stroke="#1B1B1F" stroke-width="3"/>
-                <path d="M362 180 q40 -62 84 -54 q46 8 70 54z" fill="#2A9D8F" stroke="#1B1B1F" stroke-width="3" stroke-linejoin="round"/>
-                <path d="M440 128 q-4 -30 4 -52 M444 76 q-24 -6 -38 10 M444 76 q22 -12 40 4 M444 76 q12 -18 32 -16" fill="none" stroke="#1B1B1F" stroke-width="4" stroke-linecap="round"/>
-                <path d="M338 178 q22 -10 44 0 t44 0 t44 0 t44 0 t44 0 V210 H338z" fill="#2B6CB0" stroke="#1B1B1F" stroke-width="3"/>
-              </g>
-              <text x="119" y="252" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="17" fill="#1B1B1F">Your drawing</text>
-              <text x="441" y="252" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="17" fill="#1B1B1F">Our sketch</text>
-            </svg>
-          </figure>
-          <div class="order-1 md:order-2">
-            <h2 class="font-display text-4xl sm:text-5xl font-extrabold leading-tight">Get a sketch of your world.</h2>
-            <p class="mt-5 text-lg leading-relaxed">Tell us about your world. Add a drawing if you have one. We send you back a quick sketch.</p>
-            <p class="mt-3 leading-relaxed opacity-80">It's just to play with ideas. The real work is yours.</p>
-            <button type="button" class="btn mt-8 bg-tomato text-white text-lg" data-open-form="start" data-cta-location="sketch">Start now</button>
-          </div>
-        </div>
-      </section>
+          <!-- Your idea goes in -->
+          <g transform="translate(70 262) rotate(-4)">
+            <rect x="7" y="7" width="220" height="196" rx="16" fill="#1B1B1F"/>
+            <rect width="220" height="196" rx="16" fill="#FFF8EC" stroke="#1B1B1F" stroke-width="4"/>
+            <use href="#sketch" transform="translate(110 92) scale(.95)"/>
+            <text x="110" y="178" text-anchor="middle" class="label" font-size="22">Your idea</text>
+          </g>
+          <path class="flow-in" d="M302 362 H 452" fill="none" stroke="#1B1B1F" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow-ink)"/>
 
-      <!-- How it works -->
-      <section id="how" class="mx-auto max-w-6xl px-5 py-16 md:py-24 scroll-mt-6">
-        <h2 class="font-display text-4xl font-extrabold">How it works</h2>
-        <ol class="mt-12 grid gap-10 md:grid-cols-4 md:gap-6">
-          <li>
-            <span class="grid h-14 w-14 place-items-center rounded-full border-2 border-ink bg-sun font-display text-2xl font-extrabold">1</span>
-            <h3 class="mt-4 font-display text-xl font-bold">Start now.</h3>
-            <p class="mt-2 leading-relaxed">Tell us about your world. Any style, any tools, even paper.</p>
-          </li>
-          <li>
-            <span class="grid h-14 w-14 place-items-center rounded-full border-2 border-ink bg-sky font-display text-2xl font-extrabold">2</span>
-            <h3 class="mt-4 font-display text-xl font-bold">Get your sketch.</h3>
-            <p class="mt-2 leading-relaxed">Play with the idea. Keep what you like.</p>
-          </li>
-          <li>
-            <span class="grid h-14 w-14 place-items-center rounded-full border-2 border-ink bg-sea text-white font-display text-2xl font-extrabold">3</span>
-            <h3 class="mt-4 font-display text-xl font-bold">Build it with mentors.</h3>
-            <p class="mt-2 leading-relaxed">We pay a small stipend.</p>
-          </li>
-          <li>
-            <span class="grid h-14 w-14 place-items-center rounded-full border-2 border-ink bg-tomato text-white font-display text-2xl font-extrabold">4</span>
-            <h3 class="mt-4 font-display text-xl font-bold">We help the world see it.</h3>
-            <p class="mt-2 leading-relaxed">Our channels, festivals, shows and press.</p>
-          </li>
-        </ol>
-        <p class="mt-14 rounded-2xl border-2 border-ink bg-white px-6 py-5 text-lg leading-relaxed shadow-card">
-          <strong>You keep your rights.</strong> We take 10 to 20%. If there's no deal in 2 years, it all comes back to you.
-        </p>
-      </section>
+          <!-- The harness, wrapped around unlocking creativity -->
+          <circle cx="649" cy="369" r="178" fill="#1B1B1F"/>
+          <circle cx="640" cy="360" r="178" fill="#F4B942" stroke="#1B1B1F" stroke-width="5"/>
+          <circle cx="640" cy="360" r="132" fill="#FFF8EC" stroke="#1B1B1F" stroke-width="3"/>
+          <g class="ring">
+            <text class="label" font-size="14" letter-spacing="2"><textPath href="#ring-d" textLength="930" lengthAdjust="spacing">HARNESS • YOUR TOOLS • YOUR MODELS • YOUR STYLE • YOUR RULES • HARNESS • YOUR TOOLS • YOUR MODELS • YOUR STYLE • YOUR RULES •</textPath></text>
+          </g>
+          <use href="#key" transform="translate(592 296) rotate(-18)"/>
+          <text x="640" y="392" text-anchor="middle" class="display" font-size="58">Unlock</text>
+          <text x="640" y="440" text-anchor="middle" class="display" font-size="44">creativity</text>
+        </svg>
+      </figure>
 
-      <!-- Who it's for (end) -->
-      <section id="who" class="mx-auto max-w-6xl px-5 py-16 md:py-24 scroll-mt-6">
-        <h2 class="font-display text-4xl font-extrabold">Who it's for</h2>
-        <div class="mt-10 grid gap-10 md:grid-cols-2">
-          <div>
-            <h3 class="font-display text-xl font-bold">You make</h3>
-            <ul class="mt-4 space-y-3 text-lg">
-              <li class="flex gap-3"><span class="text-tomato font-extrabold" aria-hidden="true">&#10022;</span>Paintings</li>
-              <li class="flex gap-3"><span class="text-tomato font-extrabold" aria-hidden="true">&#10022;</span>Illustrations</li>
-              <li class="flex gap-3"><span class="text-tomato font-extrabold" aria-hidden="true">&#10022;</span>Animation</li>
-              <li class="flex gap-3"><span class="text-tomato font-extrabold" aria-hidden="true">&#10022;</span>Comics</li>
-              <li class="flex gap-3"><span class="text-tomato font-extrabold" aria-hidden="true">&#10022;</span>Design</li>
-              <li class="flex gap-3"><span class="text-tomato font-extrabold" aria-hidden="true">&#10022;</span>Any other visual art</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-display text-xl font-bold">You're from</h3>
-            <ul class="mt-4 space-y-3 text-lg">
-              <li class="flex gap-3"><span class="text-sea font-extrabold" aria-hidden="true">&#10022;</span>Islands and small towns</li>
-              <li class="flex gap-3"><span class="text-sea font-extrabold" aria-hidden="true">&#10022;</span>Africa</li>
-              <li class="flex gap-3"><span class="text-sea font-extrabold" aria-hidden="true">&#10022;</span>The Caribbean</li>
-              <li class="flex gap-3"><span class="text-sea font-extrabold" aria-hidden="true">&#10022;</span>The Pacific</li>
-              <li class="flex gap-3"><span class="text-sea font-extrabold" aria-hidden="true">&#10022;</span>Latin America and Asia</li>
-              <li class="flex gap-3"><span class="text-sea font-extrabold" aria-hidden="true">&#10022;</span>Black and minority communities anywhere</li>
-            </ul>
-          </div>
-        </div>
-        <div class="mt-14">
-          <button type="button" class="btn bg-tomato text-white text-lg" data-open-form="start" data-cta-location="who">Start now</button>
-        </div>
-      </section>
+      <!-- The picture (mobile) -->
+      <figure class="md:hidden px-5 pt-2">
+        <svg viewBox="0 0 400 420" class="w-full h-auto" role="img"
+             aria-label="Unlock creativity. Your idea goes into the harness, which runs your tools and models while you keep ultimate control.">
+          <g transform="translate(14 14) rotate(-4)">
+            <rect x="5" y="5" width="150" height="124" rx="14" fill="#1B1B1F"/>
+            <rect width="150" height="124" rx="14" fill="#FFF8EC" stroke="#1B1B1F" stroke-width="3.5"/>
+            <use href="#sketch" transform="translate(75 56) scale(.6)"/>
+            <text x="75" y="112" text-anchor="middle" class="label" font-size="17">Your idea</text>
+          </g>
+          <path class="flow-in" d="M150 120 C 170 130, 176 136, 180 148" fill="none" stroke="#1B1B1F" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow-ink)"/>
+
+          <circle cx="246" cy="274" r="140" fill="#1B1B1F"/>
+          <circle cx="240" cy="268" r="140" fill="#F4B942" stroke="#1B1B1F" stroke-width="4"/>
+          <circle cx="240" cy="268" r="102" fill="#FFF8EC" stroke="#1B1B1F" stroke-width="2.5"/>
+          <g class="ring">
+            <text class="label" font-size="11.5" letter-spacing="1.5"><textPath href="#ring-m" textLength="720" lengthAdjust="spacing">HARNESS • YOUR TOOLS • YOUR MODELS • YOUR STYLE • YOUR RULES • HARNESS • YOUR TOOLS • YOUR MODELS • YOUR STYLE • YOUR RULES •</textPath></text>
+          </g>
+          <use href="#key" transform="translate(206 222) rotate(-18) scale(.68)"/>
+          <text x="240" y="292" text-anchor="middle" class="display" font-size="44">Unlock</text>
+          <text x="240" y="328" text-anchor="middle" class="display" font-size="33">creativity</text>
+        </svg>
+        <ul class="mt-6 grid grid-cols-2 gap-3 font-bold text-sm">
+          <li class="flex items-center gap-3 rounded-2xl border-2 border-ink bg-white p-3"><svg class="h-10 w-10 flex-none" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-comic"/></svg>Comic</li>
+          <li class="flex items-center gap-3 rounded-2xl border-2 border-ink bg-white p-3"><svg class="h-10 w-10 flex-none" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-video"/></svg>Animated short</li>
+          <li class="flex items-center gap-3 rounded-2xl border-2 border-ink bg-white p-3"><svg class="h-10 w-10 flex-none" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-book"/></svg>Picture book</li>
+          <li class="flex items-center gap-3 rounded-2xl border-2 border-ink bg-white p-3"><svg class="h-10 w-10 flex-none" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-post"/></svg>Posts and reels</li>
+          <li class="flex items-center gap-3 rounded-2xl border-2 border-ink bg-white p-3"><svg class="h-10 w-10 flex-none" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-poster"/></svg>Posters and prints</li>
+          <li class="flex items-center gap-3 rounded-2xl border-2 border-ink bg-white p-3"><svg class="h-10 w-10 flex-none" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-shirt"/></svg>Merch designs</li>
+          <li class="flex items-center gap-3 rounded-2xl border-2 border-ink bg-white p-3"><svg class="h-10 w-10 flex-none" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-deck"/></svg>Pitch deck</li>
+          <li class="flex items-center gap-3 rounded-2xl border-2 border-ink bg-white p-3"><svg class="h-10 w-10 flex-none" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-bible"/></svg>World bible</li>
+        </ul>
+      </figure>
+
+      <div class="mx-auto max-w-6xl px-5 pt-8 pb-20 text-center">
+        <p class="font-display text-2xl sm:text-3xl font-bold">Ultimate control. Every step is yours.</p>
+        <button type="button" class="btn mt-6 bg-tomato text-white text-lg" data-open-form="start" data-cta-location="hero">Start now</button>
+      </div>
     </main>
 
     <footer class="bg-ink text-paper">

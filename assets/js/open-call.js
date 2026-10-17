@@ -1,9 +1,9 @@
 /**
- * Open Call forms for the homepage (visual artist IP accelerator).
+ * "Start now" form for the homepage (artist harness).
  * Any [data-open-form="start"] element opens the matching Tally
  * form as a popup, forwards attribution as Tally hidden fields, and fires GA4:
  *   form_open      when the popup opens
- *   generate_lead  on submit (lead_type: sketch_request)
+ *   generate_lead  on submit (lead_type: harness_start)
  *
  * Paste the Tally form IDs below once the forms exist (tally.so/r/<ID>).
  * Until then the buttons fall back to an email to business@unrealsolutions.com.
@@ -16,7 +16,7 @@
   window.__usOpenCallLoaded = true;
 
   var FORMS = {
-    start: { tally: '', leadType: 'sketch_request', subject: 'A sketch of my world' }
+    start: { tally: '', leadType: 'harness_start', subject: 'Start with Unreal Solutions' }
   };
   var EMAIL = 'business@unrealsolutions.com';
 
