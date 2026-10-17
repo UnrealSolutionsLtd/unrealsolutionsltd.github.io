@@ -136,8 +136,6 @@
       .squiggle { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 5 Q5 0 10 5 T20 5 T30 5 T40 5' fill='none' stroke='%23E4572E' stroke-width='3'/%3E%3C/svg%3E");
                   background-repeat: repeat-x; background-position: 0 100%; background-size: 28px 8px; padding-bottom: .35rem; }
       .card { background: #fff; border: 2px solid #1B1B1F; border-radius: 1.25rem; box-shadow: 6px 6px 0 #1B1B1F; }
-      .why-table th, .why-table td { padding: .9rem 1rem; text-align: left; vertical-align: top; }
-      .why-table tbody tr + tr td { border-top: 2px dashed rgba(27,27,31,.2); }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
     </style>
   </head>
@@ -157,12 +155,12 @@
         <span class="font-display font-extrabold text-lg">Unreal Solutions</span>
       </a>
       <nav class="hidden md:flex items-center gap-7 font-medium">
+        <a href="#sketch" class="hover:text-tomato">AI sketch</a>
         <a href="#how" class="hover:text-tomato">How it works</a>
-        <a href="#why" class="hover:text-tomato">Why us</a>
-        <a href="#deal" class="hover:text-tomato">The deal</a>
         <a href="#buyers" class="hover:text-tomato">Buyers</a>
+        <a href="#who" class="hover:text-tomato">Who it's for</a>
       </nav>
-      <button type="button" class="btn bg-tomato text-white !py-2.5 !px-5" data-open-form="apply" data-cta-location="header">Apply</button>
+      <button type="button" class="btn bg-tomato text-white !py-2.5 !px-5" data-open-form="start" data-cta-location="header">Start now</button>
     </header>
 
     <main>
@@ -181,7 +179,7 @@
             You keep your rights. We only earn if you earn.
           </p>
           <div class="mt-8 flex flex-wrap gap-4">
-            <button type="button" class="btn bg-tomato text-white text-lg" data-open-form="apply" data-cta-location="hero">Apply to Season 1</button>
+            <button type="button" class="btn bg-tomato text-white text-lg" data-open-form="start" data-cta-location="hero">Start now</button>
             <button type="button" class="btn bg-white text-lg" data-open-form="buyer" data-cta-location="hero">I'm a buyer</button>
           </div>
         </div>
@@ -221,26 +219,42 @@
         </figure>
       </section>
 
-      <!-- What we do -->
-      <section class="border-y-2 border-ink bg-white">
-        <div class="mx-auto max-w-6xl px-5 py-16 md:py-20">
-          <h2 class="font-display text-4xl font-extrabold">What we do</h2>
-          <div class="mt-10 grid gap-6 md:grid-cols-3">
-            <div class="card p-7">
-              <div class="h-12 w-12 rounded-full bg-sun border-2 border-ink grid place-items-center font-display font-extrabold text-xl">1</div>
-              <h3 class="mt-5 font-display text-2xl font-bold">We share your work.</h3>
-              <p class="mt-3 leading-relaxed">We post your work on our channels. We get it into festivals, shows and press.</p>
-            </div>
-            <div class="card p-7">
-              <div class="h-12 w-12 rounded-full bg-sea border-2 border-ink grid place-items-center font-display font-extrabold text-xl text-white">2</div>
-              <h3 class="mt-5 font-display text-2xl font-bold">You keep your rights.</h3>
-              <p class="mt-3 leading-relaxed">Most of the IP stays yours. If we don't find a deal in 2 years, all of it comes back to you.</p>
-            </div>
-            <div class="card p-7">
-              <div class="h-12 w-12 rounded-full bg-tomato border-2 border-ink grid place-items-center font-display font-extrabold text-xl text-white">3</div>
-              <h3 class="mt-5 font-display text-2xl font-bold">We pitch you to buyers.</h3>
-              <p class="mt-3 leading-relaxed">Publishers, galleries, brands, streamers, TV, toy and game companies.</p>
-            </div>
+      <!-- AI sketch of your world (main CTA) -->
+      <section id="sketch" class="border-y-2 border-ink bg-white scroll-mt-6">
+        <div class="mx-auto max-w-6xl px-5 py-16 md:py-24 grid gap-12 md:grid-cols-2 md:items-center">
+          <figure class="order-2 md:order-1">
+            <svg viewBox="0 0 560 260" class="w-full h-auto" role="img" aria-label="A rough pencil drawing of an island turns into a coloured sketch">
+              <!-- Your drawing -->
+              <rect x="4" y="20" width="230" height="200" rx="18" fill="#FFF8EC" stroke="#1B1B1F" stroke-width="4"/>
+              <g fill="none" stroke="#8A8A8A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5">
+                <circle cx="180" cy="72" r="24"/>
+                <path d="M40 180 q40 -62 84 -54 q46 8 70 54z"/>
+                <path d="M118 128 q-4 -30 4 -52 M122 76 q-24 -6 -38 10 M122 76 q22 -12 40 4 M122 76 q12 -18 32 -16"/>
+                <path d="M12 196 q22 -10 44 0 t44 0 t44 0 t44 0 t44 0"/>
+              </g>
+              <!-- Arrow + sparkle -->
+              <path d="M252 120 h44" stroke="#1B1B1F" stroke-width="5" stroke-linecap="round"/>
+              <path d="M286 106 l16 14 l-16 14" fill="none" stroke="#1B1B1F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M274 80 l5 -14 l5 14 l14 5 l-14 5 l-5 14 l-5 -14 l-14 -5z" fill="#F4B942" stroke="#1B1B1F" stroke-width="3" stroke-linejoin="round"/>
+              <!-- AI sketch -->
+              <rect x="326" y="20" width="230" height="200" rx="18" fill="#1B1B1F"/>
+              <clipPath id="sk"><rect x="338" y="32" width="206" height="176" rx="10"/></clipPath>
+              <g clip-path="url(#sk)">
+                <rect x="338" y="32" width="206" height="176" fill="#8ECAE6"/>
+                <circle cx="502" cy="72" r="24" fill="#F4B942" stroke="#1B1B1F" stroke-width="3"/>
+                <path d="M362 180 q40 -62 84 -54 q46 8 70 54z" fill="#2A9D8F" stroke="#1B1B1F" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M440 128 q-4 -30 4 -52 M444 76 q-24 -6 -38 10 M444 76 q22 -12 40 4 M444 76 q12 -18 32 -16" fill="none" stroke="#1B1B1F" stroke-width="4" stroke-linecap="round"/>
+                <path d="M338 178 q22 -10 44 0 t44 0 t44 0 t44 0 t44 0 V210 H338z" fill="#2B6CB0" stroke="#1B1B1F" stroke-width="3"/>
+              </g>
+              <text x="119" y="252" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="17" fill="#1B1B1F">Your drawing</text>
+              <text x="441" y="252" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="17" fill="#1B1B1F">Your AI sketch</text>
+            </svg>
+          </figure>
+          <div class="order-1 md:order-2">
+            <h2 class="font-display text-4xl sm:text-5xl font-extrabold leading-tight">Get an AI sketch of your world.</h2>
+            <p class="mt-5 text-lg leading-relaxed">Tell us about your world. Add a drawing if you have one. We send you back a quick AI sketch.</p>
+            <p class="mt-3 leading-relaxed opacity-80">It's just to play with ideas. The real work is yours. We never train AI on your art.</p>
+            <button type="button" class="btn mt-8 bg-tomato text-white text-lg" data-open-form="start" data-cta-location="sketch">Start now</button>
           </div>
         </div>
       </section>
@@ -248,100 +262,76 @@
       <!-- How it works -->
       <section id="how" class="mx-auto max-w-6xl px-5 py-16 md:py-24 scroll-mt-6">
         <h2 class="font-display text-4xl font-extrabold">How it works</h2>
-        <ol class="mt-10 grid gap-6 md:grid-cols-4">
-          <li class="card p-6">
-            <span class="font-display text-5xl font-extrabold text-tomato">1</span>
-            <h3 class="mt-3 font-display text-xl font-bold">Apply.</h3>
-            <p class="mt-2 leading-relaxed">Show us your work and the world behind it. Any style, any tools, even paper.</p>
+        <ol class="mt-12 grid gap-10 md:grid-cols-4 md:gap-6">
+          <li>
+            <span class="grid h-14 w-14 place-items-center rounded-full border-2 border-ink bg-sun font-display text-2xl font-extrabold">1</span>
+            <h3 class="mt-4 font-display text-xl font-bold">Start now.</h3>
+            <p class="mt-2 leading-relaxed">Tell us about your world. Any style, any tools, even paper.</p>
           </li>
-          <li class="card p-6">
-            <span class="font-display text-5xl font-extrabold text-sea">2</span>
-            <h3 class="mt-3 font-display text-xl font-bold">See a quick AI sketch of your world.</h3>
-            <p class="mt-2 leading-relaxed">It's just to play with ideas. The real work is yours.</p>
+          <li>
+            <span class="grid h-14 w-14 place-items-center rounded-full border-2 border-ink bg-sky font-display text-2xl font-extrabold">2</span>
+            <h3 class="mt-4 font-display text-xl font-bold">Get your AI sketch.</h3>
+            <p class="mt-2 leading-relaxed">Play with the idea. Keep what you like.</p>
           </li>
-          <li class="card p-6">
-            <span class="font-display text-5xl font-extrabold text-sun">3</span>
-            <h3 class="mt-3 font-display text-xl font-bold">Build your project with our mentors.</h3>
-            <p class="mt-2 leading-relaxed">We pay a small stipend.</p>
+          <li>
+            <span class="grid h-14 w-14 place-items-center rounded-full border-2 border-ink bg-sea text-white font-display text-2xl font-extrabold">3</span>
+            <h3 class="mt-4 font-display text-xl font-bold">Build it with mentors.</h3>
+            <p class="mt-2 leading-relaxed">If you join a season, we pay a small stipend.</p>
           </li>
-          <li class="card p-6">
-            <span class="font-display text-5xl font-extrabold text-ink">4</span>
-            <h3 class="mt-3 font-display text-xl font-bold">We show it to people.</h3>
-            <p class="mt-2 leading-relaxed">Then we show it to buyers.</p>
+          <li>
+            <span class="grid h-14 w-14 place-items-center rounded-full border-2 border-ink bg-tomato text-white font-display text-2xl font-extrabold">4</span>
+            <h3 class="mt-4 font-display text-xl font-bold">We help the world see it.</h3>
+            <p class="mt-2 leading-relaxed">Our channels, festivals, shows and press. Then buyers.</p>
           </li>
         </ol>
+        <p class="mt-14 rounded-2xl border-2 border-ink bg-white px-6 py-5 text-lg leading-relaxed shadow-card">
+          <strong>You keep your rights.</strong> We take 10 to 20%. If there's no deal in 2 years, it all comes back to you.
+        </p>
       </section>
 
-      <!-- Why us -->
-      <section id="why" class="bg-sky/40 border-y-2 border-ink scroll-mt-6">
-        <div class="mx-auto max-w-4xl px-5 py-16 md:py-24">
-          <h2 class="font-display text-4xl font-extrabold">Why us</h2>
-          <div class="mt-10 card overflow-x-auto">
-            <table class="why-table w-full min-w-[520px] text-base">
-              <thead class="bg-ink text-paper font-display">
-                <tr><th>If you go to</th><th>What happens</th><th class="bg-tomato">With us</th></tr>
-              </thead>
-              <tbody>
-                <tr><td class="font-bold">A studio</td><td>They own your idea</td><td class="font-bold">You own it</td></tr>
-                <tr><td class="font-bold">A grant</td><td>You get money, nobody sees the work</td><td class="font-bold">People see it</td></tr>
-                <tr><td class="font-bold">A big agency</td><td>They take most of your rights</td><td class="font-bold">We take a small share</td></tr>
-                <tr><td class="font-bold">An AI tool</td><td>It makes the art for you</td><td class="font-bold">You make the art</td></tr>
-              </tbody>
-            </table>
+      <!-- Buyers -->
+      <section id="buyers" class="bg-ink text-paper scroll-mt-6">
+        <div class="mx-auto max-w-6xl px-5 py-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 class="font-display text-3xl font-extrabold">Buying new art and stories?</h2>
+            <p class="mt-2 text-lg opacity-80">New places, new voices, real audience numbers. Come to Pitch Day.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-4">
+            <button type="button" class="btn bg-sun text-ink" data-open-form="buyer" data-cta-location="buyers">Get a Pitch Day invite</button>
+            <button type="button" class="font-bold underline underline-offset-4 hover:text-sun" data-open-form="sponsor" data-cta-location="sponsors">Fund a season</button>
           </div>
         </div>
       </section>
 
-      <!-- Who it's for -->
-      <section class="mx-auto max-w-6xl px-5 py-16 md:py-24">
+      <!-- Who it's for (end) -->
+      <section id="who" class="mx-auto max-w-6xl px-5 py-16 md:py-24 scroll-mt-6">
         <h2 class="font-display text-4xl font-extrabold">Who it's for</h2>
-        <p class="mt-6 text-lg leading-relaxed max-w-2xl">Painters, illustrators, animators, comic artists, designers. From places the art world usually skips.</p>
-        <ul class="mt-8 flex flex-wrap gap-3 font-bold">
-          <li class="rounded-full border-2 border-ink bg-white px-4 py-2">Islands</li>
-          <li class="rounded-full border-2 border-ink bg-white px-4 py-2">Small towns</li>
-          <li class="rounded-full border-2 border-ink bg-sun px-4 py-2">Africa</li>
-          <li class="rounded-full border-2 border-ink bg-white px-4 py-2">The Caribbean</li>
-          <li class="rounded-full border-2 border-ink bg-sea text-white px-4 py-2">The Pacific</li>
-          <li class="rounded-full border-2 border-ink bg-white px-4 py-2">Latin America</li>
-          <li class="rounded-full border-2 border-ink bg-white px-4 py-2">Asia</li>
-          <li class="rounded-full border-2 border-ink bg-tomato text-white px-4 py-2">Black and minority creators everywhere</li>
-        </ul>
-      </section>
-
-      <!-- The deal -->
-      <section id="deal" class="border-y-2 border-ink bg-white scroll-mt-6">
-        <div class="mx-auto max-w-4xl px-5 py-16 md:py-24">
-          <h2 class="font-display text-4xl font-extrabold">The deal</h2>
-          <div class="mt-8 space-y-4 text-lg leading-relaxed">
-            <p>We take 10 to 20% of the IP. We'll set the final number before Season 1 starts.</p>
-            <p>You keep the rest. You make the creative calls.</p>
-            <p>If we don't find a deal in 2 years, all of it comes back to you.</p>
-            <p>We never train AI on your work.</p>
+        <div class="mt-10 grid gap-10 md:grid-cols-2">
+          <div>
+            <h3 class="font-display text-xl font-bold">You make</h3>
+            <ul class="mt-4 space-y-3 text-lg">
+              <li class="flex gap-3"><span class="text-tomato font-extrabold" aria-hidden="true">&#10022;</span>Paintings</li>
+              <li class="flex gap-3"><span class="text-tomato font-extrabold" aria-hidden="true">&#10022;</span>Illustrations</li>
+              <li class="flex gap-3"><span class="text-tomato font-extrabold" aria-hidden="true">&#10022;</span>Animation</li>
+              <li class="flex gap-3"><span class="text-tomato font-extrabold" aria-hidden="true">&#10022;</span>Comics</li>
+              <li class="flex gap-3"><span class="text-tomato font-extrabold" aria-hidden="true">&#10022;</span>Design</li>
+              <li class="flex gap-3"><span class="text-tomato font-extrabold" aria-hidden="true">&#10022;</span>Any other visual art</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-display text-xl font-bold">You're from</h3>
+            <ul class="mt-4 space-y-3 text-lg">
+              <li class="flex gap-3"><span class="text-sea font-extrabold" aria-hidden="true">&#10022;</span>Islands and small towns</li>
+              <li class="flex gap-3"><span class="text-sea font-extrabold" aria-hidden="true">&#10022;</span>Africa</li>
+              <li class="flex gap-3"><span class="text-sea font-extrabold" aria-hidden="true">&#10022;</span>The Caribbean</li>
+              <li class="flex gap-3"><span class="text-sea font-extrabold" aria-hidden="true">&#10022;</span>The Pacific</li>
+              <li class="flex gap-3"><span class="text-sea font-extrabold" aria-hidden="true">&#10022;</span>Latin America and Asia</li>
+              <li class="flex gap-3"><span class="text-sea font-extrabold" aria-hidden="true">&#10022;</span>Black and minority communities anywhere</li>
+            </ul>
           </div>
         </div>
-      </section>
-
-      <!-- For buyers -->
-      <section id="buyers" class="mx-auto max-w-6xl px-5 py-16 md:py-24 scroll-mt-6">
-        <div class="grid gap-6 md:grid-cols-2">
-          <div class="card p-8">
-            <h2 class="font-display text-3xl font-extrabold">For buyers</h2>
-            <p class="mt-4 text-lg leading-relaxed">New art and new stories from new places, with real audience numbers attached. Come to Pitch Day.</p>
-            <button type="button" class="btn mt-6 bg-ink text-paper" data-open-form="buyer" data-cta-location="buyers">Get a Pitch Day invite</button>
-          </div>
-          <div class="card p-8 bg-sun">
-            <h2 class="font-display text-3xl font-extrabold">Fund a season</h2>
-            <p class="mt-4 text-lg leading-relaxed">Each season pays artists a stipend. If your foundation or brand wants to help, talk to us.</p>
-            <button type="button" class="btn mt-6 bg-white" data-open-form="sponsor" data-cta-location="sponsors">Talk to us</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Final CTA -->
-      <section class="bg-tomato border-t-2 border-ink">
-        <div class="mx-auto max-w-4xl px-5 py-16 md:py-20 text-center text-white">
-          <h2 class="font-display text-4xl sm:text-5xl font-extrabold">Season 1 is open. Show us your world.</h2>
-          <button type="button" class="btn mt-8 bg-white text-ink text-lg" data-open-form="apply" data-cta-location="footer_cta">Apply to Season 1</button>
+        <div class="mt-14">
+          <button type="button" class="btn bg-tomato text-white text-lg" data-open-form="start" data-cta-location="who">Start now</button>
         </div>
       </section>
     </main>

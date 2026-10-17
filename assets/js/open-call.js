@@ -1,9 +1,9 @@
 /**
  * Open Call forms for the homepage (visual artist IP accelerator).
- * Any [data-open-form="apply|buyer|sponsor"] element opens the matching Tally
+ * Any [data-open-form="start|buyer|sponsor"] element opens the matching Tally
  * form as a popup, forwards attribution as Tally hidden fields, and fires GA4:
  *   form_open      when the popup opens
- *   generate_lead  on submit (lead_type: ip_application / buyer_interest / sponsor_interest)
+ *   generate_lead  on submit (lead_type: sketch_request / buyer_interest / sponsor_interest)
  *
  * Paste the Tally form IDs below once the forms exist (tally.so/r/<ID>).
  * Until then the buttons fall back to an email to business@unrealsolutions.com.
@@ -16,7 +16,7 @@
   window.__usOpenCallLoaded = true;
 
   var FORMS = {
-    apply:   { tally: '', leadType: 'ip_application',   subject: 'Season 1 application' },
+    start:   { tally: '', leadType: 'sketch_request',   subject: 'AI sketch of my world' },
     buyer:   { tally: '', leadType: 'buyer_interest',   subject: 'Pitch Day: buyer interest' },
     sponsor: { tally: '', leadType: 'sponsor_interest', subject: 'Funding a season' }
   };
