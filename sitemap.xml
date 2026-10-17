@@ -3,9 +3,15 @@
   <!-- Main Pages -->
   <url>
     <loc>https://unrealsolutions.com/</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://unrealsolutions.com/rvr/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unrealsolutions.com/products/runtime-video-recorder/</loc>

@@ -3,6 +3,8 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Unreal Solutions",
+  // Internal notes (GTM, setup) must never be published.
+  srcExclude: ['internal/**'],
   description: "Documentation for Unreal Engine Plugins",
   base: '/docs/',  // Docs are served at unrealsolutions.com/docs/
   
