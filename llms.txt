@@ -1,12 +1,18 @@
 # Unreal Solutions Ltd
 
-> Unlock creativity with ultimate control. Bring an idea; a harness runs your tools and models in your style and by your rules, and every step is yours to direct.
+> Unlock creativity with ultimate control. Main workflow: rough sketches (hand drawn, any quality) become video in the style you pick. A harness runs your tools and models in your style and by your rules, and you approve every shot.
 
 ## About
 
 Unreal Solutions Ltd (Registered in England and Wales, No. 14451923) helps people unlock creativity. You bring an idea. The harness runs the tools and models for you, in your style and by your rules, and you approve what comes out.
 
-End deliverables:
+Main workflow, sketch to video:
+1. Your sketches: any quality, hand drawn is fine.
+2. Your style: pick the look you want.
+3. The harness runs your tools and models.
+4. Video in your style, with the same world in every shot. You approve every shot.
+
+Other deliverables:
 - Comic
 - Animated short
 - Picture book
