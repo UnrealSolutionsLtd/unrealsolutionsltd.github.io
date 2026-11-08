@@ -20,7 +20,7 @@ How it works:
 3. Iterate: say what to change in plain language. Every pass adds detail.
 4. Final shot: ready for the edit.
 
-Start with a pilot: send one scene and get back the shots and a price per finished minute.
+Start with a pilot: send one scene and the ideal state.
 
 - Book a pilot: https://unrealsolutions.com/
 - Email: business@unrealsolutions.com
