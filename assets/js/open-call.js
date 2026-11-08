@@ -1,5 +1,5 @@
 /**
- * "Start now" on the homepage.
+ * "Book a pilot" on the homepage.
  * Any [data-open-form="start"] element opens the hosted Tally form in a new tab.
  * We link to the hosted page instead of an embedded popup: the popup breaks with
  * ad/privacy blockers, the hosted page doesn't.
@@ -11,7 +11,7 @@
  *   form_open      when the button is clicked
  *   generate_lead  when Tally sends the person back here after submitting
  *                  (Tally form settings > "Redirect on completion" to
- *                   https://unrealsolutions.com/?lead=harness_start)
+ *                   https://unrealsolutions.com/?lead=pilot_request)
  */
 
 (function () {
@@ -20,7 +20,7 @@
   window.__usOpenCallLoaded = true;
 
   var FORMS = {
-    start: { tally: 'EqzAdq', leadType: 'harness_start' }
+    start: { tally: 'EqzAdq', leadType: 'pilot_request' }
   };
 
   function ga() {
