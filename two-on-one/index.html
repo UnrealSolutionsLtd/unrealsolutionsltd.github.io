@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Two on One | Unreal Solutions</title>
+<meta name="description" content="An interactive fight scene built as a simulation. Dodge, parry, kick, duck and break free.">
+<link rel="canonical" href="https://unrealsolutions.com/two-on-one/">
+<link rel="icon" href="/favicon.ico">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-39LZYGQJL9',{anonymize_ip:true});</script>
+<style>
+  :root{
+    --bg:#040405; --ink:#e9e6e2; --dim:#8b8782; --danger:#d8392b; --safe:#9fb7a6;
+    --cue:#f3efe9;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    background:var(--bg); color:var(--ink); overflow:hidden;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased; user-select:none;
+  }
+  #stage{
+    position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+    background:#000;
+  }
+  /* 9:16 frame, letterboxed */
+  #frame{
+    position:relative; height:100vh; aspect-ratio:9/16; max-width:100vw;
+    background:#000; overflow:hidden; container-type:inline-size;
+  }
+  video{ width:100%; height:100%; object-fit:cover; display:block; background:#000; }
+  /* cinematic vignette + faint grain */
+  #vignette{position:absolute; inset:0; pointer-events:none;
+    box-shadow:inset 0 0 22vh 6vh rgba(0,0,0,.78); }
+  #grain{position:absolute; inset:-50%; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    animation:grain .5s steps(2) infinite;}
+  @keyframes grain{to{transform:translate(6%,3%)}}
+
+  .layer{position:absolute; inset:0; display:flex; flex-direction:column;
+    align-items:center; justify-content:flex-end; padding:0 7% 9%; gap:18px;
+    pointer-events:none; opacity:0; transition:opacity .35s ease;}
+  .layer.show{opacity:1; pointer-events:auto;}
+  /* a hidden layer must never catch input: its (invisible) buttons used to swallow clicks meant for the QTE */
+  .layer:not(.show), .layer:not(.show) *{pointer-events:none !important;}
+  .layer.center{justify-content:center;}
+
+  /* Title / ending cards */
+  .card{display:flex; flex-direction:column; align-items:center; gap:22px; text-align:center;
+    background:radial-gradient(120% 80% at 50% 40%, rgba(0,0,0,.35), rgba(0,0,0,.85));
+    inset:0; position:absolute; justify-content:center;}
+  .title{font-size:clamp(22px,11cqw,60px); letter-spacing:.12em; text-indent:.12em;
+    white-space:nowrap; font-weight:700; color:var(--cue); text-shadow:0 0 28px rgba(216,57,43,.35);}
+  .subtitle{color:var(--dim); letter-spacing:.22em; font-size:clamp(10px,2.6cqw,13px);
+    text-transform:uppercase; max-width:92%; text-align:center;}
+  .ending-label{font-size:clamp(24px,9cqw,52px); letter-spacing:.16em; text-indent:.16em;
+    font-weight:700; max-width:90%; line-height:1.18;}
+  .ending-A .ending-label,.ending-B .ending-label{color:var(--safe);}
+  .ending-D .ending-label,.ending-C .ending-label{color:var(--danger);
+    text-shadow:0 0 26px rgba(216,57,43,.5);}
+
+  button.btn{
+    pointer-events:auto; cursor:pointer; font:inherit; color:var(--ink);
+    background:rgba(12,12,14,.62); border:1px solid rgba(233,230,226,.28);
+    backdrop-filter:blur(3px); padding:16px 22px; width:100%; max-width:520px;
+    border-radius:12px; letter-spacing:.06em; font-size:16px; text-align:left;
+    transition:.16s ease; display:flex; align-items:center; gap:14px;}
+  button.btn:hover{background:rgba(216,57,43,.16); border-color:rgba(216,57,43,.55);
+    transform:translateY(-1px);}
+  button.btn .k{color:var(--dim); font-size:13px; border:1px solid rgba(233,230,226,.22);
+    border-radius:6px; padding:2px 8px; letter-spacing:.1em;}
+  button.start{justify-content:center; text-align:center; max-width:320px; letter-spacing:.3em;
+    text-transform:uppercase; border-color:rgba(216,57,43,.55);}
+
+  /* QTE */
+  #qte{justify-content:center; gap:26px;}
+  .cue{font-size:clamp(20px,7cqw,38px); letter-spacing:.18em; text-indent:.18em; max-width:92%;
+    text-align:center; color:var(--cue); font-weight:600; text-shadow:0 2px 30px rgba(0,0,0,.8);}
+  .cue.still{color:var(--danger);}
+  .ring-wrap{position:relative; width:170px; height:170px; display:grid; place-items:center;}
+  svg.ring{position:absolute; inset:0; transform:rotate(-90deg);}
+  svg.ring circle{fill:none; stroke-width:7; stroke-linecap:round;}
+  .ring-bg{stroke:rgba(233,230,226,.14);}
+  .ring-fg{stroke:var(--cue); transition:stroke .2s;}
+  .action{width:130px; height:130px; border-radius:50%; display:grid; place-items:center;
+    text-align:center; cursor:pointer; pointer-events:auto;
+    background:radial-gradient(circle at 50% 40%, rgba(216,57,43,.25), rgba(0,0,0,.5));
+    border:1px solid rgba(233,230,226,.35); letter-spacing:.16em; font-weight:700;
+    font-size:18px; line-height:1.25; transition:.1s; -webkit-tap-highlight-color:transparent;}
+  .action:active{transform:scale(.94); background:radial-gradient(circle at 50% 40%, rgba(216,57,43,.55), rgba(0,0,0,.6));}
+  .action.locked{cursor:not-allowed; border-style:dashed; background:rgba(0,0,0,.5);
+    color:var(--danger);}
+  .keycap{display:inline-block; margin-top:8px; font-size:11px; font-weight:700; padding:3px 9px; letter-spacing:.18em;
+    border:1px solid rgba(233,230,226,.6); border-bottom-width:4px; border-radius:6px; background:rgba(0,0,0,.45);}
+  .ring-wrap.pulse{animation:pulse .5s ease-in-out infinite;}
+  @keyframes pulse{50%{transform:scale(1.09)}}
+  .ring-wrap.hit{animation:hit .45s ease forwards;}
+  @keyframes hit{0%{transform:scale(1)}18%{transform:scale(.68)}55%{transform:scale(1.2)}100%{transform:scale(1)}}
+  .ring-wrap.hit .action{background:#2fbf6b; border-color:#fff; color:#04140a; font-size:54px;
+    box-shadow:0 0 70px 22px rgba(47,191,107,.8);}
+  .ring-wrap.miss{animation:shake .4s linear;}
+  .ring-wrap.miss .action{background:#d8392b; border-color:#fff; color:#fff; font-size:54px;
+    box-shadow:0 0 70px 22px rgba(216,57,43,.75);}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-16px)}40%{transform:translateX(16px)}60%{transform:translateX(-10px)}80%{transform:translateX(10px)}}
+  .shock{position:absolute; inset:0; border-radius:50%; border:5px solid #42e08a; pointer-events:none;
+    animation:shock .55s ease-out forwards;}
+  @keyframes shock{to{transform:scale(2.8); opacity:0}}
+  .result{font-size:clamp(28px,11cqw,60px); font-weight:800; letter-spacing:.14em; text-indent:.14em;
+    text-shadow:0 2px 30px rgba(0,0,0,.9);}
+  .result.ok{color:#42e08a;} .result.bad{color:#ff5a4a;}
+  button.btn.choice{font-size:20px; font-weight:700; padding:22px 24px; border-width:2px;
+    border-color:rgba(233,230,226,.6); animation:pulse 1s ease-in-out infinite;}
+  button.btn:active{transform:scale(.95);}
+  /* choices sit side by side at the BOTTOM so they never cover the hero or the exits */
+  #choices{flex-direction:row; flex-wrap:wrap; justify-content:center; align-items:flex-end; align-content:flex-end; gap:12px; padding:0 5% 7%;}
+  #choices .timer{flex:0 0 100%; max-width:none;}
+  #choices button.choice{flex:1 1 40%; width:auto; justify-content:center; text-align:center;}
+  .timer{width:100%; max-width:520px; height:10px; border-radius:6px; background:rgba(233,230,226,.18); overflow:hidden;}
+  .timer i{display:block; height:100%; width:100%; background:#ff5a4a; transition:width linear;}
+  button.btn.pressed{animation:none; transform:scale(.92); background:#2fbf6b; color:#04140a; border-color:#fff;
+    box-shadow:0 0 44px 12px rgba(47,191,107,.65);}
+  button.btn.pressed .k{color:#04140a; border-color:#04140a;}
+  button.btn.dim{animation:none; opacity:.25;}
+  /* key prompt (fight QTE): a big key glyph low on the screen, so the action stays visible */
+  #qte.low{justify-content:flex-end; padding-bottom:4%; gap:10px;}
+  #qte.low .ring-wrap{width:128px; height:128px;}
+  #qte.low .action{width:98px; height:98px;}
+  .glyph{font-size:46px; line-height:1; font-weight:800;}
+  .glyph + div{font-size:11px; letter-spacing:.2em; margin-top:2px;}
+  .glyph.long{font-size:19px; letter-spacing:.08em; padding:12px 0 6px;}
+  /* fight HUD: one pip per beat, lit green (hit), gold (perfect) or red (missed) */
+  #pips{position:absolute; top:4.5%; left:0; right:0; display:none; justify-content:center; gap:10px; pointer-events:none; z-index:4;}
+  #pips.on{display:flex;}
+  #pips i{width:34px; height:7px; border-radius:4px; background:rgba(233,230,226,.22); transition:background .2s, box-shadow .2s, transform .2s;}
+  #pips i.now{background:rgba(233,230,226,.75); transform:scaleY(1.5);}
+  #pips i.ok{background:#42e08a; box-shadow:0 0 12px rgba(66,224,138,.8);}
+  #pips i.perfect{background:#ffd24a; box-shadow:0 0 14px rgba(255,210,74,.9);}
+  #pips i.bad{background:#ff5a4a; box-shadow:0 0 12px rgba(255,90,74,.8);}
+  .result.perfect{color:#ffd24a;}
+  .rating{color:var(--dim); letter-spacing:.3em; font-size:13px; text-transform:uppercase;}
+  /* a landed strike: the picture jolts and flashes */
+  #frame.jolt video{animation:jolt .28s linear;}
+  @keyframes jolt{0%{transform:scale(1.05) translate(0,0)}20%{transform:scale(1.06) translate(-1.4%,.9%)}45%{transform:scale(1.05) translate(1.2%,-.8%)}70%{transform:scale(1.03) translate(-.6%,.4%)}100%{transform:scale(1) translate(0,0)}}
+  #hitflash{position:absolute; inset:0; background:#fff; opacity:0; pointer-events:none; z-index:3;}
+  #hitflash.on{animation:hitflash .22s ease-out;}
+  @keyframes hitflash{0%{opacity:.32}100%{opacity:0}}
+  .mash-bar{width:170px; height:8px; border-radius:6px; background:rgba(233,230,226,.14); overflow:hidden;}
+  .mash-fill{height:100%; width:0%; background:var(--cue); transition:width .08s;}
+  .hint{color:var(--dim); font-size:13px; letter-spacing:.16em; text-transform:uppercase; text-align:center;}
+  .flash{position:absolute; inset:0; opacity:0; pointer-events:none;}
+  .flash.fail{background:radial-gradient(circle, rgba(216,57,43,.0), rgba(216,57,43,.0));
+    box-shadow:inset 0 0 40vh 8vh rgba(216,57,43,.55); animation:flash .5s ease;}
+  .flash.win{box-shadow:inset 0 0 36vh 10vh rgba(120,160,135,.4); animation:flash .5s ease;}
+  @keyframes flash{0%{opacity:0}20%{opacity:1}100%{opacity:0}}
+
+  /* exploration hotspots — Syberia-style: invisible until hovered (we explain nothing) */
+  #hotspots{position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .5s ease;}
+  #hotspots.show{opacity:1;}
+  .hot{position:absolute; pointer-events:auto; cursor:pointer; border-radius:14px;
+    border:1px solid rgba(243,239,233,.22); background:rgba(243,239,233,.04);
+    transition:box-shadow .2s ease, background .2s ease, border-color .2s ease;}
+  .hot:hover{background:rgba(243,239,233,.12); border-color:rgba(243,239,233,.65);
+    box-shadow:0 0 44px rgba(243,239,233,.22);}
+  #hint{position:absolute; left:0; right:0; bottom:7%; text-align:center; pointer-events:none;
+    color:var(--dim); letter-spacing:.34em; text-transform:uppercase; font-size:12px;
+    opacity:0; transition:opacity 1.1s ease;}
+  #hint.show{opacity:.85;}
+  /* theatre blackout between every clip — hides the seam where independently-generated
+     clips don't frame-match, and reads as stage lights going down between beats */
+  #fade{position:absolute; inset:0; background:#000; opacity:0; pointer-events:none;
+    transition:opacity .22s ease; z-index:5;}
+  #fade.on{opacity:1;}
+  /* direct-cut hold: the outgoing frame, shown until the next clip paints its first frame */
+  #hold{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; pointer-events:none; display:none;}
+  #hold.on{display:block;}
+
+  #err{position:absolute; inset:0; display:none; place-items:center; padding:8%; text-align:center;
+    color:var(--dim); font-size:14px; line-height:1.7;}
+  #back{position:fixed; top:14px; left:16px; z-index:10; color:var(--dim); font-size:12px; letter-spacing:.2em; text-transform:uppercase; text-decoration:none;}
+  #back:hover{color:var(--ink);}
+  .spin{color:var(--dim); letter-spacing:.3em; font-size:12px; text-transform:uppercase;}
+</style>
+</head>
+<body>
+<a id="back" href="/">&larr; Unreal Solutions</a>
+<div id="stage">
+  <div id="frame">
+    <video id="video" playsinline preload="auto"></video>
+    <canvas id="hold"></canvas>
+    <div id="vignette"></div>
+    <div id="grain"></div>
+
+    <div class="layer center" id="choices"></div>
+    <div class="layer center" id="qte"></div>
+    <div class="layer card" id="title">
+      <div class="title">DEADBOLT</div>
+      <div class="subtitle" id="subtitle">a quiet-time game</div>
+      <button class="btn start" id="startBtn">Enter</button>
+      <div class="subtitle" id="footer" style="opacity:.6">headphones on · space or tap to act</div>
+    </div>
+    <div class="layer card" id="ending"></div>
+    <div id="hotspots"></div>
+    <div id="hint"></div>
+    <div id="fade"></div>
+    <div class="flash" id="flash"></div>
+    <div id="hitflash"></div>
+    <div id="pips"></div>
+    <div id="err"></div>
+  </div>
+</div>
+
+<script>
+window.DEADBOLT_MAP = {"_meta": {"title": "TWO ON ONE", "subtitle": "an interactive fight", "controls": "← dodge · ↑ parry · → kick · ↓ duck · SPACE break free — hit the key shown", "aspect": "16/9", "retry": "bk1", "beats": ["bk1", "bk2", "bk3", "bk4", "bk5"]}, "title": "TWO ON ONE", "start": "bk0", "nodes": {"bk0": {"src": "clips/bk0.mp4", "goto": "bk1"}, "bk1": {"src": "clips/bk1.mp4", "qte": {"type": "press", "key": "ArrowLeft", "glyph": "←", "label": "DODGE", "cue": "DODGE!", "hint": "press ←", "ok_text": "DODGED!", "fail_text": "TOO SLOW!", "fail_at_end": true, "arm_at": 1.92, "window_ms": 1671, "onSuccess": "bk2", "onFail": "bkf1"}}, "bkf1": {"src": "clips/bkf1.mp4", "ending": "TAKEN DOWN", "tone": "bad", "impacts": [0.96, 2.0, 5.75]}, "bk2": {"src": "clips/bk2.mp4", "qte": {"type": "press", "key": "ArrowUp", "glyph": "↑", "label": "PARRY", "cue": "PARRY!", "hint": "press ↑", "ok_text": "BLOCKED!", "fail_text": "TOO SLOW!", "fail_at_end": true, "arm_at": 2.54, "window_ms": 1713, "onSuccess": "bk3", "onFail": "bkf2"}, "impacts": [1.42, 1.67]}, "bkf2": {"src": "clips/bkf2.mp4", "ending": "TAKEN DOWN", "tone": "bad", "impacts": [1.0, 3.12]}, "bk3": {"src": "clips/bk3.mp4", "qte": {"type": "press", "key": "ArrowRight", "glyph": "→", "label": "KICK", "cue": "KICK!", "hint": "press →", "ok_text": "HIT!", "fail_text": "TOO SLOW!", "fail_at_end": true, "arm_at": 2.46, "window_ms": 1671, "onSuccess": "bk4", "onFail": "bkf3"}, "impacts": [1.0, 1.42]}, "bkf3": {"src": "clips/bkf3.mp4", "ending": "TAKEN DOWN", "tone": "bad", "impacts": [1.58, 4.88, 5.75, 6.33]}, "bk4": {"src": "clips/bk4.mp4", "qte": {"type": "press", "key": "ArrowDown", "glyph": "↓", "label": "DUCK", "cue": "DUCK!", "hint": "press ↓", "ok_text": "DUCKED!", "fail_text": "TOO SLOW!", "fail_at_end": true, "arm_at": 2.17, "window_ms": 1713, "onSuccess": "bk5", "onFail": "bkf4"}, "impacts": [1.12]}, "bkf4": {"src": "clips/bkf4.mp4", "ending": "TAKEN DOWN", "tone": "bad", "impacts": [1.0, 2.25]}, "bk5": {"src": "clips/bk5.mp4", "qte": {"type": "mash", "key": "Space", "glyph": "SPACE", "label": "MASH", "cue": "BREAK FREE!", "hint": "mash SPACE", "ok_text": "BROKE FREE!", "fail_text": "TOO WEAK!", "fail_at_end": true, "arm_at": 2.83, "window_ms": 2588, "onSuccess": "bk6", "onFail": "bkf5", "mash_target": 10}, "impacts": [1.5]}, "bkf5": {"src": "clips/bkf5.mp4", "ending": "TAKEN DOWN", "tone": "bad", "impacts": [1.92]}, "bk6": {"src": "clips/bk6.mp4", "ending": "LAST MAN STANDING", "tone": "good", "impacts": [0.92, 1.79]}}};
+</script>
+<script>
+const qs = new URLSearchParams(location.search);
+const CLIPS_BASE = qs.get('base') || '';                 // node.src already starts with "clips/"
+const MAP_CANDIDATES = [qs.get('map'), 'branch-map.json', 'story/branch-map.json', '../story/branch-map.json'].filter(Boolean);
+
+const video = document.getElementById('video');
+const els = {
+  title: document.getElementById('title'),
+  choices: document.getElementById('choices'),
+  qte: document.getElementById('qte'),
+  ending: document.getElementById('ending'),
+  flash: document.getElementById('flash'),
+  err: document.getElementById('err'),
+  hotspots: document.getElementById('hotspots'),
+  hint: document.getElementById('hint'),
+};
+let MAP=null, NODES=null, current=null, qte=null, ended=false;
+
+function show(layer){ for(const k of ['title','choices','qte','ending']) els[k].classList.toggle('show', els[k]===layer); }
+function hideAll(){ for(const k of ['title','choices','qte','ending']) els[k].classList.remove('show'); }
+function srcFor(node){ return CLIPS_BASE + node.src; }
+
+async function loadMap(){
+  if(window.DEADBOLT_MAP) return window.DEADBOLT_MAP;   // embedded build (runs from file://)
+  for(const url of MAP_CANDIDATES){
+    try{ const r = await fetch(url, {cache:'no-store'}); if(r.ok){ return await r.json(); } }catch(e){}
+  }
+  throw new Error('branch-map.json not found. Open out_game/index.html directly, or serve this folder over http with branch-map.json beside player.html (or pass ?map=URL).');
+}
+
+function prefetch(node){
+  const ids = [];
+  if(node.goto) ids.push(node.goto);
+  (node.choices||[]).forEach(c=>ids.push(c.goto));
+  if(node.qte){ ids.push(node.qte.onSuccess, node.qte.onFail); }
+  ids.forEach(id=>{ const n=NODES[id]; if(n){ fetch(srcFor(n)).catch(()=>{}); } });
+}
+
+const fade = document.getElementById('fade');
+const hold = document.getElementById('hold');
+let BLACKOUT = false;      // per map: _meta.transition === 'blackout' (THE MARK); otherwise direct cuts
+let choiceShown = false;   // timed choice (node.choice_at) already on screen for this clip
+let pendingNext = null;    // a resolved QTE's outcome, waiting for the current clip to finish
+let BEATS = [], score = [], hitsDone = 0;   // fight HUD: _meta.beats = the QTE nodes in order; score[i] = 'ok' | 'perfect' | 'bad'
+function drawPips(now){
+  const el = document.getElementById('pips');
+  el.innerHTML = BEATS.map((_,i)=>`<i class="${score[i] || (i===now ? 'now' : '')}"></i>`).join('');
+  el.classList.add('on');
+}
+// node.impacts = clip seconds where a strike lands: jolt the picture, flash, hold the frame for an instant (hit-stop)
+(function watchImpacts(){
+  const hits = current && current.impacts;
+  if(hits && hitsDone < hits.length && !video.paused && video.currentTime >= hits[hitsDone]){
+    hitsDone++;
+    const fr = document.getElementById('frame'), hf = document.getElementById('hitflash');
+    fr.classList.remove('jolt'); hf.classList.remove('on'); void fr.offsetWidth;
+    fr.classList.add('jolt'); hf.classList.add('on');
+    video.pause(); setTimeout(()=>{ if(!video.ended) video.play().catch(()=>{}); }, 70);
+  }
+  requestAnimationFrame(watchImpacts);
+})();
+function reveal(){ fade.classList.remove('on'); hold.classList.remove('on'); }
+
+// Direct-cut mode: paint the outgoing frame onto a canvas above the video so the source swap
+// never flashes black. With locked first frames the next clip opens on this exact image, so
+// dropping the canvas once the new clip paints its first frame is an invisible cut.
+function holdFrame(){
+  try{
+    if(!video.videoWidth) return;
+    hold.width = video.videoWidth; hold.height = video.videoHeight;
+    hold.getContext('2d').drawImage(video, 0, 0, hold.width, hold.height);
+    hold.classList.add('on');
+  }catch(e){}
+}
+
+function go(id){
+  if(!NODES[id]){ els.err.style.display='grid'; els.err.innerHTML='⚠ Missing node: '+id; return; }
+  pendingNext = null;
+  if(BLACKOUT){
+    fade.classList.add('on');                              // lights down (theatre blackout)
+    setTimeout(()=> _enter(id), 230);                      // switch clips while the screen is black
+  } else {
+    holdFrame();
+    _enter(id);
+  }
+}
+
+function _enter(id){
+  const node = NODES[id];
+  current = node; ended=false; qte=null; choiceShown=false; hitsDone=0;
+  if(BEATS.length){ if(id===MAP.start || id===(MAP._meta.retry||MAP.start)){ score=[]; }
+    drawPips(BEATS.indexOf(id)); }
+  hideAll(); hideHotspots();
+  // Hub: a node whose choices carry hotspots is held FROZEN on its head-on first frame and
+  // overlays the clickable regions. Story clips play once and route on 'ended'. Every switch
+  // happens under the blackout, so a seam where two clips don't frame-match is never seen.
+  const hs = (node.choices && node.choices.some(c=>c.hotspot)) ? node.choices : null;
+  video.loop = false;
+  video.src = srcFor(node);
+  if(hs){
+    video.addEventListener('loadeddata', function once(){
+      video.removeEventListener('loadeddata', once);
+      const onseek = ()=>{ video.removeEventListener('seeked', onseek); video.pause(); showHotspots(hs); reveal(); };
+      video.addEventListener('seeked', onseek);
+      try{ video.currentTime = 0.05; }catch(e){ video.pause(); showHotspots(hs); reveal(); }
+    });
+    video.load();
+  } else {
+    video.currentTime = 0;
+    // reveal on the first PAINTED frame (rVFC) so the held frame hands over without a gap
+    const onplay = ()=>{ video.removeEventListener('playing', onplay);
+      if(video.requestVideoFrameCallback) video.requestVideoFrameCallback(()=>reveal()); else reveal(); };
+    video.addEventListener('playing', onplay);
+    const p = video.play();
+    if(p && p.catch) p.catch(()=>{ reveal(); });           // needs gesture; title handles it
+  }
+  prefetch(node);
+}
+
+/* ---------- routing on clip end ---------- */
+video.addEventListener('ended', ()=>{
+  ended = true;
+  if(!current) return;
+  if(current.choices && current.choices.some(c=>c.hotspot)) return;  // hub loops; never routes on end
+  if(qte && !qte.resolved){ resolveQte(); }           // window still open at clip end → resolve now
+  if(pendingNext){ const n = pendingNext; pendingNext = null; go(n); return; }
+  if(current.qte) return;                              // outcome already scheduled by resolveQte
+  if(current.end || current.ending){ showEnding(current); }
+  else if(current.choices){
+    if(current.choice_at!=null){ hideAll(); go(current.timeout || current.choices[current.choices.length-1].goto); }  // no pick in time
+    else showChoices(current.choices);
+  }
+  else if(current.goto){ go(current.goto); }
+});
+
+/* ---------- choices ---------- */
+function showChoices(choices, timedMs){
+  els.choices.innerHTML='';
+  if(timedMs){                                           // timed: the clip keeps playing while the bar runs out
+    const bar=document.createElement('div'); bar.className='timer'; bar.innerHTML='<i></i>'; els.choices.appendChild(bar);
+    requestAnimationFrame(()=>{ const i=bar.firstChild; i.style.transitionDuration=timedMs+'ms'; i.style.width='0%'; });
+  }
+  choices.forEach((c,i)=>{
+    const b=document.createElement('button'); b.className='btn choice';
+    b.innerHTML = `<span class="k">${c.key||i+1}</span><span>${c.label}</span>`;
+    b.onclick = ()=>{                                   // explicit press: light up, dim the rest, then go
+      if(els.choices.querySelector('.pressed')) return;
+      els.choices.querySelectorAll('button').forEach(x=>{ if(x!==b) x.classList.add('dim'); });
+      b.classList.add('pressed'); flash(true);
+      if(timedMs && !video.ended){ pendingNext = c.goto; setTimeout(()=> els.choices.classList.remove('show'), 450); }  // clip plays on, then cuts
+      else setTimeout(()=> go(c.goto), 320);
+    };
+    els.choices.appendChild(b);
+  });
+  show(els.choices);
+}
+
+/* ---------- exploration hotspots ---------- */
+let hinted=false;
+function showHotspots(choices){
+  els.hotspots.innerHTML='';
+  choices.forEach(c=>{
+    if(!c.hotspot) return;
+    const h=c.hotspot, d=document.createElement('div'); d.className='hot';
+    d.style.left=h.x+'%'; d.style.top=h.y+'%'; d.style.width=h.w+'%'; d.style.height=h.h+'%';
+    if(c.label) d.setAttribute('aria-label', c.label);
+    d.addEventListener('click', ()=>{ hideHotspots(); go(c.goto); });
+    els.hotspots.appendChild(d);
+  });
+  els.hotspots.classList.add('show');
+  maybeHint();
+}
+function hideHotspots(){ els.hotspots.classList.remove('show'); els.hotspots.innerHTML=''; }
+function maybeHint(){
+  if(hinted) return; hinted=true;
+  els.hint.textContent = (MAP._meta && MAP._meta.hint) || 'interact';
+  els.hint.classList.add('show');
+  setTimeout(()=>els.hint.classList.remove('show'), 3600);
+}
+
+/* ---------- endings ---------- */
+function showEnding(node){
+  const id=(node && pickId(node))||'';
+  els.ending.className = 'layer card ending-'+(node.tone ? (node.tone==='bad'?'D':'A') : id.replace(/^end/,''));
+  els.ending.innerHTML =
+    `<div class="ending-label">${node.ending||'THE END'}</div>
+     ${BEATS.length ? `<div class="rating">${score.filter(x=>x && x!=='bad').length} / ${BEATS.length} beats · ${score.filter(x=>x==='perfect').length} perfect</div>` : ''}
+     <button class="btn start" style="border-color:rgba(233,230,226,.3)">Again</button>`;
+  els.ending.querySelector('button').onclick = ()=>{ els.ending.className='layer card'; go((MAP._meta && MAP._meta.retry) || MAP.start); };   // retry may skip an intro
+  show(els.ending);
+}
+function pickId(node){ for(const id in NODES) if(NODES[id]===node) return id; return ''; }
+
+/* ---------- QTE ---------- */
+const TYPE = {
+  press:{label:'PRESS', verb:'tap when it arms'},
+  hold: {label:'HOLD',  verb:'hold until it empties'},
+  mash: {label:'MASH',  verb:'tap fast'},
+  still:{label:'STILL', verb:"don't move — don't touch anything"},
+};
+video.addEventListener('timeupdate', ()=>{
+  if(current && current.choices && current.choice_at!=null && !choiceShown && video.currentTime >= current.choice_at){
+    choiceShown = true; showChoices(current.choices, Math.max(300, (video.duration - video.currentTime)*1000 - 150));
+  }
+  if(current && current.qte && !qte && video.currentTime >= current.qte.arm_at){ armQte(current.qte); }
+});
+
+function armQte(spec){
+  const t = TYPE[spec.type] || TYPE.press;
+  qte = {spec, resolved:false, held:false, taps:0, start:performance.now(), dur:spec.window_ms};
+  const isStill = spec.type==='still';
+  els.qte.innerHTML = `
+    <div class="cue ${isStill?'still':''}">${spec.cue||t.label}</div>
+    <div class="ring-wrap ${isStill?'':'pulse'}">
+      <svg class="ring" viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/>
+        <circle class="ring-fg" cx="60" cy="60" r="54" id="ringfg"/></svg>
+      <div class="action ${isStill?'locked':''}" id="act">${spec.glyph ? `<div><div class="glyph ${spec.glyph.length>1?'long':''}">${spec.glyph}</div><div>${spec.label||''}</div></div>`
+        : `<div><div>${t.label}</div>${isStill?'':'<div class="keycap">SPACE</div>'}</div>`}</div>
+    </div>
+    ${spec.type==='mash' ? `<div class="mash-bar"><div class="mash-fill" id="mfill"></div></div>`:''}
+    <div class="hint">${spec.hint || t.verb}</div>`;
+  els.qte.classList.toggle('low', !!spec.glyph);
+  show(els.qte);
+  const C = 2*Math.PI*54;
+  const ring = document.getElementById('ringfg');
+  ring.style.strokeDasharray = C;
+  const act = document.getElementById('act');
+  // input is handled globally: a click/tap ANYWHERE on the screen counts (see the pointerdown listener)
+  // animate the depleting ring
+  const tick = (now)=>{
+    if(!qte || qte.resolved) return;
+    const e = now - qte.start, frac = Math.min(1, e/qte.dur);
+    ring.style.strokeDashoffset = (C*frac).toFixed(1);
+    ring.style.stroke = frac>0.7 ? 'var(--danger)' : (isStill?'var(--safe)':'var(--cue)');
+    if(e >= qte.dur){ resolveQte(); return; }
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+function onPress(e){
+  if(e && e.preventDefault) e.preventDefault();
+  if(!qte || qte.resolved) return;
+  const ty = qte.spec.type;
+  if(ty==='still'){ resolveQte(false); return; }       // any input = caught
+  if(ty==='press'){ resolveQte(true); return; }
+  if(ty==='hold'){ qte.held = true; }
+  if(ty==='mash'){
+    qte.taps++;
+    const fill=document.getElementById('mfill');
+    if(fill) fill.style.width = Math.min(100, 100*qte.taps/(qte.spec.mash_target||10))+'%';
+    if(qte.taps >= (qte.spec.mash_target||10)){ resolveQte(true); }
+  }
+}
+function onRelease(){ if(qte && !qte.resolved && qte.spec.type==='hold') qte.held=false; }
+
+function resolveQte(forced){
+  if(!qte || qte.resolved) return;
+  qte.resolved = true;
+  let ok;
+  if(typeof forced==='boolean') ok = forced;
+  else { // window elapsed
+    const ty = qte.spec.type;
+    ok = ty==='still' ? true : ty==='hold' ? !!qte.held : ty==='mash' ? (qte.taps>=(qte.spec.mash_target||10)) : false;
+  }
+  const next = ok ? qte.spec.onSuccess : qte.spec.onFail;
+  const perfect = ok && (performance.now() - qte.start) <= qte.dur * (qte.spec.type==='mash' ? 0.6 : 0.35);   // an early, sure answer
+  if(BEATS.length){ const bi = BEATS.indexOf(pickId(current)); if(bi>=0){ score[bi] = ok ? (perfect?'perfect':'ok') : 'bad'; drawPips(-1); } }
+  flash(ok);
+  // explicit feedback: the button punches in and turns green (hit) or shakes red (miss)
+  const spec = qte.spec, wrap = els.qte.querySelector('.ring-wrap'), cue = els.qte.querySelector('.cue'),
+        hint = els.qte.querySelector('.hint'), act = document.getElementById('act');
+  if(wrap){ wrap.classList.remove('pulse'); wrap.classList.add(ok?'hit':'miss');
+    if(ok){ const sh=document.createElement('div'); sh.className='shock'; wrap.appendChild(sh); } }
+  if(act) act.textContent = ok ? '✓' : '✗';
+  if(cue){ cue.className = 'result '+(ok?(perfect?'perfect':'ok'):'bad'); cue.textContent = ok ? (perfect ? 'PERFECT!' : (spec.ok_text||'GO!')) : (qte.wrong ? 'WRONG KEY!' : (spec.fail_text||'TOO SLOW!')); }
+  if(hint) hint.textContent = '';
+  const mine = qte;
+  setTimeout(()=>{ if(qte===mine) els.qte.classList.remove('show'); }, 800);
+  // Keep `qte` (resolved) so timeupdate can't re-arm it while the clip plays out.
+  if(ok){
+    if(video.ended){ setTimeout(()=> go(next), 240); } else { pendingNext = next; }   // success: clip plays on into the next
+  } else if(spec.fail_at_end && !video.ended){ pendingNext = next;   // fail: the clip plays on to its branch point, then cuts to the fail clip
+  } else if(NODES[next] && NODES[next] !== current){          // fail has its own clip: cut to it NOW, keep the red miss on top
+    go(next);
+    els.qte.classList.add('show'); setTimeout(()=> els.qte.classList.remove('show'), 750);
+  } else {
+    setTimeout(()=>{ if(qte!==mine) return; video.pause();                             // fail: stop, show a retry card
+      els.ending.className = 'layer card ending-D';
+      els.ending.innerHTML = `<div class="ending-label">${spec.fail_title||'CAUGHT'}</div>
+        <button class="btn start" style="border-color:rgba(233,230,226,.3)">Retry</button>`;
+      els.ending.querySelector('button').onclick = ()=>{ els.ending.className='layer card'; go(next); };
+      show(els.ending); }, 800);
+  }
+}
+function flash(ok){ els.flash.className = 'flash ' + (ok?'win':'fail'); setTimeout(()=>els.flash.className='flash', 520); }
+
+/* ---------- global input (keyboard + still-detection) ---------- */
+addEventListener('keydown', e=>{
+  if(e.repeat){ if(qte && qte.spec.type==='hold'){qte.held=true;} e.preventDefault(); return; }   // a held key never counts as mashing
+  if(qte && !qte.resolved && qte.spec.key && qte.spec.type==='mash'){   // mash: only the shown key counts, other keys are ignored
+    if(e.code===qte.spec.key || /^Arrow/.test(e.code)){ e.preventDefault(); if(e.code===qte.spec.key) onPress(e); return; }
+  }
+  if(qte && !qte.resolved && qte.spec.key){                  // key prompt: the right key = hit, any other action key = miss
+    if(e.code===qte.spec.key){ e.preventDefault(); resolveQte(true); return; }
+    if(/^(Arrow|Space$|Key[WASD]$)/.test(e.code)){ e.preventDefault(); qte.wrong = true; resolveQte(false); return; }
+  }
+  if(e.code==='Space' || e.code==='Enter'){
+    e.preventDefault();
+    if(els.title.classList.contains('show')){ begin(); return; }
+    if(qte && !qte.resolved){ onPress(e); return; }
+    if(els.ending.classList.contains('show')){ els.ending.querySelector('button').click(); return; }
+  }
+  if(els.choices.classList.contains('show') && (e.code==='ArrowLeft' || e.code==='ArrowRight')){
+    const btns=els.choices.querySelectorAll('button'); const b = e.code==='ArrowLeft' ? btns[0] : btns[btns.length-1];
+    if(b) b.click(); return;
+  }
+  // number keys for choices
+  if(els.choices.classList.contains('show') && /^Digit[1-9]$/.test(e.code)){
+    const i=+e.code.slice(5)-1, btns=els.choices.querySelectorAll('button'); if(btns[i]) btns[i].click();
+  }
+  // any other key during a STILL window = movement = caught
+  if(qte && !qte.resolved && qte.spec.type==='still'){ resolveQte(false); }
+});
+addEventListener('keyup', e=>{ if(e.code==='Space') onRelease(); });
+addEventListener('pointerup', onRelease);
+// Any touch/click during a STILL window counts as movement → caught.
+addEventListener('pointerdown', e=>{
+  if(e.target && e.target.closest && e.target.closest('button')) return;      // real buttons handle themselves
+  if(els.title.classList.contains('show')){ begin(); return; }                // click anywhere to start
+  if(!qte || qte.resolved) return;
+  if(qte.spec.type==='still'){ resolveQte(false); return; }                   // any touch = movement = caught
+  onPress(e);                                                                 // press / hold / mash: click anywhere
+});
+
+/* ---------- boot ---------- */
+let started=false;
+function begin(){ if(started) return; started=true; els.title.classList.remove('show'); video.muted=qs.has('mute'); go(MAP.start); }   // ?mute=1 = silent (automated testing)
+document.getElementById('startBtn').onclick = begin;
+
+(async function(){
+  try{
+    MAP = await loadMap(); NODES = MAP.nodes;
+    if(!NODES || !MAP.start || !NODES[MAP.start]) throw new Error('branch-map.json missing start/nodes');
+    // title / subtitle / footer come from the map so the shared player fits each game
+    const M = MAP._meta || {};
+    BEATS = M.beats || [];
+    BLACKOUT = M.transition === 'blackout';               // THE MARK; story games cut directly
+    const titleText = M.title || MAP.title || 'DEADBOLT';
+    document.querySelector('.title').textContent = titleText;
+    document.title = titleText + ' | Unreal Solutions';
+    if(typeof M.subtitle === 'string') document.getElementById('subtitle').textContent = M.subtitle;
+    if(M.controls) document.getElementById('footer').textContent = M.controls;
+    if(M.aspect){ const [aw,ah] = M.aspect.split('/').map(Number), fr = document.getElementById('frame');   // e.g. "16/9"
+      fr.style.aspectRatio = aw+' / '+ah; fr.style.height = 'auto'; fr.style.maxWidth = 'none';
+      fr.style.width = `min(100vw, calc(100vh * ${aw} / ${ah}))`; }
+    // preload the very first clip behind the title card
+    video.src = srcFor(NODES[MAP.start]); video.load();
+    show(els.title);
+  }catch(e){
+    els.err.style.display='grid';
+    els.err.innerHTML = '⚠ '+e.message;
+  }
+})();
+</script>
+</body>
+</html>

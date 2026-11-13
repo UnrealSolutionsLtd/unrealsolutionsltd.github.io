@@ -65,6 +65,7 @@ jobs:
           cp -r use-cases deploy/ || true
           cp -r agents deploy/ || true
           cp -r rvr deploy/ || true
+          cp -r two-on-one deploy/ || true
           cp -r music-video deploy/ || true
           cp -r .well-known deploy/ || true
           cp favicon.ico deploy/ || true
