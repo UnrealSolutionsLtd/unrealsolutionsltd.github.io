@@ -43,7 +43,7 @@
     return `
       <div class="flex items-center justify-between sm:px-6 sm:py-3">
         <!-- Logo -->
-        <a href="/rvr/">
+        <a href="/">
           <img 
             src="${logoPath}" 
             alt="Unreal Solutions Logo" 
