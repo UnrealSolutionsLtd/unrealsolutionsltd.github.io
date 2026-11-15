@@ -450,12 +450,12 @@
             <!-- CTAs -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-3">
               <a
-                href="#licensing"
-                data-start-free
+                href="https://buy.stripe.com/28E00keo69T54zHe7xdIA0d"
+                data-cta-position="hero"
                 class="inline-flex items-center px-6 py-3 text-sm font-semibold text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
                 style="background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);"
               >
-                Start Free
+                Buy for $299
                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                 </svg>
@@ -472,7 +472,7 @@
                 Watch Demo
               </a>
             </div>
-            <p class="text-xs text-gray-500 mb-5">100 free recording credits · no credit card · key emailed instantly · <a href="#licensing" class="text-gray-400 hover:text-white underline">see pricing</a></p>
+            <p class="text-xs text-gray-500 mb-5">One-time license · ship it in your game · unlimited developers · <a href="#licensing" class="text-gray-400 hover:text-white underline">or $24.99/month</a></p>
 
             <!-- Compact trust + platform strip -->
             <p class="text-sm font-semibold tracking-wider uppercase text-gray-400 mb-3">Our customers</p>
@@ -523,20 +523,7 @@
         <div class="mx-auto max-w-6xl px-6 lg:px-8">
           <div class="text-center mb-8">
             <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-3">Pricing</h2>
-            <p class="text-gray-400 max-w-2xl mx-auto">Start free, then pick the license that matches how you ship. Every paid tier includes all platforms and all recording features.</p>
-          </div>
-
-          <!-- Free trial -->
-          <div class="max-w-5xl mx-auto mb-12">
-            <div class="rounded-2xl border border-indigo-500/40 bg-indigo-500/10 p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div class="text-center sm:text-left">
-                <h3 class="text-lg font-semibold text-white">Free trial</h3>
-                <p class="text-sm text-gray-400 mt-1">100 free recording credits on every platform. No credit card, key emailed instantly.</p>
-              </div>
-              <a href="#" data-start-free class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex-shrink-0" style="background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);">
-                Start Free
-              </a>
-            </div>
+            <p class="text-gray-400 max-w-2xl mx-auto">Pick the license that matches how you ship. Every license includes all platforms and all recording features.</p>
           </div>
 
           <!-- Which license do I need? -->
@@ -669,11 +656,6 @@
                   </tr>
                 </thead>
                 <tbody class="text-gray-300">
-                  <tr class="border-t border-gray-700/40">
-                    <td class="p-4 text-gray-400">Try before you buy</td>
-                    <td class="p-4 text-center">Demo<br><span class="text-gray-400 text-xs">Windows, viewport only</span></td>
-                    <td class="p-4 text-center text-green-400">Full free trial<br><span class="text-gray-400 text-xs">all platforms</span></td>
-                  </tr>
                   <tr class="border-t border-gray-700/40">
                     <td class="p-4 text-gray-400">Perpetual / source license</td>
                     <td class="p-4 text-center text-green-400">&#10003;</td>
@@ -1273,9 +1255,12 @@ Recorder-><span class="text-green-400">StartRecordingRenderTarget</span>(
       <div class="text-center py-12 mb-8 border-t border-gray-800">
         <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Ready to start recording?</h2>
         <p class="text-gray-400 mb-6 max-w-xl mx-auto">Join Amazon Games and 50+ studios using RVR in production.</p>
-        <a href="#licensing" class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 shadow-lg hover:shadow-xl">
-          See Pricing
-        </a>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://buy.stripe.com/28E00keo69T54zHe7xdIA0d" data-cta-position="final_cta" class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 shadow-lg hover:shadow-xl">
+            Buy for $299
+          </a>
+          <a href="#licensing" class="text-gray-300 hover:text-white underline underline-offset-4">See all licenses</a>
+        </div>
       </div>
 
       <!-- Footer Links (shared from nav.js) -->
@@ -1623,9 +1608,6 @@ Recorder-><span class="text-green-400">StartRecordingRenderTarget</span>(
         }
       });
     </script>
-    <!-- Start Free — opens the Tally trial form (mZDq7v) as a popup -->
-    <script async src="https://tally.so/widgets/embed.js"></script>
-    <script src="/assets/js/start-free.js" defer></script>
     <!-- Standardized GA4 funnel instrumentation -->
     <script src="/assets/js/funnel-analytics.js" defer></script>
     <!-- Floating Discord support widget -->
