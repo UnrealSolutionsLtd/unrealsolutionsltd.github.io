@@ -3,9 +3,8 @@
 This guide walks you through installing Runtime Video Recorder (RVR) in your Unreal Engine project.
 
 ::: tip Which license do I have?
-- **Standard** (one-time purchase) - install and go. **No API key.**
-- **Perpetual** (one-time purchase, full source) - install and go. **No API key.**
-- **Subscription** - install, then [set your API key](#subscription-only-api-key-setup). Internet connection required.
+- **Standard** (one-time purchase) - install and go.
+- **Perpetual** (one-time purchase, full source) - install and go.
 
 See the [licensing page](https://unrealsolutions.com) for the full comparison.
 :::
@@ -55,38 +54,8 @@ The plugin ships with a demo level for quick verification:
 4. Open **`Level_RuntimeVideoRecorder_UE53Plus`**
 5. Press **Play** - you should see the recording controls
 
-::: tip Standard / Perpetual users
-That's it - you're done. Skip ahead to [Platform-Specific Notes](#platform-specific-notes) or jump straight to the [Quick Start Guide](./quick-start).
-:::
-
-::: details Subscription only - API Key Setup
-
-**Standard** and **Perpetual** licenses do not use an API key. This section is only for Subscription users.
-
-**Get Your API Key**
-
-After completing checkout for a Subscription, an API key is emailed to you automatically. If you haven't received it, check spam or contact [business@unrealsolutions.com](mailto:business@unrealsolutions.com).
-
-Don't have a Subscription yet? Get one at **[unrealsolutions.com](https://unrealsolutions.com)**.
-
-**Enter Your API Key**
-
-1. Open your project in the Unreal Editor
-2. Go to **Edit → Project Settings**
-3. Scroll down to **Plugins → Runtime Video Recorder**
-4. Paste your API key into the **API KEY** field
-
-![RVR Settings](https://unrealsolutions.com/assets/rvr/settings.png)
-
-> **API KEY field doesn't appear?** Delete the Engine copy of the plugin at `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. The settings panel should now display the API key field correctly. Custom Engines require Perpetual license!
-
-**Testing in Packaged Builds**
-
-To verify the Subscription works in **Development** or **Shipping** configuration (outside the Editor), use the provided sample project:
-
-**[Download Sample Project](https://drive.google.com/file/d/1GygW34E9h0CxcTM-7OvsvPXgN7aNSTi_/view?usp=drive_link)**
-
-Remember to replace the API key in the sample project with your own.
+::: tip That's it
+You're done. Skip ahead to [Platform-Specific Notes](#platform-specific-notes) or jump straight to the [Quick Start Guide](./quick-start).
 :::
 
 ## Platform-Specific Notes
@@ -152,8 +121,6 @@ PublicDependencyModuleNames.AddRange(new string[] {
 | Problem | Solution |
 |---------|----------|
 | Plugin doesn't appear in Plugins list | Verify the folder is in the correct location and contains the `.uplugin` file. Regenerate project files. |
-| API KEY field is missing *(Subscription only)* | Delete `<ENGINE_DIR>/Plugins/Marketplace/RuntimeVideoRecorder` and restart the editor. Custom Engines require Perpetual license! |
-| Recording fails on Subscription with auth error | Verify your API key is set (see above), the Subscription is active, and the machine has internet connectivity. |
 | Compilation errors | Ensure UE 5.4-5.8. Delete `Intermediate` and `Binaries` folders, then regenerate project files. |
 | Module not found error | Add `"RuntimeVideoRecorder"` to your `.Build.cs` (see above). |
 | Android build fails | Verify Unreal Engine Android environment |

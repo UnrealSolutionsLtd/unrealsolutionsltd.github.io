@@ -40,7 +40,7 @@ Hardware-accelerated video playback using the Vulkan Video API. GPU-decoded stre
 ## Licensing (Runtime Video Recorder)
 
 Two license tiers at https://unrealsolutions.com/licensing (also available on Epic's Fab marketplace):
-- **Standard**: $299 one-time — all features, all platforms, lifetime ownership, no API key required, **includes redistribution** (ship RVR inside your commercial game).
+- **Standard**: $299 one-time — all features, all platforms, lifetime ownership, **includes redistribution** (ship RVR inside your commercial game).
 - **Perpetual**: custom pricing by quote — full source code, custom engine support, offline recording, dedicated support (contact business@unrealsolutions.com)
 
 ## Documentation

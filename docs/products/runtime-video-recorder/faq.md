@@ -1,20 +1,6 @@
 # Frequently Asked Questions
 
-## Subscription & Licensing
-
-### Do I need an API key?
-
-**Only if you're on the Subscription tier.** **Standard** and **Perpetual** licenses do not use an API key - install the plugin and you're done.
-
-For Subscription users, the API key is emailed automatically after checkout. See the [Installation Guide](./installation#subscription-only-api-key-setup) for where to paste it. For the full license comparison, see the [licensing page](https://unrealsolutions.com).
-
-### Does the Subscription include all features and all platforms?
-
-Yes. The Subscription version includes every feature and works on all supported platforms: Windows, MacOS, iOS, tvOS, Android, Oculus / Meta Quest, and Linux.
-
-### Can I package my application using the Subscription version?
-
-Yes. Your application needs an active internet connection for license validation. You can test the Subscription in **Shipping** configuration. Use the [sample project](https://drive.google.com/file/d/1GygW34E9h0CxcTM-7OvsvPXgN7aNSTi_/view?usp=drive_link) to verify the packaging process works correctly.
+## Licensing
 
 ### What license does the plugin use?
 
@@ -32,7 +18,7 @@ Yes. MacOS is fully supported with hardware-accelerated encoding via AVFoundatio
 
 ### Can I test on Oculus / Meta Quest / Android?
 
-Absolutely. All mobile and VR platforms are supported in both Subscription and licensed versions.
+Absolutely. All mobile and VR platforms are supported with every license.
 
 ### Can I use the plugin with a Source / Custom engine build?
 
@@ -58,9 +44,8 @@ You can also specify a custom output path. See the [Quick Start Guide](./quick-s
 
 ### It doesn't work - what do I do?
 
-1. **Subscription users only** - make sure your API key is set and the Subscription is active. See the [Installation Guide](./installation#subscription-only-api-key-setup).
-2. **Check the logs** - go to `<PROJECT_DIR>/Saved/Logs/` and look for errors
-3. **Join Discord** and share your log file - we'll help you debug it
+1. **Check the logs** - go to `<PROJECT_DIR>/Saved/Logs/` and look for errors
+2. **Join Discord** and share your log file - we'll help you debug it
 
 For a full list of common issues and fixes, see the [Troubleshooting](./troubleshooting) page.
 
