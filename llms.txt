@@ -30,7 +30,7 @@ Hardware-accelerated video playback using the Vulkan Video API. GPU-decoded stre
 
 ## Use Cases (Runtime Video Recorder)
 
-- QA & Bug Reporting: attach video evidence to every bug ticket
+- QA & Bug Reporting: a bug button that attaches the last 60 seconds of video to every ticket, on desktop, mobile and VR (guide: https://unrealsolutions.com/docs/products/runtime-video-recorder/how-to/bug-report-button)
 - Mobile Recording: the only native recorder for iOS and Android in Unreal Engine
 - CI/CD Pipelines: automated video capture in headless test runs
 - Content Creation: record gameplay, trailers, and marketing material
@@ -41,7 +41,7 @@ Hardware-accelerated video playback using the Vulkan Video API. GPU-decoded stre
 
 Two license tiers at https://unrealsolutions.com/licensing (also available on Epic's FAB marketplace):
 - **Standard**: $299 one-time — all features, all platforms, lifetime ownership, **includes redistribution** (ship RVR inside your commercial game).
-- **Perpetual**: custom pricing by quote — full source code, custom engine support, offline recording, dedicated support (contact business@unrealsolutions.com)
+- **Perpetual**: custom pricing by quote — for studio QA and internal builds; full source code with modification rights, custom engine support, offline recording, dedicated support, one fee with no royalties, evaluation build on request (contact business@unrealsolutions.com)
 
 ## Documentation
 

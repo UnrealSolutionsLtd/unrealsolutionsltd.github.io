@@ -443,8 +443,12 @@
             <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-3">
               <span class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Runtime Video Recorder</span><br>
             </h1>
+            <p class="text-xl sm:text-3xl font-semibold text-white max-w-3xl mx-auto mb-4">
+              Every bug report arrives with the last 60 seconds of video.
+            </p>
             <p class="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mb-5">
-              The only video recording plugin for Unreal Engine that works on desktop, mobile, and VR. Hardware-accelerated encoding. Zero dependencies.
+              One bug button in your Unreal Engine game. Works on desktop, mobile, and VR. Hardware-accelerated encoding. Zero dependencies.
+              <a href="/docs/products/runtime-video-recorder/how-to/bug-report-button" class="text-indigo-400 hover:text-indigo-300 underline whitespace-nowrap">See how &rarr;</a>
             </p>
 
             <!-- CTAs -->
@@ -564,7 +568,7 @@
               <div class="rounded-2xl border border-gray-700/50 bg-gray-800/40 p-6 flex flex-col h-full">
                 <div class="min-h-[4rem]">
                   <h3 class="text-2xl font-bold text-white mb-1">Perpetual</h3>
-                  <p class="text-gray-400 text-sm">Adds full source code and custom engine builds. For enterprises.</p>
+                  <p class="text-gray-400 text-sm">For studio QA and internal builds. Full source, one fee, no royalties.</p>
                 </div>
                 <div class="mt-4 mb-6">
                   <div class="text-4xl font-extrabold text-white">Custom</div>
@@ -577,7 +581,11 @@
                   </li>
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <span><strong class="text-gray-200">Full C++ source code</strong></span>
+                    <span><strong class="text-gray-200">Full C++ source code, yours to modify</strong></span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span><strong class="text-gray-200">Evaluation build on request</strong></span>
                   </li>
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
@@ -590,6 +598,9 @@
                 </ul>
                 <a href="mailto:business@unrealsolutions.com?subject=Perpetual%20License%20Quote" data-funnel-event="generate_lead" data-lead-type="perpetual_quote" data-cta-location="pricing_perpetual" class="block w-full text-center px-6 py-3 font-semibold rounded-xl text-indigo-400 border border-indigo-500/40 hover:bg-indigo-500/10 hover:border-indigo-500/70 transition-all duration-200 mt-auto">
                   Contact Us
+                </a>
+                <a href="mailto:business@unrealsolutions.com?subject=RVR%20evaluation%20build" data-funnel-event="generate_lead" data-lead-type="evaluation_request" data-cta-location="pricing_perpetual" class="block w-full text-center text-sm text-gray-400 hover:text-white underline underline-offset-4 mt-3">
+                  Request an evaluation build
                 </a>
               </div>
             </div>
@@ -608,6 +619,7 @@
                     <th class="font-semibold p-4">Source code</th>
                     <th class="font-semibold p-4">Custom engine builds</th>
                     <th class="font-semibold p-4">Dedicated support</th>
+                    <th class="font-semibold p-4">Evaluation build</th>
                   </tr>
                 </thead>
                 <tbody class="text-gray-300">
@@ -615,6 +627,7 @@
                     <td class="p-4 font-semibold text-indigo-300">Standard</td>
                     <td class="p-4 text-center text-green-400">All platforms</td>
                     <td class="p-4 text-center text-green-400">Hardware-accelerated</td>
+                    <td class="p-4 text-center text-gray-500">&mdash;</td>
                     <td class="p-4 text-center text-gray-500">&mdash;</td>
                     <td class="p-4 text-center text-gray-500">&mdash;</td>
                     <td class="p-4 text-center text-gray-500">&mdash;</td>
@@ -626,11 +639,13 @@
                     <td class="p-4 text-center text-green-400">&#10003;</td>
                     <td class="p-4 text-center text-green-400">&#10003;</td>
                     <td class="p-4 text-center text-green-400">&#10003;</td>
+                    <td class="p-4 text-center text-green-400">On request</td>
                   </tr>
                   <tr class="border-t border-gray-700/40">
                     <td class="p-4 font-semibold text-white">FAB version</td>
                     <td class="p-4 text-center text-gray-300">Windows only</td>
                     <td class="p-4 text-center text-gray-300">Basic, not optimized</td>
+                    <td class="p-4 text-center text-gray-500">&mdash;</td>
                     <td class="p-4 text-center text-gray-500">&mdash;</td>
                     <td class="p-4 text-center text-gray-500">&mdash;</td>
                     <td class="p-4 text-center text-gray-500">&mdash;</td>
@@ -901,6 +916,36 @@ Recorder-><span class="text-green-400">StartRecordingRenderTarget</span>(
           </div>
         </div>
       </div>
+
+<!-- Build vs buy -->
+<div id="build-vs-buy" class="py-16 border-t border-gray-800">
+  <div class="mx-auto max-w-5xl px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">Build it or buy it?</h2>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto">What it takes to build in-game recording yourself.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="rounded-2xl border border-gray-700/50 bg-gray-800/40 p-6">
+        <h3 class="text-xl font-semibold text-white mb-4">Build it in-house</h3>
+        <ul class="space-y-3 text-sm text-gray-400">
+          <li class="flex gap-3"><span class="text-red-400 font-bold">&times;</span><span>A separate hardware encoder for each platform: MediaCodec on Android, AVFoundation on iOS and MacOS, Media Foundation on Windows.</span></li>
+          <li class="flex gap-3"><span class="text-red-400 font-bold">&times;</span><span>Or FFmpeg and x264, with LGPL/GPL and patent questions for your legal team.</span></li>
+          <li class="flex gap-3"><span class="text-red-400 font-bold">&times;</span><span>No native recorder to copy on mobile. OS screen recorders cost performance and miss what you need.</span></li>
+          <li class="flex gap-3"><span class="text-red-400 font-bold">&times;</span><span>Maintenance on every Unreal Engine and OS release, forever.</span></li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-indigo-500/50 bg-gray-900/60 p-6">
+        <h3 class="text-xl font-semibold text-white mb-4">Use RVR</h3>
+        <ul class="space-y-3 text-sm text-gray-300">
+          <li class="flex gap-3"><span class="text-green-400 font-bold">&#10003;</span><span>One API for Windows, MacOS, Linux, iOS, Android and Meta Quest.</span></li>
+          <li class="flex gap-3"><span class="text-green-400 font-bold">&#10003;</span><span>Native hardware encoders. No FFmpeg, no x264.</span></li>
+          <li class="flex gap-3"><span class="text-green-400 font-bold">&#10003;</span><span>The only native recorder for Unreal Engine on Android and iOS.</span></li>
+          <li class="flex gap-3"><span class="text-green-400 font-bold">&#10003;</span><span>Engine upgrades handled for you. One fee, no royalties.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Why Game Studios Choose RVR Section -->
 <div id="why-rvr" class="py-16 border-t border-gray-800">

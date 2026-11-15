@@ -93,6 +93,13 @@ Save the last 60 seconds of gameplay if the game crashes.
 
 ---
 
+### [Bug Report Button](./bug-report-button)
+Attach the last 60 seconds of video to every bug ticket with one button.
+
+**Best for:** QA, playtests, automated tests, mobile bug capture
+
+---
+
 ## Need More Help?
 
 - [Quick Start Guide](../quick-start) - Basic recording setup

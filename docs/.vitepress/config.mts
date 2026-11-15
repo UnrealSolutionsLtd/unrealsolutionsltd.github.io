@@ -53,6 +53,7 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/products/runtime-video-recorder/how-to/' },
             { text: 'Hotkey Recording', link: '/products/runtime-video-recorder/how-to/hotkey-recording' },
+            { text: 'Bug Report Button', link: '/products/runtime-video-recorder/how-to/bug-report-button' },
             { text: 'Instant Replay', link: '/products/runtime-video-recorder/how-to/instant-replay' },
             { text: 'Security Camera', link: '/products/runtime-video-recorder/how-to/security-camera' },
             { text: 'Photo Mode', link: '/products/runtime-video-recorder/how-to/photo-mode' },
