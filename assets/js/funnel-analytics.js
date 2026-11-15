@@ -22,8 +22,7 @@
 
   // --- Product catalog, keyed by the Stripe Payment Link id ----------------
   var CHECKOUTS = [
-    { match: '28E00keo69T54zHe7xdIA0d', item_id: 'rvr_standard',     item_name: 'RVR Standard License', price: 299,   plan: 'one_time' },
-    { match: '9B6fZibbU3uHeah3sTdIA0g', item_id: 'rvr_subscription', item_name: 'RVR Subscription',     price: 24.99, plan: 'subscription' }
+    { match: '28E00keo69T54zHe7xdIA0d', item_id: 'rvr_standard',     item_name: 'RVR Standard License', price: 299,   plan: 'one_time' }
   ];
   var LEAD_MAILTO = 'mailto:business@unrealsolutions.com'; // sales/quote email (incl. Perpetual)
   var CURRENCY = 'USD';
@@ -114,7 +113,6 @@
             currency: CURRENCY,
             value: 299,
             items: [
-              { item_id: 'rvr_subscription', item_name: 'RVR Subscription',     price: 24.99, item_category: 'subscription' },
               { item_id: 'rvr_standard',     item_name: 'RVR Standard License', price: 299,   item_category: 'one_time' },
               { item_id: 'rvr_perpetual',    item_name: 'RVR Perpetual License', price: 0,     item_category: 'enterprise' }
             ]
