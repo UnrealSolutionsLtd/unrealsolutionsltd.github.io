@@ -7,6 +7,13 @@ export default defineConfig({
   srcExclude: ['internal/**'],
   description: "Documentation for Unreal Engine Plugins",
   base: '/docs/',  // Docs are served at unrealsolutions.com/docs/
+  // One URL per page: links drop ".html" (GitHub Pages serves /page as page.html)
+  cleanUrls: true,
+  // Tell Google which URL is the real one, so /page and /page.html aren't duplicates.
+  transformHead({ pageData }) {
+    const path = pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
+    return [['link', { rel: 'canonical', href: `https://unrealsolutions.com/docs/${path}` }]]
+  },
   
   head: [
     ['link', { rel: 'icon', href: '/assets/favicon/favicon.ico' }],

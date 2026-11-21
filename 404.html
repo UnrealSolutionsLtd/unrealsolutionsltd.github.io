@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Page not found | Unreal Solutions</title>
+  <script>
+    // Old URLs: send people to where the page lives now, before anything paints.
+    (function () {
+      var path = location.pathname.replace(/\/+$/, '').replace(/\.html$/, '');
+      var rules = [
+        [/^\/products\/runtime-video-recorder\/(faq|quick-start|installation|troubleshooting|project-settings|how-to|how-to\/[\w-]+|api\/[\w-]+)$/,
+          function (m) { return '/docs/products/runtime-video-recorder/' + m[1]; }],
+        [/^\/products\/(bugit|cinematic-director)(\/.*)?$/, function () { return '/products/'; }],
+        [/^\/insights\/ai-game-testing-vlm-agents$/, function () { return '/insights/unreal-engine-ai-agents-mcp.html'; }],
+        [/^\/insights\/cannot-reproduce-bugs-cost$/, function () { return '/insights/video-recording-game-testing-roi.html'; }],
+        [/^\/docs\/download$/, function () { return '/licensing'; }],
+        [/^\/download$/, function () { return '/licensing'; }],
+        [/^\/agents\/bugit$/, function () { return '/agents/'; }],
+        [/^\/rvr$/, function () { return '/'; }]
+      ];
+      for (var i = 0; i < rules.length; i++) {
+        var m = path.match(rules[i][0]);
+        if (m) { location.replace(rules[i][1](m) + location.search + location.hash); return; }
+      }
+    })();
+  </script>
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b1020; color: #e5e7eb;
+           font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 32rem; padding: 2rem; text-align: center; }
+    h1 { font-size: 2rem; margin: 0 0 .5rem; color: #fff; }
+    p { color: #9ca3af; line-height: 1.6; }
+    ul { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: .6rem; }
+    a { color: #818cf8; text-decoration: none; font-weight: 600; }
+    a:hover { color: #a5b4fc; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Page not found</h1>
+    <p>This page has moved or no longer exists.</p>
+    <ul>
+      <li><a href="/">Runtime Video Recorder</a></li>
+      <li><a href="/docs/products/runtime-video-recorder/">Documentation</a></li>
+      <li><a href="/licensing">Pricing &amp; licensing</a></li>
+      <li><a href="/insights/">Insights</a></li>
+    </ul>
+  </main>
+</body>
+</html>
