@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unreal Engine as a Motion Reference Engine for AI Filmmaking | Insights</title>
+    <meta name="description" content="Stop describing camera moves in prompts. Block the scene in Unreal Engine, record it as a motion reference, and let a video-to-video model keep your camera, timing and performance.">
+    <meta name="keywords" content="unreal engine motion reference, ai filmmaking unreal engine, video to video ai unreal, previz for ai video, unreal engine ai video workflow, sequencer previz ai, blocking for ai video, motion capture ai video">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://unrealsolutions.com/insights/unreal-engine-motion-reference-ai-filmmaking.html">
+    <meta property="og:title" content="Unreal Engine as a Motion Reference Engine for AI Filmmaking">
+    <meta property="og:description" content="Block the scene in Unreal Engine, record it as a motion reference, and let a video model keep your camera, timing and performance.">
+    <meta property="og:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://unrealsolutions.com/insights/unreal-engine-motion-reference-ai-filmmaking.html">
+    <meta name="twitter:title" content="Unreal Engine as a Motion Reference Engine for AI Filmmaking">
+    <meta name="twitter:description" content="Block the scene in Unreal Engine, record it as a motion reference, and let a video model keep your camera, timing and performance.">
+    <meta name="twitter:image" content="https://unrealsolutions.com/assets/rvr_logo_social.png">
+
+    <!-- Additional SEO -->
+    <meta name="author" content="Unreal Solutions Ltd">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unrealsolutions.com/insights/unreal-engine-motion-reference-ai-filmmaking.html">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39LZYGQJL9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-39LZYGQJL9');
+    </script>
+
+    <style>
+      body {
+        font-family: 'Outfit', system-ui, sans-serif;
+        background: linear-gradient(to bottom, #0f0f0f 0%, #0a0a0a 100%);
+      }
+      .font-mono { font-family: 'JetBrains Mono', monospace; }
+      .stat-card {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.8) 100%);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        text-align: center;
+      }
+      .highlight-box {
+        background: rgba(99, 102, 241, 0.10);
+        border: 1px solid rgba(99, 102, 241, 0.30);
+        border-radius: 0.75rem;
+        padding: 1.5rem 1.75rem;
+      }
+      .article-content h2 {
+        color: white; font-size: 1.75rem; font-weight: 700;
+        margin-top: 3rem; margin-bottom: 1rem; padding-top: 1rem;
+        border-top: 1px solid rgba(75, 85, 99, 0.3);
+      }
+      .article-content h3 { color: #e2e8f0; font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; }
+      .article-content p { color: #cbd5e1; line-height: 1.8; margin-bottom: 1.25rem; }
+      .article-content ul, .article-content ol { color: #cbd5e1; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+      .article-content li { margin-bottom: 0.5rem; line-height: 1.7; }
+      .article-content strong { color: #fff; }
+      .fig { margin: 2rem 0; }
+      .fig img, .fig video { display: block; width: 100%; height: auto; border-radius: 0.75rem; border: 1px solid rgba(75, 85, 99, 0.4); background: #111; margin: 0; }
+      .fig figcaption { color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin-top: 0.75rem; text-align: center; }
+      .fig-grid { display: grid; gap: 0.75rem; }
+      .fig-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .kit { display: grid; grid-template-columns: 1fr 1fr 2.3fr; gap: 0.75rem; align-items: stretch; }
+      .kit img { height: 100%; object-fit: cover; }
+      .kit-label { color: #e2e8f0; font-weight: 600; margin: 1.25rem 0 0.5rem; }
+      @media (max-width: 640px) { .fig-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .kit { grid-template-columns: 1fr 1fr; } .kit .kit-place { grid-column: 1 / -1; } }
+    </style>
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Unreal Engine as a Motion Reference Engine for AI Filmmaking",
+      "description": "Stop describing camera moves in prompts. Block the scene in Unreal Engine, record it as a motion reference, and let a video-to-video model keep your camera, timing and performance.",
+      "author": { "@type": "Organization", "name": "Unreal Solutions Ltd", "url": "https://unrealsolutions.com" },
+      "publisher": { "@type": "Organization", "name": "Unreal Solutions Ltd", "url": "https://unrealsolutions.com" },
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-21",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://unrealsolutions.com/insights/unreal-engine-motion-reference-ai-filmmaking.html" }
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a motion reference in AI video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A motion reference is a video you give a video-to-video model to control movement. The model keeps the camera path, the timing and the positions of the characters from that video, and uses reference images and the prompt to decide what everything looks like."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why use Unreal Engine instead of prompting the camera move?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Text can only describe motion, and models interpret it differently on every try. A rendered blocking pass shows the exact move, timing and layout, so the result matches your plan and you stop paying for rerolls. Unreal adds real-time playback, a full camera toolset in Sequencer, physics and live mocap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to be a 3D artist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The blocking only needs grey boxes, simple mannequins and a camera. An AI agent connected to the Unreal editor can build that from a plain description, and you adjust the timing yourself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will the AI copy the grey boxes and colours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not if you tell it not to. State in the prompt that the video defines only camera, timing and layout, and that no materials, colours or lighting come from it. Flat, unlit proxies make this easier."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What resolution and frame rate should the reference be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1920x1080 at 24 frames per second is a good default. Keep it frame-aligned and the same length as the clip you want back."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I record a live performance as the reference?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Record from the running engine while the performance happens, for example with Runtime Video Recorder, which captures hardware-encoded MP4 on desktop, mobile and VR and can lock to an exact frame rate."
+      }
+    }
+  ]
+}
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://unrealsolutions.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://unrealsolutions.com/insights/" },
+        { "@type": "ListItem", "position": 3, "name": "Unreal Engine as a Motion Reference Engine", "item": "https://unrealsolutions.com/insights/unreal-engine-motion-reference-ai-filmmaking.html" }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-black min-h-screen text-white">
+    <main class="container mx-auto px-4 sm:px-20">
+      <!-- Navigation -->
+      <div class="relative pt-4 sm:pt-0">
+        <div id="site-nav" data-logo-path="../assets/logo.png"></div>
+        <script src="/assets/js/nav.js"></script>
+
+        <!-- Hero -->
+        <div class="sm:pt-28 pb-8 sm:py-12">
+          <div class="mx-auto max-w-5xl">
+            <!-- Breadcrumb -->
+            <nav class="mb-6 text-sm">
+              <ol class="flex items-center gap-2 text-gray-400">
+                <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                <li>/</li>
+                <li><a href="/insights/" class="hover:text-white transition-colors">Insights</a></li>
+                <li>/</li>
+                <li class="text-violet-400">Motion Reference for AI Filmmaking</li>
+              </ol>
+            </nav>
+
+            <div class="text-center mb-12">
+              <div class="flex items-center justify-center gap-3 mb-4">
+                <span class="inline-block px-4 py-1 bg-violet-500/20 text-violet-400 rounded-full text-sm font-medium">Film &amp; AI</span>
+                <span class="text-gray-500 text-sm">November 2026</span>
+              </div>
+              <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6 leading-tight">
+                Unreal Engine as a Motion Reference Engine<br>
+                <span class="text-violet-400">Block the Shot in 3D. Let the Video Model Paint It.</span>
+              </h1>
+              <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                Video models are great at how things look and bad at taking direction. Block the scene in Unreal Engine first, record it, and let the model keep your camera, timing and performance.
+              </p>
+
+              <div class="flex items-center justify-center gap-6 text-sm text-gray-400">
+                <span class="flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  8 min read
+                </span>
+                <span class="flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                  For directors, previz artists and AI filmmakers
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key points -->
+      <div class="py-8">
+        <div class="mx-auto max-w-6xl">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="stat-card">
+              <div class="text-3xl font-bold text-violet-400 mb-1">1:1</div>
+              <div class="text-gray-400 text-sm">Camera and timing from your blocking</div>
+            </div>
+            <div class="stat-card">
+              <div class="text-3xl font-bold text-violet-400 mb-1">24 fps</div>
+              <div class="text-gray-400 text-sm">Frame-aligned reference video</div>
+            </div>
+            <div class="stat-card">
+              <div class="text-3xl font-bold text-violet-400 mb-1">0</div>
+              <div class="text-gray-400 text-sm">Prompt-only camera rerolls</div>
+            </div>
+            <div class="stat-card">
+              <div class="text-3xl font-bold text-violet-400 mb-1">Reuse</div>
+              <div class="text-gray-400 text-sm">Same blocking, any look</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="py-8">
+        <div class="mx-auto max-w-4xl">
+          <div class="bg-gray-800/50 rounded-xl p-6">
+            <h2 class="text-lg font-semibold text-white mb-4">In This Article</h2>
+            <div class="grid md:grid-cols-2 gap-2 text-sm">
+              <a href="#problem" class="toc-link text-gray-300 hover:text-violet-400">1. The Problem With Prompting Motion</a>
+              <a href="#the-idea" class="toc-link text-gray-300 hover:text-violet-400">2. Block First, Generate Second</a>
+              <a href="#why-unreal" class="toc-link text-gray-300 hover:text-violet-400">3. Why Unreal Engine</a>
+              <a href="#workflow" class="toc-link text-gray-300 hover:text-violet-400">4. The Workflow, Step by Step</a>
+              <a href="#recording" class="toc-link text-gray-300 hover:text-violet-400">5. Recording the Reference Pass</a>
+              <a href="#limits" class="toc-link text-gray-300 hover:text-violet-400">6. Limits Worth Knowing</a>
+              <a href="#faq" class="toc-link text-gray-300 hover:text-violet-400">7. FAQ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article -->
+      <article class="py-8 article-content">
+        <div class="mx-auto max-w-4xl prose prose-invert prose-lg">
+
+          <section id="problem" class="mb-4">
+            <h2>The Problem With Prompting Motion</h2>
+            <p>
+              Video models got very good at how things look. They are still bad at taking direction. Ask for "the camera arcs left as she turns at the seven second mark" and you get a camera that drifts somewhere, a turn that happens whenever, and a different layout on every try.
+            </p>
+            <p>
+              That is fine for a mood clip. It breaks down the moment you need a real scene: a fight where each hit lands on a beat, a dialogue where the cut lands on the right face, a car that drifts through the exact corner you planned. Every reroll costs money and time, and you are still guessing.
+            </p>
+            <p>
+              The fix is not a better prompt. It is to stop describing motion in words and start showing it.
+            </p>
+          </section>
+
+          <section id="the-idea" class="mb-4">
+            <h2>Block First, Generate Second</h2>
+            <p>
+              Filmmakers already solved this problem decades ago. It is called previz. You block the scene with stand-ins, lock the camera and the timing, and only then spend money on the real shot.
+            </p>
+            <p>
+              The same idea now works with generative video. You build a rough 3D version of the shot: grey boxes for the set, simple mannequins for the actors, a real animated camera. You render that as a plain video and give it to a video-to-video model as the <strong>motion reference</strong>. The model keeps the camera path, the blocking and the timing frame for frame. Reference images tell it what the people and the world should look like.
+            </p>
+            <figure class="fig">
+              <video src="/assets/insights/motion-reference/blocking-pass.mp4" poster="/assets/insights/motion-reference/blocking-poster.jpg" autoplay muted loop playsinline preload="metadata" width="1920" height="1080" aria-label="A grey-box blocking pass: a plaza with trees, a bench and a lamp post, a blue proxy walks in and meets an orange proxy, the camera moves in as they wave."></video>
+              <figcaption>A real blocking pass. Grey-box plaza, two proxies, one camera move. Rendered at 1080p, 24 fps. This is the whole motion reference.</figcaption>
+            </figure>
+            <div class="highlight-box mb-6">
+              <p class="mb-0"><strong>The split that makes it work:</strong> the 3D pass owns everything that moves. The model owns everything that is seen. Camera, timing, layout and performance come from the render. Faces, costumes, materials and light come from the references and the prompt.</p>
+            </div>
+            <p>
+              Two things fall out of this for free. First, iteration gets cheap: if a cut is wrong, you fix it in the 3D scene in a minute instead of rolling the model ten more times. Second, the blocking becomes reusable. Keep the same 30 seconds of camera work and render it as a night chase, an anime short or a toy commercial, just by swapping the references.
+            </p>
+            <figure class="fig">
+              <p class="kit-label">Look 1: felt puppets</p>
+              <div class="kit">
+                <img src="/assets/insights/motion-reference/felt-puppets-man.jpg" alt="Felt puppet reference: older man with glasses, grey beard, orange cardigan, brown corduroy trousers." loading="lazy" width="480" height="855">
+                <img src="/assets/insights/motion-reference/felt-puppets-woman.jpg" alt="Felt puppet reference: woman with curly dark hair, denim jacket, navy trousers, white sneakers, shoulder bag." loading="lazy" width="480" height="855">
+                <img class="kit-place" src="/assets/insights/motion-reference/felt-puppets-place.jpg" alt="Felt miniature plaza with trees, a lamp post, a bench and a small kiosk." loading="lazy" width="1100" height="618">
+              </div>
+              <p class="kit-label">Look 2: live action</p>
+              <div class="kit">
+                <img src="/assets/insights/motion-reference/live-action-man.jpg" alt="Live action reference: older man with glasses, orange cardigan, brown corduroy trousers." loading="lazy" width="480" height="855">
+                <img src="/assets/insights/motion-reference/live-action-woman.jpg" alt="Live action reference: woman with curly dark hair, denim jacket, navy trousers, white sneakers." loading="lazy" width="480" height="855">
+                <img class="kit-place" src="/assets/insights/motion-reference/live-action-place.jpg" alt="Real stone plaza with trees, a lamp post, a bench and a kiosk." loading="lazy" width="1100" height="618">
+              </div>
+              <figcaption>Two reference kits for the same blocking pass. Same plaza layout, same two characters, same costumes, two completely different worlds. The blue proxy becomes the woman, the orange proxy becomes the man.</figcaption>
+            </figure>
+          </section>
+
+          <section id="why-unreal" class="mb-4">
+            <h2>Why Unreal Engine Makes a Great Motion Engine</h2>
+            <p>
+              Any 3D tool can produce a blocking pass. Unreal Engine has a few advantages that matter a lot once you do this every day.
+            </p>
+            <h3>It plays back in real time</h3>
+            <p>
+              You scrub the whole shot at full speed, with the final lens and the final timing, and see it the way the model will. No waiting for a viewport preview to catch up. When the director says "earlier", you move a key and watch it again straight away.
+            </p>
+            <h3>Sequencer is a real camera department</h3>
+            <p>
+              Cine Camera actors with real lenses and focus, camera rails and cranes, shot tracks with cuts that land on exact frames, and takes you can compare side by side. That is the language of the people who will judge the final film.
+            </p>
+            <h3>Real performances, not stiff mannequins</h3>
+            <p>
+              The most common complaint about this workflow is that the generated actors move like the proxies: stiff and robotic. The model copies the motion it is given. Unreal lets you give it better motion. Record an actor with a mocap suit or a phone, stream it through Live Link onto the mannequin, or clean it up with Control Rig. The proxy stays a grey shape, but it moves with human weight and timing, and so does the result.
+            </p>
+            <h3>Physics, crowds and vehicles</h3>
+            <p>
+              Chaos physics gives you crashes, falling debris and cloth with real momentum. Mass gives you crowds. Vehicle templates give you drifts with believable weight transfer. These are exactly the moments where a pure prompt falls apart, and they cost nothing to simulate first.
+            </p>
+            <h3>Agents can build the blocking for you</h3>
+            <p>
+              You do not need to be a 3D artist anymore. With an AI agent connected to the editor, you describe the scene in plain words ("a corridor, six people around a table, an orbit that slows on each face") and the agent places the proxies, builds the camera and keys the timing. We covered how this works in <a href="/insights/unreal-engine-ai-agents-mcp.html" class="text-violet-400 hover:text-violet-300">AI Agents Are Coming to Unreal Engine</a>.
+            </p>
+          </section>
+
+          <section id="workflow" class="mb-4">
+            <h2>The Workflow, Step by Step</h2>
+
+            <h3>1. Block the set</h3>
+            <p>
+              Grey boxes for walls, props and vehicles. Match the real proportions of the location, because the model will keep them. A black and white checkerboard on floors and large surfaces helps the model read speed and direction during fast camera moves.
+            </p>
+
+            <h3>2. Make the proxies readable</h3>
+            <p>
+              Give every character one solid colour and keep it for the whole project: blue is the woman, orange is the man, and so on. Then you can say "the red figure" in the prompt and the model knows exactly who you mean. Mark which way each proxy faces, for example a small cone on the head like a nose, so the model never turns a character around by mistake.
+            </p>
+
+            <figure class="fig">
+              <div class="fig-grid fig-grid-3">
+                <img src="/assets/insights/motion-reference/blocking-0010.jpg" alt="Blocking pass, frame 10" loading="lazy" width="960" height="540">
+                <img src="/assets/insights/motion-reference/blocking-0070.jpg" alt="Blocking pass, frame 70" loading="lazy" width="960" height="540">
+                <img src="/assets/insights/motion-reference/blocking-0110.jpg" alt="Blocking pass, frame 110" loading="lazy" width="960" height="540">
+                <img src="/assets/insights/motion-reference/blocking-0125.jpg" alt="Blocking pass, frame 125" loading="lazy" width="960" height="540">
+                <img src="/assets/insights/motion-reference/blocking-0170.jpg" alt="Blocking pass, frame 170" loading="lazy" width="960" height="540">
+                <img src="/assets/insights/motion-reference/blocking-0225.jpg" alt="Blocking pass, frame 225" loading="lazy" width="960" height="540">
+              </div>
+              <figcaption>Six frames from the same pass. One colour per character, a cone nose for facing direction, checkerboard floor for speed. The wide walk-in, the meeting, the wave and the two-shot are all locked here, before any video is generated.</figcaption>
+            </figure>
+
+            <h3>3. Animate with real motion</h3>
+            <p>
+              Use mocap or hand-keyed Control Rig for anything with weight: fights, falls, dialogue gestures. Keep the counts honest. If six people are in the scene, six proxies are in the scene, standing where they will stand.
+            </p>
+
+            <h3>4. Shoot it in Sequencer</h3>
+            <p>
+              Pick the lens on purpose. Put moves on rails so they are smooth. If you want handheld, add slow body sway, not random jitter. Make every cut land on a frame, with camera, target and focal length changing exactly on the cut.
+            </p>
+
+            <h3>5. Record the reference pass</h3>
+            <p>
+              Render the shot as a plain, flat-lit video: 1920x1080 at 24 frames per second is a good default, frame-aligned and the same length as the clip you want back. Keep it unlit or clay-shaded so the model takes motion from it and nothing else. Some video models also accept extra guide passes such as depth, normals or line art, which Unreal can output from the same shot.
+            </p>
+
+            <h3>6. Write the prompt like a call sheet</h3>
+            <p>
+              The best prompts for this workflow read like instructions to a crew, not like poetry. Tell the model what each input is for and what it must not take from it:
+            </p>
+            <ul>
+              <li><strong>The video</strong> is the only authority for camera, timing, layout and who stands where. Take no colours, materials or lighting from it.</li>
+              <li><strong>Each reference image</strong> defines one character's face and costume, or one location's look. Take no pose, camera or background from it.</li>
+              <li><strong>Timed beats</strong> say what happens when: "at 12 seconds the first attacker falls".</li>
+              <li><strong>Hard rules</strong> stop the usual failures: exact head counts, nobody entering from off screen, the camera following the reference one to one.</li>
+            </ul>
+
+            <h3>7. Iterate on the blocking, not the prompt</h3>
+            <p>
+              When a shot is wrong, the fix usually belongs in the 3D scene: move the cut, slow the move, shift an actor. Re-record and regenerate. When the shot is right, keep the blocking and swap the look for a new version.
+            </p>
+          </section>
+
+          <section id="recording" class="mb-4">
+            <h2>Recording the Reference Pass</h2>
+            <p>
+              For a locked shot from Sequencer, Movie Render Queue is the standard choice and works well. It renders offline, frame by frame.
+            </p>
+            <p>
+              The interesting cases are the live ones. A director scouting the set in VR, a camera operator with a virtual camera on an iPad, an actor driving a character in real time, a vehicle driven by hand around the track. Those performances happen once, in real time, and you want them on video as they happen.
+            </p>
+            <p>
+              That is where <a href="/" class="text-violet-400 hover:text-violet-300">Runtime Video Recorder</a> fits. It records straight from the running engine with hardware encoding, on desktop, mobile and Meta Quest, and can lock the output to an exact frame rate so a 24 fps reference stays frame-aligned. You can record several cameras at once (see <a href="/docs/products/runtime-video-recorder/how-to/multi-camera" class="text-violet-400 hover:text-violet-300">multi-camera recording</a>) and the result is a plain MP4 you can hand to the video model straight away.
+            </p>
+          </section>
+
+          <section id="limits" class="mb-4">
+            <h2>Limits Worth Knowing</h2>
+            <ul>
+              <li><strong>The model copies what you give it.</strong> Stiff proxy animation becomes stiff acting. Put the effort into the motion pass.</li>
+              <li><strong>Long clips drift.</strong> Identity and counts get shaky over very long takes. Plan cuts in the blocking and generate shot by shot when you need control.</li>
+              <li><strong>Faces need strong references.</strong> One clean character sheet per actor beats a dozen loose photos.</li>
+              <li><strong>Use motion you own.</strong> Capture your own performers, and get consent before you use anyone's likeness or voice.</li>
+            </ul>
+          </section>
+
+          <!-- FAQ -->
+          <section id="faq" class="mb-4">
+            <h2>Frequently Asked Questions</h2>
+
+            <h3>What is a motion reference in AI video?</h3>
+            <p>A motion reference is a video you give a video-to-video model to control movement. The model keeps the camera path, the timing and the positions of the characters from that video, and uses reference images and the prompt to decide what everything looks like.</p>
+
+            <h3>Why use Unreal Engine instead of prompting the camera move?</h3>
+            <p>Text can only describe motion, and models interpret it differently on every try. A rendered blocking pass shows the exact move, timing and layout, so the result matches your plan and you stop paying for rerolls. Unreal adds real-time playback, a full camera toolset in Sequencer, physics and live mocap.</p>
+
+            <h3>Do I need to be a 3D artist?</h3>
+            <p>No. The blocking only needs grey boxes, simple mannequins and a camera. An AI agent connected to the Unreal editor can build that from a plain description, and you adjust the timing yourself.</p>
+
+            <h3>Will the AI copy the grey boxes and colours?</h3>
+            <p>Not if you tell it not to. State in the prompt that the video defines only camera, timing and layout, and that no materials, colours or lighting come from it. Flat, unlit proxies make this easier.</p>
+
+            <h3>What resolution and frame rate should the reference be?</h3>
+            <p>1920x1080 at 24 frames per second is a good default. Keep it frame-aligned and the same length as the clip you want back.</p>
+
+            <h3>How do I record a live performance as the reference?</h3>
+            <p>Record from the running engine while the performance happens, for example with Runtime Video Recorder, which captures hardware-encoded MP4 on desktop, mobile and VR and can lock to an exact frame rate.</p>
+          </section>
+
+        </div>
+      </article>
+
+      <!-- CTA -->
+      <div class="py-8 flex flex-wrap items-center justify-center gap-3 text-sm">
+        <a href="/recorders.html" class="px-5 py-2.5 font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-500 transition-colors">See Runtime Video Recorder</a>
+        <a href="mailto:business@unrealsolutions.com?subject=Unreal%20Engine%20motion%20reference" class="px-5 py-2.5 font-medium text-white bg-emerald-600 rounded-lg hover:bg-emerald-500 transition-colors">Talk to us</a>
+        <a href="/docs/" class="text-gray-500 hover:text-gray-300">Docs &rarr;</a>
+      </div>
+
+      <!-- Related Articles -->
+      <div class="py-12">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="text-2xl font-bold text-white mb-6">Related Insights</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <a href="/insights/unreal-engine-ai-agents-mcp.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-800/70 transition-colors">
+              <span class="text-violet-400 text-sm font-medium">Industry Shift</span>
+              <h3 class="text-lg font-bold text-white mt-2 mb-2">AI Agents Are Coming to Unreal Engine</h3>
+              <p class="text-gray-400 text-sm">What MCP means for how scenes and games get built.</p>
+            </a>
+            <a href="/insights/virtual-production-workflow-guide.html" class="block bg-gray-800/50 rounded-xl p-6 hover:bg-gray-800/70 transition-colors">
+              <span class="text-blue-400 text-sm font-medium">Workflow Guide</span>
+              <h3 class="text-lg font-bold text-white mt-2 mb-2">Virtual Production Workflow Guide</h3>
+              <p class="text-gray-400 text-sm">Capturing real-time Unreal Engine work for film and broadcast.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="py-8 border-t border-gray-800">
+        <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+          <a href="/docs/" class="text-indigo-400 hover:text-indigo-300 transition-colors">Documentation</a>
+          <a href="/insights/" class="text-indigo-400 hover:text-indigo-300 transition-colors">More Insights</a>
+          <a href="mailto:business@unrealsolutions.com" class="text-indigo-400 hover:text-indigo-300 transition-colors">Contact</a>
+          <a href="/privacy.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Privacy Policy</a>
+        </div>
+        <div class="text-center text-gray-500 text-sm">
+          &copy; Unreal Solutions Ltd. Registered in England and Wales No. 14451923. All Rights Reserved 2026
+        </div>
+      </div>
+    </main>
+</body>
+</html>

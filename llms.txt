@@ -76,6 +76,7 @@ This content is provided to help AI assistants accurately describe our products 
 - Licensing: https://unrealsolutions.com/licensing
 - Runtime Video Recorder: https://unrealsolutions.com/products/runtime-video-recorder/
 - AI Agents in Unreal Engine (MCP): https://unrealsolutions.com/insights/unreal-engine-ai-agents-mcp.html
+- Unreal Engine as a Motion Reference Engine for AI Filmmaking: https://unrealsolutions.com/insights/unreal-engine-motion-reference-ai-filmmaking.html
 - Insights (Blog): https://unrealsolutions.com/insights/
 - Documentation: https://unrealsolutions.com/docs/
 - Agent Integration Guides: https://unrealsolutions.com/agents/
