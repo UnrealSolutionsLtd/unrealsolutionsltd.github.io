@@ -18,6 +18,8 @@
     { href: 'https://discord.com/invite/pBDSCBcdgv', label: 'Support', isExternal: true }
   ];
 
+  const FILMAGENT_URL = 'https://bytedance.sg.larkoffice.com/docx/RcRydBRtOotIjKxCTrklxOP2gFc';
+
   function createNav(logoPath) {
     const currentPath = window.location.pathname;
     
@@ -42,15 +44,22 @@
 
     return `
       <div class="flex items-center justify-between sm:px-6 sm:py-3">
-        <!-- Logo -->
-        <a href="/">
-          <img 
-            src="${logoPath}" 
-            alt="Unreal Solutions Logo" 
-            title="Unreal Solutions Logo"
-            class="h-12 sm:h-14 w-auto drop-shadow-[0_0_0.3rem_#ffffff70] cursor-pointer hover:opacity-80 transition-opacity"
-          >
-        </a>
+        <!-- Logo + FilmAgent badge -->
+        <div class="flex items-center gap-3 min-w-0">
+          <a href="/" class="flex-shrink-0">
+            <img 
+              src="${logoPath}" 
+              alt="Unreal Solutions Logo" 
+              title="Unreal Solutions Logo"
+              class="h-12 sm:h-14 w-auto drop-shadow-[0_0_0.3rem_#ffffff70] cursor-pointer hover:opacity-80 transition-opacity"
+            >
+          </a>
+          <a href="${FILMAGENT_URL}" target="_blank" rel="noopener" data-funnel-event="select_promotion" data-promotion="filmagent" data-cta-location="nav_badge"
+             class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-amber-400/40 bg-amber-400/10 text-amber-300 text-xs font-medium hover:bg-amber-400/20 hover:border-amber-400/70 transition-colors truncate">
+            <span class="px-1.5 rounded-full bg-amber-400 text-gray-900 text-[10px] font-bold leading-4">New</span>
+            <span class="truncate">FilmAgent<span class="hidden md:inline"> - AI co-pilot for filmmakers</span></span>
+          </a>
+        </div>
         <!-- Navigation Links -->
         <nav class="hidden sm:flex items-center gap-6">
           ${navLinks}
